@@ -10,7 +10,6 @@
 
 - (void)fetchUserData;
 
-@optional
 
 @end
 

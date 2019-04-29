@@ -11,34 +11,6 @@
 
 @implementation User
 
-- (instancetype)initWithDisplayedName:(NSString *)displayedName withUserName:(NSString *)userName;
-{
-    self = [super init];
-    if (self) {
-        _displayedName = displayedName;
-        _userName = userName;
-        
-    }
-    return self;
-}
-
-- (instancetype)initWithDisplayedName:(NSString *)displayedName withUserName:(NSString *)userName withLongitude:(NSString *)longitude withLatutude:(NSString *)latutude;
-{
-    self = [super init];
-    if (self) {
-        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-        numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-        float longitudeFloat = [numberFormatter numberFromString: longitude].floatValue;
-        float latitudeFloat = [numberFormatter numberFromString: latutude].floatValue;
-        _locationLongitude = longitudeFloat;
-        _locationLatitude = latitudeFloat;
-        _displayedName = displayedName;
-        _userName = userName;
-        
-        
-    }
-    return self;
-}
 
 - (instancetype)initWithJSON:(JSONAdapter *)adapter;
 {

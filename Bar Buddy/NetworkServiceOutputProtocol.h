@@ -9,9 +9,7 @@
 @protocol NetworkServiceOutputProtocol <NSObject>
 
 - (void)loadingIsDoneWithDataRecieved:(NSArray *)dataRecieved;
-@optional
-- (void)loadingContinuesWithProgress:(double)progress;
-- (void)imageIsLoadedForUrl:(NSString *)url withDataReceived:(NSData *)dataReceived;
+
 
 @end
 

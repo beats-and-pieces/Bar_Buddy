@@ -10,9 +10,10 @@
 #import "UserCD+CoreDataClass.h"
 #import "User.h"
 #import "AppDelegate.h"
+#import "CoreDataServiceProtocol.h"
 
 
-@interface CoreDataService () <NSFetchedResultsControllerDelegate>
+@interface CoreDataService () <NSFetchedResultsControllerDelegate, CoreDataServiceProtocol>
 
 @property (nonatomic, strong) NSManagedObjectContext *coreDataContext;
 @property (nonatomic, strong) NSFetchRequest *fetchRequest;
@@ -23,9 +24,7 @@
 
 @implementation CoreDataService
 
-
-//@property (nonatomic, copy) NSArray<User *> *users;
-- (void)saveUsersToCoreData:(NSArray<User *>*)users
+- (void)saveUserData:(NSArray<User *> *)users;
 {
     [self deleteUsersFromCoreData];
     for (User *user in users)
@@ -50,16 +49,12 @@
             NSLog(@"Core Data saved!");
         }
     }
-    
 }
+
 
 - (NSArray<UserCD *> *)getUserData
 {
     NSArray *users = [self updatedArray];
-    for (UserCD *user in users)
-    {
-        NSLog(@"Username: %@", user.displayedName);
-    }
     return users;
 }
 

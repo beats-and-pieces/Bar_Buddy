@@ -15,9 +15,6 @@
 @interface UserTableViewController () <UITableViewDataSource, UITableViewDelegate, DataManagerProtocol>
 
 @property (nonnull, strong) UITableView *tableView;
-//@property (nonnull, copy) NSArray<User *> *users;
-//@property (strong) BOOL dataIsFromServer;
-@property (nonatomic, assign) BOOL dataIsFromServer;
 
 @end
 
@@ -25,14 +22,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setupTable];
+    
     DataManager *dataManager = [DataManager shared];
     dataManager.delegate = self;
     [dataManager loadData];
     
-    //    dataManager
-    // Do any additional setup after loading the view.
 }
 
 - (void)setupTable
@@ -43,7 +38,7 @@
     [self.view addSubview:self.tableView];
     self.navigationItem.title = @"Пользователи";
     self.tableView.dataSource = self;
-    self.tableView.delegate = self;    
+    self.tableView.delegate = self;
 }
 
 
@@ -51,7 +46,6 @@
 
 - (void)updateData
 {
-    self.dataIsFromServer = YES;
     [self.tableView reloadData];
     
 }
@@ -74,25 +68,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    NSString *title = [NSString new];
-    NSString *filePath= [NSString stringWithFormat:@"%ld", (long)indexPath.row + 1];
-    if (self.dataIsFromServer == YES)
-    {
-        DataManager *dataManager = [DataManager shared];
-        //        NSLog(@"%@", [dataManager.users[indexPath.row] valueForKey:@"displayed_name"]);
-        title = dataManager.users[indexPath.row].displayedName;
-        
-    }
-
-    
     UserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UserTableViewCell class])];
     
-    [cell.coverImageView setImage:[UIImage imageNamed:filePath]];
+    DataManager *dataManager = [DataManager shared];
+    NSString *title = [NSString new];
+    title = dataManager.users[indexPath.row].displayedName;
     cell.titleLabel.text = title;
-    //    cell.descriptionLabel.text = description;
-    cell.descriptionLabel.font = [UIFont systemFontOfSize:14];
-    return cell;
     
+    return cell;
 }
 @end

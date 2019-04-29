@@ -20,8 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property double locationLatitude;
 @property double locationLongitude;
 
-- (instancetype)initWithDisplayedName:(NSString *)displayedName withUserName:(NSString *)userName;
-- (instancetype)initWithDisplayedName:(NSString *)displayedName withUserName:(NSString *)userName withLongitude:(NSString *)longitude withLatutude:(NSString *)latutude;
 - (instancetype)initWithJSON:(JSONAdapter *)adapter;
 
 @end
