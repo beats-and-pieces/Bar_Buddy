@@ -7,12 +7,13 @@
 //
 
 #import "DataManager.h"
-#import "NetworkService.h"
 #import "DataManagerProtocol.h"
+#import "NetworkService.h"
 #import "User.h"
 #import "JSONAdapter.h"
 #import "UserCD+CoreDataClass.h"
 #import "AppDelegate.h"
+#import "CoreDataService.h"
 
 @interface DataManager () <NSFetchedResultsControllerDelegate, NetworkServiceOutputProtocol>
 
@@ -20,7 +21,6 @@
 @property (nonatomic, strong) NSManagedObjectContext *coreDataContext;
 @property (nonatomic, strong) NSFetchRequest *fetchRequest;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-
 
 @end
 
@@ -58,11 +58,28 @@
 - (void)getDataFromServer
 {
     self.networkService = [NetworkService new];
-    NSLog(@"NetworkService is init");
     self.networkService.output = self;
     [self.networkService fetchUserData];
 }
 
+- (void)loadData
+{
+    //    [self getDataFromServer];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        CoreDataService *coreDataService = [CoreDataService new];
+        //                [self saveUsersToCoreData];
+        //        NSArray<UserCD *> *userDataArray =
+        self.users = [coreDataService getUserData];
+        [self.delegate updateData];
+        //        NSLog(@"%@", dataRecieved);
+        //        [self.delegate updateData];
+        //        NSArray *array = [self updatedArray];
+        //        for (UserCD *user in array)
+        //        {
+        //            NSLog(@"Username: %@", user.displayedName);
+        //        }
+    });
+}
 - (void)loadRecordsFromCoreData
 {
     
@@ -87,15 +104,14 @@
     NSLog(@"Total users %ld", (long)self.users.count);
     //    [self saveUsersToCoreData];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self saveUsersToCoreData];
+        //        [self saveUsersToCoreData];
         NSLog(@"%@", dataRecieved);
         [self.delegate updateData];
         NSArray *array = [self updatedArray];
         for (UserCD *user in array)
         {
-                NSLog(@"Username: %@", user.displayedName);
+            NSLog(@"Username: %@", user.displayedName);
         }
-//        NSLog(@"Request: %@", [self updatedArray]);
     });
 }
 
@@ -149,8 +165,8 @@
 - (NSFetchRequest *)fetchRequest
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"UserCD"];
-//    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"userName CONTAINS %@ OR preferredDrink CONTAINS %@", @"vasiliy12345", @2];
-//    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"userName CONTAINS %@", @"sema124"];
+    //    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"userName CONTAINS %@ OR preferredDrink CONTAINS %@", @"vasiliy12345", @2];
+    //    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"userName CONTAINS %@", @"sema124"];
     
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"userName" ascending:NO];
     fetchRequest.sortDescriptors = @[sortDescriptor];
@@ -192,8 +208,8 @@
     NSBatchDeleteRequest *delete = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
     
     NSError *deleteError = nil;
-//    [self.coreDataContext executeRequest:delete withContext:myContext error:&deleteError];
+    //    [self.coreDataContext executeRequest:delete withContext:myContext error:&deleteError];
     [self.coreDataContext executeRequest:delete error:&deleteError];
-//    [self.coreDataContext executeFetchRequest:delete error:&deleteError];
+    //    [self.coreDataContext executeFetchRequest:delete error:&deleteError];
 }
 @end

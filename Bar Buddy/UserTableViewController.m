@@ -29,7 +29,7 @@
     [self setupTable];
     DataManager *dataManager = [DataManager shared];
     dataManager.delegate = self;
-    [dataManager getDataFromServer];
+    [dataManager loadData];
     
     //    dataManager
     // Do any additional setup after loading the view.
@@ -43,20 +43,7 @@
     [self.view addSubview:self.tableView];
     self.navigationItem.title = @"Пользователи";
     self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-//    self.users = @[
-//                   @"Корова",
-//                   @"Собака",
-//                   @"Жираф",
-//                   @"Страус",
-//                   @"Лисица",
-//                   @"Собака",
-//                   @"Жираф",
-//                   @"Страус",
-//                   @"Лисица",
-//                   @"Кошка"
-//                   ];
-    
+    self.tableView.delegate = self;    
 }
 
 
@@ -96,14 +83,8 @@
         //        NSLog(@"%@", [dataManager.users[indexPath.row] valueForKey:@"displayed_name"]);
         title = dataManager.users[indexPath.row].displayedName;
         
-        //        NSLog(@"user %d", [self.users[indexPath.row] valueForKey:@"displayed_name"]);
     }
-//    else
-//    {
-//        title = self.users[indexPath.row];
-//    }
-    
-    //    NSString *description = self.animalDescriptions[indexPath.row];
+
     
     UserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UserTableViewCell class])];
     

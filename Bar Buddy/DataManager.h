@@ -9,18 +9,21 @@
 #import <Foundation/Foundation.h>
 #import "NetworkServiceOutputProtocol.h"
 #import "DataManagerProtocol.h"
-#import "User.h"
+#import "CoreDataService.h"
+//#import "User.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DataManager : NSObject 
 
-@property (nonatomic, copy) NSArray<User *> *users;
+//@property (nonatomic, copy) NSArray<User *> *users;
+@property (nonatomic, copy) NSArray<UserCD *> *users;
 @property (nonatomic, weak) id<DataManagerProtocol> delegate; /**< Делегат внешних событий */
 
 + (id)shared;
 
 - (void)getDataFromServer;
+- (void)loadData;
 
 @end
 
