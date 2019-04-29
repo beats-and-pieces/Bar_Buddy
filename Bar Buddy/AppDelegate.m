@@ -2,13 +2,19 @@
 //  AppDelegate.m
 //  Bar Buddy
 //
-//  Created by Anton Kuznetsov on 29/04/2019.
+//  Created by Anton Kuznetsov on 25/04/2019.
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "UserTableViewController.h"
+#import "MapViewController.h"
 
 @interface AppDelegate ()
+//убрать
+@property (strong, nonatomic) UserTableViewController *userTableViewController;
+@property (strong, nonatomic) UINavigationController *navigationController;
+
 
 @end
 
@@ -16,7 +22,32 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    UserTableViewController *userTableViewController = [[UserTableViewController alloc] init];
+    
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:userTableViewController];
+    
+    navigationController.tabBarItem.title = @"Список пользователей";
+    
+    MapViewController *mapViewController = [[MapViewController alloc] init];
+    mapViewController .tabBarItem.title = @"На карте";
+    
+    NSArray *viewControllerArray = @[navigationController, mapViewController];
+    UITabBarController *tabBarViewController = [[UITabBarController alloc] init];
+    tabBarViewController.tabBar.translucent = YES;
+    tabBarViewController.tabBar.tintColor = [UIColor whiteColor];
+    tabBarViewController.tabBar.barTintColor = [UIColor blackColor];
+    
+    tabBarViewController.viewControllers = viewControllerArray;
+    self.window.rootViewController = tabBarViewController;
+    //    self.window.rootViewController = self.userTableViewController;
+    //    self.navigationController = navigationController;
+    [self.window makeKeyAndVisible];
+    
+    //    self.window.backgroundColor = [UIColor whiteColor];
+    
     return YES;
 }
 
@@ -45,10 +76,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    // Saves changes in the application's managed object context before the application terminates.
-    [self saveContext];
 }
-
 
 #pragma mark - Core Data stack
 
@@ -58,7 +86,7 @@
     // The persistent container for the application. This implementation creates and returns a container, having loaded the store for the application to it.
     @synchronized (self) {
         if (_persistentContainer == nil) {
-            _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"Bar_Buddy"];
+            _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"CD_Test"];
             [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
                 if (error != nil) {
                     // Replace this implementation with code to handle the error appropriately.
@@ -71,7 +99,7 @@
                      * The device is out of space.
                      * The store could not be migrated to the current model version.
                      Check the error message to determine what the actual problem was.
-                    */
+                     */
                     NSLog(@"Unresolved error %@, %@", error, error.userInfo);
                     abort();
                 }
