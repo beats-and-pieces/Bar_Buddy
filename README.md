@@ -7,4 +7,11 @@ My SBT iOS dev school graduation project
 
 Основа - tabbar с вкладками tableView, mapView.
 
-Реализована архитектура загрузки данных из API (http://private-4df08-barbuddy.apiary-mock.com/users)
+Реализована архитектура загрузки данных из собственного API (http://private-4df08-barbuddy.apiary-mock.com/users), который я намерен расширить как полями, так и количеством записей пользователей c кэшированием в CoreData.
+
+To Do:
+
+Push-уведомления реквестов "пользователей"
+Загрузка аватарок пользователей
+Фильтрация выдачи пользователей в таблице по выбранным параметрам
+
