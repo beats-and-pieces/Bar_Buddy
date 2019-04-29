@@ -24,6 +24,7 @@
 		3A5D1F5E227711A900842DF3 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F54227711A900842DF3 /* DataManager.m */; };
 		3A5D1F9E22771EBD00842DF3 /* UserCD+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F9C22771EBD00842DF3 /* UserCD+CoreDataClass.m */; };
 		3A5D1F9F22771EBD00842DF3 /* UserCD+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F9D22771EBD00842DF3 /* UserCD+CoreDataProperties.m */; };
+		3AC4D2DE2277214600084A1B /* CoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC4D2DD2277214600084A1B /* CoreDataService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,10 +79,12 @@
 		3A5D1F54227711A900842DF3 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		3A5D1F55227711A900842DF3 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		3A5D1F56227711A900842DF3 /* UserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTableViewController.h; sourceTree = "<group>"; };
-		3A5D1F9A22771EBD00842DF3 /* UserCD+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UserCD+CoreDataProperties.h"; path = "Bar Buddy/UserCD+CoreDataProperties.h"; sourceTree = "<group>"; };
-		3A5D1F9B22771EBD00842DF3 /* UserCD+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UserCD+CoreDataClass.h"; path = "Bar Buddy/UserCD+CoreDataClass.h"; sourceTree = "<group>"; };
-		3A5D1F9C22771EBD00842DF3 /* UserCD+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UserCD+CoreDataClass.m"; path = "Bar Buddy/UserCD+CoreDataClass.m"; sourceTree = "<group>"; };
-		3A5D1F9D22771EBD00842DF3 /* UserCD+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UserCD+CoreDataProperties.m"; path = "Bar Buddy/UserCD+CoreDataProperties.m"; sourceTree = "<group>"; };
+		3A5D1F9A22771EBD00842DF3 /* UserCD+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UserCD+CoreDataProperties.h"; sourceTree = "<group>"; };
+		3A5D1F9B22771EBD00842DF3 /* UserCD+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UserCD+CoreDataClass.h"; sourceTree = "<group>"; };
+		3A5D1F9C22771EBD00842DF3 /* UserCD+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UserCD+CoreDataClass.m"; sourceTree = "<group>"; };
+		3A5D1F9D22771EBD00842DF3 /* UserCD+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UserCD+CoreDataProperties.m"; sourceTree = "<group>"; };
+		3AC4D2DC2277214600084A1B /* CoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataService.h; sourceTree = "<group>"; };
+		3AC4D2DD2277214600084A1B /* CoreDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,10 +115,6 @@
 		3A5D1EFF2277115D00842DF3 = {
 			isa = PBXGroup;
 			children = (
-				3A5D1F9A22771EBD00842DF3 /* UserCD+CoreDataProperties.h */,
-				3A5D1F9B22771EBD00842DF3 /* UserCD+CoreDataClass.h */,
-				3A5D1F9C22771EBD00842DF3 /* UserCD+CoreDataClass.m */,
-				3A5D1F9D22771EBD00842DF3 /* UserCD+CoreDataProperties.m */,
 				3A5D1F0A2277115D00842DF3 /* Bar Buddy */,
 				3A5D1F262277115E00842DF3 /* Bar BuddyTests */,
 				3A5D1F312277115E00842DF3 /* Bar BuddyUITests */,
@@ -194,6 +193,7 @@
 		3A5D1F642277126D00842DF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3AC4D2DB2277204000084A1B /* CoreData Entity */,
 				3A5D1F45227711A700842DF3 /* JSONAdapter.h */,
 				3A5D1F49227711A800842DF3 /* JSONAdapter.m */,
 				3A5D1F53227711A900842DF3 /* JSONAdapterProtocol.h */,
@@ -209,6 +209,8 @@
 			children = (
 				3A5D1F48227711A700842DF3 /* DataManager.h */,
 				3A5D1F54227711A900842DF3 /* DataManager.m */,
+				3AC4D2DC2277214600084A1B /* CoreDataService.h */,
+				3AC4D2DD2277214600084A1B /* CoreDataService.m */,
 				3A5D1F51227711A800842DF3 /* DataManagerProtocol.h */,
 				3A5D1F52227711A900842DF3 /* NetworkService.h */,
 				3A5D1F4C227711A800842DF3 /* NetworkService.m */,
@@ -223,6 +225,17 @@
 			children = (
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3AC4D2DB2277204000084A1B /* CoreData Entity */ = {
+			isa = PBXGroup;
+			children = (
+				3A5D1F9A22771EBD00842DF3 /* UserCD+CoreDataProperties.h */,
+				3A5D1F9B22771EBD00842DF3 /* UserCD+CoreDataClass.h */,
+				3A5D1F9C22771EBD00842DF3 /* UserCD+CoreDataClass.m */,
+				3A5D1F9D22771EBD00842DF3 /* UserCD+CoreDataProperties.m */,
+			);
+			name = "CoreData Entity";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +379,7 @@
 				3A5D1F5D227711A900842DF3 /* MapViewController.m in Sources */,
 				3A5D1F5B227711A900842DF3 /* NetworkService.m in Sources */,
 				3A5D1F5E227711A900842DF3 /* DataManager.m in Sources */,
+				3AC4D2DE2277214600084A1B /* CoreDataService.m in Sources */,
 				3A5D1F59227711A900842DF3 /* JSONAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

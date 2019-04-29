@@ -11,12 +11,16 @@
 #import "DataManagerProtocol.h"
 #import "User.h"
 #import "JSONAdapter.h"
-#import <CoreData/CoreData.h>
+#import "UserCD+CoreDataClass.h"
+#import "AppDelegate.h"
 
-@interface DataManager ()
+@interface DataManager () <NSFetchedResultsControllerDelegate, NetworkServiceOutputProtocol>
 
 @property (nonatomic, strong) NetworkService *networkService;
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSManagedObjectContext *coreDataContext;
+@property (nonatomic, strong) NSFetchRequest *fetchRequest;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+
 
 @end
 
@@ -75,19 +79,121 @@
         User *user = [[User alloc] initWithJSON:adapter];
         //        User *user = [[User alloc] ini];
         [tempArray addObject:user];
-                NSLog(@"User lat! %f", user.locationLatitude);
+        NSLog(@"User lat! %f", user.locationLatitude);
         //        NSLog(@"Array %@", tempArray);
     }
     
     self.users = [tempArray copy];
     NSLog(@"Total users %ld", (long)self.users.count);
+    //    [self saveUsersToCoreData];
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self saveUsersToCoreData];
         NSLog(@"%@", dataRecieved);
         [self.delegate updateData];
+        NSArray *array = [self updatedArray];
+        for (UserCD *user in array)
+        {
+                NSLog(@"Username: %@", user.displayedName);
+        }
+//        NSLog(@"Request: %@", [self updatedArray]);
     });
 }
 
 
+- (void)saveUsersToCoreData
+{
+    [self deleteUsersFromCoreData];
+    for (User *user in self.users)
+    {
+        UserCD *userCD = [NSEntityDescription insertNewObjectForEntityForName:@"UserCD" inManagedObjectContext:self.coreDataContext];
+        userCD.displayedName = user.displayedName;
+        userCD.userName = user.userName;
+        userCD.locationLatitude = user.locationLatitude;
+        userCD.locationLongitude = user.locationLongitude;
+        userCD.preferredDrink = user.preferredDrink;
+        userCD.preferredCompany = user.preferredCompany;
+        
+        NSError *error = nil;
+        
+        if (![userCD.managedObjectContext save:&error])
+        {
+            NSLog(@"Не удалось сохранить объект");
+            NSLog(@"%@, %@", error, error.localizedDescription);
+        }
+        else
+        {
+            NSLog(@"Core Data saved!");
+        }
+    }
+    
+}
+
+- (NSManagedObjectContext *)coreDataContext
+{
+    UIApplication *application = [UIApplication sharedApplication];
+    NSPersistentContainer *container = ((AppDelegate *)(application.delegate)).
+    persistentContainer;
+    NSManagedObjectContext *context = container.viewContext;
+    
+    return context;
+}
+
+- (NSArray *)updatedArray;
+{
+    NSError *error = nil;
+    
+    NSArray *result = [self.coreDataContext executeFetchRequest:self.fetchRequest ? : [UserCD fetchRequest] error:&error];
+    return result;
+}
+
+- (NSFetchRequest *)fetchRequest
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"UserCD"];
+//    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"userName CONTAINS %@ OR preferredDrink CONTAINS %@", @"vasiliy12345", @2];
+//    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"userName CONTAINS %@", @"sema124"];
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"userName" ascending:NO];
+    fetchRequest.sortDescriptors = @[sortDescriptor];
+    
+    return fetchRequest;
+}
 
 
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    
+    if (_fetchedResultsController)
+    {
+        return _fetchedResultsController;
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:NSStringFromClass([UserCD class]) inManagedObjectContext:self.coreDataContext];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setSortDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"userName" ascending:YES]]];
+    [fetchRequest setFetchBatchSize:20];
+    
+    NSFetchedResultsController *theFetchedResultsController =
+    [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                        managedObjectContext:self.coreDataContext sectionNameKeyPath:nil
+                                                   cacheName:@"Root"];
+    self.fetchedResultsController = theFetchedResultsController;
+    _fetchedResultsController.delegate = self;
+    
+    return _fetchedResultsController;
+    
+}
+
+- (void)deleteUsersFromCoreData
+{
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"UserCD"];
+    NSBatchDeleteRequest *delete = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
+    
+    NSError *deleteError = nil;
+//    [self.coreDataContext executeRequest:delete withContext:myContext error:&deleteError];
+    [self.coreDataContext executeRequest:delete error:&deleteError];
+//    [self.coreDataContext executeFetchRequest:delete error:&deleteError];
+}
 @end

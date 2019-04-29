@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DataManager : NSObject <NetworkServiceOutputProtocol>
+@interface DataManager : NSObject 
 
 @property (nonatomic, copy) NSArray<User *> *users;
 @property (nonatomic, weak) id<DataManagerProtocol> delegate; /**< Делегат внешних событий */
