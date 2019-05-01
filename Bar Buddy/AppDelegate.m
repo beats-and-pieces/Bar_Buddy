@@ -13,10 +13,6 @@
 
 
 @interface AppDelegate ()
-//убрать
-@property (strong, nonatomic) UserTableViewController *userTableViewController;
-@property (strong, nonatomic) UINavigationController *navigationController;
-
 
 @end
 

@@ -47,8 +47,8 @@
         }
         else
         {
-//            UIApplication *application = [UIApplication sharedApplication];
-//            self.coreDataContext save:<#(NSError * _Nullable __autoreleasing * _Nullable)#>
+            //            UIApplication *application = [UIApplication sharedApplication];
+            //            self.coreDataContext save:<#(NSError * _Nullable __autoreleasing * _Nullable)#>
             NSError *error = nil;
             if ([self.coreDataContext hasChanges] && ![self.coreDataContext save:&error]) {
                 // Replace this implementation with code to handle the error appropriately.
@@ -73,11 +73,11 @@
 - (NSManagedObjectContext *)coreDataContext
 {
     
-//    CoreDataStack *coreDataStack = [CoreDataStack new];
-//    NSPersistentContainer *container = coreDataStack.persistentContainer;
-//
+    CoreDataStack *coreDataStack = [CoreDataStack new];
+    //    NSPersistentContainer *container = coreDataStack.persistentContainer;
+    
     UIApplication *application = [UIApplication sharedApplication];
-        NSPersistentContainer *container = ((AppDelegate *)(application.delegate)).persistentContainer;
+    NSPersistentContainer *container = ((AppDelegate *)(application.delegate)).persistentContainer;
     NSManagedObjectContext *context = container.viewContext;
     
     return context;
@@ -137,9 +137,7 @@
     NSBatchDeleteRequest *delete = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
     
     NSError *deleteError = nil;
-    //    [self.coreDataContext executeRequest:delete withContext:myContext error:&deleteError];
     [self.coreDataContext executeRequest:delete error:&deleteError];
-    //    [self.coreDataContext executeFetchRequest:delete error:&deleteError];
 }
 
 @end

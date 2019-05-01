@@ -25,12 +25,12 @@
     ViewControllerFactory *mapViewController = [[ViewControllerFactory alloc] initWithDataManager:dataManager type:MapType];
     mapViewController.tabBarItem.title = [mapViewController getTabBarItemTitle];
     
+    UITabBarController *tabBarViewController = [UITabBarController new];
     NSArray *viewControllerArray = @[navigationController, mapViewController];
-    UITabBarController *tabBarViewController = [[UITabBarController alloc] init];
+    tabBarViewController.viewControllers = viewControllerArray;
     tabBarViewController.tabBar.translucent = YES;
     tabBarViewController.tabBar.tintColor = [UIColor whiteColor];
     tabBarViewController.tabBar.barTintColor = [UIColor blackColor];
-    tabBarViewController.viewControllers = viewControllerArray;
     
     return tabBarViewController;
 }

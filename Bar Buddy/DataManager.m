@@ -44,6 +44,7 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.users = [self.coreDataService getUserData];
+        NSLog(@"getLocalData");
         [self.delegate updateData];
     });
 }
