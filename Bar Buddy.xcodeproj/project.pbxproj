@@ -198,6 +198,8 @@
 				3A5D1F4B227711A800842DF3 /* UserTableViewController.m */,
 				3AEEC6FD2279941100755100 /* Assembly.h */,
 				3AEEC6FE2279941100755100 /* Assembly.m */,
+				3AEEC7032279B28000755100 /* ViewControllerFactory.h */,
+				3AEEC7042279B28000755100 /* ViewControllerFactory.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -225,8 +227,6 @@
 				3A5D1F54227711A900842DF3 /* DataManager.m */,
 				3AC4D2DC2277214600084A1B /* CoreDataService.h */,
 				3AC4D2DD2277214600084A1B /* CoreDataService.m */,
-				3AEEC7032279B28000755100 /* ViewControllerFactory.h */,
-				3AEEC7042279B28000755100 /* ViewControllerFactory.m */,
 				3A76F68D22775698002ADDE7 /* CoreDataServiceProtocol.h */,
 				3A5D1F51227711A800842DF3 /* DataManagerProtocol.h */,
 				3A5D1F52227711A900842DF3 /* NetworkService.h */,

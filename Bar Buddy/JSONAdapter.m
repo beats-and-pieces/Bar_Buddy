@@ -15,10 +15,10 @@
     self = [super init];
     if (self) {
         
-        NSString *displayedName = [json valueForKey:@"displayed_name"];
-        NSString *userName = [json valueForKey:@"user_name"];
-        NSString *latitude = [json valueForKey:@"latitude"];
-        NSString *longitude = [json valueForKey:@"longitude"];
+        NSString *displayedName = json[@"displayed_name"];
+        NSString *userName = json[@"user_name"];
+        NSString *latitude = json[@"latitude"];
+        NSString *longitude = json[@"longitude"];
         
         NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
         numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
