@@ -26,6 +26,7 @@
 		3A5D1F9F22771EBD00842DF3 /* UserCD+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F9D22771EBD00842DF3 /* UserCD+CoreDataProperties.m */; };
 		3AC4D2DE2277214600084A1B /* CoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC4D2DD2277214600084A1B /* CoreDataService.m */; };
 		3AEEC6FF2279941100755100 /* Assembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC6FE2279941100755100 /* Assembly.m */; };
+		3AEEC7022279975F00755100 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC7012279975F00755100 /* CoreDataStack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,8 @@
 		3AC4D2DD2277214600084A1B /* CoreDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataService.m; sourceTree = "<group>"; };
 		3AEEC6FD2279941100755100 /* Assembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Assembly.h; sourceTree = "<group>"; };
 		3AEEC6FE2279941100755100 /* Assembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Assembly.m; sourceTree = "<group>"; };
+		3AEEC7002279975F00755100 /* CoreDataStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
+		3AEEC7012279975F00755100 /* CoreDataStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +202,8 @@
 		3A5D1F642277126D00842DF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3AEEC7002279975F00755100 /* CoreDataStack.h */,
+				3AEEC7012279975F00755100 /* CoreDataStack.m */,
 				3AC4D2DB2277204000084A1B /* CoreData Entity */,
 				3A5D1F45227711A700842DF3 /* JSONAdapter.h */,
 				3A5D1F49227711A800842DF3 /* JSONAdapter.m */,
@@ -377,6 +382,7 @@
 				3A5D1F58227711A900842DF3 /* User.m in Sources */,
 				3A5D1F57227711A900842DF3 /* UserTableViewCell.m in Sources */,
 				3A5D1F1E2277115E00842DF3 /* main.m in Sources */,
+				3AEEC7022279975F00755100 /* CoreDataStack.m in Sources */,
 				3AEEC6FF2279941100755100 /* Assembly.m in Sources */,
 				3A5D1F9E22771EBD00842DF3 /* UserCD+CoreDataClass.m in Sources */,
 				3A5D1F162277115D00842DF3 /* Bar_Buddy.xcdatamodeld in Sources */,

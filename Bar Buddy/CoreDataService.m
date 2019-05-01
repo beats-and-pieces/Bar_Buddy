@@ -11,6 +11,7 @@
 #import "User.h"
 #import "AppDelegate.h"
 #import "CoreDataServiceProtocol.h"
+#import "CoreDataStack.h"
 
 
 @interface CoreDataService () <NSFetchedResultsControllerDelegate, CoreDataServiceProtocol>
@@ -61,9 +62,12 @@
 
 - (NSManagedObjectContext *)coreDataContext
 {
+    
+//    CoreDataStack *coreDataStack = [CoreDataStack new];
+//    NSPersistentContainer *container = coreDataStack.persistentContainer;
+//
     UIApplication *application = [UIApplication sharedApplication];
-    NSPersistentContainer *container = ((AppDelegate *)(application.delegate)).
-    persistentContainer;
+        NSPersistentContainer *container = ((AppDelegate *)(application.delegate)).persistentContainer;
     NSManagedObjectContext *context = container.viewContext;
     
     return context;

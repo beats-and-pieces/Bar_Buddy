@@ -14,7 +14,7 @@
 
 @implementation Assembly
 
-- (UITabBarController *)createTabBar
+- (UITabBarController *)createTabBarController
 {
     UserTableViewController *userTableViewController = [[UserTableViewController alloc] init];
     
