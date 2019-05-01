@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "UserTableViewController.h"
 #import "MapViewController.h"
+#import "Assembly.h"
+
 
 @interface AppDelegate ()
 //убрать
@@ -23,30 +25,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    Assembly *assembly = [Assembly new];
+
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    UserTableViewController *userTableViewController = [[UserTableViewController alloc] init];
-    
-    
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:userTableViewController];
-    
-    navigationController.tabBarItem.title = @"Список пользователей";
-    
-    MapViewController *mapViewController = [[MapViewController alloc] init];
-    mapViewController .tabBarItem.title = @"На карте";
-    
-    NSArray *viewControllerArray = @[navigationController, mapViewController];
-    UITabBarController *tabBarViewController = [[UITabBarController alloc] init];
-    tabBarViewController.tabBar.translucent = YES;
-    tabBarViewController.tabBar.tintColor = [UIColor whiteColor];
-    tabBarViewController.tabBar.barTintColor = [UIColor blackColor];
-    
-    tabBarViewController.viewControllers = viewControllerArray;
-    self.window.rootViewController = tabBarViewController;
-    //    self.window.rootViewController = self.userTableViewController;
-    //    self.navigationController = navigationController;
+    self.window.rootViewController = [assembly createTabBar];
     [self.window makeKeyAndVisible];
-    
-    //    self.window.backgroundColor = [UIColor whiteColor];
     
     return YES;
 }
