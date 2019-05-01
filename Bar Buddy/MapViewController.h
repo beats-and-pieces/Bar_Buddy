@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataManager.h"
+#import "ViewControllerFactory.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MapViewController : UIViewController
+@interface MapViewController : ViewControllerFactory
+
+- (instancetype)initWithDataManager:(DataManager *)dataManager;
+- (NSString *)getTabBarItemTitle;
 
 @end
 

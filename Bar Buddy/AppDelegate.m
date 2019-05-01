@@ -28,7 +28,7 @@
     Assembly *assembly = [Assembly new];
 
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    self.window.rootViewController = [assembly createTabBarController];
+    self.window.rootViewController = [assembly createRootViewController];
     [self.window makeKeyAndVisible];
     
     return YES;

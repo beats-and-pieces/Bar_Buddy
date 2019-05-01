@@ -14,13 +14,27 @@
 @interface MapViewController () <MKMapViewDelegate>
 
 @property (strong, nonatomic) MKMapView *mapView;
-//@property (copy, nonatomic) NSArray *mapView;
+@property (nullable, strong) DataManager *dataManager;
+
 
 @end
 
 #define METERS_PER_MILE 1609.344
 
 @implementation MapViewController
+
+- (NSString *)getTabBarItemTitle
+{
+    return @"На карте";
+}
+- (instancetype)initWithDataManager:(DataManager *)dataManager
+{
+    self = [super init];
+    if (self) {
+        _dataManager = dataManager;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

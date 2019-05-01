@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Assembly : NSObject
 
-- (UITabBarController *)createTabBarController;
+- (UIViewController *)createRootViewController;
 
 @end
 

@@ -47,6 +47,16 @@
         }
         else
         {
+//            UIApplication *application = [UIApplication sharedApplication];
+//            self.coreDataContext save:<#(NSError * _Nullable __autoreleasing * _Nullable)#>
+            NSError *error = nil;
+            if ([self.coreDataContext hasChanges] && ![self.coreDataContext save:&error]) {
+                // Replace this implementation with code to handle the error appropriately.
+                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+                abort();
+            }
+            
             NSLog(@"Core Data saved!");
         }
     }

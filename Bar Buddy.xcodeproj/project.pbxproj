@@ -27,6 +27,7 @@
 		3AC4D2DE2277214600084A1B /* CoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC4D2DD2277214600084A1B /* CoreDataService.m */; };
 		3AEEC6FF2279941100755100 /* Assembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC6FE2279941100755100 /* Assembly.m */; };
 		3AEEC7022279975F00755100 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC7012279975F00755100 /* CoreDataStack.m */; };
+		3AEEC7052279B28000755100 /* ViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC7042279B28000755100 /* ViewControllerFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,8 @@
 		3AEEC6FE2279941100755100 /* Assembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Assembly.m; sourceTree = "<group>"; };
 		3AEEC7002279975F00755100 /* CoreDataStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
 		3AEEC7012279975F00755100 /* CoreDataStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
+		3AEEC7032279B28000755100 /* ViewControllerFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerFactory.h; sourceTree = "<group>"; };
+		3AEEC7042279B28000755100 /* ViewControllerFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControllerFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +225,8 @@
 				3A5D1F54227711A900842DF3 /* DataManager.m */,
 				3AC4D2DC2277214600084A1B /* CoreDataService.h */,
 				3AC4D2DD2277214600084A1B /* CoreDataService.m */,
+				3AEEC7032279B28000755100 /* ViewControllerFactory.h */,
+				3AEEC7042279B28000755100 /* ViewControllerFactory.m */,
 				3A76F68D22775698002ADDE7 /* CoreDataServiceProtocol.h */,
 				3A5D1F51227711A800842DF3 /* DataManagerProtocol.h */,
 				3A5D1F52227711A900842DF3 /* NetworkService.h */,
@@ -392,6 +397,7 @@
 				3A5D1F422277118700842DF3 /* AppDelegate.m in Sources */,
 				3A5D1F5D227711A900842DF3 /* MapViewController.m in Sources */,
 				3A5D1F5B227711A900842DF3 /* NetworkService.m in Sources */,
+				3AEEC7052279B28000755100 /* ViewControllerFactory.m in Sources */,
 				3A5D1F5E227711A900842DF3 /* DataManager.m in Sources */,
 				3AC4D2DE2277214600084A1B /* CoreDataService.m in Sources */,
 				3A5D1F59227711A900842DF3 /* JSONAdapter.m in Sources */,

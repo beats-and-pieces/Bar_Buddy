@@ -15,10 +15,25 @@
 @interface UserTableViewController () <UITableViewDataSource, UITableViewDelegate, DataManagerProtocol>
 
 @property (nonnull, strong) UITableView *tableView;
+@property (nullable, strong) DataManager *dataManager;
 
 @end
 
 @implementation UserTableViewController
+
+- (instancetype)initWithDataManager:(DataManager *)dataManager
+{
+    self = [super init];
+    if (self) {
+        _dataManager = dataManager;
+    }
+    return self;
+}
+
+- (NSString *)getTabBarItemTitle
+{
+    return @"Список пользователей";
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
