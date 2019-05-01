@@ -7,13 +7,14 @@
 //
 
 #import "DataManager.h"
-#import "DataManagerProtocol.h"
-#import "NetworkService.h"
+//#import "DataManagerProtocol.h"
+//#import "NetworkService.h"
+//#import "CoreDataService.h"
 #import "User.h"
 #import "JSONAdapter.h"
 #import "UserCD+CoreDataClass.h"
 #import "AppDelegate.h"
-#import "CoreDataService.h"
+
 
 @interface DataManager () <NetworkServiceOutputProtocol>
 
@@ -24,19 +25,15 @@
 
 @implementation DataManager
 
-@synthesize users;
-
-#pragma mark Singleton Methods
-
-+ (id)shared {
-    static DataManager *shared = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        shared = [[self alloc] init];
-    });
-    return shared;
+- (instancetype)initWithCoreDataService:(CoreDataService *)coreDataService withNetworkService:(NetworkService *)networkService
+{
+    self = [super init];
+    if (self) {
+        _coreDataService = coreDataService;
+        _networkService = networkService;
+    }
+    return self;
 }
-
 - (void)loadData
 {
     [self getLocalData];
@@ -46,15 +43,13 @@
 - (void)getLocalData
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        CoreDataService *coreDataService = [CoreDataService new];
-        self.users = [coreDataService getUserData];
+        self.users = [self.coreDataService getUserData];
         [self.delegate updateData];
     });
 }
 
 - (void)getDataFromServer
 {
-    self.networkService = [NetworkService new];
     self.networkService.output = self;
     [self.networkService fetchUserData];
 }
@@ -73,9 +68,8 @@
     
     dispatch_async(dispatch_get_main_queue(), ^{
         NSLog(@"Saving data!");
-        CoreDataService *coreDataService = [CoreDataService new];
-        [coreDataService saveUserData:tempArray];
-        self.users = [coreDataService getUserData];
+        [self.coreDataService saveUserData:tempArray];
+        self.users = [self.coreDataService getUserData];
         [self.delegate updateData];
     });
 

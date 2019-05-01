@@ -7,9 +7,6 @@
 //
 
 #import "Assembly.h"
-
-#import "UserTableViewController.h"
-#import "MapViewController.h"
 #import "ViewControllerFactory.h"
 
 
@@ -17,18 +14,16 @@
 
 - (UIViewController *)createRootViewController
 {
-    DataManager *dataManager = [DataManager shared];
+    CoreDataService *coreDataService = [CoreDataService new];
+    NetworkService *netWorkService = [NetworkService new];
+    DataManager *dataManager = [[DataManager alloc] initWithCoreDataService:coreDataService withNetworkService:netWorkService];
+    
     ViewControllerFactory *userTableViewController = [[ViewControllerFactory alloc] initWithDataManager:dataManager type:UserTableViewType];
-//    UserTableViewController *userTableViewController = [[UserTableViewController alloc] init];
-    
-    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:userTableViewController];
-    
     navigationController.tabBarItem.title = [userTableViewController getTabBarItemTitle];
-//    navigationController.tabBarItem.title = userTableViewController
+    
     ViewControllerFactory *mapViewController = [[ViewControllerFactory alloc] initWithDataManager:dataManager type:MapType];
-//    MapViewController *mapViewController = [[MapViewController alloc] init];
-    mapViewController.tabBarItem.title = @"На карте";
+    mapViewController.tabBarItem.title = [mapViewController getTabBarItemTitle];
     
     NSArray *viewControllerArray = @[navigationController, mapViewController];
     UITabBarController *tabBarViewController = [[UITabBarController alloc] init];
@@ -39,4 +34,5 @@
     
     return tabBarViewController;
 }
+
 @end

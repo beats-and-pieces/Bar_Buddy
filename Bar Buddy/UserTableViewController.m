@@ -8,7 +8,6 @@
 
 #import "UserTableViewController.h"
 #import "UserTableViewCell.h"
-#import "DataManager.h"
 #import "DataManagerProtocol.h"
 //#import "User.h"
 
@@ -39,9 +38,8 @@
     [super viewDidLoad];
     [self setupTable];
     
-    DataManager *dataManager = [DataManager shared];
-    dataManager.delegate = self;
-    [dataManager loadData];
+    self.dataManager.delegate = self;
+    [self.dataManager loadData];
     
 }
 
@@ -69,25 +67,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    DataManager *dataManager = [DataManager shared];
-    if (dataManager.users == nil)
-    {
-        return 0;
-    }
-    else
-    {
-        DataManager *dataManager = [DataManager shared];
-        return dataManager.users.count;
-    }
+    return self.dataManager.users ? self.dataManager.users.count : 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UserTableViewCell class])];
-    
-    DataManager *dataManager = [DataManager shared];
-    NSString *title = [NSString new];
-    title = dataManager.users[indexPath.row].displayedName;
+    NSString *title = self.dataManager.users[indexPath.row].displayedName;
     cell.titleLabel.text = title;
     
     return cell;

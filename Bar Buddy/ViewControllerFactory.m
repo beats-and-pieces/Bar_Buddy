@@ -27,14 +27,18 @@
     return self;
 }
 
-//- (NSString *)getTabBarItemTitle
-//{
-//    
-//}
+
 
 //Ensuring below that the saveData and initWithData method must be implemented by the private subclasses
 
 - (id)initWithDataManager:(DataManager *)dataManager {
+    [NSException raise:NSInternalInconsistencyException
+                format:@"You have not implemented %@ in %@", NSStringFromSelector(_cmd), NSStringFromClass([self class])];
+    return nil;
+}
+
+- (NSString *)getTabBarItemTitle
+{
     [NSException raise:NSInternalInconsistencyException
                 format:@"You have not implemented %@ in %@", NSStringFromSelector(_cmd), NSStringFromClass([self class])];
     return nil;

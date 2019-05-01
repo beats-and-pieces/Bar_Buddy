@@ -15,7 +15,6 @@ typedef NS_ENUM(NSInteger, ViewControllerType) {
     MapType
 };
 
-//We are defining a Protocol with 2 required methods that must be implemented by any class which wants to handle data storage
 @protocol ViewControllerFactoryProtocol
 
 @required

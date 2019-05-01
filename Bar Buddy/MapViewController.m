@@ -8,7 +8,6 @@
 
 #import "MapViewController.h"
 #import <MapKit/MapKit.h>
-#import "DataManager.h"
 #import "User.h"
 
 @interface MapViewController () <MKMapViewDelegate>
@@ -27,6 +26,7 @@
 {
     return @"На карте";
 }
+
 - (instancetype)initWithDataManager:(DataManager *)dataManager
 {
     self = [super init];
@@ -40,7 +40,6 @@
     [super viewDidLoad];
     [self setupMapView];
     [self displayUsersLocations];
-    // Do any additional setup after loading the view.
 }
 
 - (void)setupMapView
@@ -51,21 +50,16 @@
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = 55.741476;
     zoomLocation.longitude= 37.531409;
-//    55.741476, 37.531409
-    // 2
+
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 5*METERS_PER_MILE, 5*METERS_PER_MILE);
     
-    // 3
-    [_mapView setRegion:viewRegion animated:YES];
+    [self.mapView setRegion:viewRegion animated:YES];
 }
 
 - (void)displayUsersLocations{
-    //    for
-    DataManager *dataManager = [DataManager shared];
     NSMutableArray *array = [NSMutableArray new];
-    for (User *user in dataManager.users)
+    for (User *user in self.dataManager.users)
     {
-        
         MKPointAnnotation *userPoint = [MKPointAnnotation new];
         
         userPoint.title = user.displayedName;
@@ -74,7 +68,6 @@
         [array addObject:userPoint];
         
     }
-//    [self.mapView addAnnotations:array];
     [self.mapView showAnnotations:array animated:YES];
 }
 @end
