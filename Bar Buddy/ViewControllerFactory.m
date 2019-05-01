@@ -12,8 +12,8 @@
 
 
 @implementation ViewControllerFactory
-//Based on the DataType it is decided if FileStorage or DatabaseStorage class should be instantiated
-- (id)initWithDataManager:(DataManager *)dataManager type:(ViewControllerType)viewControllerType
+
+- (instancetype)initWithDataManager:(DataManager *)dataManager type:(ViewControllerType)viewControllerType
 {
     self = nil;
     if (viewControllerType == UserTableViewType)
@@ -29,9 +29,10 @@
 
 
 
-//Ensuring below that the saveData and initWithData method must be implemented by the private subclasses
+//Убеждаемся, что оба метода должны быть реализованы подклассами
 
-- (id)initWithDataManager:(DataManager *)dataManager {
+- (instancetype)initWithDataManager:(DataManager *)dataManager
+{
     [NSException raise:NSInternalInconsistencyException
                 format:@"You have not implemented %@ in %@", NSStringFromSelector(_cmd), NSStringFromClass([self class])];
     return nil;

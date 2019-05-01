@@ -70,4 +70,9 @@
     }
     [self.mapView showAnnotations:array animated:YES];
 }
+- (void)calculateZoomArea
+{
+    
+}
+
 @end

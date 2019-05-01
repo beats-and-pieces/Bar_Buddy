@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "DataManager.h"
 
-//Here we are creating an enum with only two possible values
 typedef NS_ENUM(NSInteger, ViewControllerType) {
     UserTableViewType,
     MapType

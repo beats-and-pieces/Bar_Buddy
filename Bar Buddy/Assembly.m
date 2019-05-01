@@ -8,6 +8,7 @@
 
 #import "Assembly.h"
 #import "ViewControllerFactory.h"
+#import "CoreDataStack.h"
 
 
 @implementation Assembly
@@ -35,4 +36,9 @@
     return tabBarViewController;
 }
 
+- (NSPersistentContainer *)createPersistentContainer
+{
+    CoreDataStack *coreDataStack = [CoreDataStack new];
+    return coreDataStack.persistentContainer;
+}
 @end

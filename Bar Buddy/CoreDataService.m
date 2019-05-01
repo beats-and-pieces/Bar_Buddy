@@ -28,6 +28,7 @@
 - (void)saveUserData:(NSArray<User *> *)users;
 {
     [self deleteUsersFromCoreData];
+    
     for (User *user in users)
     {
         UserCD *userCD = [NSEntityDescription insertNewObjectForEntityForName:@"UserCD" inManagedObjectContext:self.coreDataContext];
@@ -38,8 +39,9 @@
         userCD.preferredDrink = user.preferredDrink;
         userCD.preferredCompany = user.preferredCompany;
         
-        NSError *error = nil;
         
+        
+        NSError *error = nil;
         if (![userCD.managedObjectContext save:&error])
         {
             NSLog(@"Не удалось сохранить объект");
@@ -47,18 +49,20 @@
         }
         else
         {
-            //            UIApplication *application = [UIApplication sharedApplication];
-            //            self.coreDataContext save:<#(NSError * _Nullable __autoreleasing * _Nullable)#>
-            NSError *error = nil;
-            if ([self.coreDataContext hasChanges] && ![self.coreDataContext save:&error]) {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-                abort();
-            }
+            
             
             NSLog(@"Core Data saved!");
         }
+        
+        __block BOOL savedOK = NO;
+        [self.coreDataContext performBlockAndWait:^{
+            // Do lots of things with the context.
+            NSError *error = nil;
+            if (![self.coreDataContext save:&error]) {
+                NSLog(@"Error saving: %@", error);    } else {
+                    savedOK = YES;
+                }
+        }];
     }
 }
 
@@ -72,11 +76,14 @@
 
 - (NSManagedObjectContext *)coreDataContext
 {
+    UIApplication *application = [UIApplication sharedApplication];
     
     CoreDataStack *coreDataStack = [CoreDataStack new];
-    //    NSPersistentContainer *container = coreDataStack.persistentContainer;
+    //        NSLog(@"getLocalData");
+    //        [self.delegate updateData];
     
-    UIApplication *application = [UIApplication sharedApplication];
+    
+    //    NSPersistentContainer *container = coreDataStack.persistentContainer;
     NSPersistentContainer *container = ((AppDelegate *)(application.delegate)).persistentContainer;
     NSManagedObjectContext *context = container.viewContext;
     
@@ -120,11 +127,14 @@
     [fetchRequest setSortDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"userName" ascending:YES]]];
     [fetchRequest setFetchBatchSize:20];
     
-    NSFetchedResultsController *theFetchedResultsController =
-    [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                        managedObjectContext:self.coreDataContext sectionNameKeyPath:nil
-                                                   cacheName:@"Root"];
+    
+    NSError *error;
+    NSFetchedResultsController *theFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.coreDataContext sectionNameKeyPath:nil cacheName:@"Root"];
     self.fetchedResultsController = theFetchedResultsController;
+    
+    
+    
+    
     _fetchedResultsController.delegate = self;
     
     return _fetchedResultsController;
@@ -133,11 +143,13 @@
 
 - (void)deleteUsersFromCoreData
 {
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"UserCD"];
-    NSBatchDeleteRequest *delete = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
-    
-    NSError *deleteError = nil;
-    [self.coreDataContext executeRequest:delete error:&deleteError];
+    [self.coreDataContext performBlockAndWait:^() {
+        NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"UserCD"];
+        NSBatchDeleteRequest *delete = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
+        
+        NSError *deleteError = nil;
+        [self.coreDataContext executeRequest:delete error:&deleteError];
+    }];
 }
 
 @end
