@@ -10,6 +10,12 @@
 #import "ViewControllerFactory.h"
 #import "CoreDataStack.h"
 
+@interface Assembly ()
+
+
+@property (strong, nonatomic) UITabBarController *tabBarController;
+
+@end
 
 @implementation Assembly
 
@@ -33,6 +39,8 @@
     tabBarViewController.tabBar.tintColor = [UIColor whiteColor];
     tabBarViewController.tabBar.barTintColor = [UIColor blackColor];
     
+    self.tabBarController = tabBarViewController;
+    
     return tabBarViewController;
 }
 
@@ -41,4 +49,10 @@
     CoreDataStack *coreDataStack = [CoreDataStack new];
     return coreDataStack.persistentContainer;
 }
+
+- (void)switchToMap
+{
+    [self.tabBarController setSelectedIndex:1];
+}
+
 @end

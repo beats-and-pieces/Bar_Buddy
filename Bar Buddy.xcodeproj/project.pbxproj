@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A31E17F227AE1CB00F7F1FA /* PushService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E17D227AE1CB00F7F1FA /* PushService.m */; };
 		3A5D1F162277115D00842DF3 /* Bar_Buddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F142277115D00842DF3 /* Bar_Buddy.xcdatamodeld */; };
 		3A5D1F182277115E00842DF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5D1F172277115E00842DF3 /* Assets.xcassets */; };
 		3A5D1F1B2277115E00842DF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5D1F192277115E00842DF3 /* LaunchScreen.storyboard */; };
@@ -49,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A31E17D227AE1CB00F7F1FA /* PushService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushService.m; sourceTree = "<group>"; };
+		3A31E17E227AE1CB00F7F1FA /* PushService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushService.h; sourceTree = "<group>"; };
 		3A5D1F082277115D00842DF3 /* Bar Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bar Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5D1F152277115D00842DF3 /* Bar_Buddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bar_Buddy.xcdatamodel; sourceTree = "<group>"; };
 		3A5D1F172277115E00842DF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -210,6 +213,8 @@
 		3A5D1F642277126D00842DF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3A31E17E227AE1CB00F7F1FA /* PushService.h */,
+				3A31E17D227AE1CB00F7F1FA /* PushService.m */,
 				3AEEC7002279975F00755100 /* CoreDataStack.h */,
 				3AEEC7012279975F00755100 /* CoreDataStack.m */,
 				3AC4D2DB2277204000084A1B /* CoreData Entity */,
@@ -395,6 +400,7 @@
 				3A5D1F1E2277115E00842DF3 /* main.m in Sources */,
 				3AEEC7022279975F00755100 /* CoreDataStack.m in Sources */,
 				3AEEC6FF2279941100755100 /* Assembly.m in Sources */,
+				3A31E17F227AE1CB00F7F1FA /* PushService.m in Sources */,
 				3A5D1F9E22771EBD00842DF3 /* UserCD+CoreDataClass.m in Sources */,
 				3A5D1F162277115D00842DF3 /* Bar_Buddy.xcdatamodeld in Sources */,
 				3A5D1F5C227711A900842DF3 /* AccountViewController.m in Sources */,
