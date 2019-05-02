@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (UIViewController *)createRootViewController;
 - (NSPersistentContainer *)createPersistentContainer;
 - (void)switchToMap;
+- (void)sheduleLocalNotification;
 
 @end
 

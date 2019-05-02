@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+@import UserNotifications;
 
 @interface PushService : NSObject
 
+- (void)sheduleLocalNotification;
+- (instancetype)initForNotificationDelegate:(id<UNUserNotificationCenterDelegate>)delegate;
 - (void)sheduleLocalNotification;
 
 @end

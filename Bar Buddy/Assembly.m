@@ -9,11 +9,14 @@
 #import "Assembly.h"
 #import "ViewControllerFactory.h"
 #import "CoreDataStack.h"
+@import UserNotifications;
+#import "PushService.h"
 
-@interface Assembly ()
+@interface Assembly () <UNUserNotificationCenterDelegate>
 
 
 @property (strong, nonatomic) UITabBarController *tabBarController;
+@property (strong, nonatomic) PushService *pushService;
 
 @end
 
@@ -21,6 +24,9 @@
 
 - (UIViewController *)createRootViewController
 {
+    PushService *pushService = [[PushService alloc] initForNotificationDelegate:self];
+    self.pushService = pushService;
+
     CoreDataService *coreDataService = [CoreDataService new];
     NetworkService *netWorkService = [NetworkService new];
     DataManager *dataManager = [[DataManager alloc] initWithCoreDataService:coreDataService withNetworkService:netWorkService];
@@ -54,5 +60,30 @@
 {
     [self.tabBarController setSelectedIndex:1];
 }
+
+- (void)sheduleLocalNotification
+{
+    [self.pushService sheduleLocalNotification];
+}
+
+#pragma mark - UNUserNotificationCenterDelegate
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+didReceiveNotificationResponse:(UNNotificationResponse *)response
+         withCompletionHandler:(void(^)(void))completionHandler
+{
+    UNNotificationContent *content = response.notification.request.content;
+    if (content.userInfo[@"request"])
+    {
+        NSString *request = content.userInfo[@"request"];
+        [self switchToMap];
+    }
+    
+    if (completionHandler)
+    {
+        completionHandler();
+    }
+}
+
 
 @end

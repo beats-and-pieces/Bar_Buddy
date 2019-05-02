@@ -25,16 +25,34 @@ typedef NS_ENUM(NSInteger, LCTTriggerType) {
 
 @implementation PushService
 
-- (instancetype)init
+- (instancetype)initForNotificationDelegate:(id<UNUserNotificationCenterDelegate>)delegate
+
 {
     self = [super init];
     if (self) {
-//        [self requestPermissionForPush];
+//        [self requestPermissionForPushForDelegate];
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        
+        // Устанавливаем делегат
+        center.delegate = delegate;
+        
+        // Указываем тип пушей для работы
+        UNAuthorizationOptions options = UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge;
+        
+        // Запрашиваем доступ на работу с пушами
+        [center requestAuthorizationWithOptions:options
+                              completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                                  if (!granted)
+                                  {
+                                      NSLog(@"Доступ не дали");
+                                  }
+                              }];
     }
     return self;
 }
 
-- (void)requestPermissionForPush
+
+- (void)requestPermissionForPushForDelegate
 {
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     
