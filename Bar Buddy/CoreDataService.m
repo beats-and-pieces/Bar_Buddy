@@ -7,8 +7,8 @@
 //
 
 #import "CoreDataService.h"
-#import "UserCD+CoreDataClass.h"
-#import "User.h"
+#import "User+CoreDataClass.h"
+//#import "User.h"
 #import "AppDelegate.h"
 #import "CoreDataServiceProtocol.h"
 #import "CoreDataStack.h"
@@ -25,24 +25,48 @@
 
 @implementation CoreDataService
 
-- (void)saveUserData:(NSArray<User *> *)users;
+- (void)saveUserData:(NSArray *)users;
 {
     [self deleteUsersFromCoreData];
     
-    for (User *user in users)
+    for (NSDictionary *json in users)
     {
-        UserCD *userCD = [NSEntityDescription insertNewObjectForEntityForName:@"UserCD" inManagedObjectContext:self.coreDataContext];
-        userCD.displayedName = user.displayedName;
-        userCD.userName = user.userName;
-        userCD.locationLatitude = user.locationLatitude;
-        userCD.locationLongitude = user.locationLongitude;
-        userCD.preferredDrink = user.preferredDrink;
-        userCD.preferredCompany = user.preferredCompany;
+        User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.coreDataContext];
+     
         
+        
+        NSString *displayedName = json[@"displayed_name"];
+        NSString *userName = json[@"user_name"];
+        NSInteger preferredDrink = [json[@"preferred_drink"] intValue];
+        //        NSLog(@"preferred_drink %@", json[@"preferred_drink"]);
+        //        NSLog(@"preferredDrink %ld", (long)preferredDrink);
+        NSInteger preferredCompany = [json[@"preferred_company"] integerValue];
+        NSString *latitude = json[@"latitude"];
+        NSString *longitude = json[@"longitude"];
+        
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+        float longitudeFloat = [numberFormatter numberFromString: longitude].floatValue;
+        float latitudeFloat = [numberFormatter numberFromString: latitude].floatValue;
+        
+        user.displayedName = displayedName;
+        user.userName = userName;
+        user.preferredDrink = preferredDrink;
+        user.preferredCompany = preferredCompany;
+        
+        user.locationLatitude = longitudeFloat;
+        user.locationLongitude = latitudeFloat;
+        
+//        _locationLongitude = longitudeFloat;
+//        _locationLatitude = latitudeFloat;
+//        _preferredDrink = preferredDrink;
+//        _preferredCompany = preferredCompany;
+//        _displayedName = displayedName;
+//        _userName = userName;
         
         
         NSError *error = nil;
-        if (![userCD.managedObjectContext save:&error])
+        if (![user.managedObjectContext save:&error])
         {
             NSLog(@"Не удалось сохранить объект");
             NSLog(@"%@, %@", error, error.localizedDescription);
@@ -67,16 +91,16 @@
 }
 
 
-- (NSArray<UserCD *> *)getUserData
+- (NSArray<User *> *)getUserData
 {
     NSArray *users = [self updatedArray];
     return users;
 }
 
-- (NSArray<UserCD *> *)getFilteredUsersWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType
+- (NSArray<User *> *)getFilteredUsersWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType
 {
     
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"UserCD"];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
     //    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"userName CONTAINS %@ OR preferredDrink CONTAINS %@", @"vasiliy12345", @2];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"preferredDrink == %d", drinkType];
     
@@ -86,7 +110,7 @@
     
     NSError *error = nil;
     
-    NSArray *result = [self.coreDataContext executeFetchRequest:fetchRequest ? : [UserCD fetchRequest] error:&error];
+    NSArray *result = [self.coreDataContext executeFetchRequest:fetchRequest ? : [User fetchRequest] error:&error];
     NSLog(@"there are %ld users with drink %lu", (long)result.count, drinkType);
     return result;
 }
@@ -112,13 +136,13 @@
 {
     NSError *error = nil;
     
-    NSArray *result = [self.coreDataContext executeFetchRequest:self.fetchRequest ? : [UserCD fetchRequest] error:&error];
+    NSArray *result = [self.coreDataContext executeFetchRequest:self.fetchRequest ? : [User fetchRequest] error:&error];
     return result;
 }
 
 - (NSFetchRequest *)fetchRequest
 {
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"UserCD"];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
     //    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"userName CONTAINS %@ OR preferredDrink CONTAINS %@", @"vasiliy12345", @2];
     //    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"userName CONTAINS %@", @"sema124"];
     
@@ -140,7 +164,7 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:NSStringFromClass([UserCD class]) inManagedObjectContext:self.coreDataContext];
+                                   entityForName:NSStringFromClass([User class]) inManagedObjectContext:self.coreDataContext];
     [fetchRequest setEntity:entity];
     [fetchRequest setSortDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"userName" ascending:YES]]];
     [fetchRequest setFetchBatchSize:20];
@@ -162,7 +186,7 @@
 - (void)deleteUsersFromCoreData
 {
     [self.coreDataContext performBlockAndWait:^() {
-        NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"UserCD"];
+        NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"User"];
         NSBatchDeleteRequest *delete = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
         
         NSError *deleteError = nil;

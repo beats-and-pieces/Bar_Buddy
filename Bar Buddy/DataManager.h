@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DataManager : NSObject 
 
-@property (nonatomic, copy) NSArray<UserCD *> *users;
+@property (nonatomic, copy) NSArray<User *> *users;
 @property (nonatomic, weak, nullable) id<DataManagerProtocol> delegate; /**< Делегат внешних событий */
 
 

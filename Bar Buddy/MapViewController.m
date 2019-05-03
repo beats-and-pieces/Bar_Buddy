@@ -8,7 +8,8 @@
 
 #import "MapViewController.h"
 #import <MapKit/MapKit.h>
-#import "User.h"
+//#import "User.h"
+#import "User+CoreDataClass.h"
 
 @interface MapViewController () <MKMapViewDelegate>
 

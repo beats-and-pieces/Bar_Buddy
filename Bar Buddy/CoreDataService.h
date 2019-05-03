@@ -7,16 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UserCD+CoreDataClass.h"
-#import "User.h"
+#import "User+CoreDataClass.h"
+//#import "User.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CoreDataService : NSObject
 
-- (NSArray<UserCD *> *) getUserData;
-- (void)saveUserData:(NSArray<User *> *)users;
-- (NSArray<UserCD *> *)getFilteredUsersWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType;
+- (NSArray<User *> *) getUserData;
+- (void)saveUserData:(NSArray *)users;
+- (NSArray<User *> *)getFilteredUsersWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType;
 
 @end
 

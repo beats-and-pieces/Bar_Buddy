@@ -10,7 +10,7 @@
 @protocol CoreDataServiceProtocol <NSObject>
 
 
-- (NSArray<UserCD *> *) getUserData;
+- (NSArray<User *> *) getUserData;
 - (void)saveUserData:(NSArray<User *> *)users;
 
 

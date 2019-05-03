@@ -1,8 +1,8 @@
 //
-//  UserCD+CoreDataClass.h
+//  User+CoreDataClass.h
 //  Bar Buddy
 //
-//  Created by Anton Kuznetsov on 29/04/2019.
+//  Created by Anton Kuznetsov on 03/05/2019.
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 //
@@ -12,10 +12,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UserCD : NSManagedObject
+@interface User : NSManagedObject
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-#import "UserCD+CoreDataProperties.h"
+#import "User+CoreDataProperties.h"

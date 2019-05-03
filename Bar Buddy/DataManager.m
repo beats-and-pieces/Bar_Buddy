@@ -10,9 +10,9 @@
 //#import "DataManagerProtocol.h"
 //#import "NetworkService.h"
 //#import "CoreDataService.h"
-#import "User.h"
-#import "JSONAdapter.h"
-#import "UserCD+CoreDataClass.h"
+//#import "User.h"
+//#import "JSONAdapter.h"
+#import "User+CoreDataClass.h"
 #import "AppDelegate.h"
 
 
@@ -59,19 +59,19 @@
 - (void)loadingIsDoneWithDataRecieved:(NSArray *)dataRecieved
 {
     NSLog(@"loadingIsDoneWithDataRecieved");
-    NSMutableArray *tempArray  = [NSMutableArray new];
-    for (NSDictionary *userData in dataRecieved)
-    {
-        JSONAdapter *adapter = [[JSONAdapter alloc] initWithJSON:userData];
-//        NSLog(@"user %@", userData[@"preferred_drink"]);
-        User *user = [[User alloc] initWithJSON:adapter];
-//        NSLog(@"user %d", user.preferredDrink);
-        [tempArray addObject:user];
-    }
+//    NSMutableArray *tempArray  = [NSMutableArray new];
+//    for (NSDictionary *userData in dataRecieved)
+//    {
+//        JSONAdapter *adapter = [[JSONAdapter alloc] initWithJSON:userData];
+////        NSLog(@"user %@", userData[@"preferred_drink"]);
+//        User *user = [[User alloc] initWithJSON:adapter];
+////        NSLog(@"user %d", user.preferredDrink);
+//        [tempArray addObject:user];
+//    }
     
     dispatch_async(dispatch_get_main_queue(), ^{
         NSLog(@"Saving data!");
-        [self.coreDataService saveUserData:tempArray];
+        [self.coreDataService saveUserData:dataRecieved];
         self.users = [self.coreDataService getUserData];
         [self.delegate updateData];
     });
