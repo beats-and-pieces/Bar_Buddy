@@ -10,6 +10,7 @@
 #import "UserTableViewCell.h"
 #import "DataManagerProtocol.h"
 #import "FilterCollectionViewCell.h"
+#import "UserTableView.h"
 //#import "User.h"
 
 @interface UserTableViewController () <UITableViewDataSource, UITableViewDelegate, DataManagerProtocol, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -34,6 +35,10 @@
     return self;
 }
 
+
+
+#pragma mark - ViewControllerFactoryProtocol
+
 - (NSString *)getTabBarItemTitle
 {
     return @"Список пользователей";
@@ -41,34 +46,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self createView];
     
-    
-    [self setupCollectionView];
-    
-    [self setupTable];
     self.dataManager.delegate = self;
-    
     [self.dataManager loadData];
+}
+
+- (void)createView
+{
+    CGRect frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height - self.navigationController.navigationBar.bounds.size.height - self.tabBarController.tabBar.frame.size.height);
+    UserTableView *userTableView = [[UserTableView alloc] initWithFrame:frame];
+    [self.view addSubview:userTableView];
+    //    self.view = userTableView;
+    self.tableView = userTableView.tableView;
+    self.collectionView = userTableView.collectionView;
     
-}
-
-- (void)setupCollectionView
-{
-    [self setupUICollectionView];
-}
-
-- (void)setupTable
-{
-    //    self.view.backgroundColor = UIColor.redColor;
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    self.tableView.frame = CGRectMake(0, 32 * 2 + 15 * 2 + self.navigationController.navigationBar.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height - 32 * 2 + 15 * 2 + self.navigationController.navigationBar.bounds.size.height);
+    [self.collectionView registerClass:[FilterCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class])];
     [self.tableView registerClass:[UserTableViewCell class] forCellReuseIdentifier:NSStringFromClass([UserTableViewCell class])];
-    [self.view addSubview:self.tableView];
+    
     self.navigationItem.title = @"Пользователи";
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    [self.collectionView setDataSource:self];
+    [self.collectionView setDelegate:self];
 }
-
 
 #pragma mark - DataManagerProtocol
 
@@ -87,31 +89,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     UserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UserTableViewCell class])];
     NSString *title = self.dataManager.users[indexPath.row].displayedName;
     cell.titleLabel.text = title;
     cell.descriptionLabel.text = [NSString stringWithFormat:@"%i", self.dataManager.users[indexPath.row].preferredDrink];
     
     return cell;
-}
-
-- (void)setupUICollectionView
-{
-    UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
-    //    layout.headerReferenceSize = CGSizeMake(self.view.frame.size.width, 30);
-    //    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderViewIdentifier"];
-    
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.navigationController.navigationBar.bounds.size.height, self.view.bounds.size.width, 32 * 2 + 15 * 2 + self.navigationController.navigationBar.bounds.size.height) collectionViewLayout:layout];
-    layout.sectionInset = UIEdgeInsetsMake(15, 15, 15, 15);
-    
-    [self.collectionView setDataSource:self];
-    [self.collectionView setDelegate:self];
-    
-    [self.collectionView registerClass:[FilterCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class])];
-    [self.collectionView setBackgroundColor:[UIColor colorWithRed: 143.0/255.0 green:174.0/255 blue:224.0/255 alpha: 1.0]];
-    
-    [self.view addSubview:self.collectionView];
-    
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -126,7 +110,6 @@
     return 2;
 }
 
-// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     FilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class]) forIndexPath:indexPath];
@@ -166,6 +149,5 @@
             break;
     }
     [self.dataManager updateFilteredResultsWithDrinkType:self.preferredDrink withCompanyType:self.preferredCompany];
-    //    [self.dataManager getFilteredUsersWithDrinkType:<#(NSInteger)#> withCompanyType:<#(NSInteger)#>:indexPath.row withCompanyType:0];
 }
 @end

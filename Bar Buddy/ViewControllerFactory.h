@@ -18,12 +18,13 @@ typedef NS_ENUM(NSInteger, ViewControllerType) {
 
 @required
 - (id)initWithDataManager:(DataManager *)dataManager;
+- (NSString *)getTabBarItemTitle;
 
 @end
 
 @interface ViewControllerFactory : UIViewController <ViewControllerFactoryProtocol>
 
 - (instancetype)initWithDataManager:(DataManager *)dataManager type:(ViewControllerType)viewControllerType;
-- (NSString *)getTabBarItemTitle;
+
 
 @end
