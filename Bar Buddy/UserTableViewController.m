@@ -7,10 +7,11 @@
 //
 
 #import "UserTableViewController.h"
-#import "UserTableViewCell.h"
-#import "DataManagerProtocol.h"
-#import "FilterCollectionViewCell.h"
 #import "UserTableView.h"
+#import "UserTableViewCell.h"
+#import "FilterCollectionViewCell.h"
+#import "DataManagerProtocol.h"
+
 //#import "User.h"
 
 @interface UserTableViewController () <UITableViewDataSource, UITableViewDelegate, DataManagerProtocol, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -34,8 +35,6 @@
     }
     return self;
 }
-
-
 
 #pragma mark - ViewControllerFactoryProtocol
 

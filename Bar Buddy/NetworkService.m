@@ -15,6 +15,17 @@
 
 @implementation NetworkService
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        NSUInteger cacheSizeMemory = 500*1024*1024; // 500 MB
+        NSUInteger cacheSizeDisk = 500*1024*1024; // 500 MB
+        NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:cacheSizeMemory diskCapacity:cacheSizeDisk diskPath:@"nsurlcache"];
+        [NSURLCache setSharedURLCache:sharedCache];
+    }
+    return self;
+}
 #pragma mark - NetworkServiceIntputProtocol
 
 - (void)fetchUserData
@@ -29,7 +40,7 @@
     
     NSURLSession *session;
     session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-
+    
     
     NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         

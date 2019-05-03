@@ -8,13 +8,6 @@
 
 #import "UserTableView.h"
 
-@interface UserTableView ()
-
-@property CGRect parentFrame;
-
-
-@end
-
 @implementation UserTableView
 
 
@@ -38,7 +31,6 @@
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height) collectionViewLayout:layout];
     layout.sectionInset = UIEdgeInsetsMake(15, 15, 15, 15);
-    
     
     [self.collectionView setBackgroundColor:[UIColor colorWithRed: 143.0/255.0 green:174.0/255 blue:224.0/255 alpha: 1.0]];
     
