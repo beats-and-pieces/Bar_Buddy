@@ -13,6 +13,5 @@
 
 - (void)sheduleLocalNotification;
 - (instancetype)initForNotificationDelegate:(id<UNUserNotificationCenterDelegate>)delegate;
-- (void)sheduleLocalNotification;
 
 @end

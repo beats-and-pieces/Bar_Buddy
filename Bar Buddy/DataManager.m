@@ -63,7 +63,9 @@
     for (NSDictionary *userData in dataRecieved)
     {
         JSONAdapter *adapter = [[JSONAdapter alloc] initWithJSON:userData];
+//        NSLog(@"user %@", userData[@"preferred_drink"]);
         User *user = [[User alloc] initWithJSON:adapter];
+//        NSLog(@"user %d", user.preferredDrink);
         [tempArray addObject:user];
     }
     
@@ -73,7 +75,15 @@
         self.users = [self.coreDataService getUserData];
         [self.delegate updateData];
     });
+    
+}
 
+- (void)updateFilteredResultsWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType;
+{
+    
+//    return [self.coreDataService getFilteredUsersWithDrinkType:drinkType withCompanyType:companyType];
+    self.users = [self.coreDataService getFilteredUsersWithDrinkType:drinkType withCompanyType:companyType];
+    [self.delegate updateData];
 }
 
 @end

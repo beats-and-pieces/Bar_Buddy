@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3A31E17F227AE1CB00F7F1FA /* PushService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E17D227AE1CB00F7F1FA /* PushService.m */; };
+		3A31E182227B122300F7F1FA /* FilterCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E181227B122300F7F1FA /* FilterCollectionView.m */; };
+		3A31E185227B128300F7F1FA /* FilterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E183227B128300F7F1FA /* FilterCollectionViewCell.m */; };
 		3A5D1F162277115D00842DF3 /* Bar_Buddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F142277115D00842DF3 /* Bar_Buddy.xcdatamodeld */; };
 		3A5D1F182277115E00842DF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5D1F172277115E00842DF3 /* Assets.xcassets */; };
 		3A5D1F1B2277115E00842DF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5D1F192277115E00842DF3 /* LaunchScreen.storyboard */; };
@@ -52,6 +54,10 @@
 /* Begin PBXFileReference section */
 		3A31E17D227AE1CB00F7F1FA /* PushService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushService.m; sourceTree = "<group>"; };
 		3A31E17E227AE1CB00F7F1FA /* PushService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushService.h; sourceTree = "<group>"; };
+		3A31E180227B122300F7F1FA /* FilterCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterCollectionView.h; sourceTree = "<group>"; };
+		3A31E181227B122300F7F1FA /* FilterCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterCollectionView.m; sourceTree = "<group>"; };
+		3A31E183227B128300F7F1FA /* FilterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterCollectionViewCell.m; sourceTree = "<group>"; };
+		3A31E184227B128300F7F1FA /* FilterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterCollectionViewCell.h; sourceTree = "<group>"; };
 		3A5D1F082277115D00842DF3 /* Bar Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bar Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5D1F152277115D00842DF3 /* Bar_Buddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bar_Buddy.xcdatamodel; sourceTree = "<group>"; };
 		3A5D1F172277115E00842DF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -187,8 +193,12 @@
 		3A5D1F61227711FA00842DF3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3A31E180227B122300F7F1FA /* FilterCollectionView.h */,
+				3A31E181227B122300F7F1FA /* FilterCollectionView.m */,
 				3A5D1F4F227711A800842DF3 /* UserTableViewCell.h */,
 				3A5D1F44227711A700842DF3 /* UserTableViewCell.m */,
+				3A31E184227B128300F7F1FA /* FilterCollectionViewCell.h */,
+				3A31E183227B128300F7F1FA /* FilterCollectionViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -409,9 +419,11 @@
 				3A5D1F422277118700842DF3 /* AppDelegate.m in Sources */,
 				3A5D1F5D227711A900842DF3 /* MapViewController.m in Sources */,
 				3A5D1F5B227711A900842DF3 /* NetworkService.m in Sources */,
+				3A31E185227B128300F7F1FA /* FilterCollectionViewCell.m in Sources */,
 				3AEEC7052279B28000755100 /* ViewControllerFactory.m in Sources */,
 				3A5D1F5E227711A900842DF3 /* DataManager.m in Sources */,
 				3AC4D2DE2277214600084A1B /* CoreDataService.m in Sources */,
+				3A31E182227B122300F7F1FA /* FilterCollectionView.m in Sources */,
 				3A5D1F59227711A900842DF3 /* JSONAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

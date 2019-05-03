@@ -17,6 +17,10 @@
         
         NSString *displayedName = json[@"displayed_name"];
         NSString *userName = json[@"user_name"];
+        NSInteger preferredDrink = [json[@"preferred_drink"] intValue];
+//        NSLog(@"preferred_drink %@", json[@"preferred_drink"]);
+//        NSLog(@"preferredDrink %ld", (long)preferredDrink);
+        NSInteger preferredCompany = [json[@"preferred_company"] integerValue];
         NSString *latitude = json[@"latitude"];
         NSString *longitude = json[@"longitude"];
         
@@ -27,6 +31,9 @@
         
         _locationLongitude = longitudeFloat;
         _locationLatitude = latitudeFloat;
+        _preferredDrink = preferredDrink;
+//        NSLog(@"_preferredDrink %ld", (long)_preferredDrink);
+        _preferredCompany = preferredCompany;
         _displayedName = displayedName;
         _userName = userName;
         

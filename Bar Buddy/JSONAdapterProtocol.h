@@ -10,8 +10,8 @@
 
 @property (nonnull, strong) NSString *displayedName;
 @property (nonnull, strong) NSString *userName;
-@property int preferredDrink;
-@property int preferredCompany;
+@property (nonatomic) NSInteger preferredDrink;
+@property (nonatomic) NSInteger preferredCompany;
 @property double locationLatitude;
 @property double locationLongitude;
 

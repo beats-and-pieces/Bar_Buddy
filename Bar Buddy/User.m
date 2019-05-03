@@ -20,6 +20,9 @@
         _locationLatitude = adapter.locationLatitude;
         _displayedName = adapter.displayedName;
         _userName = adapter.userName;
+        _preferredDrink = adapter.preferredDrink;
+        _preferredCompany = adapter.preferredCompany;
+        
     }
     return self;
 }

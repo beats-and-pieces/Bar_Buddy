@@ -37,7 +37,7 @@
         {
             NSDictionary *JSONResponse = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             NSArray *users = JSONResponse[@"users"];
-
+            NSLog(@"users %@", users);
             [self.output loadingIsDoneWithDataRecieved:users];
         }
         else

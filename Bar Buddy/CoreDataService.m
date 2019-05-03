@@ -73,12 +73,30 @@
     return users;
 }
 
+- (NSArray<UserCD *> *)getFilteredUsersWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType
+{
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"UserCD"];
+    //    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"userName CONTAINS %@ OR preferredDrink CONTAINS %@", @"vasiliy12345", @2];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"preferredDrink == %d", drinkType];
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"userName" ascending:NO];
+    fetchRequest.sortDescriptors = @[sortDescriptor];
+    
+    
+    NSError *error = nil;
+    
+    NSArray *result = [self.coreDataContext executeFetchRequest:fetchRequest ? : [UserCD fetchRequest] error:&error];
+    NSLog(@"there are %ld users with drink %lu", (long)result.count, drinkType);
+    return result;
+}
+
 
 - (NSManagedObjectContext *)coreDataContext
 {
     UIApplication *application = [UIApplication sharedApplication];
     
-    CoreDataStack *coreDataStack = [CoreDataStack new];
+    //    CoreDataStack *coreDataStack = [CoreDataStack new];
     //        NSLog(@"getLocalData");
     //        [self.delegate updateData];
     

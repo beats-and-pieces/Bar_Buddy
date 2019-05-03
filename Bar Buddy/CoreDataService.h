@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSArray<UserCD *> *) getUserData;
 - (void)saveUserData:(NSArray<User *> *)users;
+- (NSArray<UserCD *> *)getFilteredUsersWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType;
 
 @end
 

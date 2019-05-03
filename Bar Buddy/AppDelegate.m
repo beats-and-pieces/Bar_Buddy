@@ -47,7 +47,6 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    
     [self.assembly sheduleLocalNotification];
 }
 

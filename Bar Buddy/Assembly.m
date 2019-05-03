@@ -9,7 +9,6 @@
 #import "Assembly.h"
 #import "ViewControllerFactory.h"
 #import "CoreDataStack.h"
-@import UserNotifications;
 #import "PushService.h"
 
 @interface Assembly () <UNUserNotificationCenterDelegate>
@@ -44,7 +43,6 @@
     tabBarViewController.tabBar.translucent = YES;
     tabBarViewController.tabBar.tintColor = [UIColor whiteColor];
     tabBarViewController.tabBar.barTintColor = [UIColor blackColor];
-    
     self.tabBarController = tabBarViewController;
     
     return tabBarViewController;
