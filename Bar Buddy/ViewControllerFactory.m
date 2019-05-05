@@ -28,7 +28,6 @@
 }
 
 
-
 //Убеждаемся, что оба метода должны быть реализованы подклассами
 
 - (instancetype)initWithDataManager:(DataManager *)dataManager

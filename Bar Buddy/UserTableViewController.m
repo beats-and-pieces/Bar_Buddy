@@ -43,7 +43,6 @@
     [super viewDidLoad];
     [self createView];
     
-    
     [self.dataManager loadData];
 }
 
@@ -59,7 +58,7 @@
     [self.collectionView registerClass:[FilterCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class])];
     [self.tableView registerClass:[UserTableViewCell class] forCellReuseIdentifier:NSStringFromClass([UserTableViewCell class])];
     
-    self.navigationItem.title = @"Пользователи";
+    self.navigationItem.title = UserTableViewNavigationTitle;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
@@ -87,13 +86,12 @@
 {
     
     UserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UserTableViewCell class])];
-    NSString *title = self.dataManager.users[indexPath.row].displayedName;
-    cell.usernameLabel.text = title;
+
+    cell.usernameLabel.text = self.dataManager.users[indexPath.row].displayedName;
     cell.descriptionLabel.text = [NSString stringWithFormat:@"%i", self.dataManager.users[indexPath.row].preferredDrink];
     cell.userpicImageView.image = [UIImage imageNamed:PlaceholderFilename];
     
     NSString *userpicURL = self.dataManager.users[indexPath.row].userpicURL;
-    
     [self.dataManager dowloadUserpicFromURL:userpicURL forIndexPath:indexPath];
 
     return cell;
@@ -153,10 +151,10 @@
     
     switch (indexPath.section) {
         case 0:
-            self.preferredDrink = indexPath.row;
+            self.preferredDrink = indexPath.row + 1;
             break;
         case 1:
-            self.preferredCompany = indexPath.row;
+            self.preferredCompany = indexPath.row + 1;
             break;
         default:
             break;
@@ -166,7 +164,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((self.view.bounds.size.width - 5 * 15 ) / 3, 32);
+    return CGSizeMake((self.view.bounds.size.width - 5 * FilterCollectionViewEdgeInset ) / 3, 32);
 }
 
 #pragma mark - ViewControllerFactoryProtocol

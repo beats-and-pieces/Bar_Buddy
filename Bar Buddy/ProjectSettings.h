@@ -18,6 +18,7 @@ extern NSString *const BarBuddyAPIURL;
 
 extern NSString *const UserTableViewTabBarItemTitle;
 extern NSString *const MapViewTabBarItemTitle;
+extern NSString *const UserTableViewNavigationTitle;
 
 extern NSString *const PlaceholderFilename;
 
