@@ -8,7 +8,7 @@
 
 #import "MapViewController.h"
 #import <MapKit/MapKit.h>
-//#import "User.h"
+#import "ProjectSettings.h"
 #import "User+CoreDataClass.h"
 
 @interface MapViewController () <MKMapViewDelegate>
@@ -46,6 +46,7 @@
 - (void)setupMapView
 {
     self.mapView = [[MKMapView alloc] initWithFrame:self.view.frame];
+//    self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
     
     CLLocationCoordinate2D zoomLocation;
@@ -65,7 +66,7 @@
         
         userPoint.title = user.displayedName;
         userPoint.coordinate = CLLocationCoordinate2DMake(user.locationLatitude, user.locationLongitude);
-        NSLog(@"userpoint %f, %f", userPoint.coordinate.longitude, userPoint.coordinate.latitude);
+//        NSLog(@"userpoint %f, %f", userPoint.coordinate.longitude, userPoint.coordinate.latitude);
         [array addObject:userPoint];
         
     }
@@ -74,6 +75,20 @@
 - (void)calculateZoomArea
 {
     
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    // this part is boilerplate code used to create or reuse a pin annotation
+    static NSString *viewId = @"MKPinAnnotationView";
+    MKPinAnnotationView *annotationView = (MKPinAnnotationView*)
+    [self.mapView dequeueReusableAnnotationViewWithIdentifier:viewId];
+    if (annotationView == nil) {
+        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:viewId];
+    }
+    // set your custom image
+    annotationView.image = [UIImage imageNamed:PlaceholderFilename];
+    return annotationView;
 }
 
 @end

@@ -9,11 +9,6 @@
 #import "UserTableViewCell.h"
 #import "ProjectSettings.h"
 
-
-
-
-
-
 @interface UserTableViewCell()
 @property (nonatomic, strong) NSLayoutConstraint *topCoverImageConstraintY;
 @property (nonatomic, strong) NSLayoutConstraint *topCoverImageConstraintX;

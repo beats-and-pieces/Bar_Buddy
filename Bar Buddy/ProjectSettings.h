@@ -11,5 +11,12 @@ extern NSString *const MyThingNotificationKey;
 //CGFloat *const UserpicRoundRadius;
 extern CGFloat const UserpicRoundRadius;
 extern CGFloat const UserCellInsets;
+extern CGFloat const FilterCollectionViewEdgeInset;
+
+
+
 extern NSString *const BarBuddyAPIURL;
+
+extern NSString *const UserTableViewTabBarItemTitle;
+extern NSString *const PlaceholderFilename;
 

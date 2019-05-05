@@ -11,8 +11,8 @@
 #import "UserTableViewCell.h"
 #import "FilterCollectionViewCell.h"
 #import "DataManagerProtocol.h"
+#import "ProjectSettings.h"
 
-//#import "User.h"
 
 @interface UserTableViewController () <UITableViewDataSource, UITableViewDelegate, DataManagerProtocol, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -37,12 +37,7 @@
     return self;
 }
 
-#pragma mark - ViewControllerFactoryProtocol
 
-- (NSString *)getTabBarItemTitle
-{
-    return @"Список пользователей";
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -95,7 +90,7 @@
     NSString *title = self.dataManager.users[indexPath.row].displayedName;
     cell.usernameLabel.text = title;
     cell.descriptionLabel.text = [NSString stringWithFormat:@"%i", self.dataManager.users[indexPath.row].preferredDrink];
-    cell.userpicImageView.image = [UIImage imageNamed:@"placeholder.png"];
+    cell.userpicImageView.image = [UIImage imageNamed:PlaceholderFilename];
     
     NSString *userpicURL = self.dataManager.users[indexPath.row].userpicURL;
     
@@ -172,6 +167,13 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return CGSizeMake((self.view.bounds.size.width - 5 * 15 ) / 3, 32);
+}
+
+#pragma mark - ViewControllerFactoryProtocol
+
+- (NSString *)getTabBarItemTitle
+{
+    return UserTableViewTabBarItemTitle;
 }
 
 @end
