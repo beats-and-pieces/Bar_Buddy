@@ -7,11 +7,6 @@
 //
 
 #import "DataManager.h"
-//#import "DataManagerProtocol.h"
-//#import "NetworkService.h"
-//#import "CoreDataService.h"
-//#import "User.h"
-//#import "JSONAdapter.h"
 #import "User+CoreDataClass.h"
 #import "AppDelegate.h"
 
@@ -59,15 +54,6 @@
 - (void)loadingIsDoneWithDataRecieved:(NSArray *)dataRecieved
 {
     NSLog(@"loadingIsDoneWithDataRecieved");
-//    NSMutableArray *tempArray  = [NSMutableArray new];
-//    for (NSDictionary *userData in dataRecieved)
-//    {
-//        JSONAdapter *adapter = [[JSONAdapter alloc] initWithJSON:userData];
-////        NSLog(@"user %@", userData[@"preferred_drink"]);
-//        User *user = [[User alloc] initWithJSON:adapter];
-////        NSLog(@"user %d", user.preferredDrink);
-//        [tempArray addObject:user];
-//    }
     
     dispatch_async(dispatch_get_main_queue(), ^{
         NSLog(@"Saving data!");
@@ -77,6 +63,17 @@
     });
     
 }
+
+- (void)dowloadUserpicFromURL:(NSString *)urlString forIndexPath:(NSIndexPath *)indexPath
+{
+    [self.networkService dowloadUserpicFromURL:urlString forIndexPath:indexPath];
+}
+
+- (void)userpicIsLoadedWithDataReceived:(NSData *)data forIndexPath:(NSIndexPath *)indexPath
+{
+    [self.delegate setUserpicForCellAtIndexPath:indexPath withData:data];
+}
+
 
 - (void)updateFilteredResultsWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType;
 {

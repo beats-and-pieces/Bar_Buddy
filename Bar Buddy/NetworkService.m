@@ -8,6 +8,7 @@
 
 #import "NetworkService.h"
 #import "NetworkServiceInputProtocol.h"
+#import "ProjectSettings.h"
 
 @interface NetworkService () <NetworkServiceInputProtocol>
 
@@ -26,22 +27,36 @@
     }
     return self;
 }
+
+
 #pragma mark - NetworkServiceIntputProtocol
+
+- (void)dowloadUserpicFromURL:(NSString *)urlString forIndexPath:(NSIndexPath *)indexPath
+{
+    NSURLRequest *request = [self createRequestForURL:urlString];
+    
+    NSCachedURLResponse *cachedResponse = [[NSURLCache sharedURLCache] cachedResponseForRequest:request];
+    if (cachedResponse.data)
+    {
+        [self.output userpicIsLoadedWithDataReceived:cachedResponse.data forIndexPath:indexPath];
+    } else {
+        NSURLSessionTask *task = [[self createSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
+                                  {
+                                      if (data) {
+                                          [self.output userpicIsLoadedWithDataReceived:data forIndexPath:indexPath];
+                                      } else
+                                      {
+                                          NSLog(@"couldn't get data");
+                                      }
+                                  }];
+        [task resume];
+    }
+}
 
 - (void)fetchUserData
 {
-    NSString *urlString = [NSString stringWithFormat:@"http://private-4df08-barbuddy.apiary-mock.com/users"];
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString: urlString]];
-    [request setHTTPMethod:@"GET"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setTimeoutInterval:15];
-    
-    NSURLSession *session;
-    session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    
-    
+    NSURLSession *session = [self createSession];
+    NSURLRequest *request = [self createRequestForURL:BarBuddyAPIURL];
     NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         if (!error)
@@ -57,5 +72,20 @@
         }
     }];
     [sessionDataTask resume];
+}
+
+- (NSURLSession *)createSession
+{
+    return [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+}
+
+- (NSMutableURLRequest *)createRequestForURL:(NSString *)urlString
+{
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString: urlString]];
+    [request setHTTPMethod:@"GET"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setTimeoutInterval:15];
+    return request;
 }
 @end

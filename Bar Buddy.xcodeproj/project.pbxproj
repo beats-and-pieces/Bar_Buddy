@@ -26,11 +26,12 @@
 		3A5D1F5C227711A900842DF3 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F4D227711A800842DF3 /* AccountViewController.m */; };
 		3A5D1F5D227711A900842DF3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F50227711A800842DF3 /* MapViewController.m */; };
 		3A5D1F5E227711A900842DF3 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F54227711A900842DF3 /* DataManager.m */; };
+		3A6DCB6D227EF2C8000185CE /* ProjectSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */; };
 		3AC4D2DE2277214600084A1B /* CoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC4D2DD2277214600084A1B /* CoreDataService.m */; };
+		3ADB5313227DF7A40091B053 /* sdagsfh.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADB5312227DF7A40091B053 /* sdagsfh.m */; };
 		3AEEC6FF2279941100755100 /* Assembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC6FE2279941100755100 /* Assembly.m */; };
 		3AEEC7022279975F00755100 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC7012279975F00755100 /* CoreDataStack.m */; };
 		3AEEC7052279B28000755100 /* ViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC7042279B28000755100 /* ViewControllerFactory.m */; };
-		3AEEC708227A155F00755100 /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC707227A155F00755100 /* Importer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,17 +93,18 @@
 		3A5D1F54227711A900842DF3 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		3A5D1F55227711A900842DF3 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		3A5D1F56227711A900842DF3 /* UserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTableViewController.h; sourceTree = "<group>"; };
+		3A6DCB6B227EF2C8000185CE /* ProjectSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectSettings.h; sourceTree = "<group>"; };
+		3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectSettings.m; sourceTree = "<group>"; };
 		3A76F68D22775698002ADDE7 /* CoreDataServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataServiceProtocol.h; sourceTree = "<group>"; };
 		3AC4D2DC2277214600084A1B /* CoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataService.h; sourceTree = "<group>"; };
 		3AC4D2DD2277214600084A1B /* CoreDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataService.m; sourceTree = "<group>"; };
+		3ADB5312227DF7A40091B053 /* sdagsfh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sdagsfh.m; sourceTree = "<group>"; };
 		3AEEC6FD2279941100755100 /* Assembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Assembly.h; sourceTree = "<group>"; };
 		3AEEC6FE2279941100755100 /* Assembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Assembly.m; sourceTree = "<group>"; };
 		3AEEC7002279975F00755100 /* CoreDataStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
 		3AEEC7012279975F00755100 /* CoreDataStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
 		3AEEC7032279B28000755100 /* ViewControllerFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerFactory.h; sourceTree = "<group>"; };
 		3AEEC7042279B28000755100 /* ViewControllerFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControllerFactory.m; sourceTree = "<group>"; };
-		3AEEC706227A155F00755100 /* Importer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Importer.h; sourceTree = "<group>"; };
-		3AEEC707227A155F00755100 /* Importer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Importer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,11 +155,13 @@
 		3A5D1F0A2277115D00842DF3 /* Bar Buddy */ = {
 			isa = PBXGroup;
 			children = (
+				3A5D1F402277118600842DF3 /* AppDelegate.h */,
+				3A5D1F412277118700842DF3 /* AppDelegate.m */,
+				3A6DCB6B227EF2C8000185CE /* ProjectSettings.h */,
+				3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */,
 				3A5D1F61227711FA00842DF3 /* View */,
 				3A5D1F632277125A00842DF3 /* Controller */,
 				3A5D1F642277126D00842DF3 /* Model */,
-				3A5D1F402277118600842DF3 /* AppDelegate.h */,
-				3A5D1F412277118700842DF3 /* AppDelegate.m */,
 				3A5D1F172277115E00842DF3 /* Assets.xcassets */,
 				3A5D1F662277132E00842DF3 /* Supporting Files */,
 				3A5D1F192277115E00842DF3 /* LaunchScreen.storyboard */,
@@ -213,6 +217,7 @@
 				3AEEC6FD2279941100755100 /* Assembly.h */,
 				3AEEC6FE2279941100755100 /* Assembly.m */,
 				3AEEC7032279B28000755100 /* ViewControllerFactory.h */,
+				3ADB5312227DF7A40091B053 /* sdagsfh.m */,
 				3AEEC7042279B28000755100 /* ViewControllerFactory.m */,
 			);
 			name = Controller;
@@ -221,11 +226,11 @@
 		3A5D1F642277126D00842DF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3AC4D2DB2277204000084A1B /* CoreData Entity */,
 				3A31E17E227AE1CB00F7F1FA /* PushService.h */,
 				3A31E17D227AE1CB00F7F1FA /* PushService.m */,
 				3AEEC7002279975F00755100 /* CoreDataStack.h */,
 				3AEEC7012279975F00755100 /* CoreDataStack.m */,
-				3AC4D2DB2277204000084A1B /* CoreData Entity */,
 				3A5D1F652277131000842DF3 /* Services */,
 			);
 			name = Model;
@@ -236,8 +241,6 @@
 			children = (
 				3A5D1F48227711A700842DF3 /* DataManager.h */,
 				3A5D1F54227711A900842DF3 /* DataManager.m */,
-				3AEEC706227A155F00755100 /* Importer.h */,
-				3AEEC707227A155F00755100 /* Importer.m */,
 				3AC4D2DC2277214600084A1B /* CoreDataService.h */,
 				3AC4D2DD2277214600084A1B /* CoreDataService.m */,
 				3A76F68D22775698002ADDE7 /* CoreDataServiceProtocol.h */,
@@ -397,8 +400,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AEEC708227A155F00755100 /* Importer.m in Sources */,
 				3A5D1F57227711A900842DF3 /* UserTableViewCell.m in Sources */,
+				3ADB5313227DF7A40091B053 /* sdagsfh.m in Sources */,
 				3A5D1F1E2277115E00842DF3 /* main.m in Sources */,
 				3AEEC7022279975F00755100 /* CoreDataStack.m in Sources */,
 				3AEEC6FF2279941100755100 /* Assembly.m in Sources */,
@@ -409,6 +412,7 @@
 				3A5D1F5A227711A900842DF3 /* UserTableViewController.m in Sources */,
 				3A5D1F422277118700842DF3 /* AppDelegate.m in Sources */,
 				3A5D1F5D227711A900842DF3 /* MapViewController.m in Sources */,
+				3A6DCB6D227EF2C8000185CE /* ProjectSettings.m in Sources */,
 				3A31E188227C6F2D00F7F1FA /* UserTableView.m in Sources */,
 				3A5D1F5B227711A900842DF3 /* NetworkService.m in Sources */,
 				3A31E185227B128300F7F1FA /* FilterCollectionViewCell.m in Sources */,

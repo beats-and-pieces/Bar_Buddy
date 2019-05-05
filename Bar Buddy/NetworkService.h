@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id<NetworkServiceOutputProtocol> output; /**< Делегат внешних событий */
 
 - (void)fetchUserData;
+- (void)dowloadUserpicFromURL:(NSString *)urlString forIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

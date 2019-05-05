@@ -12,9 +12,6 @@
 #include <stdlib.h>
 @import UserNotifications;
 
-
-//static const NSString *identifierForActions = @"LCTReminderCategory";
-
 typedef NS_ENUM(NSInteger, LCTTriggerType) {
     LCTTriggerTypeInterval = 0
 };
@@ -30,10 +27,7 @@ typedef NS_ENUM(NSInteger, LCTTriggerType) {
 {
     self = [super init];
     if (self) {
-//        [self requestPermissionForPushForDelegate];
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-        
-        // Устанавливаем делегат
         center.delegate = delegate;
         
         // Указываем тип пушей для работы
@@ -49,28 +43,6 @@ typedef NS_ENUM(NSInteger, LCTTriggerType) {
                               }];
     }
     return self;
-}
-
-
-- (void)requestPermissionForPushForDelegate
-{
-    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-    
-    // Устанавливаем делегат
-    center.delegate = self;
-    
-    // Указываем тип пушей для работы
-    UNAuthorizationOptions options = UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge;
-    
-    // Запрашиваем доступ на работу с пушами
-    [center requestAuthorizationWithOptions:options
-                          completionHandler:^(BOOL granted, NSError * _Nullable error) {
-                              if (!granted)
-                              {
-                                  NSLog(@"Доступ не дали");
-                              }
-                          }];
-    
 }
 
 - (void)sheduleLocalNotification

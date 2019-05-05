@@ -33,13 +33,10 @@
     {
         User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.coreDataContext];
      
-        
-        
         NSString *displayedName = json[@"displayed_name"];
         NSString *userName = json[@"user_name"];
+        NSString *userpicURL = json[@"userpic_url"];
         NSInteger preferredDrink = [json[@"preferred_drink"] intValue];
-        //        NSLog(@"preferred_drink %@", json[@"preferred_drink"]);
-        //        NSLog(@"preferredDrink %ld", (long)preferredDrink);
         NSInteger preferredCompany = [json[@"preferred_company"] integerValue];
         NSString *latitude = json[@"latitude"];
         NSString *longitude = json[@"longitude"];
@@ -51,19 +48,11 @@
         
         user.displayedName = displayedName;
         user.userName = userName;
+        user.userpicURL = userpicURL;
         user.preferredDrink = preferredDrink;
         user.preferredCompany = preferredCompany;
-        
         user.locationLatitude = longitudeFloat;
         user.locationLongitude = latitudeFloat;
-        
-//        _locationLongitude = longitudeFloat;
-//        _locationLatitude = latitudeFloat;
-//        _preferredDrink = preferredDrink;
-//        _preferredCompany = preferredCompany;
-//        _displayedName = displayedName;
-//        _userName = userName;
-        
         
         NSError *error = nil;
         if (![user.managedObjectContext save:&error])
@@ -73,8 +62,6 @@
         }
         else
         {
-            
-            
             NSLog(@"Core Data saved!");
         }
         
@@ -119,13 +106,6 @@
 - (NSManagedObjectContext *)coreDataContext
 {
     UIApplication *application = [UIApplication sharedApplication];
-    
-    //    CoreDataStack *coreDataStack = [CoreDataStack new];
-    //        NSLog(@"getLocalData");
-    //        [self.delegate updateData];
-    
-    
-    //    NSPersistentContainer *container = coreDataStack.persistentContainer;
     NSPersistentContainer *container = ((AppDelegate *)(application.delegate)).persistentContainer;
     NSManagedObjectContext *context = container.viewContext;
     
@@ -152,8 +132,6 @@
     return fetchRequest;
 }
 
-
-
 - (NSFetchedResultsController *)fetchedResultsController
 {
     
@@ -173,9 +151,6 @@
     NSError *error;
     NSFetchedResultsController *theFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.coreDataContext sectionNameKeyPath:nil cacheName:@"Root"];
     self.fetchedResultsController = theFetchedResultsController;
-    
-    
-    
     
     _fetchedResultsController.delegate = self;
     

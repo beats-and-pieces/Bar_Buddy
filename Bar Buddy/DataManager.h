@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getDataFromServer;
 - (void)loadData;
 - (void)updateFilteredResultsWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType;
-
+- (void)dowloadUserpicFromURL:(NSString *)urlString forIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

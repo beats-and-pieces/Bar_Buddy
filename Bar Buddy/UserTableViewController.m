@@ -32,6 +32,7 @@
     self = [super init];
     if (self) {
         _dataManager = dataManager;
+        _dataManager.delegate = self;
     }
     return self;
 }
@@ -47,7 +48,7 @@
     [super viewDidLoad];
     [self createView];
     
-    self.dataManager.delegate = self;
+    
     [self.dataManager loadData];
 }
 
@@ -86,15 +87,36 @@
     return self.dataManager.users ? self.dataManager.users.count : 0;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     UserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UserTableViewCell class])];
     NSString *title = self.dataManager.users[indexPath.row].displayedName;
-    cell.titleLabel.text = title;
+    cell.usernameLabel.text = title;
     cell.descriptionLabel.text = [NSString stringWithFormat:@"%i", self.dataManager.users[indexPath.row].preferredDrink];
+    cell.userpicImageView.image = [UIImage imageNamed:@"placeholder.png"];
     
+    NSString *userpicURL = self.dataManager.users[indexPath.row].userpicURL;
+    
+    [self.dataManager dowloadUserpicFromURL:userpicURL forIndexPath:indexPath];
+
     return cell;
+}
+
+- (void)setUserpicForCellAtIndexPath:(NSIndexPath *)indexPath withData:(NSData *)data
+{
+    UIImage *image = [UIImage imageWithData:data];
+    if (image) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UserTableViewCell *updateCell = (id)[self.tableView cellForRowAtIndexPath:indexPath];
+            if (updateCell)
+                updateCell.userpicImageView.image = image;
+        });
+    } else
+    {
+        NSLog(@"couldn't get image");
+    }
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -115,10 +137,7 @@
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return CGSizeMake((self.view.bounds.size.width - 5 * 15 ) / 3, 32);
-}
+
 
 
 //- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -149,4 +168,10 @@
     }
     [self.dataManager updateFilteredResultsWithDrinkType:self.preferredDrink withCompanyType:self.preferredCompany];
 }
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake((self.view.bounds.size.width - 5 * 15 ) / 3, 32);
+}
+
 @end

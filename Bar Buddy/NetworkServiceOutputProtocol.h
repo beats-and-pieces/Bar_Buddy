@@ -9,7 +9,7 @@
 @protocol NetworkServiceOutputProtocol <NSObject>
 
 - (void)loadingIsDoneWithDataRecieved:(NSArray *)dataRecieved;
-
+- (void)userpicIsLoadedWithDataReceived:(NSData *)data forIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
