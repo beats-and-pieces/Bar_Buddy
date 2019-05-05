@@ -7,6 +7,7 @@
 //
 
 #import "FilterCollectionViewCell.h"
+#import "ProjectSettings.h"
 
 @interface FilterCollectionViewCell ()
 
@@ -23,8 +24,8 @@
 //        _imageView.frame = CGRectMake(8, 8, frame.size.width - 16, frame.size.height - 30);
 //
 //        _imageView.contentMode = UIViewContentModeScaleAspectFit;
-//        _imageView.layer.masksToBounds = YES;
-        _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(8, frame.size.height - 30, frame.size.width - 16, 30)];
+
+        _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(FilterCollectionViewCellLabelInset, frame.size.height - FilterCollectionViewCellLabelHeight, frame.size.width - FilterCollectionViewCellLabelInset * 2, FilterCollectionViewCellLabelHeight)];
         _nameLabel.textAlignment = NSTextAlignmentCenter;
         _nameLabel.textColor = [UIColor whiteColor];
         _nameLabel.text = @"Test";

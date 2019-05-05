@@ -9,7 +9,7 @@
 #import "MapViewController.h"
 #import <MapKit/MapKit.h>
 #import "ProjectSettings.h"
-#import "User+CoreDataClass.h"
+//#import "User+CoreDataClass.h"
 
 @interface MapViewController () <MKMapViewDelegate>
 
@@ -23,10 +23,7 @@
 
 @implementation MapViewController
 
-- (NSString *)getTabBarItemTitle
-{
-    return @"На карте";
-}
+
 
 - (instancetype)initWithDataManager:(DataManager *)dataManager
 {
@@ -54,7 +51,7 @@
     zoomLocation.longitude= 37.531409;
 
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 5*METERS_PER_MILE, 5*METERS_PER_MILE);
-    
+    self.mapView.zoomEnabled = YES;
     [self.mapView setRegion:viewRegion animated:YES];
 }
 
@@ -89,6 +86,13 @@
     // set your custom image
     annotationView.image = [UIImage imageNamed:PlaceholderFilename];
     return annotationView;
+}
+
+#pragma mark - ViewControllerFactoryProtocol
+
+- (NSString *)getTabBarItemTitle
+{
+    return MapViewTabBarItemTitle;
 }
 
 @end

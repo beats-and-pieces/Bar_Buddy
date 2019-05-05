@@ -38,22 +38,31 @@
         NSString *userpicURL = json[@"userpic_url"];
         NSInteger preferredDrink = [json[@"preferred_drink"] intValue];
         NSInteger preferredCompany = [json[@"preferred_company"] integerValue];
-        NSString *latitude = json[@"latitude"];
-        NSString *longitude = json[@"longitude"];
+//        NSString *latitude = json[@"latitude"];
+//        NSString *longitude = json[@"longitude"];
+//        NSNumber *latitude = json[@"latitude"];
+        NSNumber *latitude = [NSNumber numberWithFloat: [json[@"latitude"] floatValue]];
+        NSNumber *longitude = [NSNumber numberWithFloat: [json[@"longitude"] floatValue]];
+//        NSString *longitude = json[@"longitude"];
         
+
         NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
         numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-        float longitudeFloat = [numberFormatter numberFromString: longitude].floatValue;
-        float latitudeFloat = [numberFormatter numberFromString: latitude].floatValue;
         
+//        float latitudeFloat = [numberFormatter numberFromString: latitude].floatValue;
+//        float longitudeFloat = [numberFormatter numberFromString: longitude].floatValue;
+//
         user.displayedName = displayedName;
         user.userName = userName;
         user.userpicURL = userpicURL;
         user.preferredDrink = preferredDrink;
         user.preferredCompany = preferredCompany;
-        user.locationLatitude = longitudeFloat;
-        user.locationLongitude = latitudeFloat;
-        
+//        user.locationLatitude = latitudeFloat;
+//        user.locationLongitude = longitudeFloat;
+
+        user.locationLatitude = latitude.doubleValue;
+        user.locationLongitude = longitude.doubleValue;
+
         NSError *error = nil;
         if (![user.managedObjectContext save:&error])
         {
@@ -91,8 +100,8 @@
     //    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"userName CONTAINS %@ OR preferredDrink CONTAINS %@", @"vasiliy12345", @2];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"preferredDrink == %d", drinkType];
     
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"userName" ascending:NO];
-    fetchRequest.sortDescriptors = @[sortDescriptor];
+//    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"userName" ascending:NO];
+//    fetchRequest.sortDescriptors = @[sortDescriptor];
     
     
     NSError *error = nil;
@@ -123,12 +132,10 @@
 - (NSFetchRequest *)fetchRequest
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-    //    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"userName CONTAINS %@ OR preferredDrink CONTAINS %@", @"vasiliy12345", @2];
-    //    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"userName CONTAINS %@", @"sema124"];
     
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"userName" ascending:NO];
-    fetchRequest.sortDescriptors = @[sortDescriptor];
-    
+//    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"userName" ascending:NO];
+//    fetchRequest.sortDescriptors = @[sortDescriptor];
+//
     return fetchRequest;
 }
 

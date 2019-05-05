@@ -7,16 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-extern NSString *const MyThingNotificationKey;
-//CGFloat *const UserpicRoundRadius;
+
 extern CGFloat const UserpicRoundRadius;
 extern CGFloat const UserCellInsets;
 extern CGFloat const FilterCollectionViewEdgeInset;
-
-
+extern CGFloat const FilterCollectionViewCellLabelHeight;
+extern CGFloat const FilterCollectionViewCellLabelInset;
 
 extern NSString *const BarBuddyAPIURL;
 
 extern NSString *const UserTableViewTabBarItemTitle;
+extern NSString *const MapViewTabBarItemTitle;
+
 extern NSString *const PlaceholderFilename;
 

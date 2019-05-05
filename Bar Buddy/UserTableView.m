@@ -18,7 +18,6 @@
     if (self) {
         [self setupCollectionViewForAFrame:frame];
         [self setupTableForAFrame:frame];
-
     }
     return self;
 }
@@ -30,7 +29,7 @@
     //    layout.headerReferenceSize = CGSizeMake(self.view.frame.size.width, 30);
     //    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderViewIdentifier"];
     
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height) collectionViewLayout:layout];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height - (32 * 2 + FilterCollectionViewEdgeInset * 2)) collectionViewLayout:layout];
     layout.sectionInset = UIEdgeInsetsMake(FilterCollectionViewEdgeInset, FilterCollectionViewEdgeInset, FilterCollectionViewEdgeInset, FilterCollectionViewEdgeInset);
     
     [self.collectionView setBackgroundColor:[UIColor colorWithRed: 143.0/255.0 green:174.0/255 blue:224.0/255 alpha: 1.0]];
@@ -41,15 +40,10 @@
 
 - (void)setupTableForAFrame:(CGRect)frame
 {
-    //    self.view.backgroundColor = UIColor.redColor;
     self.tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
-    self.tableView.frame = CGRectMake(0, 32 * 2 + 15 * 2, frame.size.width, frame.size.height - 32 * 2 + 15 * 2);
+    self.tableView.frame = CGRectMake(0, 32 * 2 + FilterCollectionViewEdgeInset * 2, frame.size.width, frame.size.height - 32 * 2 + FilterCollectionViewEdgeInset * 2);
     
     [self addSubview:self.tableView];
-    
-    
-    
-    
 }
 
 @end

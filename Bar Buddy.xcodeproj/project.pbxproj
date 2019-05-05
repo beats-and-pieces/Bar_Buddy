@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3A31E17F227AE1CB00F7F1FA /* PushService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E17D227AE1CB00F7F1FA /* PushService.m */; };
-		3A31E182227B122300F7F1FA /* FilterCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E181227B122300F7F1FA /* FilterCollectionView.m */; };
 		3A31E185227B128300F7F1FA /* FilterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E183227B128300F7F1FA /* FilterCollectionViewCell.m */; };
 		3A31E188227C6F2D00F7F1FA /* UserTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E187227C6F2D00F7F1FA /* UserTableView.m */; };
 		3A31E193227C847200F7F1FA /* User+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E191227C847200F7F1FA /* User+CoreDataClass.m */; };
@@ -23,7 +22,6 @@
 		3A5D1F57227711A900842DF3 /* UserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F44227711A700842DF3 /* UserTableViewCell.m */; };
 		3A5D1F5A227711A900842DF3 /* UserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F4B227711A800842DF3 /* UserTableViewController.m */; };
 		3A5D1F5B227711A900842DF3 /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F4C227711A800842DF3 /* NetworkService.m */; };
-		3A5D1F5C227711A900842DF3 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F4D227711A800842DF3 /* AccountViewController.m */; };
 		3A5D1F5D227711A900842DF3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F50227711A800842DF3 /* MapViewController.m */; };
 		3A5D1F5E227711A900842DF3 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F54227711A900842DF3 /* DataManager.m */; };
 		3A6DCB6D227EF2C8000185CE /* ProjectSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */; };
@@ -53,8 +51,6 @@
 /* Begin PBXFileReference section */
 		3A31E17D227AE1CB00F7F1FA /* PushService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushService.m; sourceTree = "<group>"; };
 		3A31E17E227AE1CB00F7F1FA /* PushService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushService.h; sourceTree = "<group>"; };
-		3A31E180227B122300F7F1FA /* FilterCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterCollectionView.h; sourceTree = "<group>"; };
-		3A31E181227B122300F7F1FA /* FilterCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterCollectionView.m; sourceTree = "<group>"; };
 		3A31E183227B128300F7F1FA /* FilterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterCollectionViewCell.m; sourceTree = "<group>"; };
 		3A31E184227B128300F7F1FA /* FilterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterCollectionViewCell.h; sourceTree = "<group>"; };
 		3A31E186227C6F2D00F7F1FA /* UserTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserTableView.h; sourceTree = "<group>"; };
@@ -80,10 +76,8 @@
 		3A5D1F43227711A700842DF3 /* NetworkServiceOutputProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkServiceOutputProtocol.h; sourceTree = "<group>"; };
 		3A5D1F44227711A700842DF3 /* UserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTableViewCell.m; sourceTree = "<group>"; };
 		3A5D1F48227711A700842DF3 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
-		3A5D1F4A227711A800842DF3 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		3A5D1F4B227711A800842DF3 /* UserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTableViewController.m; sourceTree = "<group>"; };
 		3A5D1F4C227711A800842DF3 /* NetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkService.m; sourceTree = "<group>"; };
-		3A5D1F4D227711A800842DF3 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		3A5D1F4E227711A800842DF3 /* NetworkServiceInputProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkServiceInputProtocol.h; sourceTree = "<group>"; };
 		3A5D1F4F227711A800842DF3 /* UserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTableViewCell.h; sourceTree = "<group>"; };
 		3A5D1F50227711A800842DF3 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
@@ -193,8 +187,6 @@
 			children = (
 				3A31E186227C6F2D00F7F1FA /* UserTableView.h */,
 				3A31E187227C6F2D00F7F1FA /* UserTableView.m */,
-				3A31E180227B122300F7F1FA /* FilterCollectionView.h */,
-				3A31E181227B122300F7F1FA /* FilterCollectionView.m */,
 				3A5D1F4F227711A800842DF3 /* UserTableViewCell.h */,
 				3A5D1F44227711A700842DF3 /* UserTableViewCell.m */,
 				3A31E184227B128300F7F1FA /* FilterCollectionViewCell.h */,
@@ -206,8 +198,6 @@
 		3A5D1F632277125A00842DF3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3A5D1F4A227711A800842DF3 /* AccountViewController.h */,
-				3A5D1F4D227711A800842DF3 /* AccountViewController.m */,
 				3A5D1F55227711A900842DF3 /* MapViewController.h */,
 				3A5D1F50227711A800842DF3 /* MapViewController.m */,
 				3A5D1F56227711A900842DF3 /* UserTableViewController.h */,
@@ -404,7 +394,6 @@
 				3A31E194227C847200F7F1FA /* User+CoreDataProperties.m in Sources */,
 				3A31E17F227AE1CB00F7F1FA /* PushService.m in Sources */,
 				3A5D1F162277115D00842DF3 /* Bar_Buddy.xcdatamodeld in Sources */,
-				3A5D1F5C227711A900842DF3 /* AccountViewController.m in Sources */,
 				3A5D1F5A227711A900842DF3 /* UserTableViewController.m in Sources */,
 				3A5D1F422277118700842DF3 /* AppDelegate.m in Sources */,
 				3A5D1F5D227711A900842DF3 /* MapViewController.m in Sources */,
@@ -416,7 +405,6 @@
 				3AEEC7052279B28000755100 /* ViewControllerFactory.m in Sources */,
 				3A5D1F5E227711A900842DF3 /* DataManager.m in Sources */,
 				3AC4D2DE2277214600084A1B /* CoreDataService.m in Sources */,
-				3A31E182227B122300F7F1FA /* FilterCollectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
