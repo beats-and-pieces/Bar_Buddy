@@ -22,6 +22,7 @@
 
 @property (nonatomic) NSInteger preferredDrink;
 @property (nonatomic) NSInteger preferredCompany;
+@property (nonatomic, copy) NSArray<NSString *> *drinkFilterValues;
 
 @end
 
@@ -33,6 +34,7 @@
     if (self) {
         _dataManager = dataManager;
         _dataManager.delegate = self;
+        _drinkFilterValues = @[@"🍺", @"🍷", @"🥃"];
     }
     return self;
 }
@@ -86,14 +88,19 @@
 {
     
     UserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UserTableViewCell class])];
-
+    
     cell.usernameLabel.text = self.dataManager.users[indexPath.row].displayedName;
-    cell.descriptionLabel.text = [NSString stringWithFormat:@"%i", self.dataManager.users[indexPath.row].preferredDrink];
-    cell.userpicImageView.image = [UIImage imageNamed:PlaceholderFilename];
+    //    cell.descriptionLabel.text = [NSString stringWithFormat:@"%i", self.dataManager.users[indexPath.row].preferredDrink];
+    cell.descriptionLabel.text = self.drinkFilterValues[self.dataManager.users[indexPath.row].preferredDrink - 1];
+    if (!cell.userpicImageView.image)
+    {
+        cell.userpicImageView.image = [UIImage imageNamed:PlaceholderFilename];
+        
+    }
     
     NSString *userpicURL = self.dataManager.users[indexPath.row].userpicURL;
     [self.dataManager dowloadUserpicFromURL:userpicURL forIndexPath:indexPath];
-
+    
     return cell;
 }
 
@@ -124,9 +131,12 @@
     return 2;
 }
 
+//forrow
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     FilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class]) forIndexPath:indexPath];
+    cell.nameLabel.text = self.drinkFilterValues[indexPath.row];
     return cell;
 }
 

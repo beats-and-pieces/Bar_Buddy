@@ -33,6 +33,7 @@
     layout.sectionInset = UIEdgeInsetsMake(FilterCollectionViewEdgeInset, FilterCollectionViewEdgeInset, FilterCollectionViewEdgeInset, FilterCollectionViewEdgeInset);
     
     [self.collectionView setBackgroundColor:[UIColor colorWithRed: 143.0/255.0 green:174.0/255 blue:224.0/255 alpha: 1.0]];
+    [self.collectionView setAlpha:0.7];
     
     [self addSubview:self.collectionView];
     
