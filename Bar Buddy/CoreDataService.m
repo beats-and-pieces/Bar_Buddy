@@ -17,6 +17,7 @@
 
 @property (nonatomic, strong) NSManagedObjectContext *coreDataContext;
 @property (nonatomic, strong) NSFetchRequest *fetchRequest;
+@property (nonatomic) NSArray *users;
 
 @end
 
@@ -72,24 +73,26 @@
 
 - (NSArray<User *> *)getUserData
 {
-    //    NSArray *users = [self updatedArray];
-    //    [self.coreDataContext performBlockAndWait:^() {
-    NSError *error = nil;
-    return [self.coreDataContext executeFetchRequest:self.fetchRequest ? : [User fetchRequest] error:&error];
-    //    }];
+    [self.coreDataContext performBlockAndWait:^() {
+        NSError *error = nil;
+        self.users = [self.coreDataContext executeFetchRequest:self.fetchRequest ? : [User fetchRequest] error:&error];
+        
+    }];
+    return self.users;
 }
 
 - (NSArray<User *> *)getFilteredUsersWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType
 {
     
     self.fetchRequest.predicate = [NSPredicate predicateWithFormat:@"preferredDrink == %d", drinkType];
-    //    [self.coreDataContext performBlockAndWait:^() {
-    NSError *error = nil;
-    NSArray *result = [self.coreDataContext executeFetchRequest:self.fetchRequest ? : [User fetchRequest] error:&error];
-    //        NSLog(@"there are %ld users with drink %lu", (long)result.count, drinkType);
-    return result;
-    //    }]
-    ;
+    [self.coreDataContext performBlockAndWait:^() {
+        NSError *error = nil;
+        self.users = [self.coreDataContext executeFetchRequest:self.fetchRequest ? : [User fetchRequest] error:&error];
+        //        NSLog(@"there are %ld users with drink %lu", (long)result.count, drinkType);
+        
+    }];
+    return self.users;
+    
     
 }
 
