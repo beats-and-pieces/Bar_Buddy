@@ -11,7 +11,7 @@
 
 @interface PushService : NSObject
 
-- (void)sheduleLocalNotification;
+- (void)scheduleLocalNotification;
 - (instancetype)initForNotificationDelegate:(id<UNUserNotificationCenterDelegate>)delegate;
 
 @end

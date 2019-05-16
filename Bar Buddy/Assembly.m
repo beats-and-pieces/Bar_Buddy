@@ -21,48 +21,55 @@
 
 @implementation Assembly
 
-- (UIViewController *)createRootViewController
+
+- (instancetype)init
 {
-    PushService *pushService = [[PushService alloc] initForNotificationDelegate:self];
-    self.pushService = pushService;
-    CoreDataStack *coreDataStack = [CoreDataStack new];
-//    CoreDataService *coreDataService = [CoreDataService new];
-    CoreDataService *coreDataService = [[CoreDataService alloc] initWithCoreDataStack:coreDataStack];
-    NetworkService *netWorkService = [NetworkService new];
-    DataManager *dataManager = [[DataManager alloc] initWithCoreDataService:coreDataService withNetworkService:netWorkService];
-    
-    ViewControllerFactory *userTableViewController = [[ViewControllerFactory alloc] initWithDataManager:dataManager type:UserTableViewType];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:userTableViewController];
-    navigationController.tabBarItem.title = [userTableViewController getTabBarItemTitle];
-    
-    ViewControllerFactory *mapViewController = [[ViewControllerFactory alloc] initWithDataManager:dataManager type:MapType];
-    mapViewController.tabBarItem.title = [mapViewController getTabBarItemTitle];
-    
-    UITabBarController *tabBarViewController = [UITabBarController new];
-    NSArray *viewControllerArray = @[navigationController, mapViewController];
-    tabBarViewController.viewControllers = viewControllerArray;
-    tabBarViewController.tabBar.translucent = YES;
-    tabBarViewController.tabBar.tintColor = [UIColor whiteColor];
-    tabBarViewController.tabBar.barTintColor = [UIColor blackColor];
-    self.tabBarController = tabBarViewController;
-    
-    return tabBarViewController;
+    self = [super init];
+    if (self) {
+        PushService *pushService = [[PushService alloc] initForNotificationDelegate:self];
+        self.pushService = pushService;
+        CoreDataStack *coreDataStack = [CoreDataStack new];
+        CoreDataService *coreDataService = [[CoreDataService alloc] initWithCoreDataStack:coreDataStack];
+        NetworkService *netWorkService = [NetworkService new];
+        DataManager *dataManager = [[DataManager alloc] initWithCoreDataService:coreDataService withNetworkService:netWorkService];
+        
+        ViewControllerFactory *userTableViewController = [[ViewControllerFactory alloc] initWithDataManager:dataManager type:UserTableViewType];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:userTableViewController];
+        navigationController.tabBarItem.title = [userTableViewController getTabBarItemTitle];
+        
+        ViewControllerFactory *mapViewController = [[ViewControllerFactory alloc] initWithDataManager:dataManager type:MapType];
+        mapViewController.tabBarItem.title = [mapViewController getTabBarItemTitle];
+        
+        UITabBarController *tabBarController = [UITabBarController new];
+        NSArray *viewControllerArray = @[navigationController, mapViewController];
+        tabBarController.viewControllers = viewControllerArray;
+        tabBarController.tabBar.translucent = YES;
+        tabBarController.tabBar.tintColor = [UIColor whiteColor];
+        tabBarController.tabBar.barTintColor = [UIColor blackColor];
+        self.tabBarController = tabBarController;
+    }
+    return self;
 }
 
-- (NSPersistentContainer *)createPersistentContainer
+- (UIViewController *)getRootViewController
 {
-    CoreDataStack *coreDataStack = [CoreDataStack new];
-    return coreDataStack.persistentContainer;
+    return self.tabBarController;
 }
+
 
 - (void)switchToMap
 {
     [self.tabBarController setSelectedIndex:1];
 }
 
-- (void)sheduleLocalNotification
+- (void)showLocationOfUser:(User *)user
 {
-    [self.pushService sheduleLocalNotification];
+    
+}
+
+- (void)scheduleLocalNotification
+{
+    [self.pushService scheduleLocalNotification];
 }
 
 #pragma mark - UNUserNotificationCenterDelegate

@@ -45,7 +45,13 @@ typedef NS_ENUM(NSInteger, LCTTriggerType) {
     return self;
 }
 
-- (void)sheduleLocalNotification
+
+- (void)scheduleDrinkRequestFromUser:(NSString *)userName
+{
+    
+}
+
+- (void)scheduleLocalNotification
 {
    
     UNMutableNotificationContent *content = [UNMutableNotificationContent new];

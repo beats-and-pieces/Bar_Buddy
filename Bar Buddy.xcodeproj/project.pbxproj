@@ -198,14 +198,14 @@
 		3A5D1F632277125A00842DF3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3A5D1F55227711A900842DF3 /* MapViewController.h */,
-				3A5D1F50227711A800842DF3 /* MapViewController.m */,
-				3A5D1F56227711A900842DF3 /* UserTableViewController.h */,
-				3A5D1F4B227711A800842DF3 /* UserTableViewController.m */,
 				3AEEC6FD2279941100755100 /* Assembly.h */,
 				3AEEC6FE2279941100755100 /* Assembly.m */,
 				3AEEC7032279B28000755100 /* ViewControllerFactory.h */,
 				3AEEC7042279B28000755100 /* ViewControllerFactory.m */,
+				3A5D1F55227711A900842DF3 /* MapViewController.h */,
+				3A5D1F50227711A800842DF3 /* MapViewController.m */,
+				3A5D1F56227711A900842DF3 /* UserTableViewController.h */,
+				3A5D1F4B227711A800842DF3 /* UserTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

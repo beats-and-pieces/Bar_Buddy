@@ -16,9 +16,9 @@
 
 
 - (instancetype)initWithCoreDataStack:(CoreDataStack *)coreDataStack;
+- (void)saveUserData:(NSArray *)users;
 
 - (NSArray<User *> *) getUserData;
-- (void)saveUserData:(NSArray *)users;
 - (NSArray<User *> *)getFilteredUsersWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType;
 
 @end

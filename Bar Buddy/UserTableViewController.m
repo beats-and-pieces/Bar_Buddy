@@ -52,7 +52,7 @@
 
 - (void)createView
 {
-    CGRect frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height - self.navigationController.navigationBar.bounds.size.height - self.tabBarController.tabBar.frame.size.height);
+    CGRect frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height - self.navigationController.navigationBar.bounds.size.height - self.tabBarController.tabBar.bounds.size.height);
     UserTableView *userTableView = [[UserTableView alloc] initWithFrame:frame];
     [self.view addSubview:userTableView];
     //    self.view = userTableView;
@@ -115,7 +115,8 @@
             if (updateCell)
                 updateCell.userpicImageView.image = image;
         });
-    } else
+    }
+    else
     {
         NSLog(@"couldn't get image");
     }
@@ -206,6 +207,11 @@
 
 #pragma mark - ViewControllerFactoryProtocol
 
+/**
+ Метод возвращает строку для отображения в Tab Bar контроллере
+
+ @return строка - название закладки данного контроллера для Tab Bar
+ */
 - (NSString *)getTabBarItemTitle
 {
     return UserTableViewTabBarItemTitle;

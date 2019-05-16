@@ -29,7 +29,8 @@
 - (instancetype)initWithCoreDataStack:(CoreDataStack *)coreDataStack
 {
     self = [super init];
-    if (self) {
+    if (self)
+    {
         _coreDataContext = coreDataStack.persistentContainer.viewContext;
     }
     return self;
@@ -43,37 +44,27 @@
     for (NSDictionary *json in users)
     {
         User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.coreDataContext];
-     
+        
         NSString *displayedName = json[@"displayed_name"];
         NSString *userName = json[@"user_name"];
         NSString *userpicURL = json[@"userpic_url"];
         NSInteger preferredDrink = [json[@"preferred_drink"] intValue];
         NSInteger preferredCompany = [json[@"preferred_company"] integerValue];
-//        NSString *latitude = json[@"latitude"];
-//        NSString *longitude = json[@"longitude"];
-//        NSNumber *latitude = json[@"latitude"];
         NSNumber *latitude = [NSNumber numberWithFloat: [json[@"latitude"] floatValue]];
         NSNumber *longitude = [NSNumber numberWithFloat: [json[@"longitude"] floatValue]];
-//        NSString *longitude = json[@"longitude"];
         
-
+        
         NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
         numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
         
-//        float latitudeFloat = [numberFormatter numberFromString: latitude].floatValue;
-//        float longitudeFloat = [numberFormatter numberFromString: longitude].floatValue;
-//
         user.displayedName = displayedName;
         user.userName = userName;
         user.userpicURL = userpicURL;
         user.preferredDrink = preferredDrink;
         user.preferredCompany = preferredCompany;
-//        user.locationLatitude = latitudeFloat;
-//        user.locationLongitude = longitudeFloat;
-
         user.locationLatitude = latitude.doubleValue;
         user.locationLongitude = longitude.doubleValue;
-
+        
         NSError *error = nil;
         if (![user.managedObjectContext save:&error])
         {
@@ -89,10 +80,15 @@
         [self.coreDataContext performBlockAndWait:^{
             // Do lots of things with the context.
             NSError *error = nil;
-            if (![self.coreDataContext save:&error]) {
-                NSLog(@"Error saving: %@", error);    } else {
-                    savedOK = YES;
-                }
+            if (![self.coreDataContext save:&error])
+            {
+                NSLog(@"Error saving: %@", error);
+                
+            }
+            else
+            {
+                savedOK = YES;
+            }
         }];
     }
 }
@@ -111,26 +107,21 @@
     //    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"userName CONTAINS %@ OR preferredDrink CONTAINS %@", @"vasiliy12345", @2];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"preferredDrink == %d", drinkType];
     
-//    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"userName" ascending:NO];
-//    fetchRequest.sortDescriptors = @[sortDescriptor];
+    //    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"userName" ascending:NO];
+    //    fetchRequest.sortDescriptors = @[sortDescriptor];
     
     
+    
+    //    [self.coreDataContext performBlockAndWait:^() {
     NSError *error = nil;
-    
     NSArray *result = [self.coreDataContext executeFetchRequest:fetchRequest ? : [User fetchRequest] error:&error];
-    NSLog(@"there are %ld users with drink %lu", (long)result.count, drinkType);
+    //        NSLog(@"there are %ld users with drink %lu", (long)result.count, drinkType);
     return result;
+    //    }]
+    ;
+    
+    
 }
-
-
-//- (NSManagedObjectContext *)coreDataContext
-//{
-//    UIApplication *application = [UIApplication sharedApplication];
-//    NSPersistentContainer *container = ((AppDelegate *)(application.delegate)).persistentContainer;
-//    NSManagedObjectContext *context = container.viewContext;
-//    
-//    return context;
-//}
 
 - (NSArray *)updatedArray;
 {
@@ -143,10 +134,6 @@
 - (NSFetchRequest *)fetchRequest
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-    
-//    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"userName" ascending:NO];
-//    fetchRequest.sortDescriptors = @[sortDescriptor];
-//
     return fetchRequest;
 }
 
@@ -165,8 +152,6 @@
     [fetchRequest setSortDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"userName" ascending:YES]]];
     [fetchRequest setFetchBatchSize:20];
     
-    
-    NSError *error;
     NSFetchedResultsController *theFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.coreDataContext sectionNameKeyPath:nil cacheName:@"Root"];
     self.fetchedResultsController = theFetchedResultsController;
     

@@ -26,9 +26,11 @@
     if (self) {
         _coreDataService = coreDataService;
         _networkService = networkService;
+        _networkService.output = self;
     }
     return self;
 }
+
 - (void)loadData
 {
     [self getLocalData];
@@ -46,20 +48,23 @@
 
 - (void)getDataFromServer
 {
-    self.networkService.output = self;
     [self.networkService fetchUserData];
 }
-
 
 - (void)loadingIsDoneWithDataRecieved:(NSArray *)dataRecieved
 {
     NSLog(@"loadingIsDoneWithDataRecieved");
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSLog(@"Saving data!");
-        [self.coreDataService saveUserData:dataRecieved];
-        self.users = [self.coreDataService getUserData];
-        [self.delegate updateData];
+        
+        if (dataRecieved.count != 0)
+        {
+            NSLog(@"Saving data!");
+            [self.coreDataService saveUserData:dataRecieved];
+            self.users = [self.coreDataService getUserData];
+            [self.delegate updateData];
+        }
+        
     });
     
 }
@@ -76,9 +81,7 @@
 
 
 - (void)updateFilteredResultsWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType;
-{
-    
-//    return [self.coreDataService getFilteredUsersWithDrinkType:drinkType withCompanyType:companyType];
+{    
     self.users = [self.coreDataService getFilteredUsersWithDrinkType:drinkType withCompanyType:companyType];
     [self.delegate updateData];
 }

@@ -21,7 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (instancetype)initWithCoreDataService:(CoreDataService *)coreDataService withNetworkService:(NetworkService *)networkService;
-- (void)getDataFromServer;
 - (void)loadData;
 - (void)updateFilteredResultsWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType;
 - (void)dowloadUserpicFromURL:(NSString *)urlString forIndexPath:(NSIndexPath *)indexPath;

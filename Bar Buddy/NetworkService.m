@@ -39,12 +39,16 @@
     if (cachedResponse.data)
     {
         [self.output userpicIsLoadedWithDataReceived:cachedResponse.data forIndexPath:indexPath];
-    } else {
+    }
+    else
+    {
         NSURLSessionTask *task = [[self createSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
                                   {
-                                      if (data) {
+                                      if (data)
+                                      {
                                           [self.output userpicIsLoadedWithDataReceived:data forIndexPath:indexPath];
-                                      } else
+                                      }
+                                      else
                                       {
                                           NSLog(@"couldn't get data");
                                       }

@@ -13,7 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UserTableViewController : ViewControllerFactory
 
+/**
+ Кастомный инициализатор, использующий зависимость от DataManager
+
+ @param dataManager - экземпляр класса DataManager
+ @return экземпляр класса UserTableViewController
+ */
 - (instancetype)initWithDataManager:(DataManager *)dataManager;
+
 - (NSString *)getTabBarItemTitle;
 
 @end
