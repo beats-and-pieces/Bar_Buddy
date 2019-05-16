@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UILabel *nameLabel;
 
+- (void)changeState;
+
 @end
 
 NS_ASSUME_NONNULL_END

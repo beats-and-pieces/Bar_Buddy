@@ -16,6 +16,7 @@ CGFloat const UserCellInsets = 16.0;
 // Настройки фильтрв - колекшн вью
 CGFloat const FilterCollectionViewEdgeInset = 15.0;
 CGFloat const FilterCollectionViewCellLabelHeight = 30.0;
+CGFloat const FilterCollectionViewCellHeight = 32.0;
 CGFloat const FilterCollectionViewCellLabelInset = 8;
 
 NSString *const BarBuddyAPIURL = @"http://private-4df08-barbuddy.apiary-mock.com/users";

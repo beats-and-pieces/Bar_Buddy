@@ -26,6 +26,7 @@
 		3A5D1F5E227711A900842DF3 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F54227711A900842DF3 /* DataManager.m */; };
 		3A6DCB6D227EF2C8000185CE /* ProjectSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */; };
 		3AC4D2DE2277214600084A1B /* CoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC4D2DD2277214600084A1B /* CoreDataService.m */; };
+		3AE0744F228578130049BBF2 /* TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE0744E228578130049BBF2 /* TableViewCellTest.m */; };
 		3AEEC6FF2279941100755100 /* Assembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC6FE2279941100755100 /* Assembly.m */; };
 		3AEEC7022279975F00755100 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC7012279975F00755100 /* CoreDataStack.m */; };
 		3AEEC7052279B28000755100 /* ViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC7042279B28000755100 /* ViewControllerFactory.m */; };
@@ -91,6 +92,8 @@
 		3A76F68D22775698002ADDE7 /* CoreDataServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataServiceProtocol.h; sourceTree = "<group>"; };
 		3AC4D2DC2277214600084A1B /* CoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataService.h; sourceTree = "<group>"; };
 		3AC4D2DD2277214600084A1B /* CoreDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataService.m; sourceTree = "<group>"; };
+		3AE0744D228578130049BBF2 /* TableViewCellTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TableViewCellTest.h; path = "Bar Buddy/TableViewCellTest.h"; sourceTree = "<group>"; };
+		3AE0744E228578130049BBF2 /* TableViewCellTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TableViewCellTest.m; path = "Bar Buddy/TableViewCellTest.m"; sourceTree = "<group>"; };
 		3AEEC6FD2279941100755100 /* Assembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Assembly.h; sourceTree = "<group>"; };
 		3AEEC6FE2279941100755100 /* Assembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Assembly.m; sourceTree = "<group>"; };
 		3AEEC7002279975F00755100 /* CoreDataStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 		3A5D1EFF2277115D00842DF3 = {
 			isa = PBXGroup;
 			children = (
+				3AE0744D228578130049BBF2 /* TableViewCellTest.h */,
+				3AE0744E228578130049BBF2 /* TableViewCellTest.m */,
 				3A5D1F0A2277115D00842DF3 /* Bar Buddy */,
 				3A5D1F262277115E00842DF3 /* Bar BuddyTests */,
 				3A5D1F312277115E00842DF3 /* Bar BuddyUITests */,
@@ -399,6 +404,7 @@
 				3A5D1F5D227711A900842DF3 /* MapViewController.m in Sources */,
 				3A6DCB6D227EF2C8000185CE /* ProjectSettings.m in Sources */,
 				3A31E188227C6F2D00F7F1FA /* UserTableView.m in Sources */,
+				3AE0744F228578130049BBF2 /* TableViewCellTest.m in Sources */,
 				3A5D1F5B227711A900842DF3 /* NetworkService.m in Sources */,
 				3A31E185227B128300F7F1FA /* FilterCollectionViewCell.m in Sources */,
 				3A31E193227C847200F7F1FA /* User+CoreDataClass.m in Sources */,

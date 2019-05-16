@@ -43,8 +43,21 @@
     return self;
 }
 
+- (void)changeState
+{
+    NSLog(@"changeState");
+    self.nameLabel.text = @"Test";
+    
+}
 
 
+- (void)setSelected:(BOOL)selected
+{
+    [super setSelected:selected];
+    NSLog(@"setSelected");
+    self.nameLabel.text = @"Test";
+    self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:11.0/255 alpha: 1.0];
+}
 
 
 @end

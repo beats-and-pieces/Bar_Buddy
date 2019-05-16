@@ -39,8 +39,8 @@
         _descriptionLabel.numberOfLines = 0;
         [self.contentView addSubview:_descriptionLabel];
         
-        UITapGestureRecognizer *tapOnCell = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector (didTapCell:)];
-        [self.contentView addGestureRecognizer:tapOnCell];
+//        UITapGestureRecognizer *tapOnCell = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector (didTapCell:)];
+//        [self.contentView addGestureRecognizer:tapOnCell];
         
         [self createGradientLayer];
         [self setupConstrains];

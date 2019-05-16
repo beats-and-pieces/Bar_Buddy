@@ -23,6 +23,7 @@
 @property (nonatomic) NSInteger preferredDrink;
 @property (nonatomic) NSInteger preferredCompany;
 @property (nonatomic, copy) NSArray<NSString *> *drinkFilterValues;
+@property (nonatomic, copy) NSArray<NSString *> *topicFilterValues;
 
 @end
 
@@ -35,6 +36,7 @@
         _dataManager = dataManager;
         _dataManager.delegate = self;
         _drinkFilterValues = @[@"🍺", @"🍷", @"🥃"];
+        _topicFilterValues = @[@"🏎", @"🎼", @"💼"];
     }
     return self;
 }
@@ -119,6 +121,17 @@
     }
 }
 
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UserTableViewCell class])];
+    
+    NSString *userName = cell.usernameLabel.text;
+    [self sendDrinkRequest:userName];
+}
+
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -136,7 +149,18 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     FilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class]) forIndexPath:indexPath];
-    cell.nameLabel.text = self.drinkFilterValues[indexPath.row];
+    
+    switch (indexPath.section) {
+        case 0:
+            cell.nameLabel.text = self.drinkFilterValues[indexPath.row];
+            break;
+        case 1:
+            cell.nameLabel.text = self.topicFilterValues[indexPath.row];
+            break;
+        default:
+            break;
+    }
+    
     return cell;
 }
 
@@ -158,7 +182,10 @@
     NSLog(@"cell #%ld at section@%ld", (long)indexPath.row, (long)indexPath.section);
     
     //    NSInteger *drinkType = [NSInteger new];
+//    cell cha
     
+    FilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class]) forIndexPath:indexPath];
+    [cell changeState];
     switch (indexPath.section) {
         case 0:
             self.preferredDrink = indexPath.row + 1;
@@ -174,7 +201,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((self.view.bounds.size.width - 5 * FilterCollectionViewEdgeInset ) / 3, 32);
+    return CGSizeMake((self.view.bounds.size.width - 5 * FilterCollectionViewEdgeInset ) / 3, FilterCollectionViewCellHeight);
 }
 
 #pragma mark - ViewControllerFactoryProtocol
@@ -184,4 +211,46 @@
     return UserTableViewTabBarItemTitle;
 }
 
+
+
+
+- (void)sendDrinkRequest:(NSString *)userName
+{
+//    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"My Alert"
+//                                                                   message:@"This is an alert."
+//                                                            preferredStyle:UIAlertControllerStyleAlert];
+//
+//    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+//                                                          handler:^(UIAlertAction * action) {}];
+//
+//    [alert addAction:defaultAction];
+//    [self presentViewController:alert animated:YES completion:nil];
+    
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:userName
+                                  message:@"Послать дринк-реквест пользователю?"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [alert dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    UIAlertAction* cancel = [UIAlertAction
+                             actionWithTitle:@"Cancel"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    
+    [alert addAction:ok];
+    [alert addAction:cancel];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
 @end
