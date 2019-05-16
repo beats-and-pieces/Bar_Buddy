@@ -43,51 +43,29 @@
     
     for (NSDictionary *json in users)
     {
-        User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.coreDataContext];
-        
-        NSString *displayedName = json[@"displayed_name"];
-        NSString *userName = json[@"user_name"];
-        NSString *userpicURL = json[@"userpic_url"];
-        NSInteger preferredDrink = [json[@"preferred_drink"] intValue];
-        NSInteger preferredCompany = [json[@"preferred_company"] integerValue];
-        NSNumber *latitude = [NSNumber numberWithFloat: [json[@"latitude"] floatValue]];
-        NSNumber *longitude = [NSNumber numberWithFloat: [json[@"longitude"] floatValue]];
-        
-        
-        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-        numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-        
-        user.displayedName = displayedName;
-        user.userName = userName;
-        user.userpicURL = userpicURL;
-        user.preferredDrink = preferredDrink;
-        user.preferredCompany = preferredCompany;
-        user.locationLatitude = latitude.doubleValue;
-        user.locationLongitude = longitude.doubleValue;
-        
-        NSError *error = nil;
-        if (![user.managedObjectContext save:&error])
-        {
-            NSLog(@"Не удалось сохранить объект");
-            NSLog(@"%@, %@", error, error.localizedDescription);
-        }
-        else
-        {
-            NSLog(@"Core Data saved!");
-        }
-        
-        __block BOOL savedOK = NO;
         [self.coreDataContext performBlockAndWait:^{
-            // Do lots of things with the context.
+            User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.coreDataContext];
+            
+            NSString *displayedName = json[@"displayed_name"];
+            NSString *userName = json[@"user_name"];
+            NSString *userpicURL = json[@"userpic_url"];
+            NSInteger preferredDrink = [json[@"preferred_drink"] intValue];
+            NSInteger preferredCompany = [json[@"preferred_company"] integerValue];
+            NSNumber *latitude = [NSNumber numberWithFloat: [json[@"latitude"] floatValue]];
+            NSNumber *longitude = [NSNumber numberWithFloat: [json[@"longitude"] floatValue]];
+            
+            user.displayedName = displayedName;
+            user.userName = userName;
+            user.userpicURL = userpicURL;
+            user.preferredDrink = preferredDrink;
+            user.preferredCompany = preferredCompany;
+            user.locationLatitude = latitude.doubleValue;
+            user.locationLongitude = longitude.doubleValue;
+            
             NSError *error = nil;
             if (![self.coreDataContext save:&error])
             {
                 NSLog(@"Error saving: %@", error);
-                
-            }
-            else
-            {
-                savedOK = YES;
             }
         }];
     }
