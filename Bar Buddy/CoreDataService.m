@@ -8,18 +8,15 @@
 
 #import "CoreDataService.h"
 #import "User+CoreDataClass.h"
-//#import "User.h"
 #import "AppDelegate.h"
 #import "CoreDataServiceProtocol.h"
 #import "CoreDataStack.h"
 
 
-@interface CoreDataService () <NSFetchedResultsControllerDelegate, CoreDataServiceProtocol>
+@interface CoreDataService () <CoreDataServiceProtocol>
 
 @property (nonatomic, strong) NSManagedObjectContext *coreDataContext;
 @property (nonatomic, strong) NSFetchRequest *fetchRequest;
-@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-
 
 @end
 
@@ -32,6 +29,7 @@
     if (self)
     {
         _coreDataContext = coreDataStack.persistentContainer.viewContext;
+        _fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
     }
     return self;
 }
@@ -74,76 +72,31 @@
 
 - (NSArray<User *> *)getUserData
 {
-    NSArray *users = [self updatedArray];
-    return users;
+    //    NSArray *users = [self updatedArray];
+    //    [self.coreDataContext performBlockAndWait:^() {
+    NSError *error = nil;
+    return [self.coreDataContext executeFetchRequest:self.fetchRequest ? : [User fetchRequest] error:&error];
+    //    }];
 }
 
 - (NSArray<User *> *)getFilteredUsersWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType
 {
     
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-    //    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"userName CONTAINS %@ OR preferredDrink CONTAINS %@", @"vasiliy12345", @2];
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"preferredDrink == %d", drinkType];
-    
-    //    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"userName" ascending:NO];
-    //    fetchRequest.sortDescriptors = @[sortDescriptor];
-    
-    
-    
+    self.fetchRequest.predicate = [NSPredicate predicateWithFormat:@"preferredDrink == %d", drinkType];
     //    [self.coreDataContext performBlockAndWait:^() {
     NSError *error = nil;
-    NSArray *result = [self.coreDataContext executeFetchRequest:fetchRequest ? : [User fetchRequest] error:&error];
+    NSArray *result = [self.coreDataContext executeFetchRequest:self.fetchRequest ? : [User fetchRequest] error:&error];
     //        NSLog(@"there are %ld users with drink %lu", (long)result.count, drinkType);
     return result;
     //    }]
     ;
-    
-    
-}
-
-- (NSArray *)updatedArray;
-{
-    NSError *error = nil;
-    
-    NSArray *result = [self.coreDataContext executeFetchRequest:self.fetchRequest ? : [User fetchRequest] error:&error];
-    return result;
-}
-
-- (NSFetchRequest *)fetchRequest
-{
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-    return fetchRequest;
-}
-
-- (NSFetchedResultsController *)fetchedResultsController
-{
-    
-    if (_fetchedResultsController)
-    {
-        return _fetchedResultsController;
-    }
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:NSStringFromClass([User class]) inManagedObjectContext:self.coreDataContext];
-    [fetchRequest setEntity:entity];
-    [fetchRequest setSortDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"userName" ascending:YES]]];
-    [fetchRequest setFetchBatchSize:20];
-    
-    NSFetchedResultsController *theFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.coreDataContext sectionNameKeyPath:nil cacheName:@"Root"];
-    self.fetchedResultsController = theFetchedResultsController;
-    
-    _fetchedResultsController.delegate = self;
-    
-    return _fetchedResultsController;
     
 }
 
 - (void)deleteUsersFromCoreData
 {
     [self.coreDataContext performBlockAndWait:^() {
-        NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-        NSBatchDeleteRequest *delete = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
+        NSBatchDeleteRequest *delete = [[NSBatchDeleteRequest alloc] initWithFetchRequest:self.fetchRequest];
         
         NSError *deleteError = nil;
         [self.coreDataContext executeRequest:delete error:&deleteError];
