@@ -12,8 +12,6 @@
 #import "CoreDataService.h"
 #import "NetworkService.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface DataManager : NSObject 
 
 @property (nonatomic, copy) NSArray<User *> *users;
@@ -26,5 +24,3 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)dowloadUserpicFromURL:(NSString *)urlString forIndexPath:(NSIndexPath *)indexPath;
 
 @end
-
-NS_ASSUME_NONNULL_END

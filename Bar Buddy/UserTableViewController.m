@@ -92,7 +92,6 @@
     UserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UserTableViewCell class])];
     
     cell.usernameLabel.text = self.dataManager.users[indexPath.row].displayedName;
-    //    cell.descriptionLabel.text = [NSString stringWithFormat:@"%i", self.dataManager.users[indexPath.row].preferredDrink];
     cell.descriptionLabel.text = self.drinkFilterValues[self.dataManager.users[indexPath.row].preferredDrink - 1];
     if (!cell.userpicImageView.image)
     {
@@ -207,11 +206,7 @@
 
 #pragma mark - ViewControllerFactoryProtocol
 
-/**
- Метод возвращает строку для отображения в Tab Bar контроллере
 
- @return строка - название закладки данного контроллера для Tab Bar
- */
 - (NSString *)getTabBarItemTitle
 {
     return UserTableViewTabBarItemTitle;

@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "NetworkServiceOutputProtocol.h"
 
-NS_ASSUME_NONNULL_BEGIN
 
 @interface NetworkService : NSObject
 
@@ -19,5 +18,3 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)dowloadUserpicFromURL:(NSString *)urlString forIndexPath:(NSIndexPath *)indexPath;
 
 @end
-
-NS_ASSUME_NONNULL_END

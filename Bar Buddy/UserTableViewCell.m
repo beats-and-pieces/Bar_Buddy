@@ -53,7 +53,7 @@
 {
     self.gradientLayer.frame = self.contentView.bounds;
     [super layoutSubviews];
-//    [self addCellAnimation];
+    [self addCellAnimation];
     
 }
 

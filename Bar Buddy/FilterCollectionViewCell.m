@@ -31,7 +31,7 @@
         _nameLabel.textAlignment = NSTextAlignmentCenter;
         _nameLabel.textColor = [UIColor whiteColor];
         _nameLabel.text = @"Test";
-        
+        _isSelected = NO;
         self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
     
 //        [self addSubview:_imageView];
@@ -39,6 +39,7 @@
     
         self.layer.masksToBounds = YES;
         self.layer.cornerRadius = 8.0f;
+        
     }
     return self;
 }
@@ -46,6 +47,7 @@
 - (void)changeState
 {
     NSLog(@"changeState");
+ 
     self.nameLabel.text = @"Test";
     
 }
@@ -55,7 +57,19 @@
 {
     [super setSelected:selected];
     NSLog(@"setSelected");
-    self.nameLabel.text = @"Test";
+    
+//    if (self.isSelected == NO)
+//    {
+//        self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:11.0/255 alpha: 1.0];
+//        self.selected = YES;
+//    }
+//    else
+//    {
+//        self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
+//        self.selected = NO;
+//    }
+    self.nameLabel.text = @"setSelected";
+    
     self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:11.0/255 alpha: 1.0];
 }
 

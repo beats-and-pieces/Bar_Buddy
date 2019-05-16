@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ViewControllerFactory.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface UserTableViewController : ViewControllerFactory
 
 /**
@@ -21,8 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (instancetype)initWithDataManager:(DataManager *)dataManager;
 
+/**
+ Метод возвращает строку для отображения в Tab Bar контроллере
+ 
+ @return строка - название закладки данного контроллера для Tab Bar
+ */
 - (NSString *)getTabBarItemTitle;
 
 @end
-
-NS_ASSUME_NONNULL_END
