@@ -17,7 +17,6 @@
 		3A5D1F1B2277115E00842DF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5D1F192277115E00842DF3 /* LaunchScreen.storyboard */; };
 		3A5D1F1E2277115E00842DF3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F1D2277115E00842DF3 /* main.m */; };
 		3A5D1F282277115E00842DF3 /* Bar_BuddyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F272277115E00842DF3 /* Bar_BuddyTests.m */; };
-		3A5D1F332277115E00842DF3 /* Bar_BuddyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F322277115E00842DF3 /* Bar_BuddyUITests.m */; };
 		3A5D1F422277118700842DF3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F412277118700842DF3 /* AppDelegate.m */; };
 		3A5D1F57227711A900842DF3 /* UserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F44227711A700842DF3 /* UserTableViewCell.m */; };
 		3A5D1F5A227711A900842DF3 /* UserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F4B227711A800842DF3 /* UserTableViewController.m */; };
@@ -25,7 +24,6 @@
 		3A5D1F5D227711A900842DF3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F50227711A800842DF3 /* MapViewController.m */; };
 		3A5D1F5E227711A900842DF3 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F54227711A900842DF3 /* DataManager.m */; };
 		3A6DCB6D227EF2C8000185CE /* ProjectSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */; };
-		3A93B242228DCD5A00CA71FF /* testAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A93B241228DCD5A00CA71FF /* testAssembly.m */; };
 		3A93B244228DCD8B00CA71FF /* testAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A93B243228DCD8B00CA71FF /* testAssembly.m */; };
 		3A93B248228DD20200CA71FF /* TestMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A93B247228DD20200CA71FF /* TestMapViewController.m */; };
 		3AC4D2DE2277214600084A1B /* CoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC4D2DD2277214600084A1B /* CoreDataService.m */; };
@@ -36,13 +34,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		3A5D1F242277115E00842DF3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3A5D1F002277115D00842DF3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3A5D1F072277115D00842DF3;
-			remoteInfo = "Bar Buddy";
-		};
-		3A5D1F2F2277115E00842DF3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3A5D1F002277115D00842DF3 /* Project object */;
 			proxyType = 1;
@@ -71,9 +62,6 @@
 		3A5D1F232277115E00842DF3 /* Bar BuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bar BuddyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5D1F272277115E00842DF3 /* Bar_BuddyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bar_BuddyTests.m; sourceTree = "<group>"; };
 		3A5D1F292277115E00842DF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A5D1F2E2277115E00842DF3 /* Bar BuddyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bar BuddyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A5D1F322277115E00842DF3 /* Bar_BuddyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bar_BuddyUITests.m; sourceTree = "<group>"; };
-		3A5D1F342277115E00842DF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5D1F402277118600842DF3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3A5D1F412277118700842DF3 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3A5D1F43227711A700842DF3 /* NetworkServiceOutputProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkServiceOutputProtocol.h; sourceTree = "<group>"; };
@@ -92,7 +80,6 @@
 		3A6DCB6B227EF2C8000185CE /* ProjectSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectSettings.h; sourceTree = "<group>"; };
 		3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectSettings.m; sourceTree = "<group>"; };
 		3A76F68D22775698002ADDE7 /* CoreDataServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataServiceProtocol.h; sourceTree = "<group>"; };
-		3A93B241228DCD5A00CA71FF /* testAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testAssembly.m; sourceTree = "<group>"; };
 		3A93B243228DCD8B00CA71FF /* testAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testAssembly.m; sourceTree = "<group>"; };
 		3A93B247228DD20200CA71FF /* TestMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestMapViewController.m; sourceTree = "<group>"; };
 		3AC4D2DC2277214600084A1B /* CoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataService.h; sourceTree = "<group>"; };
@@ -120,13 +107,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3A5D1F2B2277115E00842DF3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -135,7 +115,6 @@
 			children = (
 				3A5D1F0A2277115D00842DF3 /* Bar Buddy */,
 				3A5D1F262277115E00842DF3 /* Bar BuddyTests */,
-				3A5D1F312277115E00842DF3 /* Bar BuddyUITests */,
 				3A5D1F092277115D00842DF3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -145,7 +124,6 @@
 			children = (
 				3A5D1F082277115D00842DF3 /* Bar Buddy.app */,
 				3A5D1F232277115E00842DF3 /* Bar BuddyTests.xctest */,
-				3A5D1F2E2277115E00842DF3 /* Bar BuddyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,16 +157,6 @@
 				3A5D1F292277115E00842DF3 /* Info.plist */,
 			);
 			path = "Bar BuddyTests";
-			sourceTree = "<group>";
-		};
-		3A5D1F312277115E00842DF3 /* Bar BuddyUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3A5D1F322277115E00842DF3 /* Bar_BuddyUITests.m */,
-				3A5D1F342277115E00842DF3 /* Info.plist */,
-				3A93B241228DCD5A00CA71FF /* testAssembly.m */,
-			);
-			path = "Bar BuddyUITests";
 			sourceTree = "<group>";
 		};
 		3A5D1F61227711FA00842DF3 /* View */ = {
@@ -305,24 +273,6 @@
 			productReference = 3A5D1F232277115E00842DF3 /* Bar BuddyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3A5D1F2D2277115E00842DF3 /* Bar BuddyUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3A5D1F3D2277115F00842DF3 /* Build configuration list for PBXNativeTarget "Bar BuddyUITests" */;
-			buildPhases = (
-				3A5D1F2A2277115E00842DF3 /* Sources */,
-				3A5D1F2B2277115E00842DF3 /* Frameworks */,
-				3A5D1F2C2277115E00842DF3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3A5D1F302277115E00842DF3 /* PBXTargetDependency */,
-			);
-			name = "Bar BuddyUITests";
-			productName = "Bar BuddyUITests";
-			productReference = 3A5D1F2E2277115E00842DF3 /* Bar BuddyUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -336,10 +286,6 @@
 						CreatedOnToolsVersion = 10.1;
 					};
 					3A5D1F222277115E00842DF3 = {
-						CreatedOnToolsVersion = 10.1;
-						TestTargetID = 3A5D1F072277115D00842DF3;
-					};
-					3A5D1F2D2277115E00842DF3 = {
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = 3A5D1F072277115D00842DF3;
 					};
@@ -360,7 +306,6 @@
 			targets = (
 				3A5D1F072277115D00842DF3 /* Bar Buddy */,
 				3A5D1F222277115E00842DF3 /* Bar BuddyTests */,
-				3A5D1F2D2277115E00842DF3 /* Bar BuddyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -376,13 +321,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3A5D1F212277115E00842DF3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3A5D1F2C2277115E00842DF3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -427,15 +365,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3A5D1F2A2277115E00842DF3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3A5D1F332277115E00842DF3 /* Bar_BuddyUITests.m in Sources */,
-				3A93B242228DCD5A00CA71FF /* testAssembly.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -443,11 +372,6 @@
 			isa = PBXTargetDependency;
 			target = 3A5D1F072277115D00842DF3 /* Bar Buddy */;
 			targetProxy = 3A5D1F242277115E00842DF3 /* PBXContainerItemProxy */;
-		};
-		3A5D1F302277115E00842DF3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3A5D1F072277115D00842DF3 /* Bar Buddy */;
-			targetProxy = 3A5D1F2F2277115E00842DF3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -647,42 +571,6 @@
 			};
 			name = Release;
 		};
-		3A5D1F3E2277115F00842DF3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z8RKZA6P4R;
-				INFOPLIST_FILE = "Bar BuddyUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "-r34r23.Bar-BuddyUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Bar Buddy";
-			};
-			name = Debug;
-		};
-		3A5D1F3F2277115F00842DF3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z8RKZA6P4R;
-				INFOPLIST_FILE = "Bar BuddyUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "-r34r23.Bar-BuddyUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Bar Buddy";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -709,15 +597,6 @@
 			buildConfigurations = (
 				3A5D1F3B2277115F00842DF3 /* Debug */,
 				3A5D1F3C2277115F00842DF3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3A5D1F3D2277115F00842DF3 /* Build configuration list for PBXNativeTarget "Bar BuddyUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3A5D1F3E2277115F00842DF3 /* Debug */,
-				3A5D1F3F2277115F00842DF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
