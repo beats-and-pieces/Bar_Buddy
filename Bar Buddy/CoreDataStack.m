@@ -14,6 +14,14 @@
 
 @synthesize persistentContainer = _persistentContainer;
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _persistentContainer = [self persistentContainer];
+    }
+    return self;
+}
 - (NSPersistentContainer *)persistentContainer {
     // The persistent container for the application. This implementation creates and returns a container, having loaded the store for the application to it.
     @synchronized (self) {

@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Assembly : NSObject
 
+
 - (UIViewController *)createRootViewController;
 - (NSPersistentContainer *)createPersistentContainer;
 - (void)switchToMap;

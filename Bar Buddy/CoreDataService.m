@@ -25,6 +25,17 @@
 
 @implementation CoreDataService
 
+
+- (instancetype)initWithCoreDataStack:(CoreDataStack *)coreDataStack
+{
+    self = [super init];
+    if (self) {
+        _coreDataContext = coreDataStack.persistentContainer.viewContext;
+    }
+    return self;
+}
+
+
 - (void)saveUserData:(NSArray *)users;
 {
     [self deleteUsersFromCoreData];
@@ -112,14 +123,14 @@
 }
 
 
-- (NSManagedObjectContext *)coreDataContext
-{
-    UIApplication *application = [UIApplication sharedApplication];
-    NSPersistentContainer *container = ((AppDelegate *)(application.delegate)).persistentContainer;
-    NSManagedObjectContext *context = container.viewContext;
-    
-    return context;
-}
+//- (NSManagedObjectContext *)coreDataContext
+//{
+//    UIApplication *application = [UIApplication sharedApplication];
+//    NSPersistentContainer *container = ((AppDelegate *)(application.delegate)).persistentContainer;
+//    NSManagedObjectContext *context = container.viewContext;
+//    
+//    return context;
+//}
 
 - (NSArray *)updatedArray;
 {

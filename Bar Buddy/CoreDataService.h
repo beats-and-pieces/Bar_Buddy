@@ -10,14 +10,15 @@
 #import "User+CoreDataClass.h"
 //#import "User.h"
 
-NS_ASSUME_NONNULL_BEGIN
+@class CoreDataStack;
 
 @interface CoreDataService : NSObject
+
+
+- (instancetype)initWithCoreDataStack:(CoreDataStack *)coreDataStack;
 
 - (NSArray<User *> *) getUserData;
 - (void)saveUserData:(NSArray *)users;
 - (NSArray<User *> *)getFilteredUsersWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType;
 
 @end
-
-NS_ASSUME_NONNULL_END

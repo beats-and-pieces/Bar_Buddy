@@ -25,8 +25,9 @@
 {
     PushService *pushService = [[PushService alloc] initForNotificationDelegate:self];
     self.pushService = pushService;
-
-    CoreDataService *coreDataService = [CoreDataService new];
+    CoreDataStack *coreDataStack = [CoreDataStack new];
+//    CoreDataService *coreDataService = [CoreDataService new];
+    CoreDataService *coreDataService = [[CoreDataService alloc] initWithCoreDataStack:coreDataStack];
     NetworkService *netWorkService = [NetworkService new];
     DataManager *dataManager = [[DataManager alloc] initWithCoreDataService:coreDataService withNetworkService:netWorkService];
     

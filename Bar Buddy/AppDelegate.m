@@ -24,7 +24,7 @@
     
     Assembly *assembly = [Assembly new];
     self.assembly = assembly;
-    self.persistentContainer = [assembly createPersistentContainer];
+//    self.persistentContainer = [assembly createPersistentContainer];
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     self.window.rootViewController = [assembly createRootViewController];
