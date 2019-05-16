@@ -1,19 +1,18 @@
 //
-//  Bar_BuddyTests.m
-//  Bar BuddyTests
+//  testAssembly.m
+//  Bar BuddyUITests
 //
-//  Created by Anton Kuznetsov on 29/04/2019.
+//  Created by Anton Kuznetsov on 16/05/2019.
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-
-@interface Bar_BuddyTests : XCTestCase
+@interface testAssembly : XCTestCase
 
 @end
 
-@implementation Bar_BuddyTests
+@implementation testAssembly
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -27,9 +26,6 @@
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
-
-
-
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
