@@ -55,7 +55,7 @@
     CGRect frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height - self.navigationController.navigationBar.bounds.size.height - self.tabBarController.tabBar.bounds.size.height);
     UserTableView *userTableView = [[UserTableView alloc] initWithFrame:frame];
     [self.view addSubview:userTableView];
-    //    self.view = userTableView;
+    
     self.tableView = userTableView.tableView;
     self.collectionView = userTableView.collectionView;
     
@@ -126,10 +126,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UserTableViewCell class])];
-    
-    NSString *userName = cell.usernameLabel.text;
-    [self sendDrinkRequest:userName];
+    [self sendDrinkRequest:self.dataManager.users[indexPath.row].displayedName];
 }
 
 
@@ -151,10 +148,10 @@
     
     switch (indexPath.section) {
         case 0:
-            cell.nameLabel.text = self.drinkFilterValues[indexPath.row];
+            cell.label.text = self.drinkFilterValues[indexPath.row];
             break;
         case 1:
-            cell.nameLabel.text = self.topicFilterValues[indexPath.row];
+            cell.label.text = self.topicFilterValues[indexPath.row];
             break;
         default:
             break;
@@ -172,6 +169,8 @@
 
     FilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class]) forIndexPath:indexPath];
     [cell changeState];
+    cell.label.text = @"TEST!";
+//    cell.isPressed = YES;
     switch (indexPath.section) {
         case 0:
             self.preferredDrink = indexPath.row + 1;

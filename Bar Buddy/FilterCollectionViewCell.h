@@ -13,8 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FilterCollectionViewCell : UICollectionViewCell
 
 //@property (nonatomic, strong) UIImageView *imageView;
-@property (nonatomic, strong) UILabel *nameLabel;
-@property (nonatomic) BOOL isSelected;
+@property (nonatomic, strong) UILabel *label;
+//@property (nonatomic) BOOL isSelected;
+@property (nonatomic) BOOL isPressed;
 
 
 - (void)changeState;

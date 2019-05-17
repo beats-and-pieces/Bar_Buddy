@@ -11,8 +11,6 @@
 
 @interface FilterCollectionViewCell ()
 
-
-
 @end
 
 @implementation FilterCollectionViewCell
@@ -22,21 +20,21 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-//        _imageView = [[UIImageView alloc]init];
-//        _imageView.frame = CGRectMake(8, 8, frame.size.width - 16, frame.size.height - 30);
-//
-//        _imageView.contentMode = UIViewContentModeScaleAspectFit;
-
-        _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(FilterCollectionViewCellLabelInset, frame.size.height - FilterCollectionViewCellLabelHeight, frame.size.width - FilterCollectionViewCellLabelInset * 2, FilterCollectionViewCellLabelHeight)];
-        _nameLabel.textAlignment = NSTextAlignmentCenter;
-        _nameLabel.textColor = [UIColor whiteColor];
-        _nameLabel.text = @"Test";
-        _isSelected = NO;
+        //        _imageView = [[UIImageView alloc]init];
+        //        _imageView.frame = CGRectMake(8, 8, frame.size.width - 16, frame.size.height - 30);
+        //
+        //        _imageView.contentMode = UIViewContentModeScaleAspectFit;
+        
+        _label = [[UILabel alloc]initWithFrame:CGRectMake(FilterCollectionViewCellLabelInset, frame.size.height - FilterCollectionViewCellLabelHeight, frame.size.width - FilterCollectionViewCellLabelInset * 2, FilterCollectionViewCellLabelHeight)];
+        _label.textAlignment = NSTextAlignmentCenter;
+        _label.textColor = [UIColor whiteColor];
+        _label.text = @"Test";
+        _isPressed = NO;
         self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
-    
-//        [self addSubview:_imageView];
-        [self addSubview:_nameLabel];
-    
+        
+        //        [self addSubview:_imageView];
+        [self addSubview:_label];
+        
         self.layer.masksToBounds = YES;
         self.layer.cornerRadius = 8.0f;
         
@@ -46,32 +44,47 @@
 
 - (void)changeState
 {
-    NSLog(@"changeState");
- 
-    self.nameLabel.text = @"Test";
-    
-}
-
-
-- (void)setSelected:(BOOL)selected
-{
-    [super setSelected:selected];
-    NSLog(@"setSelected");
-    
-//    if (self.isSelected == NO)
-//    {
+    if (self.isPressed)
+    {
+        NSLog(@"Pressed = YES");
+        self.isPressed = NO;
 //        self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:11.0/255 alpha: 1.0];
-//        self.selected = YES;
-//    }
-//    else
-//    {
-//        self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
-//        self.selected = NO;
-//    }
-    self.nameLabel.text = @"setSelected";
+    }
+    else
+    {
+        NSLog(@"Pressed = NO");
+        self.isPressed = YES;
+        self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:11.0/255 alpha: 1.0];
+    }
     
-    self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:11.0/255 alpha: 1.0];
+    
+    
+   // self.label.text = @"Test";
+    
 }
+
+
+//- (void)setSelected:(BOOL)selected
+//{
+//    [super setSelected:selected];
+//    NSLog(@"setSelected");
+//    
+////    if (self.isSelected)
+////    {
+////        self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
+////        self.selected = NO;
+////        self.nameLabel.text = @"setUNSelected";
+////    }
+////    else
+////    {
+////        
+////        self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:11.0/255 alpha: 1.0];
+////        self.selected = YES;
+////    }
+//    
+//    self.label.text = @"setSelected";
+//    self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:11.0/255 alpha: 1.0];
+//}
 
 
 @end
