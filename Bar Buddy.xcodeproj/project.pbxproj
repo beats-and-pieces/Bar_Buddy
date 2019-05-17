@@ -24,7 +24,7 @@
 		3A5D1F5D227711A900842DF3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F50227711A800842DF3 /* MapViewController.m */; };
 		3A5D1F5E227711A900842DF3 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F54227711A900842DF3 /* DataManager.m */; };
 		3A6DCB6D227EF2C8000185CE /* ProjectSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */; };
-		3A93B244228DCD8B00CA71FF /* TestAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A93B243228DCD8B00CA71FF /* TestAssembly.m */; };
+		3A93B244228DCD8B00CA71FF /* testAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A93B243228DCD8B00CA71FF /* testAssembly.m */; };
 		3A93B248228DD20200CA71FF /* TestMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A93B247228DD20200CA71FF /* TestMapViewController.m */; };
 		3AC4D2DE2277214600084A1B /* CoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC4D2DD2277214600084A1B /* CoreDataService.m */; };
 		3AEEC6FF2279941100755100 /* Assembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC6FE2279941100755100 /* Assembly.m */; };
@@ -80,7 +80,7 @@
 		3A6DCB6B227EF2C8000185CE /* ProjectSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectSettings.h; sourceTree = "<group>"; };
 		3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectSettings.m; sourceTree = "<group>"; };
 		3A76F68D22775698002ADDE7 /* CoreDataServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataServiceProtocol.h; sourceTree = "<group>"; };
-		3A93B243228DCD8B00CA71FF /* TestAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAssembly.m; sourceTree = "<group>"; };
+		3A93B243228DCD8B00CA71FF /* testAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testAssembly.m; sourceTree = "<group>"; };
 		3A93B247228DD20200CA71FF /* TestMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestMapViewController.m; sourceTree = "<group>"; };
 		3AC4D2DC2277214600084A1B /* CoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataService.h; sourceTree = "<group>"; };
 		3AC4D2DD2277214600084A1B /* CoreDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataService.m; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				3A93B247228DD20200CA71FF /* TestMapViewController.m */,
-				3A93B243228DCD8B00CA71FF /* TestAssembly.m */,
+				3A93B243228DCD8B00CA71FF /* testAssembly.m */,
 				3A5D1F272277115E00842DF3 /* Bar_BuddyTests.m */,
 				3A5D1F292277115E00842DF3 /* Info.plist */,
 			);
@@ -361,7 +361,7 @@
 			files = (
 				3A93B248228DD20200CA71FF /* TestMapViewController.m in Sources */,
 				3A5D1F282277115E00842DF3 /* Bar_BuddyTests.m in Sources */,
-				3A93B244228DCD8B00CA71FF /* TestAssembly.m in Sources */,
+				3A93B244228DCD8B00CA71FF /* testAssembly.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
