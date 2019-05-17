@@ -70,6 +70,7 @@
     [self.collectionView setDelegate:self];
 }
 
+
 #pragma mark - DataManagerProtocol
 
 - (void)updateData
@@ -78,13 +79,13 @@
     
 }
 
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.dataManager.users ? self.dataManager.users.count : 0;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -96,7 +97,6 @@
     if (!cell.userpicImageView.image)
     {
         cell.userpicImageView.image = [UIImage imageNamed:PlaceholderFilename];
-        
     }
     
     NSString *userpicURL = self.dataManager.users[indexPath.row].userpicURL;
@@ -121,6 +121,7 @@
     }
 }
 
+
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -144,8 +145,6 @@
     return 2;
 }
 
-//forrow
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     FilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class]) forIndexPath:indexPath];
@@ -165,25 +164,12 @@
 }
 
 
-
-
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-//{
-//    UICollectionReusableView *headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:NSStringFromClass([UICollectionReusableView class]) withReuseIdentifier:@"HeaderViewIdentifier" forIndexPath:indexPath];
-//
-//    headerView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 100);
-//    return headerView;
-//}
-
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"cell #%ld at section@%ld", (long)indexPath.row, (long)indexPath.section);
-    
-    //    NSInteger *drinkType = [NSInteger new];
-//    cell cha
-    
+//    NSLog(@"cell #%ld at section@%ld", (long)indexPath.row, (long)indexPath.section);
+
     FilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class]) forIndexPath:indexPath];
     [cell changeState];
     switch (indexPath.section) {
@@ -204,29 +190,16 @@
     return CGSizeMake((self.view.bounds.size.width - 5 * FilterCollectionViewEdgeInset ) / 3, FilterCollectionViewCellHeight);
 }
 
-#pragma mark - ViewControllerFactoryProtocol
 
+#pragma mark - ViewControllerFactoryProtocol
 
 - (NSString *)getTabBarItemTitle
 {
     return UserTableViewTabBarItemTitle;
 }
 
-
-
-
 - (void)sendDrinkRequest:(NSString *)userName
 {
-//    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"My Alert"
-//                                                                   message:@"This is an alert."
-//                                                            preferredStyle:UIAlertControllerStyleAlert];
-//
-//    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-//                                                          handler:^(UIAlertAction * action) {}];
-//
-//    [alert addAction:defaultAction];
-//    [self presentViewController:alert animated:YES completion:nil];
-    
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:userName
                                   message:@"Послать дринк-реквест пользователю?"
@@ -254,4 +227,5 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
+
 @end

@@ -53,10 +53,8 @@
 
 - (void)loadingIsDoneWithDataRecieved:(NSArray *)dataRecieved
 {
-    NSLog(@"loadingIsDoneWithDataRecieved");
-    
+//    NSLog(@"loadingIsDoneWithDataRecieved");
     dispatch_async(dispatch_get_main_queue(), ^{
-        
         if (dataRecieved.count != 0)
         {
             NSLog(@"Saving data!");
@@ -64,9 +62,7 @@
             self.users = [self.coreDataService getUserData];
             [self.delegate updateData];
         }
-        
     });
-    
 }
 
 - (void)dowloadUserpicFromURL:(NSString *)urlString forIndexPath:(NSIndexPath *)indexPath
@@ -78,7 +74,6 @@
 {
     [self.delegate setUserpicForCellAtIndexPath:indexPath withData:data];
 }
-
 
 - (void)updateFilteredResultsWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType;
 {    

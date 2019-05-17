@@ -12,7 +12,6 @@
 
 @interface Assembly : NSObject
 
-
 - (UIViewController *)getRootViewController;
 - (void)switchToMap;
 - (void)scheduleLocalNotification;

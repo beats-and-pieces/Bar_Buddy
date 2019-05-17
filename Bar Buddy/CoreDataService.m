@@ -23,7 +23,6 @@
 
 @implementation CoreDataService
 
-
 - (instancetype)initWithCoreDataStack:(CoreDataStack *)coreDataStack
 {
     self = [super init];
@@ -34,7 +33,6 @@
     }
     return self;
 }
-
 
 - (void)saveUserData:(NSArray *)users;
 {
@@ -69,7 +67,6 @@
         }];
     }
 }
-
 
 - (NSArray<User *> *)getUserData
 {

@@ -21,11 +21,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    Assembly *assembly = [Assembly new];
-    self.assembly = assembly;
+//    Assembly *assembly = ;
+    self.assembly = [Assembly new];
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    self.window.rootViewController = [assembly getRootViewController];
+    self.window.rootViewController = [self.assembly getRootViewController];
     [self.window makeKeyAndVisible];
     
     return YES;

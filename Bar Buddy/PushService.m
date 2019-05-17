@@ -17,8 +17,8 @@ typedef NS_ENUM(NSInteger, LCTTriggerType) {
 };
 
 @interface PushService () <UNUserNotificationCenterDelegate>
-@end
 
+@end
 
 @implementation PushService
 
@@ -45,7 +45,6 @@ typedef NS_ENUM(NSInteger, LCTTriggerType) {
     return self;
 }
 
-
 - (void)scheduleDrinkRequestFromUser:(NSString *)userName
 {
     
@@ -53,7 +52,6 @@ typedef NS_ENUM(NSInteger, LCTTriggerType) {
 
 - (void)scheduleLocalNotification
 {
-   
     UNMutableNotificationContent *content = [UNMutableNotificationContent new];
     
     NSArray *requests = @[@"puppies", @"kittens"];

@@ -10,8 +10,6 @@
 
 @implementation CoreDataStack
 
-#pragma mark - Core Data stack
-
 @synthesize persistentContainer = _persistentContainer;
 
 - (instancetype)init
@@ -22,6 +20,7 @@
     }
     return self;
 }
+
 - (NSPersistentContainer *)persistentContainer {
     // The persistent container for the application. This implementation creates and returns a container, having loaded the store for the application to it.
     @synchronized (self) {
@@ -50,6 +49,7 @@
     return _persistentContainer;
 }
 
+//удалить
 - (void)saveContext {
     NSManagedObjectContext *context = self.persistentContainer.viewContext;
     NSError *error = nil;

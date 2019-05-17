@@ -14,7 +14,6 @@
 
 @interface CoreDataService : NSObject
 
-
 - (instancetype)initWithCoreDataStack:(CoreDataStack *)coreDataStack;
 - (void)saveUserData:(NSArray *)users;
 
