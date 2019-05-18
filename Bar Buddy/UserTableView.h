@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UserTableView : UIView
 
-@property (nonnull, strong) UITableView *tableView;
-@property (nonnull, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UICollectionView *collectionView;
 
 - (void)setupCollectionViewForAFrame:(CGRect)frame;
 

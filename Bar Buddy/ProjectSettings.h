@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-extern CGFloat const UserpicRoundRadius;
-extern CGFloat const UserCellInsets;
+extern CGFloat const BRBUserpicRoundRadius;
+extern CGFloat const BRBUserCellInsets;
 extern CGFloat const FilterCollectionViewEdgeInset;
 extern CGFloat const FilterCollectionViewCellLabelHeight;
 extern CGFloat const FilterCollectionViewCellHeight;
@@ -27,3 +27,7 @@ extern CGFloat const BRBZoomLocationLatitude;
 extern CGFloat const BRBZoomLocationLongitude;
 
 extern CGFloat const BRBZoomArea;
+
+extern NSString *const BRBNotificationRequestIdentifier;
+
+extern NSTimeInterval const BRBNotificationTriggerTimeInterval;

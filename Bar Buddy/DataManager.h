@@ -15,7 +15,7 @@
 @interface DataManager : NSObject 
 
 @property (nonatomic, copy) NSArray<User *> *users;
-@property (nonatomic, weak, nullable) id<DataManagerProtocol> delegate; /**< Делегат внешних событий */
+@property (nonatomic, nullable, weak) id<DataManagerProtocol> delegate; /**< Делегат внешних событий */
 
 - (instancetype)initWithCoreDataService:(CoreDataService *)coreDataService withNetworkService:(NetworkService *)networkService;
 - (void)loadData;

@@ -12,7 +12,7 @@
 
 @interface NetworkService : NSObject
 
-@property (nonatomic, weak) id<NetworkServiceOutputProtocol> output; /**< Делегат внешних событий */
+@property (nonatomic, nullable, weak) id<NetworkServiceOutputProtocol> output; /**< Делегат внешних событий */
 
 - (void)fetchUserData;
 - (void)dowloadUserpicFromURL:(NSString *)urlString forIndexPath:(NSIndexPath *)indexPath;

@@ -15,9 +15,9 @@
 @interface Assembly () <UNUserNotificationCenterDelegate>
 
 
-@property (strong, nonatomic) UITabBarController *tabBarController;
-@property (strong, nonatomic) PushService *pushService;
-@property (strong, nonatomic) DataManager *dataManager;
+@property (nonatomic, nonnull) UITabBarController *tabBarController;
+@property (nonatomic, nonnull) PushService *pushService;
+@property (nonatomic, nonnull) DataManager *dataManager;
 
 @end
 
@@ -30,17 +30,20 @@
     if (self) {
         PushService *pushService = [[PushService alloc] initForNotificationDelegate:self];
         self.pushService = pushService;
+        
         CoreDataStack *coreDataStack = [CoreDataStack new];
         CoreDataService *coreDataService = [[CoreDataService alloc] initWithCoreDataStack:coreDataStack];
+        
         NetworkService *netWorkService = [NetworkService new];
+        
         DataManager *dataManager = [[DataManager alloc] initWithCoreDataService:coreDataService withNetworkService:netWorkService];
         self.dataManager = dataManager;
         
-        ViewControllerFactory *userTableViewController = [ViewControllerFactory initWithDataManager:dataManager type:ViewControllerUserTableViewType];
+        ViewControllerFactory *userTableViewController = [ViewControllerFactory initWithDataManager:dataManager type:BRBViewControllerTypeUserTableView];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:userTableViewController];
         navigationController.tabBarItem.title = [userTableViewController getTabBarItemTitle];
         
-        ViewControllerFactory *mapViewController = [ViewControllerFactory initWithDataManager:dataManager type:ViewControllerUserMapType];
+        ViewControllerFactory *mapViewController = [ViewControllerFactory initWithDataManager:dataManager type:BRBViewControllerTypeUserMap];
         mapViewController.tabBarItem.title = [mapViewController getTabBarItemTitle];
         
         UITabBarController *tabBarController = [UITabBarController new];

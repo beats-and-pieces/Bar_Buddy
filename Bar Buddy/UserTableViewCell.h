@@ -12,9 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UserTableViewCell : UITableViewCell
 
-@property (nonnull, strong) UIImageView *userpicImageView;
-@property (nonnull, strong) UILabel *usernameLabel;
-@property (nonnull, strong) UILabel *descriptionLabel;
+@property (nonatomic, nonnull, strong) UIImageView *userpicImageView;
+@property (nonatomic, nonnull, strong) UILabel *usernameLabel;
+@property (nonatomic, nonnull, strong) UILabel *descriptionLabel;
 @property (nonatomic, strong) CAGradientLayer *gradientLayer;
 
 @end

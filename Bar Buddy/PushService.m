@@ -11,11 +11,7 @@
 #import "AppDelegate.h"
 #include <stdlib.h>
 @import UserNotifications;
-//#import "User+CoreDataClass.h"
-
-typedef NS_ENUM(NSInteger, BRBTriggerType) {
-    BRBTriggerTypeInterval = 0
-};
+#include "ProjectSettings.h"
 
 @interface PushService () <UNUserNotificationCenterDelegate>
 
@@ -24,7 +20,6 @@ typedef NS_ENUM(NSInteger, BRBTriggerType) {
 @implementation PushService
 
 - (instancetype)initForNotificationDelegate:(id<UNUserNotificationCenterDelegate>)delegate
-
 {
     self = [super init];
     if (self) {
@@ -32,12 +27,13 @@ typedef NS_ENUM(NSInteger, BRBTriggerType) {
         center.delegate = delegate;
         
         // Указываем тип пушей для работы
-        UNAuthorizationOptions options = UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge;
+        UNAuthorizationOptions options = UNAuthorizationOptionSound | UNAuthorizationOptionAlert;
         
         // Запрашиваем доступ на работу с пушами
         [center requestAuthorizationWithOptions:options
                               completionHandler:^(BOOL granted, NSError * _Nullable error) {
                                   if (!granted)
+                                      //nil
                                   {
                                       NSLog(@"Доступ не дали");
                                   }
@@ -63,41 +59,19 @@ typedef NS_ENUM(NSInteger, BRBTriggerType) {
 
 - (void)scheduleLocalNotificationWithContent:(UNMutableNotificationContent *)content
 {
-    UNNotificationTrigger *trigger = [self triggerWithType:BRBTriggerTypeInterval];
+    UNNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:BRBNotificationTriggerTimeInterval repeats:NO];
     
-    // Создаем запрос на выполнение
-    NSString *identifier = @"NotificationId";
-    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier
-                                                                          content:content trigger:trigger];
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:BRBNotificationRequestIdentifier content:content trigger:trigger];
     
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error)
      {
+         //nil
          if (error)
          {
              NSLog(@"Ошибка отправки пуша %@",error);
          }
      }];
-}
-
-
-#pragma mark - Notifications
-
-- (UNNotificationTrigger *)triggerWithType:(BRBTriggerType)triggerType
-{
-    switch (triggerType)
-    {
-        case BRBTriggerTypeInterval:
-            return [self intervalTrigger];
-        default:
-            break;
-    }
-    return nil;
-}
-
-- (UNTimeIntervalNotificationTrigger *)intervalTrigger
-{
-    return [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:5 repeats:NO];
 }
 
 @end

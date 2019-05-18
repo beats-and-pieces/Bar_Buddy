@@ -13,15 +13,15 @@
 
 @implementation ViewControllerFactory
 
-+ (instancetype)initWithDataManager:(DataManager *)dataManager type:(ViewControllerType)viewControllerType
++ (instancetype)initWithDataManager:(DataManager *)dataManager type:(BRBViewControllerType)viewControllerType
 {
     switch (viewControllerType) {
-        case ViewControllerUserTableViewType:
+        case BRBViewControllerTypeUserTableView:
         {
             return [[UserTableViewController alloc] initWithDataManager:dataManager];
             break;
         }
-        case ViewControllerUserMapType:
+        case BRBViewControllerTypeUserMap:
         {
             return [[MapViewController alloc] initWithDataManager:dataManager];
             break;
@@ -36,7 +36,6 @@
 
 - (instancetype)initWithDataManager:(DataManager *)dataManager
 {
-    
     NSString *description = [NSString stringWithFormat:@"You have not implemented %@ in %@", NSStringFromSelector(_cmd), NSStringFromClass([self class])];
     NSAssert(YES, description);
     return nil;

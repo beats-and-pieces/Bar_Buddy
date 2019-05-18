@@ -43,7 +43,7 @@
 {
     self.tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
     self.tableView.frame = CGRectMake(0, FilterCollectionViewCellHeight * 4 + FilterCollectionViewEdgeInset * 2, frame.size.width, frame.size.height - (FilterCollectionViewCellHeight * 2 + FilterCollectionViewEdgeInset * 2));
-    
+//    self.tableView.backgroundColor = [UIColor colorWithRed:255.0/255 green:125.0/255 blue:201.0/255 alpha: 1.0];
     [self addSubview:self.tableView];
 }
 

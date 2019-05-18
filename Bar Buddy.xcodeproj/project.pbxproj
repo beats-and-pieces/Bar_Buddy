@@ -21,6 +21,9 @@
 		3A5D1F5B227711A900842DF3 /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F4C227711A800842DF3 /* NetworkService.m */; };
 		3A5D1F5D227711A900842DF3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F50227711A800842DF3 /* MapViewController.m */; };
 		3A5D1F5E227711A900842DF3 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F54227711A900842DF3 /* DataManager.m */; };
+		3A6B2E3422907A2800A62A09 /* AlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B2E3322907A2800A62A09 /* AlertController.m */; };
+		3A6B2E3722908A3C00A62A09 /* BRBUserFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B2E3622908A3C00A62A09 /* BRBUserFilterController.m */; };
+		3A6B2E3A22908E6400A62A09 /* BRBUserFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B2E3922908E6400A62A09 /* BRBUserFilterView.m */; };
 		3A6DCB6D227EF2C8000185CE /* ProjectSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */; };
 		3A739C0A228EDAF800D5DBCE /* User+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A739C08228EDAF800D5DBCE /* User+CoreDataClass.m */; };
 		3A739C0B228EDAF800D5DBCE /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A739C09228EDAF800D5DBCE /* User+CoreDataProperties.m */; };
@@ -73,6 +76,12 @@
 		3A5D1F54227711A900842DF3 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		3A5D1F55227711A900842DF3 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		3A5D1F56227711A900842DF3 /* UserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTableViewController.h; sourceTree = "<group>"; };
+		3A6B2E3222907A2800A62A09 /* AlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertController.h; sourceTree = "<group>"; };
+		3A6B2E3322907A2800A62A09 /* AlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertController.m; sourceTree = "<group>"; };
+		3A6B2E3522908A3C00A62A09 /* BRBUserFilterController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBUserFilterController.h; sourceTree = "<group>"; };
+		3A6B2E3622908A3C00A62A09 /* BRBUserFilterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBUserFilterController.m; sourceTree = "<group>"; };
+		3A6B2E3822908E6400A62A09 /* BRBUserFilterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBUserFilterView.h; sourceTree = "<group>"; };
+		3A6B2E3922908E6400A62A09 /* BRBUserFilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBUserFilterView.m; sourceTree = "<group>"; };
 		3A6DCB6B227EF2C8000185CE /* ProjectSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectSettings.h; sourceTree = "<group>"; };
 		3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectSettings.m; sourceTree = "<group>"; };
 		3A739C06228EDAF800D5DBCE /* User+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -164,6 +173,8 @@
 			children = (
 				3A31E186227C6F2D00F7F1FA /* UserTableView.h */,
 				3A31E187227C6F2D00F7F1FA /* UserTableView.m */,
+				3A6B2E3822908E6400A62A09 /* BRBUserFilterView.h */,
+				3A6B2E3922908E6400A62A09 /* BRBUserFilterView.m */,
 				3A5D1F4F227711A800842DF3 /* UserTableViewCell.h */,
 				3A5D1F44227711A700842DF3 /* UserTableViewCell.m */,
 				3A31E184227B128300F7F1FA /* FilterCollectionViewCell.h */,
@@ -179,10 +190,14 @@
 				3AEEC6FE2279941100755100 /* Assembly.m */,
 				3AEEC7032279B28000755100 /* ViewControllerFactory.h */,
 				3AEEC7042279B28000755100 /* ViewControllerFactory.m */,
-				3A5D1F55227711A900842DF3 /* MapViewController.h */,
-				3A5D1F50227711A800842DF3 /* MapViewController.m */,
 				3A5D1F56227711A900842DF3 /* UserTableViewController.h */,
 				3A5D1F4B227711A800842DF3 /* UserTableViewController.m */,
+				3A6B2E3222907A2800A62A09 /* AlertController.h */,
+				3A6B2E3322907A2800A62A09 /* AlertController.m */,
+				3A6B2E3522908A3C00A62A09 /* BRBUserFilterController.h */,
+				3A6B2E3622908A3C00A62A09 /* BRBUserFilterController.m */,
+				3A5D1F55227711A900842DF3 /* MapViewController.h */,
+				3A5D1F50227711A800842DF3 /* MapViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -338,6 +353,7 @@
 				3A5D1F1E2277115E00842DF3 /* main.m in Sources */,
 				3AEEC7022279975F00755100 /* CoreDataStack.m in Sources */,
 				3AEEC6FF2279941100755100 /* Assembly.m in Sources */,
+				3A6B2E3422907A2800A62A09 /* AlertController.m in Sources */,
 				3A31E17F227AE1CB00F7F1FA /* PushService.m in Sources */,
 				3A5D1F162277115D00842DF3 /* Bar_Buddy.xcdatamodeld in Sources */,
 				3A5D1F5A227711A900842DF3 /* UserTableViewController.m in Sources */,
@@ -350,8 +366,10 @@
 				3A5D1F5B227711A900842DF3 /* NetworkService.m in Sources */,
 				3A31E185227B128300F7F1FA /* FilterCollectionViewCell.m in Sources */,
 				3AEEC7052279B28000755100 /* ViewControllerFactory.m in Sources */,
+				3A6B2E3A22908E6400A62A09 /* BRBUserFilterView.m in Sources */,
 				3A5D1F5E227711A900842DF3 /* DataManager.m in Sources */,
 				3AC4D2DE2277214600084A1B /* CoreDataService.m in Sources */,
+				3A6B2E3722908A3C00A62A09 /* BRBUserFilterController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +428,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
@@ -443,6 +462,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				"WARNING_CFLAGS[arch=*]" = "-Wnullability-completeness";
 			};
 			name = Debug;
 		};
@@ -469,6 +489,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
@@ -496,6 +517,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				"WARNING_CFLAGS[arch=*]" = "-Wnullability-completeness";
 			};
 			name = Release;
 		};

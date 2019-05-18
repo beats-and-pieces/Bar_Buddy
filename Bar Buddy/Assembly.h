@@ -10,10 +10,14 @@
 
 @class NSPersistentContainer;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface Assembly : NSObject
 
 - (UIViewController *)getRootViewController;
 - (void)scheduleDrinkRequestFromRandomUser;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

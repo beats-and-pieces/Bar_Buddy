@@ -10,8 +10,8 @@
 
 #import "ProjectSettings.h"
 // Настройки таблицы
-CGFloat const UserpicRoundRadius = 16.0;
-CGFloat const UserCellInsets = 16.0;
+CGFloat const BRBUserpicRoundRadius = 16.0;
+CGFloat const BRBUserCellInsets = 16.0;
 
 // Настройки фильтрв - колекшн вью
 CGFloat const FilterCollectionViewEdgeInset = 15.0;
@@ -35,3 +35,7 @@ CGFloat const BRBZoomLocationLongitude= 37.531409;
 
 CGFloat const BRBZoomArea = 7000;
 
+
+NSString *const BRBNotificationRequestIdentifier = @"NotificationId";
+
+NSTimeInterval const BRBNotificationTriggerTimeInterval = 5;

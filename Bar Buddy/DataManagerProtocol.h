@@ -8,7 +8,7 @@
 
 @protocol DataManagerProtocol <NSObject>
 
-- (void)updateData;
+- (void)updateTableView;
 - (void)setUserpicForCellAtIndexPath:(NSIndexPath *)indexPath withData:(NSData *)data;
 
 @end

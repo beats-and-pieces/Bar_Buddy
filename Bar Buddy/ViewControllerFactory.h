@@ -9,22 +9,22 @@
 #import <UIKit/UIKit.h>
 #import "DataManager.h"
 
-typedef NS_ENUM(NSInteger, ViewControllerType) {
-    ViewControllerUserTableViewType,
-    ViewControllerUserMapType
+typedef NS_ENUM(NSInteger, BRBViewControllerType) {
+    BRBViewControllerTypeUserTableView,
+    BRBViewControllerTypeUserMap
 };
 
 @protocol ViewControllerFactoryProtocol
 
 @required
-- (id)initWithDataManager:(DataManager *)dataManager;
+- (instancetype)initWithDataManager:(DataManager *)dataManager;
 - (NSString *)getTabBarItemTitle;
 
 @end
 
 @interface ViewControllerFactory : UIViewController <ViewControllerFactoryProtocol>
 
-+ (instancetype)initWithDataManager:(DataManager *)dataManager type:(ViewControllerType)viewControllerType;
++ (instancetype)initWithDataManager:(DataManager *)dataManager type:(BRBViewControllerType)viewControllerType;
 
 
 @end

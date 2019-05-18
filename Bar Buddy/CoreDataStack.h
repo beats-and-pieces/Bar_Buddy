@@ -11,6 +11,6 @@
 
 @interface CoreDataStack : NSObject
 
-@property (readonly, strong) NSPersistentContainer *persistentContainer;
+@property (nonatomic, readonly) NSPersistentContainer *persistentContainer;
 
 @end

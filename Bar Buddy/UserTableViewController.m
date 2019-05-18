@@ -12,13 +12,17 @@
 #import "FilterCollectionViewCell.h"
 #import "DataManagerProtocol.h"
 #import "ProjectSettings.h"
+#import "AlertController.h"
+#import "BRBUserFilterController.h"
 
 
 @interface UserTableViewController () <UITableViewDataSource, UITableViewDelegate, DataManagerProtocol, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
-@property (nonnull, strong) UITableView *tableView;
-@property (nonnull, strong) UICollectionView *collectionView;
-@property (nullable, strong) DataManager *dataManager;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UICollectionView *collectionView;
+
+@property (nonatomic, strong) DataManager *dataManager;
+@property (nonatomic) AlertController *alertController;
 
 @property (nonatomic) NSInteger preferredDrink;
 @property (nonatomic) NSInteger preferredCompany;
@@ -37,13 +41,14 @@
         _dataManager.delegate = self;
         _drinkFilterValues = @[@"🍺", @"🍷", @"🥃"];
         _topicFilterValues = @[@"🏎", @"🎼", @"💼"];
+        _alertController = [[AlertController alloc] initWithViewController:self];
+        _alertController.delegate = self;
     }
     return self;
 }
 
-
-
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [self createView];
     
@@ -73,10 +78,9 @@
 
 #pragma mark - DataManagerProtocol
 
-- (void)updateData
+- (void)updateTableView
 {
     [self.tableView reloadData];
-    
 }
 
 
@@ -89,9 +93,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     UserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UserTableViewCell class])];
-    
+    cell.backgroundColor = UIColor.whiteColor;
     cell.usernameLabel.text = self.dataManager.users[indexPath.row].displayedName;
     cell.descriptionLabel.text = self.drinkFilterValues[self.dataManager.users[indexPath.row].preferredDrink - 1];
     if (!cell.userpicImageView.image)
@@ -99,11 +102,11 @@
         cell.userpicImageView.image = [UIImage imageNamed:PlaceholderFilename];
     }
     
-    cell.backgroundColor = UIColor.greenColor;
+    cell.contentView.backgroundColor = UIColor.greenColor;
     NSString *userpicURL = self.dataManager.users[indexPath.row].userpicURL;
     if (self.dataManager.users[indexPath.row].isDrinking)
     {
-        cell.backgroundColor = UIColor.redColor;
+        cell.contentView.backgroundColor = UIColor.redColor;
     }
     [self.dataManager dowloadUserpicFromURL:userpicURL forIndexPath:indexPath];
     
@@ -131,9 +134,22 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self sendDrinkRequest:self.dataManager.users[indexPath.row].displayedName];
+    User *user = self.dataManager.users[indexPath.row];
+    if (user.isDrinking)
+    {
+        [self.alertController showAlertForUnableToSendDrinkRequestTo:user.displayedName];
+    }
+    else
+    {
+        [self sendDrinkRequestTo:user.displayedName];
+    }
+    
 }
 
+- (void)sendDrinkRequestTo:(NSString *)userName
+{
+   [self.alertController showAlertForDrinkRequestTo:userName];
+}
 
 #pragma mark - UICollectionViewDataSource
 
@@ -151,17 +167,21 @@
 {
     FilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class]) forIndexPath:indexPath];
     
-    switch (indexPath.section) {
+    switch (indexPath.section)
+    {
         case 0:
+        {
             cell.label.text = self.drinkFilterValues[indexPath.row];
             break;
+        }
         case 1:
+        {
             cell.label.text = self.topicFilterValues[indexPath.row];
             break;
+        }
         default:
             break;
     }
-    
     return cell;
 }
 
@@ -170,12 +190,8 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSLog(@"cell #%ld at section@%ld", (long)indexPath.row, (long)indexPath.section);
-
     FilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class]) forIndexPath:indexPath];
     [cell changeState];
-    cell.label.text = @"TEST!";
-//    cell.isPressed = YES;
     switch (indexPath.section) {
         case 0:
             self.preferredDrink = indexPath.row + 1;
@@ -200,36 +216,6 @@
 - (NSString *)getTabBarItemTitle
 {
     return UserTableViewTabBarItemTitle;
-}
-
-- (void)sendDrinkRequest:(NSString *)userName
-{
-    UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:userName
-                                  message:@"Послать дринк-реквест пользователю?"
-                                  preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction* ok = [UIAlertAction
-                         actionWithTitle:@"OK"
-                         style:UIAlertActionStyleDefault
-                         handler:^(UIAlertAction * action)
-                         {
-                             [alert dismissViewControllerAnimated:YES completion:nil];
-                             
-                         }];
-    UIAlertAction* cancel = [UIAlertAction
-                             actionWithTitle:@"Cancel"
-                             style:UIAlertActionStyleDefault
-                             handler:^(UIAlertAction * action)
-                             {
-                                 [alert dismissViewControllerAnimated:YES completion:nil];
-                                 
-                             }];
-    
-    [alert addAction:ok];
-    [alert addAction:cancel];
-    
-    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end

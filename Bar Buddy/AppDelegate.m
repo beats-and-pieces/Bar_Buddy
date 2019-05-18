@@ -30,7 +30,6 @@
     return YES;
 }
 
-
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     [self.assembly scheduleDrinkRequestFromRandomUser];

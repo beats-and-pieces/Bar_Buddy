@@ -13,8 +13,8 @@
 
 @interface DataManager () <NetworkServiceOutputProtocol>
 
-@property (nonatomic, strong) NetworkService *networkService;
-@property (nonatomic, strong) CoreDataService *coreDataService;
+@property (nonatomic, nullable) NetworkService *networkService;
+@property (nonatomic, nullable) CoreDataService *coreDataService;
 
 @end
 
@@ -41,8 +41,7 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.users = [self.coreDataService getUserData];
-        NSLog(@"getLocalData");
-        [self.delegate updateData];
+        [self.delegate updateTableView];
     });
 }
 
@@ -53,14 +52,12 @@
 
 - (void)loadingIsDoneWithDataRecieved:(NSArray *)dataRecieved
 {
-//    NSLog(@"loadingIsDoneWithDataRecieved");
     dispatch_async(dispatch_get_main_queue(), ^{
         if (dataRecieved.count != 0)
         {
-            NSLog(@"Saving data!");
             [self.coreDataService saveUserData:dataRecieved];
             self.users = [self.coreDataService getUserData];
-            [self.delegate updateData];
+            [self.delegate updateTableView];
         }
     });
 }
@@ -78,7 +75,7 @@
 - (void)updateFilteredResultsWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType;
 {    
     self.users = [self.coreDataService getFilteredUsersWithDrinkType:drinkType withCompanyType:companyType];
-    [self.delegate updateData];
+    [self.delegate updateTableView];
 }
 
 @end

@@ -29,7 +29,7 @@
         _userpicImageView = [UIImageView new];
         _userpicImageView.contentMode = UIViewContentModeScaleAspectFit;
         _userpicImageView.layer.masksToBounds = YES;
-        _userpicImageView.layer.cornerRadius = UserpicRoundRadius;
+        _userpicImageView.layer.cornerRadius = BRBUserpicRoundRadius;
         [self.contentView addSubview:_userpicImageView];
         
         _usernameLabel = [UILabel new];
@@ -37,12 +37,13 @@
         
         _descriptionLabel = [UILabel new];
         _descriptionLabel.numberOfLines = 0;
+        self.contentView.layer.cornerRadius = BRBUserpicRoundRadius;
         [self.contentView addSubview:_descriptionLabel];
-        
+        self.contentView.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
 //        UITapGestureRecognizer *tapOnCell = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector (didTapCell:)];
 //        [self.contentView addGestureRecognizer:tapOnCell];
         
-        [self createGradientLayer];
+//        [self createGradientLayer];
         [self setupConstrains];
     }
     
@@ -60,16 +61,16 @@
 - (void)setupConstrains
 {
     self.userpicImageView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.topCoverImageConstraintY = [self.userpicImageView.topAnchor constraintEqualToAnchor:self.contentView.topAnchor constant: UserCellInsets];
+    self.topCoverImageConstraintY = [self.userpicImageView.topAnchor constraintEqualToAnchor:self.contentView.topAnchor constant: BRBUserCellInsets];
     self.topCoverImageConstraintY.active = YES;
     
-    [self.userpicImageView.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor constant: UserCellInsets].active = YES;
+    [self.userpicImageView.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor constant: BRBUserCellInsets].active = YES;
     
-    CGFloat imageSize = (self.contentView.bounds.size.width - UserCellInsets * 3) / 2;
+    CGFloat imageSize = (self.contentView.bounds.size.width - BRBUserCellInsets * 3) / 2;
     self.topCoverImageConstraintWidth = [self.userpicImageView.widthAnchor constraintEqualToConstant:imageSize];
     self.topCoverImageConstraintHeight = [self.userpicImageView.heightAnchor constraintEqualToConstant:imageSize];
 //    self.bo
-    NSLayoutConstraint *bottomImageConstraint = [self.userpicImageView.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant: -1 * UserCellInsets];
+    NSLayoutConstraint *bottomImageConstraint = [self.userpicImageView.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant: -1 * BRBUserCellInsets];
     [NSLayoutConstraint activateConstraints:@[self.topCoverImageConstraintY, self.topCoverImageConstraintWidth, self.topCoverImageConstraintHeight, bottomImageConstraint]];
     
     

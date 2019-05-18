@@ -12,8 +12,8 @@
 
 @interface MapViewController ()
 
-@property (strong, nonatomic) MKMapView *mapView;
-@property (nullable, strong) DataManager *dataManager;
+@property (nonatomic, nullable) MKMapView *mapView;
+@property (nonatomic, nullable) DataManager *dataManager;
 @property (nonatomic) BOOL displayAllUsers;
 @property (nonatomic, copy) NSString *userName;
 
@@ -45,7 +45,6 @@
     {
         [self displayUserLocations];
     }
-    
 }
 
 - (void)viewDidDisappear:(BOOL)animated
