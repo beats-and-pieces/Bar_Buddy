@@ -14,7 +14,7 @@
 
 - (UIViewController *)getRootViewController;
 - (void)switchToMap;
-- (void)scheduleLocalNotification;
+- (void)scheduleDrinkRequestFromRandomUser;
 
 @end
 

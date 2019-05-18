@@ -13,5 +13,6 @@
 
 - (instancetype)initWithDataManager:(DataManager *)dataManager;
 - (NSString *)getTabBarItemTitle;
+- (void)displayLocationOfUserWithName:(NSString *)userName;
 
 @end

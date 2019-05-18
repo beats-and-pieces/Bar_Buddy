@@ -29,3 +29,9 @@ NSString *const MapViewTabBarItemTitle = @"На карте";
 NSString *const UserTableViewNavigationTitle = @"Пользователи";
 
 NSString *const PlaceholderFilename = @"placeholder.png";
+
+CGFloat const BRBZoomLocationLatitude = 55.741476;
+CGFloat const BRBZoomLocationLongitude= 37.531409;
+
+CGFloat const BRBZoomArea = 7000;
+

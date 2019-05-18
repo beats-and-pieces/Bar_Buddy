@@ -9,20 +9,17 @@
 #import "MapViewController.h"
 #import <MapKit/MapKit.h>
 #import "ProjectSettings.h"
-//#import "User+CoreDataClass.h"
 
 @interface MapViewController () <MKMapViewDelegate>
 
 @property (strong, nonatomic) MKMapView *mapView;
 @property (nullable, strong) DataManager *dataManager;
-
+@property (nonatomic) BOOL displayAllUsers;
+@property (nonatomic, copy) NSString *userName;
 
 @end
 
-#define METERS_PER_MILE 1609.344
-
 @implementation MapViewController
-
 
 
 - (instancetype)initWithDataManager:(DataManager *)dataManager
@@ -30,48 +27,78 @@
     self = [super init];
     if (self) {
         _dataManager = dataManager;
+        _displayAllUsers = TRUE;
     }
     return self;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [self setupMapView];
-    [self displayUsersLocations];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if (self.displayAllUsers)
+    {
+        [self displayUserLocations];
+    }
+    
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self deleteUsersFromMap];
+    self.displayAllUsers = TRUE;
 }
 
 - (void)setupMapView
 {
     self.mapView = [[MKMapView alloc] initWithFrame:self.view.frame];
-//    self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
     
     CLLocationCoordinate2D zoomLocation;
-    zoomLocation.latitude = 55.741476;
-    zoomLocation.longitude= 37.531409;
-
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 5*METERS_PER_MILE, 5*METERS_PER_MILE);
+    zoomLocation.latitude = BRBZoomLocationLatitude;
+    zoomLocation.longitude= BRBZoomLocationLongitude;
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, BRBZoomArea, BRBZoomArea);
     self.mapView.zoomEnabled = YES;
     [self.mapView setRegion:viewRegion animated:YES];
 }
 
-- (void)displayUsersLocations{
+
+- (void)displayUserLocations
+{
     NSMutableArray *array = [NSMutableArray new];
     for (User *user in self.dataManager.users)
     {
-        MKPointAnnotation *userPoint = [MKPointAnnotation new];
-        
-        userPoint.title = user.displayedName;
-        userPoint.coordinate = CLLocationCoordinate2DMake(user.locationLatitude, user.locationLongitude);
-//        NSLog(@"userpoint %f, %f", userPoint.coordinate.longitude, userPoint.coordinate.latitude);
-        [array addObject:userPoint];
-        
+        if (self.displayAllUsers || [user.displayedName isEqualToString: self.userName])
+        {
+            MKPointAnnotation *userPoint = [MKPointAnnotation new];
+            
+            userPoint.title = user.displayedName;
+            userPoint.coordinate = CLLocationCoordinate2DMake(user.locationLatitude, user.locationLongitude);
+            
+            [array addObject:userPoint];
+        }
     }
     [self.mapView showAnnotations:array animated:YES];
 }
-- (void)calculateZoomArea
+
+- (void)displayLocationOfUserWithName:(NSString *)userName
 {
-    
+    self.displayAllUsers = NO;
+    self.userName = userName;
+    [self deleteUsersFromMap];
+    [self displayUserLocations];
+}
+
+- (void)deleteUsersFromMap
+{
+    [self.mapView removeAnnotations:self.mapView.annotations];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
@@ -87,6 +114,7 @@
     annotationView.image = [UIImage imageNamed:PlaceholderFilename];
     return annotationView;
 }
+
 
 #pragma mark - ViewControllerFactoryProtocol
 

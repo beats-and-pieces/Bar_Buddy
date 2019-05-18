@@ -10,12 +10,15 @@
 #import "ViewControllerFactory.h"
 #import "CoreDataStack.h"
 #import "PushService.h"
+#import "MapViewController.h"
 
 @interface Assembly () <UNUserNotificationCenterDelegate>
 
 
 @property (strong, nonatomic) UITabBarController *tabBarController;
 @property (strong, nonatomic) PushService *pushService;
+//@property (strong, nonatomic) ViewControllerFactory *mapViewController;
+@property (strong, nonatomic) DataManager *dataManager;
 
 @end
 
@@ -47,6 +50,8 @@
         tabBarController.tabBar.tintColor = [UIColor whiteColor];
         tabBarController.tabBar.barTintColor = [UIColor blackColor];
         self.tabBarController = tabBarController;
+        self.dataManager = dataManager;
+//        self.mapViewController = mapViewController;
     }
     return self;
 }
@@ -62,14 +67,19 @@
     [self.tabBarController setSelectedIndex:1];
 }
 
-- (void)showLocationOfUser:(User *)user
+- (void)showLocationOfUserWithName:(NSString *) userName;
 {
-    
+    [self switchToMap];
+    MapViewController *mapVC = (MapViewController *)self.tabBarController.viewControllers[1];
+    [mapVC displayLocationOfUserWithName:userName];
 }
 
-- (void)scheduleLocalNotification
+
+- (void)scheduleDrinkRequestFromRandomUser
 {
-    [self.pushService scheduleLocalNotification];
+    int randomNumber = arc4random_uniform((int)self.dataManager.users.count);
+    User *randomUser = self.dataManager.users[randomNumber];
+    [self.pushService scheduleDrinkRequestFromUser:randomUser.displayedName];
 }
 
 #pragma mark - UNUserNotificationCenterDelegate
@@ -79,10 +89,12 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
          withCompletionHandler:(void(^)(void))completionHandler
 {
     UNNotificationContent *content = response.notification.request.content;
-    if (content.userInfo[@"request"])
+    if (content.userInfo[@"userName"])
     {
-        NSString *request = content.userInfo[@"request"];
-        [self switchToMap];
+        NSString *userName = content.userInfo[@"userName"];
+        NSLog(@"%@", userName);
+//        [self switchToMap];
+        [self showLocationOfUserWithName:userName];
     }
     
     if (completionHandler)

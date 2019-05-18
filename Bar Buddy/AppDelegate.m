@@ -21,7 +21,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    Assembly *assembly = ;
     self.assembly = [Assembly new];
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
@@ -34,7 +33,10 @@
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    [self.assembly scheduleLocalNotification];
+//    [self.assembly scheduleLocalNotification];
+    [self.assembly scheduleDrinkRequestFromRandomUser];
+//    self.a
+    
 }
 
 @end

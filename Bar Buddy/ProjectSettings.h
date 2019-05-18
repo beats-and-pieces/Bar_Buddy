@@ -23,3 +23,7 @@ extern NSString *const UserTableViewNavigationTitle;
 
 extern NSString *const PlaceholderFilename;
 
+extern CGFloat const BRBZoomLocationLatitude;
+extern CGFloat const BRBZoomLocationLongitude;
+
+extern CGFloat const BRBZoomArea;

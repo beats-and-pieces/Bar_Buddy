@@ -11,9 +11,10 @@
 #import "AppDelegate.h"
 #include <stdlib.h>
 @import UserNotifications;
+//#import "User+CoreDataClass.h"
 
-typedef NS_ENUM(NSInteger, LCTTriggerType) {
-    LCTTriggerTypeInterval = 0
+typedef NS_ENUM(NSInteger, BRBTriggerType) {
+    BRBTriggerTypeInterval = 0
 };
 
 @interface PushService () <UNUserNotificationCenterDelegate>
@@ -47,44 +48,34 @@ typedef NS_ENUM(NSInteger, LCTTriggerType) {
 
 - (void)scheduleDrinkRequestFromUser:(NSString *)userName
 {
-    
-}
-
-- (void)scheduleLocalNotification
-{
     UNMutableNotificationContent *content = [UNMutableNotificationContent new];
-    
-    NSArray *requests = @[@"puppies", @"kittens"];
-    
-    NSDictionary *bodies = @{
-                                 requests[0] : @"Вы давно не смотрели щенят",
-                                 requests[1] : @"Вы давно не смотрели котят"
-                                 };
-    content.title = @"Напоминание!";
-    int randomNumber = arc4random_uniform(2);
-    NSLog(@"random %d", randomNumber);
-    content.body = bodies[requests[randomNumber]];
+    content.title = userName;
+    content.body = @"Вам пришел дринк-реквест!";
     content.sound = [UNNotificationSound defaultSound];
+
     NSDictionary *dict = @{
-                           @"request": requests[randomNumber]
+                           @"userName": userName
                            };
     content.userInfo = dict;
     
-    // Смотрим разные варианты триггеров
-    UNNotificationTrigger *whateverTrigger = [self triggerWithType:LCTTriggerTypeInterval];
+    [self scheduleLocalNotificationWithContent:content];
+}
+
+- (void)scheduleLocalNotificationWithContent:(UNMutableNotificationContent *)content
+{
+    UNNotificationTrigger *trigger = [self triggerWithType:BRBTriggerTypeInterval];
     
     // Создаем запрос на выполнение
-    // Objective-C
     NSString *identifier = @"NotificationId";
     UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier
-                                                                          content:content trigger:whateverTrigger];
+                                                                          content:content trigger:trigger];
     
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error)
      {
          if (error)
          {
-             NSLog(@"Чот пошло не так... %@",error);
+             NSLog(@"Ошибка отправки пуша %@",error);
          }
      }];
 }
@@ -92,11 +83,11 @@ typedef NS_ENUM(NSInteger, LCTTriggerType) {
 
 #pragma mark - Notifications
 
-- (UNNotificationTrigger *)triggerWithType:(LCTTriggerType)triggerType
+- (UNNotificationTrigger *)triggerWithType:(BRBTriggerType)triggerType
 {
     switch (triggerType)
     {
-        case LCTTriggerTypeInterval:
+        case BRBTriggerTypeInterval:
             return [self intervalTrigger];
         default:
             break;
