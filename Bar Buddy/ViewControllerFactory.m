@@ -16,11 +16,11 @@
 - (instancetype)initWithDataManager:(DataManager *)dataManager type:(ViewControllerType)viewControllerType
 {
     self = nil;
-    if (viewControllerType == UserTableViewType)
+    if (viewControllerType == ViewControllerUserTableViewType)
     {
         self = [[UserTableViewController alloc] initWithDataManager:dataManager];
     }
-    else if (viewControllerType == MapType)
+    else if (viewControllerType == ViewControllerUserMapType)
     {
         self = [[MapViewController alloc] initWithDataManager:dataManager];
     }
@@ -32,15 +32,16 @@
 
 - (instancetype)initWithDataManager:(DataManager *)dataManager
 {
-    [NSException raise:NSInternalInconsistencyException
-                format:@"You have not implemented %@ in %@", NSStringFromSelector(_cmd), NSStringFromClass([self class])];
+    
+    NSString *description = [NSString stringWithFormat:@"You have not implemented %@ in %@", NSStringFromSelector(_cmd), NSStringFromClass([self class])];
+    NSAssert(YES, description);
     return nil;
 }
 
 - (NSString *)getTabBarItemTitle
 {
-    [NSException raise:NSInternalInconsistencyException
-                format:@"You have not implemented %@ in %@", NSStringFromSelector(_cmd), NSStringFromClass([self class])];
+    NSString *description = [NSString stringWithFormat:@"You have not implemented %@ in %@", NSStringFromSelector(_cmd), NSStringFromClass([self class])];
+    NSAssert(YES, description);
     return nil;
 }
 

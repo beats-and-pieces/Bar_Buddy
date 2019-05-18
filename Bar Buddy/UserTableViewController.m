@@ -99,7 +99,12 @@
         cell.userpicImageView.image = [UIImage imageNamed:PlaceholderFilename];
     }
     
+    cell.backgroundColor = UIColor.greenColor;
     NSString *userpicURL = self.dataManager.users[indexPath.row].userpicURL;
+    if (self.dataManager.users[indexPath.row].isDrinking)
+    {
+        cell.backgroundColor = UIColor.redColor;
+    }
     [self.dataManager dowloadUserpicFromURL:userpicURL forIndexPath:indexPath];
     
     return cell;

@@ -50,6 +50,7 @@
             NSInteger preferredCompany = [json[@"preferred_company"] integerValue];
             NSNumber *latitude = [NSNumber numberWithFloat: [json[@"latitude"] floatValue]];
             NSNumber *longitude = [NSNumber numberWithFloat: [json[@"longitude"] floatValue]];
+            BOOL isDrinking = json[@"isDrinking"];
             
             user.displayedName = displayedName;
             user.userName = userName;
@@ -58,6 +59,7 @@
             user.preferredCompany = preferredCompany;
             user.locationLatitude = latitude.doubleValue;
             user.locationLongitude = longitude.doubleValue;
+            user.isDrinking = isDrinking;
             
             NSError *error = nil;
             if (![self.coreDataContext save:&error])

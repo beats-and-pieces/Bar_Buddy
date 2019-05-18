@@ -10,8 +10,6 @@
 		3A31E17F227AE1CB00F7F1FA /* PushService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E17D227AE1CB00F7F1FA /* PushService.m */; };
 		3A31E185227B128300F7F1FA /* FilterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E183227B128300F7F1FA /* FilterCollectionViewCell.m */; };
 		3A31E188227C6F2D00F7F1FA /* UserTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E187227C6F2D00F7F1FA /* UserTableView.m */; };
-		3A31E193227C847200F7F1FA /* User+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E191227C847200F7F1FA /* User+CoreDataClass.m */; };
-		3A31E194227C847200F7F1FA /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E192227C847200F7F1FA /* User+CoreDataProperties.m */; };
 		3A5D1F162277115D00842DF3 /* Bar_Buddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F142277115D00842DF3 /* Bar_Buddy.xcdatamodeld */; };
 		3A5D1F182277115E00842DF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5D1F172277115E00842DF3 /* Assets.xcassets */; };
 		3A5D1F1B2277115E00842DF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5D1F192277115E00842DF3 /* LaunchScreen.storyboard */; };
@@ -24,6 +22,8 @@
 		3A5D1F5D227711A900842DF3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F50227711A800842DF3 /* MapViewController.m */; };
 		3A5D1F5E227711A900842DF3 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F54227711A900842DF3 /* DataManager.m */; };
 		3A6DCB6D227EF2C8000185CE /* ProjectSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */; };
+		3A739C0A228EDAF800D5DBCE /* User+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A739C08228EDAF800D5DBCE /* User+CoreDataClass.m */; };
+		3A739C0B228EDAF800D5DBCE /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A739C09228EDAF800D5DBCE /* User+CoreDataProperties.m */; };
 		3A93B244228DCD8B00CA71FF /* testAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A93B243228DCD8B00CA71FF /* testAssembly.m */; };
 		3A93B248228DD20200CA71FF /* TestMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A93B247228DD20200CA71FF /* TestMapViewController.m */; };
 		3AC4D2DE2277214600084A1B /* CoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC4D2DD2277214600084A1B /* CoreDataService.m */; };
@@ -49,10 +49,6 @@
 		3A31E184227B128300F7F1FA /* FilterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterCollectionViewCell.h; sourceTree = "<group>"; };
 		3A31E186227C6F2D00F7F1FA /* UserTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserTableView.h; sourceTree = "<group>"; };
 		3A31E187227C6F2D00F7F1FA /* UserTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserTableView.m; sourceTree = "<group>"; };
-		3A31E18F227C847200F7F1FA /* User+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
-		3A31E190227C847200F7F1FA /* User+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataClass.h"; sourceTree = "<group>"; };
-		3A31E191227C847200F7F1FA /* User+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataClass.m"; sourceTree = "<group>"; };
-		3A31E192227C847200F7F1FA /* User+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
 		3A5D1F082277115D00842DF3 /* Bar Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bar Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5D1F152277115D00842DF3 /* Bar_Buddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bar_Buddy.xcdatamodel; sourceTree = "<group>"; };
 		3A5D1F172277115E00842DF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,6 +75,10 @@
 		3A5D1F56227711A900842DF3 /* UserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTableViewController.h; sourceTree = "<group>"; };
 		3A6DCB6B227EF2C8000185CE /* ProjectSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectSettings.h; sourceTree = "<group>"; };
 		3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectSettings.m; sourceTree = "<group>"; };
+		3A739C06228EDAF800D5DBCE /* User+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		3A739C07228EDAF800D5DBCE /* User+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataClass.h"; sourceTree = "<group>"; };
+		3A739C08228EDAF800D5DBCE /* User+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataClass.m"; sourceTree = "<group>"; };
+		3A739C09228EDAF800D5DBCE /* User+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
 		3A76F68D22775698002ADDE7 /* CoreDataServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataServiceProtocol.h; sourceTree = "<group>"; };
 		3A93B243228DCD8B00CA71FF /* testAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testAssembly.m; sourceTree = "<group>"; };
 		3A93B247228DD20200CA71FF /* TestMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestMapViewController.m; sourceTree = "<group>"; };
@@ -227,10 +227,10 @@
 		3AC4D2DB2277204000084A1B /* CoreData Entity */ = {
 			isa = PBXGroup;
 			children = (
-				3A31E18F227C847200F7F1FA /* User+CoreDataProperties.h */,
-				3A31E190227C847200F7F1FA /* User+CoreDataClass.h */,
-				3A31E191227C847200F7F1FA /* User+CoreDataClass.m */,
-				3A31E192227C847200F7F1FA /* User+CoreDataProperties.m */,
+				3A739C06228EDAF800D5DBCE /* User+CoreDataProperties.h */,
+				3A739C07228EDAF800D5DBCE /* User+CoreDataClass.h */,
+				3A739C08228EDAF800D5DBCE /* User+CoreDataClass.m */,
+				3A739C09228EDAF800D5DBCE /* User+CoreDataProperties.m */,
 			);
 			name = "CoreData Entity";
 			sourceTree = "<group>";
@@ -338,7 +338,6 @@
 				3A5D1F1E2277115E00842DF3 /* main.m in Sources */,
 				3AEEC7022279975F00755100 /* CoreDataStack.m in Sources */,
 				3AEEC6FF2279941100755100 /* Assembly.m in Sources */,
-				3A31E194227C847200F7F1FA /* User+CoreDataProperties.m in Sources */,
 				3A31E17F227AE1CB00F7F1FA /* PushService.m in Sources */,
 				3A5D1F162277115D00842DF3 /* Bar_Buddy.xcdatamodeld in Sources */,
 				3A5D1F5A227711A900842DF3 /* UserTableViewController.m in Sources */,
@@ -346,9 +345,10 @@
 				3A5D1F5D227711A900842DF3 /* MapViewController.m in Sources */,
 				3A6DCB6D227EF2C8000185CE /* ProjectSettings.m in Sources */,
 				3A31E188227C6F2D00F7F1FA /* UserTableView.m in Sources */,
+				3A739C0A228EDAF800D5DBCE /* User+CoreDataClass.m in Sources */,
+				3A739C0B228EDAF800D5DBCE /* User+CoreDataProperties.m in Sources */,
 				3A5D1F5B227711A900842DF3 /* NetworkService.m in Sources */,
 				3A31E185227B128300F7F1FA /* FilterCollectionViewCell.m in Sources */,
-				3A31E193227C847200F7F1FA /* User+CoreDataClass.m in Sources */,
 				3AEEC7052279B28000755100 /* ViewControllerFactory.m in Sources */,
 				3A5D1F5E227711A900842DF3 /* DataManager.m in Sources */,
 				3AC4D2DE2277214600084A1B /* CoreDataService.m in Sources */,

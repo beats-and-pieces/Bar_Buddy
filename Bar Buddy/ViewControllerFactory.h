@@ -10,8 +10,8 @@
 #import "DataManager.h"
 
 typedef NS_ENUM(NSInteger, ViewControllerType) {
-    UserTableViewType,
-    MapType
+    ViewControllerUserTableViewType,
+    ViewControllerUserMapType
 };
 
 @protocol ViewControllerFactoryProtocol
