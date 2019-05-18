@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "ProjectSettings.h"
 
-@interface MapViewController () <MKMapViewDelegate>
+@interface MapViewController ()
 
 @property (strong, nonatomic) MKMapView *mapView;
 @property (nullable, strong) DataManager *dataManager;
@@ -27,7 +27,7 @@
     self = [super init];
     if (self) {
         _dataManager = dataManager;
-        _displayAllUsers = TRUE;
+        _displayAllUsers = YES;
     }
     return self;
 }
@@ -52,7 +52,7 @@
 {
     [super viewDidDisappear:animated];
     [self deleteUsersFromMap];
-    self.displayAllUsers = TRUE;
+    self.displayAllUsers = YES;
 }
 
 - (void)setupMapView
@@ -99,20 +99,6 @@
 - (void)deleteUsersFromMap
 {
     [self.mapView removeAnnotations:self.mapView.annotations];
-}
-
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
-{
-    // this part is boilerplate code used to create or reuse a pin annotation
-    static NSString *viewId = @"MKPinAnnotationView";
-    MKPinAnnotationView *annotationView = (MKPinAnnotationView*)
-    [self.mapView dequeueReusableAnnotationViewWithIdentifier:viewId];
-    if (annotationView == nil) {
-        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:viewId];
-    }
-    // set your custom image
-    annotationView.image = [UIImage imageNamed:PlaceholderFilename];
-    return annotationView;
 }
 
 

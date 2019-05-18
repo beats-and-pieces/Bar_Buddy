@@ -17,7 +17,6 @@
 
 @property (strong, nonatomic) UITabBarController *tabBarController;
 @property (strong, nonatomic) PushService *pushService;
-//@property (strong, nonatomic) ViewControllerFactory *mapViewController;
 @property (strong, nonatomic) DataManager *dataManager;
 
 @end
@@ -35,6 +34,7 @@
         CoreDataService *coreDataService = [[CoreDataService alloc] initWithCoreDataStack:coreDataStack];
         NetworkService *netWorkService = [NetworkService new];
         DataManager *dataManager = [[DataManager alloc] initWithCoreDataService:coreDataService withNetworkService:netWorkService];
+        self.dataManager = dataManager;
         
         ViewControllerFactory *userTableViewController = [ViewControllerFactory initWithDataManager:dataManager type:ViewControllerUserTableViewType];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:userTableViewController];
@@ -50,8 +50,6 @@
         tabBarController.tabBar.tintColor = [UIColor whiteColor];
         tabBarController.tabBar.barTintColor = [UIColor blackColor];
         self.tabBarController = tabBarController;
-        self.dataManager = dataManager;
-//        self.mapViewController = mapViewController;
     }
     return self;
 }
@@ -61,25 +59,18 @@
     return self.tabBarController;
 }
 
-
-- (void)switchToMap
-{
-    [self.tabBarController setSelectedIndex:1];
-}
-
-- (void)showLocationOfUserWithName:(NSString *) userName;
-{
-    [self switchToMap];
-    MapViewController *mapVC = (MapViewController *)self.tabBarController.viewControllers[1];
-    [mapVC displayLocationOfUserWithName:userName];
-}
-
-
 - (void)scheduleDrinkRequestFromRandomUser
 {
     int randomNumber = arc4random_uniform((int)self.dataManager.users.count);
     User *randomUser = self.dataManager.users[randomNumber];
     [self.pushService scheduleDrinkRequestFromUser:randomUser.displayedName];
+}
+
+- (void)showLocationOfUserWithName:(NSString *) userName;
+{
+    [self.tabBarController setSelectedIndex:1];
+    MapViewController *mapViewController = (MapViewController *)self.tabBarController.viewControllers[1];
+    [mapViewController displayLocationOfUserWithName:userName];
 }
 
 #pragma mark - UNUserNotificationCenterDelegate
@@ -93,15 +84,8 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     {
         NSString *userName = content.userInfo[@"userName"];
         NSLog(@"%@", userName);
-//        [self switchToMap];
         [self showLocationOfUserWithName:userName];
     }
-    
-    if (completionHandler)
-    {
-        completionHandler();
-    }
 }
-
 
 @end

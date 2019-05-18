@@ -33,10 +33,7 @@
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-//    [self.assembly scheduleLocalNotification];
     [self.assembly scheduleDrinkRequestFromRandomUser];
-//    self.a
-    
 }
 
 @end

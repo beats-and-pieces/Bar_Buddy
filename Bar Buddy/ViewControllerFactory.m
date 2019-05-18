@@ -15,17 +15,20 @@
 
 + (instancetype)initWithDataManager:(DataManager *)dataManager type:(ViewControllerType)viewControllerType
 {
-//    self = nil;
-    if (viewControllerType == ViewControllerUserTableViewType)
-    {
-        return [[UserTableViewController alloc] initWithDataManager:dataManager];
+    switch (viewControllerType) {
+        case ViewControllerUserTableViewType:
+        {
+            return [[UserTableViewController alloc] initWithDataManager:dataManager];
+            break;
+        }
+        case ViewControllerUserMapType:
+        {
+            return [[MapViewController alloc] initWithDataManager:dataManager];
+            break;
+        }
+        default:
+            break;
     }
-    else if (viewControllerType == ViewControllerUserMapType)
-    {
-        return [[MapViewController alloc] initWithDataManager:dataManager];
-    }
-    else return nil;
-//    return self;
 }
 
 
