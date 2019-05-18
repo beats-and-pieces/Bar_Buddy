@@ -24,7 +24,7 @@ typedef NS_ENUM(NSInteger, ViewControllerType) {
 
 @interface ViewControllerFactory : UIViewController <ViewControllerFactoryProtocol>
 
-- (instancetype)initWithDataManager:(DataManager *)dataManager type:(ViewControllerType)viewControllerType;
++ (instancetype)initWithDataManager:(DataManager *)dataManager type:(ViewControllerType)viewControllerType;
 
 
 @end

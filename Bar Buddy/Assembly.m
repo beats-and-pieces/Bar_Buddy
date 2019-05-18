@@ -33,11 +33,11 @@
         NetworkService *netWorkService = [NetworkService new];
         DataManager *dataManager = [[DataManager alloc] initWithCoreDataService:coreDataService withNetworkService:netWorkService];
         
-        ViewControllerFactory *userTableViewController = [[ViewControllerFactory alloc] initWithDataManager:dataManager type:ViewControllerUserTableViewType];
+        ViewControllerFactory *userTableViewController = [ViewControllerFactory initWithDataManager:dataManager type:ViewControllerUserTableViewType];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:userTableViewController];
         navigationController.tabBarItem.title = [userTableViewController getTabBarItemTitle];
         
-        ViewControllerFactory *mapViewController = [[ViewControllerFactory alloc] initWithDataManager:dataManager type:ViewControllerUserMapType];
+        ViewControllerFactory *mapViewController = [ViewControllerFactory initWithDataManager:dataManager type:ViewControllerUserMapType];
         mapViewController.tabBarItem.title = [mapViewController getTabBarItemTitle];
         
         UITabBarController *tabBarController = [UITabBarController new];

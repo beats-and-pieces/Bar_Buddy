@@ -13,18 +13,19 @@
 
 @implementation ViewControllerFactory
 
-- (instancetype)initWithDataManager:(DataManager *)dataManager type:(ViewControllerType)viewControllerType
++ (instancetype)initWithDataManager:(DataManager *)dataManager type:(ViewControllerType)viewControllerType
 {
-    self = nil;
+//    self = nil;
     if (viewControllerType == ViewControllerUserTableViewType)
     {
-        self = [[UserTableViewController alloc] initWithDataManager:dataManager];
+        return [[UserTableViewController alloc] initWithDataManager:dataManager];
     }
     else if (viewControllerType == ViewControllerUserMapType)
     {
-        self = [[MapViewController alloc] initWithDataManager:dataManager];
+        return [[MapViewController alloc] initWithDataManager:dataManager];
     }
-    return self;
+    else return nil;
+//    return self;
 }
 
 
