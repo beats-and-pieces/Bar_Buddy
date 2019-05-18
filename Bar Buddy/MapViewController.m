@@ -32,11 +32,13 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setupMapView];
 }
+
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -47,12 +49,14 @@
     }
 }
 
+
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
     [self deleteUsersFromMap];
     self.displayAllUsers = YES;
 }
+
 
 - (void)setupMapView
 {
@@ -87,6 +91,7 @@
     [self.mapView showAnnotations:array animated:YES];
 }
 
+
 - (void)displayLocationOfUserWithName:(NSString *)userName
 {
     self.displayAllUsers = NO;
@@ -94,6 +99,7 @@
     [self deleteUsersFromMap];
     [self displayUserLocations];
 }
+
 
 - (void)deleteUsersFromMap
 {

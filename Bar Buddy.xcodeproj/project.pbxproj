@@ -173,10 +173,10 @@
 			children = (
 				3A31E186227C6F2D00F7F1FA /* UserTableView.h */,
 				3A31E187227C6F2D00F7F1FA /* UserTableView.m */,
-				3A6B2E3822908E6400A62A09 /* BRBUserFilterView.h */,
-				3A6B2E3922908E6400A62A09 /* BRBUserFilterView.m */,
 				3A5D1F4F227711A800842DF3 /* UserTableViewCell.h */,
 				3A5D1F44227711A700842DF3 /* UserTableViewCell.m */,
+				3A6B2E3822908E6400A62A09 /* BRBUserFilterView.h */,
+				3A6B2E3922908E6400A62A09 /* BRBUserFilterView.m */,
 				3A31E184227B128300F7F1FA /* FilterCollectionViewCell.h */,
 				3A31E183227B128300F7F1FA /* FilterCollectionViewCell.m */,
 			);

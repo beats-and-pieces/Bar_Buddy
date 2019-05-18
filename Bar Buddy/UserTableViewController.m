@@ -23,11 +23,14 @@
 
 @property (nonatomic, strong) DataManager *dataManager;
 @property (nonatomic) AlertController *alertController;
+@property (nonatomic) BRBUserFilterController *userFilterController;
 
 @property (nonatomic) NSInteger preferredDrink;
 @property (nonatomic) NSInteger preferredCompany;
 @property (nonatomic, copy) NSArray<NSString *> *drinkFilterValues;
 @property (nonatomic, copy) NSArray<NSString *> *topicFilterValues;
+@property (nonatomic) CGRect frame;
+
 
 @end
 
@@ -43,6 +46,9 @@
         _topicFilterValues = @[@"🏎", @"🎼", @"💼"];
         _alertController = [[AlertController alloc] initWithViewController:self];
         _alertController.delegate = self;
+        
+        
+        //        _userFilterController =
     }
     return self;
 }
@@ -57,9 +63,15 @@
 
 - (void)createView
 {
+    
+    
     CGRect frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height - self.navigationController.navigationBar.bounds.size.height - self.tabBarController.tabBar.bounds.size.height);
+//    self.userFilterController = [[BRBUserFilterController alloc] initWithDataManager:self.dataManager withFrame:frame];
+//    [self.view addSubview:[self.userFilterController getUserFilterView]];
     UserTableView *userTableView = [[UserTableView alloc] initWithFrame:frame];
     [self.view addSubview:userTableView];
+    
+    
     
     self.tableView = userTableView.tableView;
     self.collectionView = userTableView.collectionView;
@@ -148,7 +160,7 @@
 
 - (void)sendDrinkRequestTo:(NSString *)userName
 {
-   [self.alertController showAlertForDrinkRequestTo:userName];
+    [self.alertController showAlertForDrinkRequestTo:userName];
 }
 
 #pragma mark - UICollectionViewDataSource

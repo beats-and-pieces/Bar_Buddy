@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+@class DataManager;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BRBUserFilterController : UIViewController
+
+- (instancetype)initWithDataManager:(DataManager *)dataManager withFrame:(CGRect)frame;
+
+- (UIView *)getUserFilterView;
 
 @end
 

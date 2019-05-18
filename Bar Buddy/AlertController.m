@@ -51,7 +51,7 @@ typedef NS_ENUM(NSInteger, BRBAlertType) {
 
 - (void)showAlertOfType:(BRBAlertType)alertType
 {
-    UIAlertController *alert =[UIAlertController alertControllerWithTitle:self.alertTitle message:self.alertMessage preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:self.alertTitle message:self.alertMessage preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *ok = [UIAlertAction
                          actionWithTitle:self.alertAcceptanceActionTitle
@@ -64,7 +64,7 @@ typedef NS_ENUM(NSInteger, BRBAlertType) {
     switch (alertType) {
         case BRBAlertTypeSuccess:
         {
-            UIAlertAction* cancel = [UIAlertAction
+            UIAlertAction *cancel = [UIAlertAction
                                      actionWithTitle:@"Отменить"
                                      style:UIAlertActionStyleDefault
                                      handler:^(UIAlertAction * action) {

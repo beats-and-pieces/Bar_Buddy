@@ -22,6 +22,8 @@
 @property (nonatomic, copy) NSArray<NSString *> *drinkFilterValues;
 @property (nonatomic, copy) NSArray<NSString *> *topicFilterValues;
 
+@property (nonatomic) CGRect frame;
+
 @end
 
 @implementation BRBUserFilterController
@@ -33,23 +35,33 @@
         _dataManager = dataManager;
         _drinkFilterValues = @[@"🍺", @"🍷", @"🥃"];
         _topicFilterValues = @[@"🏎", @"🎼", @"💼"];
-         CGRect newFrame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height, frame.size.width, frame.size.height - self.navigationController.navigationBar.bounds.size.height - self.tabBarController.tabBar.bounds.size.height);
-        self.userFilterView = [[BRBUserFilterView alloc] initWithFrame:newFrame];
+        _frame = frame;
+        
+        
+        CGRect newFrame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height, self.frame.size.width, self.frame.size.height - self.navigationController.navigationBar.bounds.size.height - self.tabBarController.tabBar.bounds.size.height);
+        self.userFilterView = [[BRBUserFilterView alloc] initWithFrame:frame];
+        
+        [self.userFilterView registerClass:[FilterCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class])];
+        
+        [self.userFilterView setDataSource:self];
+        [self.userFilterView setDelegate:self];
+  
     }
     return self;
 }
 
-- (void)createView
+- (UIView *)getUserFilterView
 {
-    
+ 
+    return self.userFilterView;
+}
+//{
+
 //    CGRect newFrame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height - self.navigationController.navigationBar.bounds.size.height - self.tabBarController.tabBar.bounds.size.height);
 //     self.collectionView = userTableView.collectionView;
     
-    [self.userFilterView registerClass:[FilterCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class])];
-    
-    [self.userFilterView setDataSource:self];
-    [self.userFilterView setDelegate:self];
-}
+ 
+//}
 
 #pragma mark - UICollectionViewDataSource
 

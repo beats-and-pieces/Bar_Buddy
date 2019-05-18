@@ -14,6 +14,7 @@ typedef NS_ENUM(NSInteger, BRBViewControllerType) {
     BRBViewControllerTypeUserMap
 };
 
+
 @protocol ViewControllerFactoryProtocol
 
 @required
@@ -21,6 +22,7 @@ typedef NS_ENUM(NSInteger, BRBViewControllerType) {
 - (NSString *)getTabBarItemTitle;
 
 @end
+
 
 @interface ViewControllerFactory : UIViewController <ViewControllerFactoryProtocol>
 
