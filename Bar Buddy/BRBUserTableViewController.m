@@ -10,30 +10,20 @@
 #import "BRBUserTableView.h"
 #import "BRBUserTableViewCell.h"
 #import "BRBFilterCollectionViewCell.h"
-//#import "BRBDataContainerDelegateProtocol.h"
 #import "ProjectSettings.h"
 #import "BRBAlertController.h"
-#import "BRBUserFilterViewController.h"
 #import "BRBUserFilterDelegateAndDataSource.h"
 
 
-@interface BRBUserTableViewController () <UITableViewDataSource, UITableViewDelegate, BRBDataContainerDelegateProtocol, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface BRBUserTableViewController () <UITableViewDataSource, UITableViewDelegate, BRBDataContainerDelegateProtocol>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) BRBUserFilterView *filterView;
 
 @property (nonatomic, strong) BRBDataContainer *dataContainer;
 @property (nonatomic) BRBAlertController *alertController;
-@property (nonatomic) BRBUserFilterViewController *userFilterController;
-//@property (nonatomic) id<UICollectionViewDataSource, UICollectionViewDelegate> userFilterDelegateAndDataSource;
 @property (nonatomic) BRBUserFilterDelegateAndDataSource *userFilterDelegateAndDataSource;
 
-@property (nonatomic) NSInteger preferredDrink;
-@property (nonatomic) NSInteger preferredCompany;
-@property (nonatomic, copy) NSArray<NSString *> *drinkFilterValues;
-@property (nonatomic, copy) NSArray<NSString *> *topicFilterValues;
-@property (nonatomic) CGRect frame;
 
 
 @end
@@ -46,14 +36,11 @@
     if (self) {
         _dataContainer = dataContainer;
         _dataContainer.delegate = self;
-        _drinkFilterValues = @[@"🍺", @"🍷", @"🥃"];
-        _topicFilterValues = @[@"🏎", @"🎼", @"💼"];
+        
         _alertController = [[BRBAlertController alloc] initWithViewController:self];
         _alertController.delegate = self;
         
         self.userFilterDelegateAndDataSource = [[BRBUserFilterDelegateAndDataSource alloc] initWithDataContainer:dataContainer];
-        
-
     }
     return self;
 }
@@ -62,26 +49,16 @@
 {
     [super viewDidLoad];
     [self createView];
-    
     [self.dataContainer loadData];
 }
 
 - (void)createView
 {
-    
-    
     CGRect frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height - self.navigationController.navigationBar.bounds.size.height - self.tabBarController.tabBar.bounds.size.height);
     
     BRBUserTableView *userTableView = [[BRBUserTableView alloc] initWithFrame:frame];
     [self.view addSubview:userTableView];
-    
-    
-    self.frame = frame;
-    self.userFilterController = [[BRBUserFilterViewController alloc] initWithDataContainer:self.dataContainer];
-    
-//    [self displayContentController:self.userFilterController];
-    
-    
+
     self.tableView = userTableView.tableView;
     self.collectionView = userTableView.collectionView;
     
@@ -91,27 +68,13 @@
     self.navigationItem.title = BRBUserTableViewNavigationTitle;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    
-//    [self.collectionView setDataSource:self];
-//    [self.collectionView setDelegate:self];
-    
+
     [self.userFilterDelegateAndDataSource setWidth: self.view.bounds.size.width];
     BRBUserFilterDelegateAndDataSource <UICollectionViewDataSource> *filterDataSource = (BRBUserFilterDelegateAndDataSource <UICollectionViewDataSource> *) self.userFilterDelegateAndDataSource;
     BRBUserFilterDelegateAndDataSource <UICollectionViewDelegate> *filterDelegate = (BRBUserFilterDelegateAndDataSource <UICollectionViewDelegate> *) self.userFilterDelegateAndDataSource;
     
     self.collectionView.dataSource= filterDataSource;
     self.collectionView.delegate = filterDelegate;
-}
-
-- (void) displayContentController:(BRBUserFilterViewController *) content
-{
-    [self addChildViewController:content];
-    
-    CGRect frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height, self.view.frame.size.width,  ((BRBFilterCollectionViewCellHeight * 4 + BRBFilterCollectionViewEdgeInset * 4)));
-    
-    content.userFilterView.frame = frame;
-    [self.view addSubview:content.view];
-    [content didMoveToParentViewController:self];
 }
 
 
@@ -130,12 +93,13 @@
     return self.dataContainer.users ? self.dataContainer.users.count : 0;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BRBUserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([BRBUserTableViewCell class])];
     cell.backgroundColor = UIColor.whiteColor;
     cell.usernameLabel.text = self.dataContainer.users[indexPath.row].displayedName;
-    cell.descriptionLabel.text = self.drinkFilterValues[self.dataContainer.users[indexPath.row].preferredDrink - 1];
+    cell.descriptionLabel.text = self.dataContainer.drinkValues[self.dataContainer.users[indexPath.row].preferredDrink - 1];
     if (!cell.userpicImageView.image)
     {
         cell.userpicImageView.image = [UIImage imageNamed:BRBPlaceholderFilename];
@@ -151,6 +115,7 @@
     
     return cell;
 }
+
 
 - (void)setUserpicForCellAtIndexPath:(NSIndexPath *)indexPath withData:(NSData *)data
 {
@@ -182,71 +147,6 @@
     {
         [self sendDrinkRequestTo:user.displayedName];
     }
-    
-}
-
-- (void)sendDrinkRequestTo:(NSString *)userName
-{
-    [self.alertController showAlertForDrinkRequestTo:userName];
-}
-
-#pragma mark - UICollectionViewDataSource
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return 3;
-}
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 2;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    BRBFilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BRBFilterCollectionViewCell class]) forIndexPath:indexPath];
-    
-    switch (indexPath.section)
-    {
-        case 0:
-        {
-            cell.label.text = self.drinkFilterValues[indexPath.row];
-            break;
-        }
-        case 1:
-        {
-            cell.label.text = self.topicFilterValues[indexPath.row];
-            break;
-        }
-        default:
-            break;
-    }
-    return cell;
-}
-
-
-#pragma mark - UICollectionViewDelegate
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    BRBFilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BRBFilterCollectionViewCell class]) forIndexPath:indexPath];
-    [cell changeState];
-    switch (indexPath.section) {
-        case 0:
-            self.preferredDrink = indexPath.row + 1;
-            break;
-        case 1:
-            self.preferredCompany = indexPath.row + 1;
-            break;
-        default:
-            break;
-    }
-    [self.dataContainer updateFilteredResultsWithDrinkType:self.preferredDrink withCompanyType:self.preferredCompany];
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return CGSizeMake((self.view.bounds.size.width - 5 * BRBFilterCollectionViewEdgeInset ) / 3, BRBFilterCollectionViewCellHeight);
 }
 
 
@@ -255,6 +155,12 @@
 - (NSString *)getTabBarItemTitle
 {
     return BRBUserTableViewTabBarItemTitle;
+}
+
+
+- (void)sendDrinkRequestTo:(NSString *)userName
+{
+    [self.alertController showAlertForDrinkRequestTo:userName];
 }
 
 @end

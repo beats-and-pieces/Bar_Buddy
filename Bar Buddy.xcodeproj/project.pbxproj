@@ -22,8 +22,6 @@
 		3A5D1F5D227711A900842DF3 /* BRBMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F50227711A800842DF3 /* BRBMapViewController.m */; };
 		3A5D1F5E227711A900842DF3 /* BRBDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F54227711A900842DF3 /* BRBDataContainer.m */; };
 		3A6B2E3422907A2800A62A09 /* BRBAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B2E3322907A2800A62A09 /* BRBAlertController.m */; };
-		3A6B2E3722908A3C00A62A09 /* BRBUserFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B2E3622908A3C00A62A09 /* BRBUserFilterViewController.m */; };
-		3A6B2E3A22908E6400A62A09 /* BRBUserFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B2E3922908E6400A62A09 /* BRBUserFilterView.m */; };
 		3A6DCB6D227EF2C8000185CE /* ProjectSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */; };
 		3A739C0A228EDAF800D5DBCE /* User+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A739C08228EDAF800D5DBCE /* User+CoreDataClass.m */; };
 		3A739C0B228EDAF800D5DBCE /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A739C09228EDAF800D5DBCE /* User+CoreDataProperties.m */; };
@@ -76,10 +74,6 @@
 		3A5D1F56227711A900842DF3 /* BRBUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBUserTableViewController.h; sourceTree = "<group>"; };
 		3A6B2E3222907A2800A62A09 /* BRBAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBAlertController.h; sourceTree = "<group>"; };
 		3A6B2E3322907A2800A62A09 /* BRBAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBAlertController.m; sourceTree = "<group>"; };
-		3A6B2E3522908A3C00A62A09 /* BRBUserFilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBUserFilterViewController.h; sourceTree = "<group>"; };
-		3A6B2E3622908A3C00A62A09 /* BRBUserFilterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBUserFilterViewController.m; sourceTree = "<group>"; };
-		3A6B2E3822908E6400A62A09 /* BRBUserFilterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBUserFilterView.h; sourceTree = "<group>"; };
-		3A6B2E3922908E6400A62A09 /* BRBUserFilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBUserFilterView.m; sourceTree = "<group>"; };
 		3A6DCB6B227EF2C8000185CE /* ProjectSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectSettings.h; sourceTree = "<group>"; };
 		3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectSettings.m; sourceTree = "<group>"; };
 		3A739C06228EDAF800D5DBCE /* User+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -174,8 +168,6 @@
 				3A31E187227C6F2D00F7F1FA /* BRBUserTableView.m */,
 				3A5D1F4F227711A800842DF3 /* BRBUserTableViewCell.h */,
 				3A5D1F44227711A700842DF3 /* BRBUserTableViewCell.m */,
-				3A6B2E3822908E6400A62A09 /* BRBUserFilterView.h */,
-				3A6B2E3922908E6400A62A09 /* BRBUserFilterView.m */,
 				3A31E184227B128300F7F1FA /* BRBFilterCollectionViewCell.h */,
 				3A31E183227B128300F7F1FA /* BRBFilterCollectionViewCell.m */,
 			);
@@ -195,8 +187,6 @@
 				3AE08FAC22919ACD00DA2F76 /* BRBUserFilterDelegateAndDataSource.m */,
 				3A6B2E3222907A2800A62A09 /* BRBAlertController.h */,
 				3A6B2E3322907A2800A62A09 /* BRBAlertController.m */,
-				3A6B2E3522908A3C00A62A09 /* BRBUserFilterViewController.h */,
-				3A6B2E3622908A3C00A62A09 /* BRBUserFilterViewController.m */,
 				3A5D1F55227711A900842DF3 /* BRBMapViewController.h */,
 				3A5D1F50227711A800842DF3 /* BRBMapViewController.m */,
 			);
@@ -364,10 +354,8 @@
 				3A5D1F5B227711A900842DF3 /* BRBNetworkService.m in Sources */,
 				3A31E185227B128300F7F1FA /* BRBFilterCollectionViewCell.m in Sources */,
 				3AEEC7052279B28000755100 /* BRBViewControllerFactory.m in Sources */,
-				3A6B2E3A22908E6400A62A09 /* BRBUserFilterView.m in Sources */,
 				3A5D1F5E227711A900842DF3 /* BRBDataContainer.m in Sources */,
 				3AC4D2DE2277214600084A1B /* BRBCoreDataService.m in Sources */,
-				3A6B2E3722908A3C00A62A09 /* BRBUserFilterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

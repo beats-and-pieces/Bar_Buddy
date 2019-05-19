@@ -8,28 +8,16 @@
 
 #import "BRBUserFilterDelegateAndDataSource.h"
 
-#import "BRBUserTableViewController.h"
-#import "BRBUserTableView.h"
-#import "BRBUserTableViewCell.h"
+#import "BRBDataContainer.h"
 #import "BRBFilterCollectionViewCell.h"
-//#import "BRBDataContainerDelegateProtocol.h"
 #import "ProjectSettings.h"
-#import "BRBAlertController.h"
-#import "BRBUserFilterViewController.h"
 
 
-
-
-@interface BRBUserFilterDelegateAndDataSource () <UICollectionViewDelegate, UICollectionViewDataSource>
-
-@property (nonatomic, strong) UICollectionView *collectionView;
+@interface BRBUserFilterDelegateAndDataSource () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) BRBDataContainer *dataContainer;
-
 @property (nonatomic) NSInteger preferredDrink;
 @property (nonatomic) NSInteger preferredCompany;
-@property (nonatomic, copy) NSArray<NSString *> *drinkFilterValues;
-@property (nonatomic, copy) NSArray<NSString *> *topicFilterValues;
 @property (nonatomic) CGFloat screenWidth;
 
 @end
@@ -41,8 +29,6 @@
     self = [super init];
     if (self) {
         _dataContainer = dataContainer;
-        _drinkFilterValues = @[@"🍺", @"🍷", @"🥃"];
-        _topicFilterValues = @[@"🏎", @"🎼", @"💼"];        
     }
     return self;
 }
@@ -72,12 +58,12 @@
     {
         case 0:
         {
-            cell.label.text = self.drinkFilterValues[indexPath.row];
+            cell.label.text = self.dataContainer.drinkValues[indexPath.row];
             break;
         }
         case 1:
         {
-            cell.label.text = self.topicFilterValues[indexPath.row];
+            cell.label.text = self.dataContainer.topicValues[indexPath.row];
             break;
         }
         default:
@@ -105,6 +91,9 @@
     }
     [self.dataContainer updateFilteredResultsWithDrinkType:self.preferredDrink withCompanyType:self.preferredCompany];
 }
+
+
+#pragma mark - UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {

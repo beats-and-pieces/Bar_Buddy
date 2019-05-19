@@ -23,6 +23,9 @@
 @interface BRBDataContainer : NSObject 
 
 @property (nonatomic, copy) NSArray<User *> *users;
+@property (nonatomic, copy) NSArray<NSString *> *drinkValues;
+@property (nonatomic, copy) NSArray<NSString *> *topicValues;
+
 @property (nonatomic, nullable, weak) id<BRBDataContainerDelegateProtocol> delegate; /**< Делегат, который получает измененные данные */
 
 - (instancetype)initWithCoreDataService:(BRBCoreDataService *)coreDataService withNetworkService:(BRBNetworkService *)networkService;

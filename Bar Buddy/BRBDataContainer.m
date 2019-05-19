@@ -27,6 +27,8 @@
         _coreDataService = coreDataService;
         _networkService = networkService;
         _networkService.output = self;
+        _drinkValues = @[@"🍺", @"🍷", @"🥃"];
+        _topicValues = @[@"🏎", @"🎼", @"💼"];
     }
     return self;
 }
