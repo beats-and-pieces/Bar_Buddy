@@ -111,7 +111,7 @@
 
 - (NSString *)getTabBarItemTitle
 {
-    return MapViewTabBarItemTitle;
+    return BRBMapViewTabBarItemTitle;
 }
 
 @end

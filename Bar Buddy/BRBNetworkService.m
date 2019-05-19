@@ -59,7 +59,7 @@
 - (void)fetchUserData
 {
     NSURLSession *session = [self createSession];
-    NSURLRequest *request = [self createRequestForURL:BarBuddyAPIURL];
+    NSURLRequest *request = [self createRequestForURL:BRBBarBuddyAPIURL];
     NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         if (!error)

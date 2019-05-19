@@ -14,21 +14,21 @@ CGFloat const BRBUserpicRoundRadius = 16.0;
 CGFloat const BRBUserCellInsets = 16.0;
 
 // Настройки фильтрв - колекшн вью
-CGFloat const FilterCollectionViewEdgeInset = 15.0;
-CGFloat const FilterCollectionViewCellLabelHeight = 30.0;
-CGFloat const FilterCollectionViewCellHeight = 32.0;
-CGFloat const FilterCollectionViewCellLabelInset = 8;
+CGFloat const BRBFilterCollectionViewEdgeInset = 15.0;
+CGFloat const BRBFilterCollectionViewCellLabelHeight = 30.0;
+CGFloat const BRBFilterCollectionViewCellHeight = 32.0;
+CGFloat const BRBFilterCollectionViewCellLabelInset = 8;
 
-NSString *const BarBuddyAPIURL = @"http://private-4df08-barbuddy.apiary-mock.com/users";
+NSString *const BRBBarBuddyAPIURL = @"http://private-4df08-barbuddy.apiary-mock.com/users";
 
 // Настройки названий для табов
-NSString *const UserTableViewTabBarItemTitle = @"Список пользователей";
-NSString *const MapViewTabBarItemTitle = @"На карте";
+NSString *const BRBUserTableViewTabBarItemTitle = @"Список пользователей";
+NSString *const BRBMapViewTabBarItemTitle = @"На карте";
 
 // Настройки названия для навигейшна
-NSString *const UserTableViewNavigationTitle = @"Пользователи";
+NSString *const BRBUserTableViewNavigationTitle = @"Пользователи";
 
-NSString *const PlaceholderFilename = @"placeholder.png";
+NSString *const BRBPlaceholderFilename = @"placeholder.png";
 
 CGFloat const BRBZoomLocationLatitude = 55.741476;
 CGFloat const BRBZoomLocationLongitude= 37.531409;

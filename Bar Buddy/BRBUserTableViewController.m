@@ -79,7 +79,7 @@
     [self.collectionView registerClass:[BRBFilterCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([BRBFilterCollectionViewCell class])];
     [self.tableView registerClass:[BRBUserTableViewCell class] forCellReuseIdentifier:NSStringFromClass([BRBUserTableViewCell class])];
     
-    self.navigationItem.title = UserTableViewNavigationTitle;
+    self.navigationItem.title = BRBUserTableViewNavigationTitle;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
@@ -111,7 +111,7 @@
     cell.descriptionLabel.text = self.drinkFilterValues[self.dataManager.users[indexPath.row].preferredDrink - 1];
     if (!cell.userpicImageView.image)
     {
-        cell.userpicImageView.image = [UIImage imageNamed:PlaceholderFilename];
+        cell.userpicImageView.image = [UIImage imageNamed:BRBPlaceholderFilename];
     }
     
     cell.contentView.backgroundColor = UIColor.greenColor;
@@ -219,7 +219,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((self.view.bounds.size.width - 5 * FilterCollectionViewEdgeInset ) / 3, FilterCollectionViewCellHeight);
+    return CGSizeMake((self.view.bounds.size.width - 5 * BRBFilterCollectionViewEdgeInset ) / 3, BRBFilterCollectionViewCellHeight);
 }
 
 
@@ -227,7 +227,7 @@
 
 - (NSString *)getTabBarItemTitle
 {
-    return UserTableViewTabBarItemTitle;
+    return BRBUserTableViewTabBarItemTitle;
 }
 
 @end

@@ -10,18 +10,18 @@
 
 extern CGFloat const BRBUserpicRoundRadius;
 extern CGFloat const BRBUserCellInsets;
-extern CGFloat const FilterCollectionViewEdgeInset;
-extern CGFloat const FilterCollectionViewCellLabelHeight;
-extern CGFloat const FilterCollectionViewCellHeight;
-extern CGFloat const FilterCollectionViewCellLabelInset;
+extern CGFloat const BRBFilterCollectionViewEdgeInset;
+extern CGFloat const BRBFilterCollectionViewCellLabelHeight;
+extern CGFloat const BRBFilterCollectionViewCellHeight;
+extern CGFloat const BRBFilterCollectionViewCellLabelInset;
 
-extern NSString *const BarBuddyAPIURL;
+extern NSString *const BRBBarBuddyAPIURL;
 
-extern NSString *const UserTableViewTabBarItemTitle;
-extern NSString *const MapViewTabBarItemTitle;
-extern NSString *const UserTableViewNavigationTitle;
+extern NSString *const BRBUserTableViewTabBarItemTitle;
+extern NSString *const BRBMapViewTabBarItemTitle;
+extern NSString *const BRBUserTableViewNavigationTitle;
 
-extern NSString *const PlaceholderFilename;
+extern NSString *const BRBPlaceholderFilename;
 
 extern CGFloat const BRBZoomLocationLatitude;
 extern CGFloat const BRBZoomLocationLongitude;

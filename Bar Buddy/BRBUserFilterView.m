@@ -15,7 +15,7 @@
 {
 //    self = [super initWithFrame:frame];
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    self = [super initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height - (FilterCollectionViewCellHeight * 4 + FilterCollectionViewEdgeInset * 5)) collectionViewLayout:layout];
+    self = [super initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height - (BRBFilterCollectionViewCellHeight * 4 + BRBFilterCollectionViewEdgeInset * 5)) collectionViewLayout:layout];
     if (self) {
         [self setBackgroundColor:[UIColor colorWithRed: 143.0/255.0 green:174.0/255 blue:224.0/255 alpha: 1.0]];
 //        [self setupCollectionViewForAFrame:frame];

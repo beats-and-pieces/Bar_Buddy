@@ -29,8 +29,8 @@
     //    layout.headerReferenceSize = CGSizeMake(self.view.frame.size.width, 30);
     //    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderViewIdentifier"];
     
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height - (FilterCollectionViewCellHeight * 4 + FilterCollectionViewEdgeInset * 5)) collectionViewLayout:layout];
-    layout.sectionInset = UIEdgeInsetsMake(FilterCollectionViewEdgeInset, FilterCollectionViewEdgeInset, FilterCollectionViewEdgeInset, FilterCollectionViewEdgeInset);
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height - (BRBFilterCollectionViewCellHeight * 4 + BRBFilterCollectionViewEdgeInset * 5)) collectionViewLayout:layout];
+    layout.sectionInset = UIEdgeInsetsMake(BRBFilterCollectionViewEdgeInset, BRBFilterCollectionViewEdgeInset, BRBFilterCollectionViewEdgeInset, BRBFilterCollectionViewEdgeInset);
     
     [self.collectionView setBackgroundColor:[UIColor colorWithRed: 143.0/255.0 green:174.0/255 blue:224.0/255 alpha: 1.0]];
 //    [self.collectionView setAlpha:0.7];
@@ -42,7 +42,7 @@
 - (void)setupTableForAFrame:(CGRect)frame
 {
     self.tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
-    self.tableView.frame = CGRectMake(0, FilterCollectionViewCellHeight * 4 + FilterCollectionViewEdgeInset * 2, frame.size.width, frame.size.height - (FilterCollectionViewCellHeight * 2 + FilterCollectionViewEdgeInset * 2));
+    self.tableView.frame = CGRectMake(0, BRBFilterCollectionViewCellHeight * 4 + BRBFilterCollectionViewEdgeInset * 2, frame.size.width, frame.size.height - (BRBFilterCollectionViewCellHeight * 2 + BRBFilterCollectionViewEdgeInset * 2));
 //    self.tableView.backgroundColor = [UIColor colorWithRed:255.0/255 green:125.0/255 blue:201.0/255 alpha: 1.0];
     [self addSubview:self.tableView];
 }

@@ -122,7 +122,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((self.view.bounds.size.width - 5 * FilterCollectionViewEdgeInset ) / 3, FilterCollectionViewCellHeight);
+    return CGSizeMake((self.view.bounds.size.width - 5 * BRBFilterCollectionViewEdgeInset ) / 3, BRBFilterCollectionViewCellHeight);
 }
 
 @end

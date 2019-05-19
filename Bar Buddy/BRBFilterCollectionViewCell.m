@@ -25,7 +25,7 @@
         //
         //        _imageView.contentMode = UIViewContentModeScaleAspectFit;
         
-        _label = [[UILabel alloc]initWithFrame:CGRectMake(FilterCollectionViewCellLabelInset, frame.size.height - FilterCollectionViewCellLabelHeight, frame.size.width - FilterCollectionViewCellLabelInset * 2, FilterCollectionViewCellLabelHeight)];
+        _label = [[UILabel alloc]initWithFrame:CGRectMake(BRBFilterCollectionViewCellLabelInset, frame.size.height - BRBFilterCollectionViewCellLabelHeight, frame.size.width - BRBFilterCollectionViewCellLabelInset * 2, BRBFilterCollectionViewCellLabelHeight)];
         _label.textAlignment = NSTextAlignmentCenter;
         _label.textColor = [UIColor whiteColor];
         _label.text = @"Test";
