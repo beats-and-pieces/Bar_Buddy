@@ -16,6 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nonnull, strong) UILabel *usernameLabel;
 @property (nonatomic, nonnull, strong) UILabel *drinkLabel;
 @property (nonatomic, nonnull, strong) UILabel *topicLabel;
+
+@property (nonatomic, nonnull, strong) UILabel *drinkAndTopicLabel;
+//@property (nonatomic, nonnull, strong) UILabel *isDrinkingLabel;
+@property (nonatomic, nonnull, strong) UIButton *isDrinkingLabel;
+
 @property (nonatomic, strong) CAGradientLayer *gradientLayer;
 
 @end

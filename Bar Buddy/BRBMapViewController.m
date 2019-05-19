@@ -27,6 +27,11 @@
     self = [super init];
     if (self) {
         _dataContainer = dataContainer;
+        if (_dataContainer.users.count == 0)
+        {
+            [_dataContainer loadData];
+        }
+        
         _displayAllUsers = YES;
     }
     return self;

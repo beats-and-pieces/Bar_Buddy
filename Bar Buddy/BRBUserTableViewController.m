@@ -107,22 +107,36 @@
     cell.usernameLabel.text = self.dataContainer.users[indexPath.row].displayedName;
     cell.drinkLabel.text = self.dataContainer.drinkValues[self.dataContainer.users[indexPath.row].preferredDrink - 1];
     cell.topicLabel.text = self.dataContainer.topicValues[self.dataContainer.users[indexPath.row].preferredTopic - 1];
+    NSString *drinkAndTopic = [NSString stringWithFormat:@"%@ | %@", self.dataContainer.drinkValues[self.dataContainer.users[indexPath.row].preferredDrink - 1], self.dataContainer.topicValues[self.dataContainer.users[indexPath.row].preferredTopic - 1]];
+    cell.drinkAndTopicLabel.text = drinkAndTopic;
     if (!cell.userpicImageView.image)
     {
         cell.userpicImageView.image = [UIImage imageNamed:BRBPlaceholderFilename];
     }
     
-    cell.contentView.backgroundColor = UIColor.greenColor;
+//    [cell.isDrinkingLabel addTarget:self action:@selector(cellButtonWasTapped: )
+//          forControlEvents:UIControlEventTouchUpInside];
+    
+    cell.isDrinkingLabel.enabled = YES;
+    [cell.isDrinkingLabel setTitle:@"Свободен" forState:UIControlStateNormal];
+    cell.isDrinkingLabel.backgroundColor = UIColor.greenColor;
     NSString *userpicURL = self.dataContainer.users[indexPath.row].userpicURL;
     if (self.dataContainer.users[indexPath.row].isDrinking)
     {
-        cell.contentView.backgroundColor = UIColor.redColor;
+//        cell.isDrinkingLabel.titleLabel.text = @"Занят";
+        [cell.isDrinkingLabel setTitle:@"Занят" forState:UIControlStateDisabled];
+        cell.isDrinkingLabel.enabled = NO;
+        cell.isDrinkingLabel.backgroundColor = UIColor.redColor;
     }
     [self.dataContainer dowloadUserpicFromURL:userpicURL forIndexPath:indexPath];
     
     return cell;
 }
 
+//- (void)cellButtonWasTapped
+//{
+//    [self sendDrinkRequestTo:user.displayedName];
+//}
 
 - (void)setUserpicForCellAtIndexPath:(NSIndexPath *)indexPath withData:(NSData *)data
 {
