@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "MapViewController.h"
+#import "BRBMapViewController.h"
 
 @interface TestMapViewController : XCTestCase
 

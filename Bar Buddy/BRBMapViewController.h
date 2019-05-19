@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewControllerFactory.h"
+#import "BRBViewControllerFactory.h"
 
-@interface MapViewController : ViewControllerFactory
+@interface BRBMapViewController : BRBViewControllerFactory
 
-- (instancetype)initWithDataManager:(DataManager *)dataManager;
+- (instancetype)initWithDataManager:(BRBDataContainer *)dataManager;
 - (NSString *)getTabBarItemTitle;
 - (void)displayLocationOfUserWithName:(NSString *)userName;
 

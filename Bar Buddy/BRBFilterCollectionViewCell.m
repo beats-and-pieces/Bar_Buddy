@@ -1,19 +1,19 @@
 //
-//  FilterCollectionViewCell
-//  Flickr_ObjC
+//  BRBFilterCollectionViewCell.m
+//  Bar Buddy
 //
 //  Created by Anton Kuznetsov on 15/04/2019.
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
-#import "FilterCollectionViewCell.h"
+#import "BRBFilterCollectionViewCell.h"
 #import "ProjectSettings.h"
 
-@interface FilterCollectionViewCell ()
+@interface BRBFilterCollectionViewCell ()
 
 @end
 
-@implementation FilterCollectionViewCell
+@implementation BRBFilterCollectionViewCell
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

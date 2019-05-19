@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "Assembly.h"
+#import "BRBAssembly.h"
 
 @interface testAssembly : XCTestCase
 
@@ -18,7 +18,7 @@
 
 - (void) testGettingViewController {
     // setup
-    Assembly *assembly = [Assembly new];
+    BRBAssembly *assembly = [BRBAssembly new];
     
     XCTAssertNotNil([assembly getRootViewController], @"Cannot find ViewController instance");
     // no teardown needed
@@ -26,7 +26,7 @@
 
 - (void) testGettingViewControllerTwo {
     // setup
-    Assembly *assembly = [Assembly new];
+    BRBAssembly *assembly = [BRBAssembly new];
     
      XCTAssertTrue([[assembly getRootViewController] isKindOfClass:[UIViewController class]], @"Cannot find ViewController instance");
     // no teardown needed

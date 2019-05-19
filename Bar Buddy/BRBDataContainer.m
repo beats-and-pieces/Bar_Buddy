@@ -6,21 +6,21 @@
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
-#import "DataManager.h"
+#import "BRBDataContainer.h"
 #import "User+CoreDataClass.h"
 #import "AppDelegate.h"
 
 
-@interface DataManager () <NetworkServiceOutputProtocol>
+@interface BRBDataContainer () <BRBNetworkServiceOutputProtocol>
 
-@property (nonatomic, nullable) NetworkService *networkService;
-@property (nonatomic, nullable) CoreDataService *coreDataService;
+@property (nonatomic, nullable) BRBNetworkService *networkService;
+@property (nonatomic, nullable) BRBCoreDataService *coreDataService;
 
 @end
 
-@implementation DataManager
+@implementation BRBDataContainer
 
-- (instancetype)initWithCoreDataService:(CoreDataService *)coreDataService withNetworkService:(NetworkService *)networkService
+- (instancetype)initWithCoreDataService:(BRBCoreDataService *)coreDataService withNetworkService:(BRBNetworkService *)networkService
 {
     self = [super init];
     if (self) {

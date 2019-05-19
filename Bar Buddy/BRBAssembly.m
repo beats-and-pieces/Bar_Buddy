@@ -6,44 +6,44 @@
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
-#import "Assembly.h"
-#import "ViewControllerFactory.h"
-#import "CoreDataStack.h"
-#import "PushService.h"
-#import "MapViewController.h"
+#import "BRBAssembly.h"
+#import "BRBViewControllerFactory.h"
+#import "BRBCoreDataStack.h"
+#import "BRBPushService.h"
+#import "BRBMapViewController.h"
 
-@interface Assembly () <UNUserNotificationCenterDelegate>
+@interface BRBAssembly () <UNUserNotificationCenterDelegate>
 
 
 @property (nonatomic, nonnull) UITabBarController *tabBarController;
-@property (nonatomic, nonnull) PushService *pushService;
-@property (nonatomic, nonnull) DataManager *dataManager;
+@property (nonatomic, nonnull) BRBPushService *pushService;
+@property (nonatomic, nonnull) BRBDataContainer *dataManager;
 
 @end
 
-@implementation Assembly
+@implementation BRBAssembly
 
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        PushService *pushService = [[PushService alloc] initForNotificationDelegate:self];
+        BRBPushService *pushService = [[BRBPushService alloc] initForNotificationDelegate:self];
         self.pushService = pushService;
         
-        CoreDataStack *coreDataStack = [CoreDataStack new];
-        CoreDataService *coreDataService = [[CoreDataService alloc] initWithCoreDataStack:coreDataStack];
+        BRBCoreDataStack *coreDataStack = [BRBCoreDataStack new];
+        BRBCoreDataService *coreDataService = [[BRBCoreDataService alloc] initWithCoreDataStack:coreDataStack];
         
-        NetworkService *netWorkService = [NetworkService new];
+        BRBNetworkService *netWorkService = [BRBNetworkService new];
         
-        DataManager *dataManager = [[DataManager alloc] initWithCoreDataService:coreDataService withNetworkService:netWorkService];
+        BRBDataContainer *dataManager = [[BRBDataContainer alloc] initWithCoreDataService:coreDataService withNetworkService:netWorkService];
         self.dataManager = dataManager;
         
-        ViewControllerFactory *userTableViewController = [ViewControllerFactory initWithDataManager:dataManager type:BRBViewControllerTypeUserTableView];
+        BRBViewControllerFactory *userTableViewController = [BRBViewControllerFactory initWithDataManager:dataManager type:BRBViewControllerTypeUserTableView];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:userTableViewController];
         navigationController.tabBarItem.title = [userTableViewController getTabBarItemTitle];
         
-        ViewControllerFactory *mapViewController = [ViewControllerFactory initWithDataManager:dataManager type:BRBViewControllerTypeUserMap];
+        BRBViewControllerFactory *mapViewController = [BRBViewControllerFactory initWithDataManager:dataManager type:BRBViewControllerTypeUserMap];
         mapViewController.tabBarItem.title = [mapViewController getTabBarItemTitle];
         
         UITabBarController *tabBarController = [UITabBarController new];
@@ -72,7 +72,7 @@
 - (void)showLocationOfUserWithName:(NSString *) userName;
 {
     [self.tabBarController setSelectedIndex:1];
-    MapViewController *mapViewController = (MapViewController *)self.tabBarController.viewControllers[1];
+    BRBMapViewController *mapViewController = (BRBMapViewController *)self.tabBarController.viewControllers[1];
     [mapViewController displayLocationOfUserWithName:userName];
 }
 

@@ -8,15 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "User+CoreDataClass.h"
-//#import "User.h"
+@class BRBCoreDataStack;
 
-@class CoreDataStack;
 
-@interface CoreDataService : NSObject
+@interface BRBCoreDataService : NSObject
 
-- (instancetype)initWithCoreDataStack:(CoreDataStack *)coreDataStack;
+- (instancetype)initWithCoreDataStack:(BRBCoreDataStack *)coreDataStack;
 - (void)saveUserData:(NSArray *)users;
-
 - (NSArray<User *> *) getUserData;
 - (NSArray<User *> *)getFilteredUsersWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType;
 

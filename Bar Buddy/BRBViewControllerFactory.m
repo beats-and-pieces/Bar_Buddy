@@ -6,24 +6,24 @@
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
-#import "ViewControllerFactory.h"
-#import "UserTableViewController.h"
-#import "MapViewController.h"
+#import "BRBViewControllerFactory.h"
+#import "BRBUserTableViewController.h"
+#import "BRBMapViewController.h"
 
 
-@implementation ViewControllerFactory
+@implementation BRBViewControllerFactory
 
-+ (instancetype)initWithDataManager:(DataManager *)dataManager type:(BRBViewControllerType)viewControllerType
++ (instancetype)initWithDataManager:(BRBDataContainer *)dataManager type:(BRBViewControllerType)viewControllerType
 {
     switch (viewControllerType) {
         case BRBViewControllerTypeUserTableView:
         {
-            return [[UserTableViewController alloc] initWithDataManager:dataManager];
+            return [[BRBUserTableViewController alloc] initWithDataManager:dataManager];
             break;
         }
         case BRBViewControllerTypeUserMap:
         {
-            return [[MapViewController alloc] initWithDataManager:dataManager];
+            return [[BRBMapViewController alloc] initWithDataManager:dataManager];
             break;
         }
         default:
@@ -34,7 +34,7 @@
 
 //Убеждаемся, что оба метода должны быть реализованы подклассами
 
-- (instancetype)initWithDataManager:(DataManager *)dataManager
+- (instancetype)initWithDataManager:(BRBDataContainer *)dataManager
 {
     NSString *description = [NSString stringWithFormat:@"You have not implemented %@ in %@", NSStringFromSelector(_cmd), NSStringFromClass([self class])];
     NSAssert(YES, description);

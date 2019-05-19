@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@interface CoreDataStack : NSObject
+@interface BRBCoreDataStack : NSObject
 
 @property (nonatomic, readonly) NSPersistentContainer *persistentContainer;
 

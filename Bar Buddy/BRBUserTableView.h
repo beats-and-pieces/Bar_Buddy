@@ -1,5 +1,5 @@
 //
-//  UserTableView.h
+//  BRBUserTableView.h
 //  Bar Buddy
 //
 //  Created by Anton Kuznetsov on 03/05/2019.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UserTableView : UIView
+@interface BRBUserTableView : UIView
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;

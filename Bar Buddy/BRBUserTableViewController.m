@@ -6,24 +6,24 @@
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
-#import "UserTableViewController.h"
-#import "UserTableView.h"
-#import "UserTableViewCell.h"
-#import "FilterCollectionViewCell.h"
-#import "DataManagerProtocol.h"
+#import "BRBUserTableViewController.h"
+#import "BRBUserTableView.h"
+#import "BRBUserTableViewCell.h"
+#import "BRBFilterCollectionViewCell.h"
+//#import "BRBDataContainerDelegateProtocol.h"
 #import "ProjectSettings.h"
-#import "AlertController.h"
-#import "BRBUserFilterController.h"
+#import "BRBAlertController.h"
+#import "BRBUserFilterViewController.h"
 
 
-@interface UserTableViewController () <UITableViewDataSource, UITableViewDelegate, DataManagerProtocol, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface BRBUserTableViewController () <UITableViewDataSource, UITableViewDelegate, BRBDataContainerDelegateProtocol, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
 
-@property (nonatomic, strong) DataManager *dataManager;
-@property (nonatomic) AlertController *alertController;
-@property (nonatomic) BRBUserFilterController *userFilterController;
+@property (nonatomic, strong) BRBDataContainer *dataManager;
+@property (nonatomic) BRBAlertController *alertController;
+@property (nonatomic) BRBUserFilterViewController *userFilterController;
 
 @property (nonatomic) NSInteger preferredDrink;
 @property (nonatomic) NSInteger preferredCompany;
@@ -34,9 +34,9 @@
 
 @end
 
-@implementation UserTableViewController
+@implementation BRBUserTableViewController
 
-- (instancetype)initWithDataManager:(DataManager *)dataManager
+- (instancetype)initWithDataManager:(BRBDataContainer *)dataManager
 {
     self = [super init];
     if (self) {
@@ -44,7 +44,7 @@
         _dataManager.delegate = self;
         _drinkFilterValues = @[@"🍺", @"🍷", @"🥃"];
         _topicFilterValues = @[@"🏎", @"🎼", @"💼"];
-        _alertController = [[AlertController alloc] initWithViewController:self];
+        _alertController = [[BRBAlertController alloc] initWithViewController:self];
         _alertController.delegate = self;
         
         
@@ -68,7 +68,7 @@
     CGRect frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height - self.navigationController.navigationBar.bounds.size.height - self.tabBarController.tabBar.bounds.size.height);
 //    self.userFilterController = [[BRBUserFilterController alloc] initWithDataManager:self.dataManager withFrame:frame];
 //    [self.view addSubview:[self.userFilterController getUserFilterView]];
-    UserTableView *userTableView = [[UserTableView alloc] initWithFrame:frame];
+    BRBUserTableView *userTableView = [[BRBUserTableView alloc] initWithFrame:frame];
     [self.view addSubview:userTableView];
     
     
@@ -76,8 +76,8 @@
     self.tableView = userTableView.tableView;
     self.collectionView = userTableView.collectionView;
     
-    [self.collectionView registerClass:[FilterCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class])];
-    [self.tableView registerClass:[UserTableViewCell class] forCellReuseIdentifier:NSStringFromClass([UserTableViewCell class])];
+    [self.collectionView registerClass:[BRBFilterCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([BRBFilterCollectionViewCell class])];
+    [self.tableView registerClass:[BRBUserTableViewCell class] forCellReuseIdentifier:NSStringFromClass([BRBUserTableViewCell class])];
     
     self.navigationItem.title = UserTableViewNavigationTitle;
     self.tableView.dataSource = self;
@@ -105,7 +105,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UserTableViewCell class])];
+    BRBUserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([BRBUserTableViewCell class])];
     cell.backgroundColor = UIColor.whiteColor;
     cell.usernameLabel.text = self.dataManager.users[indexPath.row].displayedName;
     cell.descriptionLabel.text = self.drinkFilterValues[self.dataManager.users[indexPath.row].preferredDrink - 1];
@@ -130,7 +130,7 @@
     UIImage *image = [UIImage imageWithData:data];
     if (image) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            UserTableViewCell *updateCell = (id)[self.tableView cellForRowAtIndexPath:indexPath];
+            BRBUserTableViewCell *updateCell = (id)[self.tableView cellForRowAtIndexPath:indexPath];
             if (updateCell)
                 updateCell.userpicImageView.image = image;
         });
@@ -177,7 +177,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    FilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class]) forIndexPath:indexPath];
+    BRBFilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BRBFilterCollectionViewCell class]) forIndexPath:indexPath];
     
     switch (indexPath.section)
     {
@@ -202,7 +202,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    FilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class]) forIndexPath:indexPath];
+    BRBFilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BRBFilterCollectionViewCell class]) forIndexPath:indexPath];
     [cell changeState];
     switch (indexPath.section) {
         case 0:

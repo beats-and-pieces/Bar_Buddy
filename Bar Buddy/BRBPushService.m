@@ -7,17 +7,17 @@
 //
 
 
-#import "PushService.h"
+#import "BRBPushService.h"
 #import "AppDelegate.h"
 #include <stdlib.h>
 @import UserNotifications;
 #include "ProjectSettings.h"
 
-@interface PushService () <UNUserNotificationCenterDelegate>
+@interface BRBPushService () <UNUserNotificationCenterDelegate>
 
 @end
 
-@implementation PushService
+@implementation BRBPushService
 
 - (instancetype)initForNotificationDelegate:(id<UNUserNotificationCenterDelegate>)delegate
 {

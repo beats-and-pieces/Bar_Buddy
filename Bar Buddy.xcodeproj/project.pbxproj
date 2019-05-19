@@ -7,32 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A31E17F227AE1CB00F7F1FA /* PushService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E17D227AE1CB00F7F1FA /* PushService.m */; };
-		3A31E185227B128300F7F1FA /* FilterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E183227B128300F7F1FA /* FilterCollectionViewCell.m */; };
-		3A31E188227C6F2D00F7F1FA /* UserTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E187227C6F2D00F7F1FA /* UserTableView.m */; };
+		3A31E17F227AE1CB00F7F1FA /* BRBPushService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E17D227AE1CB00F7F1FA /* BRBPushService.m */; };
+		3A31E185227B128300F7F1FA /* BRBFilterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E183227B128300F7F1FA /* BRBFilterCollectionViewCell.m */; };
+		3A31E188227C6F2D00F7F1FA /* BRBUserTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31E187227C6F2D00F7F1FA /* BRBUserTableView.m */; };
 		3A5D1F162277115D00842DF3 /* Bar_Buddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F142277115D00842DF3 /* Bar_Buddy.xcdatamodeld */; };
 		3A5D1F182277115E00842DF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5D1F172277115E00842DF3 /* Assets.xcassets */; };
 		3A5D1F1B2277115E00842DF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5D1F192277115E00842DF3 /* LaunchScreen.storyboard */; };
 		3A5D1F1E2277115E00842DF3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F1D2277115E00842DF3 /* main.m */; };
 		3A5D1F282277115E00842DF3 /* Bar_BuddyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F272277115E00842DF3 /* Bar_BuddyTests.m */; };
 		3A5D1F422277118700842DF3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F412277118700842DF3 /* AppDelegate.m */; };
-		3A5D1F57227711A900842DF3 /* UserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F44227711A700842DF3 /* UserTableViewCell.m */; };
-		3A5D1F5A227711A900842DF3 /* UserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F4B227711A800842DF3 /* UserTableViewController.m */; };
-		3A5D1F5B227711A900842DF3 /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F4C227711A800842DF3 /* NetworkService.m */; };
-		3A5D1F5D227711A900842DF3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F50227711A800842DF3 /* MapViewController.m */; };
-		3A5D1F5E227711A900842DF3 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F54227711A900842DF3 /* DataManager.m */; };
-		3A6B2E3422907A2800A62A09 /* AlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B2E3322907A2800A62A09 /* AlertController.m */; };
-		3A6B2E3722908A3C00A62A09 /* BRBUserFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B2E3622908A3C00A62A09 /* BRBUserFilterController.m */; };
+		3A5D1F57227711A900842DF3 /* BRBUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F44227711A700842DF3 /* BRBUserTableViewCell.m */; };
+		3A5D1F5A227711A900842DF3 /* BRBUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F4B227711A800842DF3 /* BRBUserTableViewController.m */; };
+		3A5D1F5B227711A900842DF3 /* BRBNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F4C227711A800842DF3 /* BRBNetworkService.m */; };
+		3A5D1F5D227711A900842DF3 /* BRBMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F50227711A800842DF3 /* BRBMapViewController.m */; };
+		3A5D1F5E227711A900842DF3 /* BRBDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F54227711A900842DF3 /* BRBDataContainer.m */; };
+		3A6B2E3422907A2800A62A09 /* BRBAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B2E3322907A2800A62A09 /* BRBAlertController.m */; };
+		3A6B2E3722908A3C00A62A09 /* BRBUserFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B2E3622908A3C00A62A09 /* BRBUserFilterViewController.m */; };
 		3A6B2E3A22908E6400A62A09 /* BRBUserFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B2E3922908E6400A62A09 /* BRBUserFilterView.m */; };
 		3A6DCB6D227EF2C8000185CE /* ProjectSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */; };
 		3A739C0A228EDAF800D5DBCE /* User+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A739C08228EDAF800D5DBCE /* User+CoreDataClass.m */; };
 		3A739C0B228EDAF800D5DBCE /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A739C09228EDAF800D5DBCE /* User+CoreDataProperties.m */; };
 		3A93B244228DCD8B00CA71FF /* testAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A93B243228DCD8B00CA71FF /* testAssembly.m */; };
 		3A93B248228DD20200CA71FF /* TestMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A93B247228DD20200CA71FF /* TestMapViewController.m */; };
-		3AC4D2DE2277214600084A1B /* CoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC4D2DD2277214600084A1B /* CoreDataService.m */; };
-		3AEEC6FF2279941100755100 /* Assembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC6FE2279941100755100 /* Assembly.m */; };
-		3AEEC7022279975F00755100 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC7012279975F00755100 /* CoreDataStack.m */; };
-		3AEEC7052279B28000755100 /* ViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC7042279B28000755100 /* ViewControllerFactory.m */; };
+		3AC4D2DE2277214600084A1B /* BRBCoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC4D2DD2277214600084A1B /* BRBCoreDataService.m */; };
+		3AEEC6FF2279941100755100 /* BRBAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC6FE2279941100755100 /* BRBAssembly.m */; };
+		3AEEC7022279975F00755100 /* BRBCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC7012279975F00755100 /* BRBCoreDataStack.m */; };
+		3AEEC7052279B28000755100 /* BRBViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC7042279B28000755100 /* BRBViewControllerFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,12 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3A31E17D227AE1CB00F7F1FA /* PushService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushService.m; sourceTree = "<group>"; };
-		3A31E17E227AE1CB00F7F1FA /* PushService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushService.h; sourceTree = "<group>"; };
-		3A31E183227B128300F7F1FA /* FilterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterCollectionViewCell.m; sourceTree = "<group>"; };
-		3A31E184227B128300F7F1FA /* FilterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterCollectionViewCell.h; sourceTree = "<group>"; };
-		3A31E186227C6F2D00F7F1FA /* UserTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserTableView.h; sourceTree = "<group>"; };
-		3A31E187227C6F2D00F7F1FA /* UserTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserTableView.m; sourceTree = "<group>"; };
+		3A31E17D227AE1CB00F7F1FA /* BRBPushService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBPushService.m; sourceTree = "<group>"; };
+		3A31E17E227AE1CB00F7F1FA /* BRBPushService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBPushService.h; sourceTree = "<group>"; };
+		3A31E183227B128300F7F1FA /* BRBFilterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBFilterCollectionViewCell.m; sourceTree = "<group>"; };
+		3A31E184227B128300F7F1FA /* BRBFilterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBFilterCollectionViewCell.h; sourceTree = "<group>"; };
+		3A31E186227C6F2D00F7F1FA /* BRBUserTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBUserTableView.h; sourceTree = "<group>"; };
+		3A31E187227C6F2D00F7F1FA /* BRBUserTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBUserTableView.m; sourceTree = "<group>"; };
 		3A5D1F082277115D00842DF3 /* Bar Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bar Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5D1F152277115D00842DF3 /* Bar_Buddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bar_Buddy.xcdatamodel; sourceTree = "<group>"; };
 		3A5D1F172277115E00842DF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,23 +63,20 @@
 		3A5D1F292277115E00842DF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5D1F402277118600842DF3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3A5D1F412277118700842DF3 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3A5D1F43227711A700842DF3 /* NetworkServiceOutputProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkServiceOutputProtocol.h; sourceTree = "<group>"; };
-		3A5D1F44227711A700842DF3 /* UserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTableViewCell.m; sourceTree = "<group>"; };
-		3A5D1F48227711A700842DF3 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
-		3A5D1F4B227711A800842DF3 /* UserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTableViewController.m; sourceTree = "<group>"; };
-		3A5D1F4C227711A800842DF3 /* NetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkService.m; sourceTree = "<group>"; };
-		3A5D1F4E227711A800842DF3 /* NetworkServiceInputProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkServiceInputProtocol.h; sourceTree = "<group>"; };
-		3A5D1F4F227711A800842DF3 /* UserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTableViewCell.h; sourceTree = "<group>"; };
-		3A5D1F50227711A800842DF3 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		3A5D1F51227711A800842DF3 /* DataManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManagerProtocol.h; sourceTree = "<group>"; };
-		3A5D1F52227711A900842DF3 /* NetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
-		3A5D1F54227711A900842DF3 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
-		3A5D1F55227711A900842DF3 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		3A5D1F56227711A900842DF3 /* UserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTableViewController.h; sourceTree = "<group>"; };
-		3A6B2E3222907A2800A62A09 /* AlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertController.h; sourceTree = "<group>"; };
-		3A6B2E3322907A2800A62A09 /* AlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertController.m; sourceTree = "<group>"; };
-		3A6B2E3522908A3C00A62A09 /* BRBUserFilterController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBUserFilterController.h; sourceTree = "<group>"; };
-		3A6B2E3622908A3C00A62A09 /* BRBUserFilterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBUserFilterController.m; sourceTree = "<group>"; };
+		3A5D1F44227711A700842DF3 /* BRBUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBUserTableViewCell.m; sourceTree = "<group>"; };
+		3A5D1F48227711A700842DF3 /* BRBDataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBDataContainer.h; sourceTree = "<group>"; };
+		3A5D1F4B227711A800842DF3 /* BRBUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBUserTableViewController.m; sourceTree = "<group>"; };
+		3A5D1F4C227711A800842DF3 /* BRBNetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBNetworkService.m; sourceTree = "<group>"; };
+		3A5D1F4F227711A800842DF3 /* BRBUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBUserTableViewCell.h; sourceTree = "<group>"; };
+		3A5D1F50227711A800842DF3 /* BRBMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBMapViewController.m; sourceTree = "<group>"; };
+		3A5D1F52227711A900842DF3 /* BRBNetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBNetworkService.h; sourceTree = "<group>"; };
+		3A5D1F54227711A900842DF3 /* BRBDataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBDataContainer.m; sourceTree = "<group>"; };
+		3A5D1F55227711A900842DF3 /* BRBMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBMapViewController.h; sourceTree = "<group>"; };
+		3A5D1F56227711A900842DF3 /* BRBUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBUserTableViewController.h; sourceTree = "<group>"; };
+		3A6B2E3222907A2800A62A09 /* BRBAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBAlertController.h; sourceTree = "<group>"; };
+		3A6B2E3322907A2800A62A09 /* BRBAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBAlertController.m; sourceTree = "<group>"; };
+		3A6B2E3522908A3C00A62A09 /* BRBUserFilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBUserFilterViewController.h; sourceTree = "<group>"; };
+		3A6B2E3622908A3C00A62A09 /* BRBUserFilterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBUserFilterViewController.m; sourceTree = "<group>"; };
 		3A6B2E3822908E6400A62A09 /* BRBUserFilterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBUserFilterView.h; sourceTree = "<group>"; };
 		3A6B2E3922908E6400A62A09 /* BRBUserFilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBUserFilterView.m; sourceTree = "<group>"; };
 		3A6DCB6B227EF2C8000185CE /* ProjectSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectSettings.h; sourceTree = "<group>"; };
@@ -88,17 +85,16 @@
 		3A739C07228EDAF800D5DBCE /* User+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataClass.h"; sourceTree = "<group>"; };
 		3A739C08228EDAF800D5DBCE /* User+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataClass.m"; sourceTree = "<group>"; };
 		3A739C09228EDAF800D5DBCE /* User+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
-		3A76F68D22775698002ADDE7 /* CoreDataServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataServiceProtocol.h; sourceTree = "<group>"; };
 		3A93B243228DCD8B00CA71FF /* testAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testAssembly.m; sourceTree = "<group>"; };
 		3A93B247228DD20200CA71FF /* TestMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestMapViewController.m; sourceTree = "<group>"; };
-		3AC4D2DC2277214600084A1B /* CoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataService.h; sourceTree = "<group>"; };
-		3AC4D2DD2277214600084A1B /* CoreDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataService.m; sourceTree = "<group>"; };
-		3AEEC6FD2279941100755100 /* Assembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Assembly.h; sourceTree = "<group>"; };
-		3AEEC6FE2279941100755100 /* Assembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Assembly.m; sourceTree = "<group>"; };
-		3AEEC7002279975F00755100 /* CoreDataStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
-		3AEEC7012279975F00755100 /* CoreDataStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
-		3AEEC7032279B28000755100 /* ViewControllerFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerFactory.h; sourceTree = "<group>"; };
-		3AEEC7042279B28000755100 /* ViewControllerFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControllerFactory.m; sourceTree = "<group>"; };
+		3AC4D2DC2277214600084A1B /* BRBCoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBCoreDataService.h; sourceTree = "<group>"; };
+		3AC4D2DD2277214600084A1B /* BRBCoreDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBCoreDataService.m; sourceTree = "<group>"; };
+		3AEEC6FD2279941100755100 /* BRBAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBAssembly.h; sourceTree = "<group>"; };
+		3AEEC6FE2279941100755100 /* BRBAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBAssembly.m; sourceTree = "<group>"; };
+		3AEEC7002279975F00755100 /* BRBCoreDataStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBCoreDataStack.h; sourceTree = "<group>"; };
+		3AEEC7012279975F00755100 /* BRBCoreDataStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBCoreDataStack.m; sourceTree = "<group>"; };
+		3AEEC7032279B28000755100 /* BRBViewControllerFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBViewControllerFactory.h; sourceTree = "<group>"; };
+		3AEEC7042279B28000755100 /* BRBViewControllerFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBViewControllerFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,14 +167,14 @@
 		3A5D1F61227711FA00842DF3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A31E186227C6F2D00F7F1FA /* UserTableView.h */,
-				3A31E187227C6F2D00F7F1FA /* UserTableView.m */,
-				3A5D1F4F227711A800842DF3 /* UserTableViewCell.h */,
-				3A5D1F44227711A700842DF3 /* UserTableViewCell.m */,
+				3A31E186227C6F2D00F7F1FA /* BRBUserTableView.h */,
+				3A31E187227C6F2D00F7F1FA /* BRBUserTableView.m */,
+				3A5D1F4F227711A800842DF3 /* BRBUserTableViewCell.h */,
+				3A5D1F44227711A700842DF3 /* BRBUserTableViewCell.m */,
 				3A6B2E3822908E6400A62A09 /* BRBUserFilterView.h */,
 				3A6B2E3922908E6400A62A09 /* BRBUserFilterView.m */,
-				3A31E184227B128300F7F1FA /* FilterCollectionViewCell.h */,
-				3A31E183227B128300F7F1FA /* FilterCollectionViewCell.m */,
+				3A31E184227B128300F7F1FA /* BRBFilterCollectionViewCell.h */,
+				3A31E183227B128300F7F1FA /* BRBFilterCollectionViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -186,18 +182,18 @@
 		3A5D1F632277125A00842DF3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3AEEC6FD2279941100755100 /* Assembly.h */,
-				3AEEC6FE2279941100755100 /* Assembly.m */,
-				3AEEC7032279B28000755100 /* ViewControllerFactory.h */,
-				3AEEC7042279B28000755100 /* ViewControllerFactory.m */,
-				3A5D1F56227711A900842DF3 /* UserTableViewController.h */,
-				3A5D1F4B227711A800842DF3 /* UserTableViewController.m */,
-				3A6B2E3222907A2800A62A09 /* AlertController.h */,
-				3A6B2E3322907A2800A62A09 /* AlertController.m */,
-				3A6B2E3522908A3C00A62A09 /* BRBUserFilterController.h */,
-				3A6B2E3622908A3C00A62A09 /* BRBUserFilterController.m */,
-				3A5D1F55227711A900842DF3 /* MapViewController.h */,
-				3A5D1F50227711A800842DF3 /* MapViewController.m */,
+				3AEEC6FD2279941100755100 /* BRBAssembly.h */,
+				3AEEC6FE2279941100755100 /* BRBAssembly.m */,
+				3AEEC7032279B28000755100 /* BRBViewControllerFactory.h */,
+				3AEEC7042279B28000755100 /* BRBViewControllerFactory.m */,
+				3A5D1F56227711A900842DF3 /* BRBUserTableViewController.h */,
+				3A5D1F4B227711A800842DF3 /* BRBUserTableViewController.m */,
+				3A6B2E3222907A2800A62A09 /* BRBAlertController.h */,
+				3A6B2E3322907A2800A62A09 /* BRBAlertController.m */,
+				3A6B2E3522908A3C00A62A09 /* BRBUserFilterViewController.h */,
+				3A6B2E3622908A3C00A62A09 /* BRBUserFilterViewController.m */,
+				3A5D1F55227711A900842DF3 /* BRBMapViewController.h */,
+				3A5D1F50227711A800842DF3 /* BRBMapViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -206,8 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				3AC4D2DB2277204000084A1B /* CoreData Entity */,
-				3AEEC7002279975F00755100 /* CoreDataStack.h */,
-				3AEEC7012279975F00755100 /* CoreDataStack.m */,
+				3AEEC7002279975F00755100 /* BRBCoreDataStack.h */,
+				3AEEC7012279975F00755100 /* BRBCoreDataStack.m */,
 				3A5D1F652277131000842DF3 /* Services */,
 			);
 			name = Model;
@@ -216,18 +212,14 @@
 		3A5D1F652277131000842DF3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				3A31E17E227AE1CB00F7F1FA /* PushService.h */,
-				3A31E17D227AE1CB00F7F1FA /* PushService.m */,
-				3A5D1F48227711A700842DF3 /* DataManager.h */,
-				3A5D1F54227711A900842DF3 /* DataManager.m */,
-				3AC4D2DC2277214600084A1B /* CoreDataService.h */,
-				3AC4D2DD2277214600084A1B /* CoreDataService.m */,
-				3A76F68D22775698002ADDE7 /* CoreDataServiceProtocol.h */,
-				3A5D1F51227711A800842DF3 /* DataManagerProtocol.h */,
-				3A5D1F52227711A900842DF3 /* NetworkService.h */,
-				3A5D1F4C227711A800842DF3 /* NetworkService.m */,
-				3A5D1F4E227711A800842DF3 /* NetworkServiceInputProtocol.h */,
-				3A5D1F43227711A700842DF3 /* NetworkServiceOutputProtocol.h */,
+				3A31E17E227AE1CB00F7F1FA /* BRBPushService.h */,
+				3A31E17D227AE1CB00F7F1FA /* BRBPushService.m */,
+				3A5D1F48227711A700842DF3 /* BRBDataContainer.h */,
+				3A5D1F54227711A900842DF3 /* BRBDataContainer.m */,
+				3AC4D2DC2277214600084A1B /* BRBCoreDataService.h */,
+				3AC4D2DD2277214600084A1B /* BRBCoreDataService.m */,
+				3A5D1F52227711A900842DF3 /* BRBNetworkService.h */,
+				3A5D1F4C227711A800842DF3 /* BRBNetworkService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -349,27 +341,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A5D1F57227711A900842DF3 /* UserTableViewCell.m in Sources */,
+				3A5D1F57227711A900842DF3 /* BRBUserTableViewCell.m in Sources */,
 				3A5D1F1E2277115E00842DF3 /* main.m in Sources */,
-				3AEEC7022279975F00755100 /* CoreDataStack.m in Sources */,
-				3AEEC6FF2279941100755100 /* Assembly.m in Sources */,
-				3A6B2E3422907A2800A62A09 /* AlertController.m in Sources */,
-				3A31E17F227AE1CB00F7F1FA /* PushService.m in Sources */,
+				3AEEC7022279975F00755100 /* BRBCoreDataStack.m in Sources */,
+				3AEEC6FF2279941100755100 /* BRBAssembly.m in Sources */,
+				3A6B2E3422907A2800A62A09 /* BRBAlertController.m in Sources */,
+				3A31E17F227AE1CB00F7F1FA /* BRBPushService.m in Sources */,
 				3A5D1F162277115D00842DF3 /* Bar_Buddy.xcdatamodeld in Sources */,
-				3A5D1F5A227711A900842DF3 /* UserTableViewController.m in Sources */,
+				3A5D1F5A227711A900842DF3 /* BRBUserTableViewController.m in Sources */,
 				3A5D1F422277118700842DF3 /* AppDelegate.m in Sources */,
-				3A5D1F5D227711A900842DF3 /* MapViewController.m in Sources */,
+				3A5D1F5D227711A900842DF3 /* BRBMapViewController.m in Sources */,
 				3A6DCB6D227EF2C8000185CE /* ProjectSettings.m in Sources */,
-				3A31E188227C6F2D00F7F1FA /* UserTableView.m in Sources */,
+				3A31E188227C6F2D00F7F1FA /* BRBUserTableView.m in Sources */,
 				3A739C0A228EDAF800D5DBCE /* User+CoreDataClass.m in Sources */,
 				3A739C0B228EDAF800D5DBCE /* User+CoreDataProperties.m in Sources */,
-				3A5D1F5B227711A900842DF3 /* NetworkService.m in Sources */,
-				3A31E185227B128300F7F1FA /* FilterCollectionViewCell.m in Sources */,
-				3AEEC7052279B28000755100 /* ViewControllerFactory.m in Sources */,
+				3A5D1F5B227711A900842DF3 /* BRBNetworkService.m in Sources */,
+				3A31E185227B128300F7F1FA /* BRBFilterCollectionViewCell.m in Sources */,
+				3AEEC7052279B28000755100 /* BRBViewControllerFactory.m in Sources */,
 				3A6B2E3A22908E6400A62A09 /* BRBUserFilterView.m in Sources */,
-				3A5D1F5E227711A900842DF3 /* DataManager.m in Sources */,
-				3AC4D2DE2277214600084A1B /* CoreDataService.m in Sources */,
-				3A6B2E3722908A3C00A62A09 /* BRBUserFilterController.m in Sources */,
+				3A5D1F5E227711A900842DF3 /* BRBDataContainer.m in Sources */,
+				3AC4D2DE2277214600084A1B /* BRBCoreDataService.m in Sources */,
+				3A6B2E3722908A3C00A62A09 /* BRBUserFilterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

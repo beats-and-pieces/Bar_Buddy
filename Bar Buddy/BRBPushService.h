@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @import UserNotifications;
 
-@interface PushService : NSObject
+@interface BRBPushService : NSObject
 
 - (void)scheduleDrinkRequestFromUser:(NSString *)userName;
 - (instancetype)initForNotificationDelegate:(id<UNUserNotificationCenterDelegate>)delegate;

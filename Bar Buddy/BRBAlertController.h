@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AlertController : NSObject
+@interface BRBAlertController : NSObject
 
 @property (nonatomic, nullable, weak) UIViewController *delegate; /**< Делегат внешних событий */
 

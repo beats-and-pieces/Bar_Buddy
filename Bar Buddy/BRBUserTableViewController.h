@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewControllerFactory.h"
+#import "BRBViewControllerFactory.h"
 
-@interface UserTableViewController : ViewControllerFactory
+@interface BRBUserTableViewController : BRBViewControllerFactory
 
 /**
  Кастомный инициализатор, использующий зависимость от DataManager
@@ -17,7 +17,7 @@
  @param dataManager - экземпляр класса DataManager
  @return экземпляр класса UserTableViewController
  */
-- (instancetype)initWithDataManager:(DataManager *)dataManager;
+- (instancetype)initWithDataManager:(BRBDataContainer *)dataManager;
 
 /**
  Метод возвращает строку для отображения в Tab Bar контроллере

@@ -1,6 +1,6 @@
 //
-//  FilterCollectionViewCell.h
-//  Flickr_ObjC
+//  BRBFilterCollectionViewCell.h
+//  Bar Buddy
 //
 //  Created by Anton Kuznetsov on 15/04/2019.
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FilterCollectionViewCell : UICollectionViewCell
+@interface BRBFilterCollectionViewCell : UICollectionViewCell
 
 //@property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UILabel *label;

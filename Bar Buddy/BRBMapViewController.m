@@ -6,23 +6,23 @@
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
-#import "MapViewController.h"
+#import "BRBMapViewController.h"
 #import <MapKit/MapKit.h>
 #import "ProjectSettings.h"
 
-@interface MapViewController ()
+@interface BRBMapViewController ()
 
 @property (nonatomic, nullable) MKMapView *mapView;
-@property (nonatomic, nullable) DataManager *dataManager;
+@property (nonatomic, nullable) BRBDataContainer *dataManager;
 @property (nonatomic) BOOL displayAllUsers;
 @property (nonatomic, copy) NSString *userName;
 
 @end
 
-@implementation MapViewController
+@implementation BRBMapViewController
 
 
-- (instancetype)initWithDataManager:(DataManager *)dataManager
+- (instancetype)initWithDataManager:(BRBDataContainer *)dataManager
 {
     self = [super init];
     if (self) {

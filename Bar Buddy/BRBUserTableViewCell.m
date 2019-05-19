@@ -1,15 +1,15 @@
 //
-//  UserTableViewCell.m
+//  BRBUserTableViewCell.m
 //  Bar Buddy
 //
 //  Created by Anton Kuznetsov on 25/04/2019.
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
-#import "UserTableViewCell.h"
+#import "BRBUserTableViewCell.h"
 #import "ProjectSettings.h"
 
-@interface UserTableViewCell()
+@interface BRBUserTableViewCell()
 @property (nonatomic, strong) NSLayoutConstraint *topCoverImageConstraintY;
 @property (nonatomic, strong) NSLayoutConstraint *topCoverImageConstraintX;
 
@@ -18,7 +18,7 @@
 
 
 @end
-@implementation UserTableViewCell
+@implementation BRBUserTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 

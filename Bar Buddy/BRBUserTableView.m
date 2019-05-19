@@ -1,15 +1,15 @@
 //
-//  UserTableView.m
+//  BRBUserTableView.m
 //  Bar Buddy
 //
 //  Created by Anton Kuznetsov on 03/05/2019.
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
-#import "UserTableView.h"
+#import "BRBUserTableView.h"
 #import "ProjectSettings.h"
 
-@implementation UserTableView
+@implementation BRBUserTableView
 
 
 - (instancetype)initWithFrame:(CGRect)frame

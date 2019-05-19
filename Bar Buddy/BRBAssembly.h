@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Assembly : NSObject
+@interface BRBAssembly : NSObject
 
 - (UIViewController *)getRootViewController;
 - (void)scheduleDrinkRequestFromRandomUser;

@@ -6,15 +6,14 @@
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
-#import "NetworkService.h"
-#import "NetworkServiceInputProtocol.h"
+#import "BRBNetworkService.h"
 #import "ProjectSettings.h"
 
-@interface NetworkService () <NetworkServiceInputProtocol>
+@interface BRBNetworkService ()
 
 @end
 
-@implementation NetworkService
+@implementation BRBNetworkService
 
 - (instancetype)init
 {

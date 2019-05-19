@@ -6,14 +6,14 @@
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
-#import "CoreDataService.h"
+#import "BRBCoreDataService.h"
 #import "User+CoreDataClass.h"
 #import "AppDelegate.h"
-#import "CoreDataServiceProtocol.h"
-#import "CoreDataStack.h"
+//#import "BRBCoreDataServiceProtocol.h"
+#import "BRBCoreDataStack.h"
 
 
-@interface CoreDataService () <CoreDataServiceProtocol>
+@interface BRBCoreDataService ()
 
 @property (nonatomic, strong) NSManagedObjectContext *coreDataContext;
 @property (nonatomic, strong) NSFetchRequest *fetchRequest;
@@ -21,9 +21,9 @@
 
 @end
 
-@implementation CoreDataService
+@implementation BRBCoreDataService
 
-- (instancetype)initWithCoreDataStack:(CoreDataStack *)coreDataStack
+- (instancetype)initWithCoreDataStack:(BRBCoreDataStack *)coreDataStack
 {
     self = [super init];
     if (self)

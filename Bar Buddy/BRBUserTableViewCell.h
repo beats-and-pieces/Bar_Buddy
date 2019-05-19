@@ -1,5 +1,5 @@
 //
-//  UserTableViewCell.h
+//  BRBUserTableViewCell.h
 //  Bar Buddy
 //
 //  Created by Anton Kuznetsov on 25/04/2019.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UserTableViewCell : UITableViewCell
+@interface BRBUserTableViewCell : UITableViewCell
 
 @property (nonatomic, nonnull, strong) UIImageView *userpicImageView;
 @property (nonatomic, nonnull, strong) UILabel *usernameLabel;

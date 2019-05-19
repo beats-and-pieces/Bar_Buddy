@@ -6,16 +6,16 @@
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
-#import "BRBUserFilterController.h"
-#import "FilterCollectionViewCell.h"
-#import "DataManager.h"
+#import "BRBUserFilterViewController.h"
+#import "BRBFilterCollectionViewCell.h"
+#import "BRBDataContainer.h"
 #import "BRBUserFilterView.h"
 #import "ProjectSettings.h"
 
-@interface BRBUserFilterController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface BRBUserFilterViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) BRBUserFilterView *userFilterView;
-@property (nonatomic, strong) DataManager *dataManager;
+@property (nonatomic, strong) BRBDataContainer *dataManager;
 
 @property (nonatomic) NSInteger preferredDrink;
 @property (nonatomic) NSInteger preferredCompany;
@@ -26,9 +26,9 @@
 
 @end
 
-@implementation BRBUserFilterController
+@implementation BRBUserFilterViewController
 
-- (instancetype)initWithDataManager:(DataManager *)dataManager withFrame:(CGRect)frame
+- (instancetype)initWithDataManager:(BRBDataContainer *)dataManager withFrame:(CGRect)frame
 {
     self = [super init];
     if (self) {
@@ -41,7 +41,7 @@
         CGRect newFrame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height, self.frame.size.width, self.frame.size.height - self.navigationController.navigationBar.bounds.size.height - self.tabBarController.tabBar.bounds.size.height);
         self.userFilterView = [[BRBUserFilterView alloc] initWithFrame:frame];
         
-        [self.userFilterView registerClass:[FilterCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class])];
+        [self.userFilterView registerClass:[BRBFilterCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([BRBFilterCollectionViewCell class])];
         
         [self.userFilterView setDataSource:self];
         [self.userFilterView setDelegate:self];
@@ -77,7 +77,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    FilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class]) forIndexPath:indexPath];
+    BRBFilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BRBFilterCollectionViewCell class]) forIndexPath:indexPath];
     
     switch (indexPath.section)
     {
@@ -102,7 +102,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    FilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FilterCollectionViewCell class]) forIndexPath:indexPath];
+    BRBFilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BRBFilterCollectionViewCell class]) forIndexPath:indexPath];
     [cell changeState];
     switch (indexPath.section) {
         case 0:

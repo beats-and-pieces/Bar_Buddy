@@ -6,14 +6,14 @@
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
-#import "AlertController.h"
+#import "BRBAlertController.h"
 
 typedef NS_ENUM(NSInteger, BRBAlertType) {
     BRBAlertTypeSuccess,
     BRBAlertTypeFailure
 };
 
-@interface AlertController ()
+@interface BRBAlertController ()
 
 @property (nonatomic, nonnull) NSString *alertTitle;
 @property (nonatomic, nonnull) NSString *alertMessage;
@@ -21,8 +21,8 @@ typedef NS_ENUM(NSInteger, BRBAlertType) {
 
 @end
 
-@implementation AlertController
 
+@implementation BRBAlertController
 
 - (instancetype)initWithViewController:(UIViewController *)viewController
 {
@@ -33,6 +33,7 @@ typedef NS_ENUM(NSInteger, BRBAlertType) {
     return self;
 }
 
+
 - (void)showAlertForUnableToSendDrinkRequestTo:(NSString *)userName
 {
     self.alertTitle = @"Пользователь занят";
@@ -41,6 +42,7 @@ typedef NS_ENUM(NSInteger, BRBAlertType) {
     [self showAlertOfType:BRBAlertTypeFailure];
 }
 
+
 - (void)showAlertForDrinkRequestTo:(NSString *)userName
 {
     self.alertTitle = userName;
@@ -48,6 +50,7 @@ typedef NS_ENUM(NSInteger, BRBAlertType) {
     self.alertAcceptanceActionTitle = @"ОК";
     [self showAlertOfType:BRBAlertTypeSuccess];
 }
+
 
 - (void)showAlertOfType:(BRBAlertType)alertType
 {

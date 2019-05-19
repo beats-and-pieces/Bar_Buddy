@@ -6,9 +6,9 @@
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
-#import "CoreDataStack.h"
+#import "BRBCoreDataStack.h"
 
-@implementation CoreDataStack
+@implementation BRBCoreDataStack
 
 @synthesize persistentContainer = _persistentContainer;
 

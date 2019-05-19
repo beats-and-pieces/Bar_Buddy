@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DataManager.h"
+#import "BRBDataContainer.h"
 
 typedef NS_ENUM(NSInteger, BRBViewControllerType) {
     BRBViewControllerTypeUserTableView,
@@ -15,18 +15,18 @@ typedef NS_ENUM(NSInteger, BRBViewControllerType) {
 };
 
 
-@protocol ViewControllerFactoryProtocol
+@protocol BRBViewControllerFactoryProtocol
 
 @required
-- (instancetype)initWithDataManager:(DataManager *)dataManager;
+- (instancetype)initWithDataManager:(BRBDataContainer *)dataManager;
 - (NSString *)getTabBarItemTitle;
 
 @end
 
 
-@interface ViewControllerFactory : UIViewController <ViewControllerFactoryProtocol>
+@interface BRBViewControllerFactory : UIViewController <BRBViewControllerFactoryProtocol>
 
-+ (instancetype)initWithDataManager:(DataManager *)dataManager type:(BRBViewControllerType)viewControllerType;
++ (instancetype)initWithDataManager:(BRBDataContainer *)dataManager type:(BRBViewControllerType)viewControllerType;
 
 
 @end
