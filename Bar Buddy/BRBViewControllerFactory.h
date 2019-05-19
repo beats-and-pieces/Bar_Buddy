@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, BRBViewControllerType) {
 @protocol BRBViewControllerFactoryProtocol
 
 @required
-- (instancetype)initWithDataManager:(BRBDataContainer *)dataManager;
+- (instancetype)initWithDataContainer:(BRBDataContainer *)dataContainer;
 - (NSString *)getTabBarItemTitle;
 
 @end
@@ -26,7 +26,7 @@ typedef NS_ENUM(NSInteger, BRBViewControllerType) {
 
 @interface BRBViewControllerFactory : UIViewController <BRBViewControllerFactoryProtocol>
 
-+ (instancetype)initWithDataManager:(BRBDataContainer *)dataManager type:(BRBViewControllerType)viewControllerType;
++ (instancetype)initWithDataContainer:(BRBDataContainer *)dataContainer type:(BRBViewControllerType)viewControllerType;
 
 
 @end

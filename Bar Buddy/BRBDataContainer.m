@@ -1,5 +1,5 @@
 //
-//  DataManager.m
+//  BRBDataContainer.m
 //  Bar Buddy
 //
 //  Created by Anton Kuznetsov on 25/04/2019.

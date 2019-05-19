@@ -13,7 +13,7 @@
 @interface BRBMapViewController ()
 
 @property (nonatomic, nullable) MKMapView *mapView;
-@property (nonatomic, nullable) BRBDataContainer *dataManager;
+@property (nonatomic, nullable) BRBDataContainer *dataContainer;
 @property (nonatomic) BOOL displayAllUsers;
 @property (nonatomic, copy) NSString *userName;
 
@@ -22,11 +22,11 @@
 @implementation BRBMapViewController
 
 
-- (instancetype)initWithDataManager:(BRBDataContainer *)dataManager
+- (instancetype)initWithDataContainer:(BRBDataContainer *)dataContainer
 {
     self = [super init];
     if (self) {
-        _dataManager = dataManager;
+        _dataContainer = dataContainer;
         _displayAllUsers = YES;
     }
     return self;
@@ -76,7 +76,7 @@
 - (void)displayUserLocations
 {
     NSMutableArray *array = [NSMutableArray new];
-    for (User *user in self.dataManager.users)
+    for (User *user in self.dataContainer.users)
     {
         if (self.displayAllUsers || [user.displayedName isEqualToString: self.userName])
         {

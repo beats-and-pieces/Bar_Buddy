@@ -15,7 +15,7 @@
 @interface BRBUserFilterViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) BRBUserFilterView *userFilterView;
-@property (nonatomic, strong) BRBDataContainer *dataManager;
+@property (nonatomic, strong) BRBDataContainer *dataContainer;
 
 @property (nonatomic) NSInteger preferredDrink;
 @property (nonatomic) NSInteger preferredCompany;
@@ -28,11 +28,11 @@
 
 @implementation BRBUserFilterViewController
 
-- (instancetype)initWithDataManager:(BRBDataContainer *)dataManager withFrame:(CGRect)frame
+- (instancetype)initWithDataContainer:(BRBDataContainer *)dataContainer withFrame:(CGRect)frame
 {
     self = [super init];
     if (self) {
-        _dataManager = dataManager;
+        _dataContainer = dataContainer;
         _drinkFilterValues = @[@"🍺", @"🍷", @"🥃"];
         _topicFilterValues = @[@"🏎", @"🎼", @"💼"];
         _frame = frame;
@@ -114,7 +114,7 @@
         default:
             break;
     }
-    [self.dataManager updateFilteredResultsWithDrinkType:self.preferredDrink withCompanyType:self.preferredCompany];
+    [self.dataContainer updateFilteredResultsWithDrinkType:self.preferredDrink withCompanyType:self.preferredCompany];
 }
 
 

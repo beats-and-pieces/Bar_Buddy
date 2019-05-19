@@ -12,12 +12,12 @@
 @interface BRBUserTableViewController : BRBViewControllerFactory
 
 /**
- Кастомный инициализатор, использующий зависимость от DataManager
+ Кастомный инициализатор, использующий зависимость от dataContainer
 
- @param dataManager - экземпляр класса DataManager
+ @param dataContainer - экземпляр класса BRBDataContainer
  @return экземпляр класса UserTableViewController
  */
-- (instancetype)initWithDataManager:(BRBDataContainer *)dataManager;
+- (instancetype)initWithDataContainer:(BRBDataContainer *)dataContainer;
 
 /**
  Метод возвращает строку для отображения в Tab Bar контроллере

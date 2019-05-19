@@ -17,7 +17,7 @@
 
 @property (nonatomic, nonnull) UITabBarController *tabBarController;
 @property (nonatomic, nonnull) BRBPushService *pushService;
-@property (nonatomic, nonnull) BRBDataContainer *dataManager;
+@property (nonatomic, nonnull) BRBDataContainer *dataContainer;
 
 @end
 
@@ -36,14 +36,14 @@
         
         BRBNetworkService *netWorkService = [BRBNetworkService new];
         
-        BRBDataContainer *dataManager = [[BRBDataContainer alloc] initWithCoreDataService:coreDataService withNetworkService:netWorkService];
-        self.dataManager = dataManager;
+        BRBDataContainer *dataContainer = [[BRBDataContainer alloc] initWithCoreDataService:coreDataService withNetworkService:netWorkService];
+        self.dataContainer = dataContainer;
         
-        BRBViewControllerFactory *userTableViewController = [BRBViewControllerFactory initWithDataManager:dataManager type:BRBViewControllerTypeUserTableView];
+        BRBViewControllerFactory *userTableViewController = [BRBViewControllerFactory initWithDataContainer:dataContainer type:BRBViewControllerTypeUserTableView];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:userTableViewController];
         navigationController.tabBarItem.title = [userTableViewController getTabBarItemTitle];
         
-        BRBViewControllerFactory *mapViewController = [BRBViewControllerFactory initWithDataManager:dataManager type:BRBViewControllerTypeUserMap];
+        BRBViewControllerFactory *mapViewController = [BRBViewControllerFactory initWithDataContainer:dataContainer type:BRBViewControllerTypeUserMap];
         mapViewController.tabBarItem.title = [mapViewController getTabBarItemTitle];
         
         UITabBarController *tabBarController = [UITabBarController new];
@@ -64,8 +64,8 @@
 
 - (void)scheduleDrinkRequestFromRandomUser
 {
-    int randomNumber = arc4random_uniform((int)self.dataManager.users.count);
-    User *randomUser = self.dataManager.users[randomNumber];
+    int randomNumber = arc4random_uniform((int)self.dataContainer.users.count);
+    User *randomUser = self.dataContainer.users[randomNumber];
     [self.pushService scheduleDrinkRequestFromUser:randomUser.displayedName];
 }
 

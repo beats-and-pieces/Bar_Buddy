@@ -21,7 +21,7 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
 
-@property (nonatomic, strong) BRBDataContainer *dataManager;
+@property (nonatomic, strong) BRBDataContainer *dataContainer;
 @property (nonatomic) BRBAlertController *alertController;
 @property (nonatomic) BRBUserFilterViewController *userFilterController;
 
@@ -36,12 +36,12 @@
 
 @implementation BRBUserTableViewController
 
-- (instancetype)initWithDataManager:(BRBDataContainer *)dataManager
+- (instancetype)initWithDataContainer:(BRBDataContainer *)dataContainer
 {
     self = [super init];
     if (self) {
-        _dataManager = dataManager;
-        _dataManager.delegate = self;
+        _dataContainer = dataContainer;
+        _dataContainer.delegate = self;
         _drinkFilterValues = @[@"🍺", @"🍷", @"🥃"];
         _topicFilterValues = @[@"🏎", @"🎼", @"💼"];
         _alertController = [[BRBAlertController alloc] initWithViewController:self];
@@ -58,7 +58,7 @@
     [super viewDidLoad];
     [self createView];
     
-    [self.dataManager loadData];
+    [self.dataContainer loadData];
 }
 
 - (void)createView
@@ -88,7 +88,7 @@
 }
 
 
-#pragma mark - DataManagerProtocol
+#pragma mark - BRBDataContainerDelegateProtocol
 
 - (void)updateTableView
 {
@@ -100,27 +100,27 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.dataManager.users ? self.dataManager.users.count : 0;
+    return self.dataContainer.users ? self.dataContainer.users.count : 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BRBUserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([BRBUserTableViewCell class])];
     cell.backgroundColor = UIColor.whiteColor;
-    cell.usernameLabel.text = self.dataManager.users[indexPath.row].displayedName;
-    cell.descriptionLabel.text = self.drinkFilterValues[self.dataManager.users[indexPath.row].preferredDrink - 1];
+    cell.usernameLabel.text = self.dataContainer.users[indexPath.row].displayedName;
+    cell.descriptionLabel.text = self.drinkFilterValues[self.dataContainer.users[indexPath.row].preferredDrink - 1];
     if (!cell.userpicImageView.image)
     {
         cell.userpicImageView.image = [UIImage imageNamed:BRBPlaceholderFilename];
     }
     
     cell.contentView.backgroundColor = UIColor.greenColor;
-    NSString *userpicURL = self.dataManager.users[indexPath.row].userpicURL;
-    if (self.dataManager.users[indexPath.row].isDrinking)
+    NSString *userpicURL = self.dataContainer.users[indexPath.row].userpicURL;
+    if (self.dataContainer.users[indexPath.row].isDrinking)
     {
         cell.contentView.backgroundColor = UIColor.redColor;
     }
-    [self.dataManager dowloadUserpicFromURL:userpicURL forIndexPath:indexPath];
+    [self.dataContainer dowloadUserpicFromURL:userpicURL forIndexPath:indexPath];
     
     return cell;
 }
@@ -146,7 +146,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    User *user = self.dataManager.users[indexPath.row];
+    User *user = self.dataContainer.users[indexPath.row];
     if (user.isDrinking)
     {
         [self.alertController showAlertForUnableToSendDrinkRequestTo:user.displayedName];
@@ -214,7 +214,7 @@
         default:
             break;
     }
-    [self.dataManager updateFilteredResultsWithDrinkType:self.preferredDrink withCompanyType:self.preferredCompany];
+    [self.dataContainer updateFilteredResultsWithDrinkType:self.preferredDrink withCompanyType:self.preferredCompany];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath

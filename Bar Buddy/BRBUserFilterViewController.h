@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BRBUserFilterViewController : UIViewController
 
-- (instancetype)initWithDataManager:(BRBDataContainer *)dataManager withFrame:(CGRect)frame;
+- (instancetype)initWithDataContainer:(BRBDataContainer *)dataContainer withFrame:(CGRect)frame;
 
 - (UIView *)getUserFilterView;
 

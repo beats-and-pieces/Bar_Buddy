@@ -13,17 +13,17 @@
 
 @implementation BRBViewControllerFactory
 
-+ (instancetype)initWithDataManager:(BRBDataContainer *)dataManager type:(BRBViewControllerType)viewControllerType
++ (instancetype)initWithDataContainer:(BRBDataContainer *)dataContainer type:(BRBViewControllerType)viewControllerType
 {
     switch (viewControllerType) {
         case BRBViewControllerTypeUserTableView:
         {
-            return [[BRBUserTableViewController alloc] initWithDataManager:dataManager];
+            return [[BRBUserTableViewController alloc] initWithDataContainer:dataContainer];
             break;
         }
         case BRBViewControllerTypeUserMap:
         {
-            return [[BRBMapViewController alloc] initWithDataManager:dataManager];
+            return [[BRBMapViewController alloc] initWithDataContainer:dataContainer];
             break;
         }
         default:
@@ -34,7 +34,7 @@
 
 //Убеждаемся, что оба метода должны быть реализованы подклассами
 
-- (instancetype)initWithDataManager:(BRBDataContainer *)dataManager
+- (instancetype)initWithDataContainer:(BRBDataContainer *)dataContainer
 {
     NSString *description = [NSString stringWithFormat:@"You have not implemented %@ in %@", NSStringFromSelector(_cmd), NSStringFromClass([self class])];
     NSAssert(YES, description);

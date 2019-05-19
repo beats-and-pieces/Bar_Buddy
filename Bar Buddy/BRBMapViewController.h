@@ -11,7 +11,7 @@
 
 @interface BRBMapViewController : BRBViewControllerFactory
 
-- (instancetype)initWithDataManager:(BRBDataContainer *)dataManager;
+- (instancetype)initWithDataContainer:(BRBDataContainer *)dataContainer;
 - (NSString *)getTabBarItemTitle;
 - (void)displayLocationOfUserWithName:(NSString *)userName;
 

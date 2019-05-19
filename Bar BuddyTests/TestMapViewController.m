@@ -19,15 +19,7 @@
 - (void)testTabBarItemTitle
 {
     
-//    MapViewController *mvp = [MapViewController alloc] initWithDataManager:<#(DataManager *)#>
-//    - (NSString *)getTabBarItemTitle;
-//
-//
-//
-//
-//    XCTAssertTrue([[assembly getRootViewController] isKindOfClass:[UIViewController class]], @"Cannot find ViewController instance");
-    // no teardown needed
-    
+
     
 }
 // This is an example of a functional test case.
