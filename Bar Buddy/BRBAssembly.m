@@ -12,8 +12,16 @@
 #import "BRBPushService.h"
 #import "BRBMapViewController.h"
 
-@interface BRBAssembly () <UNUserNotificationCenterDelegate>
+@implementation UIColor (Extensions)
 
++ (UIColor *)BRBActiveFilterButtonColor
+{
+    return [UIColor colorWithRed:110.0/255 green:145.0/255 blue:11.0/255 alpha: 1.0];
+}
+
+@end
+
+@interface BRBAssembly () <UNUserNotificationCenterDelegate>
 
 @property (nonatomic, nonnull) UITabBarController *tabBarController;
 @property (nonatomic, nonnull) BRBPushService *pushService;
@@ -21,8 +29,8 @@
 
 @end
 
-@implementation BRBAssembly
 
+@implementation BRBAssembly
 
 - (instancetype)init
 {
@@ -50,17 +58,19 @@
         NSArray *viewControllerArray = @[navigationController, mapViewController];
         tabBarController.viewControllers = viewControllerArray;
         tabBarController.tabBar.translucent = YES;
-        tabBarController.tabBar.tintColor = [UIColor whiteColor];
+        tabBarController.tabBar.tintColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
         tabBarController.tabBar.barTintColor = [UIColor blackColor];
         self.tabBarController = tabBarController;
     }
     return self;
 }
 
+
 - (UIViewController *)getRootViewController
 {
     return self.tabBarController;
 }
+
 
 - (void)scheduleDrinkRequestFromRandomUser
 {
@@ -68,6 +78,7 @@
     User *randomUser = self.dataContainer.users[randomNumber];
     [self.pushService scheduleDrinkRequestFromUser:randomUser.displayedName];
 }
+
 
 - (void)showLocationOfUserWithName:(NSString *) userName;
 {

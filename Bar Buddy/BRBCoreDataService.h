@@ -14,8 +14,8 @@
 @interface BRBCoreDataService : NSObject
 
 - (instancetype)initWithCoreDataStack:(BRBCoreDataStack *)coreDataStack;
-- (void)saveUserData:(NSArray *)users;
+- (void)saveUserData:(NSArray<User *> *)users;
 - (NSArray<User *> *) getUserData;
-- (NSArray<User *> *)getFilteredUsersWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType;
+- (NSArray<User *> *)getFilteredUsersWithDrinkType:(NSInteger)drinkType withTopicType:(NSInteger)topicType;
 
 @end

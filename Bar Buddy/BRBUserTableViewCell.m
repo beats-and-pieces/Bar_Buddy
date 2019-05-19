@@ -35,15 +35,22 @@
         _usernameLabel = [UILabel new];
         [self.contentView addSubview:_usernameLabel];
         
-        _descriptionLabel = [UILabel new];
-        _descriptionLabel.numberOfLines = 0;
-        self.contentView.layer.cornerRadius = BRBUserpicRoundRadius;
-        [self.contentView addSubview:_descriptionLabel];
-        self.contentView.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
-//        UITapGestureRecognizer *tapOnCell = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector (didTapCell:)];
-//        [self.contentView addGestureRecognizer:tapOnCell];
+        _drinkLabel = [UILabel new];
+        _drinkLabel.numberOfLines = 0;
+        _topicLabel = [UILabel new];
+        _topicLabel.numberOfLines = 0;
+        _topicLabel.text = @"test";
         
-//        [self createGradientLayer];
+        [self.contentView addSubview:_drinkLabel];
+        [self.contentView addSubview:_topicLabel];
+        
+        self.contentView.layer.cornerRadius = BRBUserpicRoundRadius;
+        self.contentView.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
+        
+        UIView *bgColorView = [[UIView alloc] init];
+        bgColorView.layer.cornerRadius = BRBUserpicRoundRadius;
+        bgColorView.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
+        [self setSelectedBackgroundView:bgColorView];
         [self setupConstrains];
     }
     
@@ -80,20 +87,17 @@
     [self.usernameLabel.heightAnchor constraintEqualToConstant:16.0].active = YES;
     [self.usernameLabel.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-16.0].active = YES;
     
-    self.descriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.drinkLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.drinkLabel.topAnchor constraintEqualToAnchor:self.usernameLabel.bottomAnchor constant:16.0].active = YES;
+    [self.drinkLabel.leadingAnchor constraintEqualToAnchor:self.userpicImageView.trailingAnchor constant:16.0].active = YES;
+    [self.drinkLabel.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-16.0].active = YES;
+    [self.drinkLabel.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant:-16.0].active = YES;
     
-    [self.descriptionLabel.topAnchor constraintEqualToAnchor:self.usernameLabel.bottomAnchor constant:16.0].active = YES;
-    [self.descriptionLabel.leadingAnchor constraintEqualToAnchor:self.userpicImageView.trailingAnchor constant:16.0].active = YES;
-    [self.descriptionLabel.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-16.0].active = YES;
-    [self.descriptionLabel.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant:-16.0].active = YES;
-}
-
-- (void)animatePictureDown
-{
-    self.topCoverImageConstraintY.constant = self.topCoverImageConstraintY.constant + 32.0;
-    [self.contentView removeConstraint:self.topCoverImageConstraintY];
-    NSLayoutConstraint *alignCenterYConstraint = [self.userpicImageView.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor];
-    [self.contentView addConstraint:alignCenterYConstraint];
+    self.topicLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.topicLabel.topAnchor constraintEqualToAnchor:self.usernameLabel.bottomAnchor constant:16.0].active = YES;
+    [self.topicLabel.leadingAnchor constraintEqualToAnchor:self.userpicImageView.trailingAnchor constant:40.0].active = YES;
+    [self.topicLabel.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-16.0].active = YES;
+    [self.topicLabel.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant:-16.0].active = YES;
 }
 
 -(void)addCellAnimation

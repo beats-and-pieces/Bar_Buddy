@@ -75,7 +75,6 @@ typedef NS_ENUM(NSInteger, BRBAlertType) {
                                      handler:^(UIAlertAction * action) {
                                          [alert dismissViewControllerAnimated:YES completion:nil];
                                      }];
-            
             [alert addAction:cancel];
             break;
         }

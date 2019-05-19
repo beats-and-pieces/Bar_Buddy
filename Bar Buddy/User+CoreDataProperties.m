@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.m
 //  Bar Buddy
 //
-//  Created by Anton Kuznetsov on 17/05/2019.
+//  Created by Anton Kuznetsov on 19/05/2019.
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 //
@@ -16,12 +16,13 @@
 }
 
 @dynamic displayedName;
+@dynamic isDrinking;
 @dynamic locationLatitude;
 @dynamic locationLongitude;
 @dynamic preferredCompany;
 @dynamic preferredDrink;
 @dynamic userName;
 @dynamic userpicURL;
-@dynamic isDrinking;
+@dynamic preferredTopic;
 
 @end

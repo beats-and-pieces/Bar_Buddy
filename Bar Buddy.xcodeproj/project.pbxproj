@@ -23,12 +23,12 @@
 		3A5D1F5E227711A900842DF3 /* BRBDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F54227711A900842DF3 /* BRBDataContainer.m */; };
 		3A6B2E3422907A2800A62A09 /* BRBAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B2E3322907A2800A62A09 /* BRBAlertController.m */; };
 		3A6DCB6D227EF2C8000185CE /* ProjectSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */; };
-		3A739C0A228EDAF800D5DBCE /* User+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A739C08228EDAF800D5DBCE /* User+CoreDataClass.m */; };
-		3A739C0B228EDAF800D5DBCE /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A739C09228EDAF800D5DBCE /* User+CoreDataProperties.m */; };
 		3A93B244228DCD8B00CA71FF /* testAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A93B243228DCD8B00CA71FF /* testAssembly.m */; };
 		3A93B248228DD20200CA71FF /* TestMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A93B247228DD20200CA71FF /* TestMapViewController.m */; };
 		3AC4D2DE2277214600084A1B /* BRBCoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC4D2DD2277214600084A1B /* BRBCoreDataService.m */; };
 		3AE08FAD22919ACD00DA2F76 /* BRBUserFilterDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE08FAC22919ACD00DA2F76 /* BRBUserFilterDelegateAndDataSource.m */; };
+		3AE08FB22291BB5B00DA2F76 /* User+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE08FB02291BB5B00DA2F76 /* User+CoreDataClass.m */; };
+		3AE08FB32291BB5B00DA2F76 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE08FB12291BB5B00DA2F76 /* User+CoreDataProperties.m */; };
 		3AEEC6FF2279941100755100 /* BRBAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC6FE2279941100755100 /* BRBAssembly.m */; };
 		3AEEC7022279975F00755100 /* BRBCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC7012279975F00755100 /* BRBCoreDataStack.m */; };
 		3AEEC7052279B28000755100 /* BRBViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC7042279B28000755100 /* BRBViewControllerFactory.m */; };
@@ -76,16 +76,16 @@
 		3A6B2E3322907A2800A62A09 /* BRBAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBAlertController.m; sourceTree = "<group>"; };
 		3A6DCB6B227EF2C8000185CE /* ProjectSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectSettings.h; sourceTree = "<group>"; };
 		3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectSettings.m; sourceTree = "<group>"; };
-		3A739C06228EDAF800D5DBCE /* User+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
-		3A739C07228EDAF800D5DBCE /* User+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataClass.h"; sourceTree = "<group>"; };
-		3A739C08228EDAF800D5DBCE /* User+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataClass.m"; sourceTree = "<group>"; };
-		3A739C09228EDAF800D5DBCE /* User+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
 		3A93B243228DCD8B00CA71FF /* testAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testAssembly.m; sourceTree = "<group>"; };
 		3A93B247228DD20200CA71FF /* TestMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestMapViewController.m; sourceTree = "<group>"; };
 		3AC4D2DC2277214600084A1B /* BRBCoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBCoreDataService.h; sourceTree = "<group>"; };
 		3AC4D2DD2277214600084A1B /* BRBCoreDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBCoreDataService.m; sourceTree = "<group>"; };
 		3AE08FAB22919ACD00DA2F76 /* BRBUserFilterDelegateAndDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBUserFilterDelegateAndDataSource.h; sourceTree = "<group>"; };
 		3AE08FAC22919ACD00DA2F76 /* BRBUserFilterDelegateAndDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBUserFilterDelegateAndDataSource.m; sourceTree = "<group>"; };
+		3AE08FAE2291BB5B00DA2F76 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		3AE08FAF2291BB5B00DA2F76 /* User+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataClass.h"; sourceTree = "<group>"; };
+		3AE08FB02291BB5B00DA2F76 /* User+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataClass.m"; sourceTree = "<group>"; };
+		3AE08FB12291BB5B00DA2F76 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
 		3AEEC6FD2279941100755100 /* BRBAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBAssembly.h; sourceTree = "<group>"; };
 		3AEEC6FE2279941100755100 /* BRBAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBAssembly.m; sourceTree = "<group>"; };
 		3AEEC7002279975F00755100 /* BRBCoreDataStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBCoreDataStack.h; sourceTree = "<group>"; };
@@ -229,10 +229,10 @@
 		3AC4D2DB2277204000084A1B /* CoreData Entity */ = {
 			isa = PBXGroup;
 			children = (
-				3A739C06228EDAF800D5DBCE /* User+CoreDataProperties.h */,
-				3A739C07228EDAF800D5DBCE /* User+CoreDataClass.h */,
-				3A739C08228EDAF800D5DBCE /* User+CoreDataClass.m */,
-				3A739C09228EDAF800D5DBCE /* User+CoreDataProperties.m */,
+				3AE08FAE2291BB5B00DA2F76 /* User+CoreDataProperties.h */,
+				3AE08FAF2291BB5B00DA2F76 /* User+CoreDataClass.h */,
+				3AE08FB02291BB5B00DA2F76 /* User+CoreDataClass.m */,
+				3AE08FB12291BB5B00DA2F76 /* User+CoreDataProperties.m */,
 			);
 			name = "CoreData Entity";
 			sourceTree = "<group>";
@@ -345,12 +345,12 @@
 				3A5D1F162277115D00842DF3 /* Bar_Buddy.xcdatamodeld in Sources */,
 				3A5D1F5A227711A900842DF3 /* BRBUserTableViewController.m in Sources */,
 				3A5D1F422277118700842DF3 /* AppDelegate.m in Sources */,
+				3AE08FB22291BB5B00DA2F76 /* User+CoreDataClass.m in Sources */,
+				3AE08FB32291BB5B00DA2F76 /* User+CoreDataProperties.m in Sources */,
 				3A5D1F5D227711A900842DF3 /* BRBMapViewController.m in Sources */,
 				3A6DCB6D227EF2C8000185CE /* ProjectSettings.m in Sources */,
 				3AE08FAD22919ACD00DA2F76 /* BRBUserFilterDelegateAndDataSource.m in Sources */,
 				3A31E188227C6F2D00F7F1FA /* BRBUserTableView.m in Sources */,
-				3A739C0A228EDAF800D5DBCE /* User+CoreDataClass.m in Sources */,
-				3A739C0B228EDAF800D5DBCE /* User+CoreDataProperties.m in Sources */,
 				3A5D1F5B227711A900842DF3 /* BRBNetworkService.m in Sources */,
 				3A31E185227B128300F7F1FA /* BRBFilterCollectionViewCell.m in Sources */,
 				3AEEC7052279B28000755100 /* BRBViewControllerFactory.m in Sources */,

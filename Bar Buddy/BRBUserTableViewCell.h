@@ -14,7 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, nonnull, strong) UIImageView *userpicImageView;
 @property (nonatomic, nonnull, strong) UILabel *usernameLabel;
-@property (nonatomic, nonnull, strong) UILabel *descriptionLabel;
+@property (nonatomic, nonnull, strong) UILabel *drinkLabel;
+@property (nonatomic, nonnull, strong) UILabel *topicLabel;
 @property (nonatomic, strong) CAGradientLayer *gradientLayer;
 
 @end

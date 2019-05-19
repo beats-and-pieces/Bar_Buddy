@@ -25,12 +25,11 @@
 @property (nonatomic, copy) NSArray<User *> *users;
 @property (nonatomic, copy) NSArray<NSString *> *drinkValues;
 @property (nonatomic, copy) NSArray<NSString *> *topicValues;
-
 @property (nonatomic, nullable, weak) id<BRBDataContainerDelegateProtocol> delegate; /**< Делегат, который получает измененные данные */
 
 - (instancetype)initWithCoreDataService:(BRBCoreDataService *)coreDataService withNetworkService:(BRBNetworkService *)networkService;
 - (void)loadData;
-- (void)updateFilteredResultsWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType;
+- (void)updateFilteredResultsWithDrinkType:(NSInteger)drinkType withTopicType:(NSInteger)topicType;
 - (void)dowloadUserpicFromURL:(NSString *)urlString forIndexPath:(NSIndexPath *)indexPath;
 
 @end

@@ -52,7 +52,7 @@
     [self.networkService fetchUserData];
 }
 
-- (void)loadingIsDoneWithDataRecieved:(NSArray *)dataRecieved
+- (void)loadingIsDoneWithDataRecieved:(NSArray<User *> *)dataRecieved
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (dataRecieved.count != 0)
@@ -74,9 +74,9 @@
     [self.delegate setUserpicForCellAtIndexPath:indexPath withData:data];
 }
 
-- (void)updateFilteredResultsWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType;
+- (void)updateFilteredResultsWithDrinkType:(NSInteger)drinkType withTopicType:(NSInteger)topicType;
 {    
-    self.users = [self.coreDataService getFilteredUsersWithDrinkType:drinkType withCompanyType:companyType];
+    self.users = [self.coreDataService getFilteredUsersWithDrinkType:drinkType withTopicType:topicType];
     [self.delegate updateTableView];
 }
 

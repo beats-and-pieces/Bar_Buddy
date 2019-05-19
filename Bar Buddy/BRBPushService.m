@@ -17,6 +17,7 @@
 
 @end
 
+
 @implementation BRBPushService
 
 - (instancetype)initForNotificationDelegate:(id<UNUserNotificationCenterDelegate>)delegate
@@ -42,6 +43,7 @@
     return self;
 }
 
+
 - (void)scheduleDrinkRequestFromUser:(NSString *)userName
 {
     UNMutableNotificationContent *content = [UNMutableNotificationContent new];
@@ -56,6 +58,7 @@
     
     [self scheduleLocalNotificationWithContent:content];
 }
+
 
 - (void)scheduleLocalNotificationWithContent:(UNMutableNotificationContent *)content
 {

@@ -7,8 +7,9 @@
 //
 
 
-
 #import "ProjectSettings.h"
+
+
 // Настройки таблицы
 CGFloat const BRBUserpicRoundRadius = 16.0;
 CGFloat const BRBUserCellInsets = 16.0;
@@ -39,3 +40,7 @@ CGFloat const BRBZoomArea = 7000;
 NSString *const BRBNotificationRequestIdentifier = @"NotificationId";
 
 NSTimeInterval const BRBNotificationTriggerTimeInterval = 5;
+
+//UIColor const *BRBActiveFilterButtonColor =
+
+

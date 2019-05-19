@@ -19,14 +19,12 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
-
 @property (nonatomic, strong) BRBDataContainer *dataContainer;
 @property (nonatomic) BRBAlertController *alertController;
 @property (nonatomic) BRBUserFilterDelegateAndDataSource *userFilterDelegateAndDataSource;
 
-
-
 @end
+
 
 @implementation BRBUserTableViewController
 
@@ -45,12 +43,14 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self createView];
     [self.dataContainer loadData];
 }
+
 
 - (void)createView
 {
@@ -78,6 +78,12 @@
 }
 
 
+- (void)sendDrinkRequestTo:(NSString *)userName
+{
+    [self.alertController showAlertForDrinkRequestTo:userName];
+}
+
+
 #pragma mark - BRBDataContainerDelegateProtocol
 
 - (void)updateTableView
@@ -97,9 +103,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BRBUserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([BRBUserTableViewCell class])];
-    cell.backgroundColor = UIColor.whiteColor;
+    cell.backgroundColor = [UIColor colorWithRed: 143.0/255.0 green:174.0/255 blue:224.0/255 alpha: 1.0];
     cell.usernameLabel.text = self.dataContainer.users[indexPath.row].displayedName;
-    cell.descriptionLabel.text = self.dataContainer.drinkValues[self.dataContainer.users[indexPath.row].preferredDrink - 1];
+    cell.drinkLabel.text = self.dataContainer.drinkValues[self.dataContainer.users[indexPath.row].preferredDrink - 1];
+    cell.topicLabel.text = self.dataContainer.topicValues[self.dataContainer.users[indexPath.row].preferredTopic - 1];
     if (!cell.userpicImageView.image)
     {
         cell.userpicImageView.image = [UIImage imageNamed:BRBPlaceholderFilename];
@@ -155,12 +162,6 @@
 - (NSString *)getTabBarItemTitle
 {
     return BRBUserTableViewTabBarItemTitle;
-}
-
-
-- (void)sendDrinkRequestTo:(NSString *)userName
-{
-    [self.alertController showAlertForDrinkRequestTo:userName];
 }
 
 @end

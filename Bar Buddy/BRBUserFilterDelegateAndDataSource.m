@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) BRBDataContainer *dataContainer;
 @property (nonatomic) NSInteger preferredDrink;
-@property (nonatomic) NSInteger preferredCompany;
+@property (nonatomic) NSInteger preferredTopic;
 @property (nonatomic) CGFloat screenWidth;
 
 @end
@@ -37,6 +37,7 @@
 {
     self.screenWidth = width;
 }
+
 
 #pragma mark - UICollectionViewDataSource
 
@@ -77,22 +78,63 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    BRBFilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BRBFilterCollectionViewCell class]) forIndexPath:indexPath];
-    [cell changeState];
+    BRBFilterCollectionViewCell *cell = (id)[collectionView cellForItemAtIndexPath:indexPath];
     switch (indexPath.section) {
         case 0:
-            self.preferredDrink = indexPath.row + 1;
+            if (cell.isPressed)
+            {
+                self.preferredDrink = 0;
+            }
+            else
+            {
+                self.preferredDrink = indexPath.row + 1;
+            }
             break;
         case 1:
-            self.preferredCompany = indexPath.row + 1;
+            if (cell.isPressed)
+            {
+                self.preferredTopic = 0;
+            }
+            else
+            {
+                self.preferredTopic = indexPath.row + 1;
+            }
             break;
         default:
             break;
     }
-    [self.dataContainer updateFilteredResultsWithDrinkType:self.preferredDrink withCompanyType:self.preferredCompany];
+    
+    [self changeStateOfCell:cell inCollectionView:collectionView forSection:indexPath.section];
+    [self.dataContainer updateFilteredResultsWithDrinkType:self.preferredDrink withTopicType:self.preferredTopic];
 }
 
 
+- (NSArray *)collectionView:(UICollectionView *)collectionView visibleCellsInSection:(NSInteger)section
+{
+    NSPredicate *visibleCellsInSectionPredicate = [NSPredicate predicateWithBlock:^BOOL(BRBFilterCollectionViewCell *visibleCell, NSDictionary *bindings) {
+        return [collectionView indexPathForCell:visibleCell].section == section;
+    }];
+    return [collectionView.visibleCells filteredArrayUsingPredicate:visibleCellsInSectionPredicate];
+}
+
+
+- (void)changeStateOfCell:(BRBFilterCollectionViewCell *)cell inCollectionView:(UICollectionView *)collectionView forSection:(NSInteger)section
+{
+    if (cell.isPressed)
+    {
+        cell.isPressed = NO;
+        cell.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
+    } else
+    {
+        for (BRBFilterCollectionViewCell *visibleCell in [self collectionView:collectionView visibleCellsInSection:section])
+        {
+            visibleCell.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
+            visibleCell.isPressed = NO;
+        }
+        cell.isPressed = YES;
+        cell.backgroundColor = [UIColor colorWithRed:36.0/255 green:147.0/255 blue:226.0/255 alpha: 1.0];
+    }
+}
 #pragma mark - UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath

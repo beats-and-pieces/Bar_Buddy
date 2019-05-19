@@ -17,7 +17,9 @@
 
 @property (nonatomic, strong) NSManagedObjectContext *coreDataContext;
 @property (nonatomic, strong) NSFetchRequest *fetchRequest;
-@property (nonatomic) NSArray *users;
+@property (nonatomic, strong) NSPredicate *drinkPredicate;
+@property (nonatomic, strong) NSPredicate *topicPredicate;
+@property (nonatomic) NSArray<User *> *users;
 
 @end
 
@@ -34,7 +36,7 @@
     return self;
 }
 
-- (void)saveUserData:(NSArray *)users;
+- (void)saveUserData:(NSArray<User *> *)users;
 {
     [self deleteUsersFromCoreData];
     
@@ -48,6 +50,7 @@
             NSString *userpicURL = json[@"userpic_url"];
             NSInteger preferredDrink = [json[@"preferred_drink"] intValue];
             NSInteger preferredCompany = [json[@"preferred_company"] integerValue];
+            NSInteger preferredTopic = [json[@"preferred_topic"] integerValue];
             NSNumber *latitude = [NSNumber numberWithFloat: [json[@"latitude"] floatValue]];
             NSNumber *longitude = [NSNumber numberWithFloat: [json[@"longitude"] floatValue]];
             BOOL isDrinking = NO;
@@ -60,10 +63,11 @@
             user.userpicURL = userpicURL;
             user.preferredDrink = preferredDrink;
             user.preferredCompany = preferredCompany;
+            user.preferredTopic = preferredTopic;
             user.locationLatitude = latitude.doubleValue;
             user.locationLongitude = longitude.doubleValue;
             user.isDrinking = isDrinking;
-//            NSLog(@"User is drinking? %@", user.isDrinking);
+        
             NSError *error = nil;
             if (![self.coreDataContext save:&error])
             {
@@ -78,24 +82,38 @@
     [self.coreDataContext performBlockAndWait:^() {
         NSError *error = nil;
         self.users = [self.coreDataContext executeFetchRequest:self.fetchRequest ? : [User fetchRequest] error:&error];
-        
     }];
     return self.users;
 }
 
-- (NSArray<User *> *)getFilteredUsersWithDrinkType:(NSInteger)drinkType withCompanyType:(NSInteger)companyType
+- (NSArray<User *> *)getFilteredUsersWithDrinkType:(NSInteger)drinkType withTopicType:(NSInteger)topicType
 {
+    if (drinkType == 0)
+    {
+        self.drinkPredicate = [NSPredicate predicateWithFormat:@"preferredDrink != %d", drinkType];;
+    }
+    else
+    {
+        self.drinkPredicate = [NSPredicate predicateWithFormat:@"preferredDrink == %d", drinkType];
+    }
     
-    self.fetchRequest.predicate = [NSPredicate predicateWithFormat:@"preferredDrink == %d", drinkType];
-    [self.coreDataContext performBlockAndWait:^() {
-        NSError *error = nil;
-        self.users = [self.coreDataContext executeFetchRequest:self.fetchRequest ? : [User fetchRequest] error:&error];
-        //        NSLog(@"there are %ld users with drink %lu", (long)result.count, drinkType);
-        
-    }];
-    return self.users;
+    if (topicType == 0)
+    {
+        self.topicPredicate = [NSPredicate predicateWithFormat:@"preferredTopic != %d", topicType];;
+    }
+    else
+    {
+        self.topicPredicate = [NSPredicate predicateWithFormat:@"preferredTopic == %d", topicType];
+    }
     
+    self.fetchRequest.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[self.drinkPredicate, self.topicPredicate]];
     
+//    [self.coreDataContext performBlockAndWait:^() {
+//        NSError *error = nil;
+//        self.users = [self.coreDataContext executeFetchRequest:self.fetchRequest ? : [User fetchRequest] error:&error];
+//    }];
+    
+    return [self getUserData];
 }
 
 - (void)deleteUsersFromCoreData

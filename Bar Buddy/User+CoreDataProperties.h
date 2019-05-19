@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.h
 //  Bar Buddy
 //
-//  Created by Anton Kuznetsov on 17/05/2019.
+//  Created by Anton Kuznetsov on 19/05/2019.
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 //
@@ -17,13 +17,14 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSFetchRequest<User *> *)fetchRequest;
 
 @property (nullable, nonatomic, copy) NSString *displayedName;
+@property (nonatomic) BOOL isDrinking;
 @property (nonatomic) double locationLatitude;
 @property (nonatomic) double locationLongitude;
 @property (nonatomic) int16_t preferredCompany;
 @property (nonatomic) int16_t preferredDrink;
 @property (nullable, nonatomic, copy) NSString *userName;
 @property (nullable, nonatomic, copy) NSString *userpicURL;
-@property (nonatomic) BOOL isDrinking;
+@property (nonatomic) int16_t preferredTopic;
 
 @end
 

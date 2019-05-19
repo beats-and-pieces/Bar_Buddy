@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class User;
 
 
 @protocol BRBNetworkServiceOutputProtocol <NSObject>
 
-- (void)loadingIsDoneWithDataRecieved:(NSArray *)dataRecieved;
+- (void)loadingIsDoneWithDataRecieved:(NSArray<User *> *)dataRecieved;
 - (void)userpicIsLoadedWithDataReceived:(NSData *)data forIndexPath:(NSIndexPath *)indexPath;
 
 @end

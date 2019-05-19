@@ -35,49 +35,4 @@
     return self;
 }
 
-- (void)changeState
-{
-    if (self.isPressed)
-    {
-        NSLog(@"Pressed = YES");
-        self.isPressed = NO;
-//        self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:11.0/255 alpha: 1.0];
-    }
-    else
-    {
-        NSLog(@"Pressed = NO");
-        self.isPressed = YES;
-        self.contentView.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:11.0/255 alpha: 1.0];
-    }
-    
-    
-    
-   // self.label.text = @"Test";
-    
-}
-
-
-//- (void)setSelected:(BOOL)selected
-//{
-//    [super setSelected:selected];
-//    NSLog(@"setSelected");
-//    
-////    if (self.isSelected)
-////    {
-////        self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
-////        self.selected = NO;
-////        self.nameLabel.text = @"setUNSelected";
-////    }
-////    else
-////    {
-////        
-////        self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:11.0/255 alpha: 1.0];
-////        self.selected = YES;
-////    }
-//    
-//    self.label.text = @"setSelected";
-//    self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:11.0/255 alpha: 1.0];
-//}
-
-
 @end
