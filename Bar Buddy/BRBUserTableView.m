@@ -26,8 +26,6 @@
 - (void)setupCollectionViewForAFrame:(CGRect)frame
 {
     UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
-    //    layout.headerReferenceSize = CGSizeMake(self.view.frame.size.width, 30);
-    //    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderViewIdentifier"];
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height - (BRBFilterCollectionViewCellHeight * 4 + BRBFilterCollectionViewEdgeInset * 5)) collectionViewLayout:layout];
     layout.sectionInset = UIEdgeInsetsMake(BRBFilterCollectionViewEdgeInset, BRBFilterCollectionViewEdgeInset, BRBFilterCollectionViewEdgeInset, BRBFilterCollectionViewEdgeInset);

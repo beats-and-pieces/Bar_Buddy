@@ -1,32 +1,40 @@
 //
-//  BRBUserFilterController.m
+//  BRBUserFilterDelegateAndDataSource.m
 //  Bar Buddy
 //
-//  Created by Anton Kuznetsov on 18/05/2019.
+//  Created by Anton Kuznetsov on 19/05/2019.
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
-#import "BRBUserFilterViewController.h"
+#import "BRBUserFilterDelegateAndDataSource.h"
+
+#import "BRBUserTableViewController.h"
+#import "BRBUserTableView.h"
+#import "BRBUserTableViewCell.h"
 #import "BRBFilterCollectionViewCell.h"
-#import "BRBDataContainer.h"
-#import "BRBUserFilterView.h"
+//#import "BRBDataContainerDelegateProtocol.h"
 #import "ProjectSettings.h"
+#import "BRBAlertController.h"
+#import "BRBUserFilterViewController.h"
 
-@interface BRBUserFilterViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
-//@property (nonatomic, strong) BRBUserFilterView *userFilterView;
+
+
+@interface BRBUserFilterDelegateAndDataSource () <UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (nonatomic, strong) UICollectionView *collectionView;
+
 @property (nonatomic, strong) BRBDataContainer *dataContainer;
 
 @property (nonatomic) NSInteger preferredDrink;
 @property (nonatomic) NSInteger preferredCompany;
 @property (nonatomic, copy) NSArray<NSString *> *drinkFilterValues;
 @property (nonatomic, copy) NSArray<NSString *> *topicFilterValues;
-
-@property (nonatomic) CGRect frame;
+@property (nonatomic) CGFloat screenWidth;
 
 @end
 
-@implementation BRBUserFilterViewController
+@implementation BRBUserFilterDelegateAndDataSource
 
 - (instancetype)initWithDataContainer:(BRBDataContainer *)dataContainer
 {
@@ -34,30 +42,14 @@
     if (self) {
         _dataContainer = dataContainer;
         _drinkFilterValues = @[@"🍺", @"🍷", @"🥃"];
-        _topicFilterValues = @[@"🏎", @"🎼", @"💼"];
-        [self getUserFilterView];
-
+        _topicFilterValues = @[@"🏎", @"🎼", @"💼"];        
     }
     return self;
 }
 
-- (UIView *)getUserFilterView
+- (void)setWidth:(CGFloat)width
 {
-    //    self.userFilterView = [BRBUserFilterView new];
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-       layout.sectionInset = UIEdgeInsetsMake(BRBFilterCollectionViewEdgeInset, BRBFilterCollectionViewEdgeInset, BRBFilterCollectionViewEdgeInset, BRBFilterCollectionViewEdgeInset);
-    self.userFilterView = [[BRBUserFilterView alloc] initWithFrame:CGRectMake(0, 0, 10, 10) collectionViewLayout:layout];;
-    
-    
-    
-    [self.userFilterView setBackgroundColor:[UIColor colorWithRed: 143.0/255.0 green:174.0/255 blue:224.0/255 alpha: 1.0]];
-    
-    [self.userFilterView registerClass:[BRBFilterCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([BRBFilterCollectionViewCell class])];
-    
-    [self.userFilterView setDataSource:self];
-    [self.userFilterView setDelegate:self];
-    [self.view addSubview:self.userFilterView];
-    return self.userFilterView;
+    self.screenWidth = width;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -114,12 +106,9 @@
     [self.dataContainer updateFilteredResultsWithDrinkType:self.preferredDrink withCompanyType:self.preferredCompany];
 }
 
-
-#pragma mark - UICollectionViewDelegateFlowLayout
-
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((self.view.bounds.size.width - 5 * BRBFilterCollectionViewEdgeInset ) / 3, BRBFilterCollectionViewCellHeight);
+    return CGSizeMake((self.screenWidth - 5 * BRBFilterCollectionViewEdgeInset ) / 3, BRBFilterCollectionViewCellHeight);
 }
 
 @end

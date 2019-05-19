@@ -19,12 +19,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
-        //        _imageView = [[UIImageView alloc]init];
-        //        _imageView.frame = CGRectMake(8, 8, frame.size.width - 16, frame.size.height - 30);
-        //
-        //        _imageView.contentMode = UIViewContentModeScaleAspectFit;
-        
         _label = [[UILabel alloc]initWithFrame:CGRectMake(BRBFilterCollectionViewCellLabelInset, frame.size.height - BRBFilterCollectionViewCellLabelHeight, frame.size.width - BRBFilterCollectionViewCellLabelInset * 2, BRBFilterCollectionViewCellLabelHeight)];
         _label.textAlignment = NSTextAlignmentCenter;
         _label.textColor = [UIColor whiteColor];
@@ -32,7 +26,6 @@
         _isPressed = NO;
         self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
         
-        //        [self addSubview:_imageView];
         [self addSubview:_label];
         
         self.layer.masksToBounds = YES;
@@ -54,7 +47,7 @@
     {
         NSLog(@"Pressed = NO");
         self.isPressed = YES;
-        self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:11.0/255 alpha: 1.0];
+        self.contentView.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:11.0/255 alpha: 1.0];
     }
     
     

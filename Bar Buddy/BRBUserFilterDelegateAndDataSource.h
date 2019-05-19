@@ -1,24 +1,20 @@
 //
-//  BRBUserFilterController.h
+//  BRBUserFilterDelegateAndDataSource.h
 //  Bar Buddy
 //
-//  Created by Anton Kuznetsov on 18/05/2019.
+//  Created by Anton Kuznetsov on 19/05/2019.
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 @class BRBDataContainer;
-#import "BRBUserFilterView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BRBUserFilterViewController : UIViewController
+@interface BRBUserFilterDelegateAndDataSource : NSObject
 
 - (instancetype)initWithDataContainer:(BRBDataContainer *)dataContainer;
-
-- (UIView *)getUserFilterView;
-
-@property (nonatomic, strong) BRBUserFilterView *userFilterView;
+- (void)setWidth:(CGFloat)width;
 
 @end
 

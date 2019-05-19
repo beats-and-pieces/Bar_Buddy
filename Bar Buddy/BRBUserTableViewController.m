@@ -14,16 +14,20 @@
 #import "ProjectSettings.h"
 #import "BRBAlertController.h"
 #import "BRBUserFilterViewController.h"
+#import "BRBUserFilterDelegateAndDataSource.h"
 
 
 @interface BRBUserTableViewController () <UITableViewDataSource, UITableViewDelegate, BRBDataContainerDelegateProtocol, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) BRBUserFilterView *filterView;
 
 @property (nonatomic, strong) BRBDataContainer *dataContainer;
 @property (nonatomic) BRBAlertController *alertController;
 @property (nonatomic) BRBUserFilterViewController *userFilterController;
+//@property (nonatomic) id<UICollectionViewDataSource, UICollectionViewDelegate> userFilterDelegateAndDataSource;
+@property (nonatomic) BRBUserFilterDelegateAndDataSource *userFilterDelegateAndDataSource;
 
 @property (nonatomic) NSInteger preferredDrink;
 @property (nonatomic) NSInteger preferredCompany;
@@ -47,8 +51,9 @@
         _alertController = [[BRBAlertController alloc] initWithViewController:self];
         _alertController.delegate = self;
         
+        self.userFilterDelegateAndDataSource = [[BRBUserFilterDelegateAndDataSource alloc] initWithDataContainer:dataContainer];
         
-        //        _userFilterController =
+
     }
     return self;
 }
@@ -66,11 +71,15 @@
     
     
     CGRect frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height - self.navigationController.navigationBar.bounds.size.height - self.tabBarController.tabBar.bounds.size.height);
-//    self.userFilterController = [[BRBUserFilterController alloc] initWithDataManager:self.dataManager withFrame:frame];
-//    [self.view addSubview:[self.userFilterController getUserFilterView]];
+    
     BRBUserTableView *userTableView = [[BRBUserTableView alloc] initWithFrame:frame];
     [self.view addSubview:userTableView];
     
+    
+    self.frame = frame;
+    self.userFilterController = [[BRBUserFilterViewController alloc] initWithDataContainer:self.dataContainer];
+    
+//    [self displayContentController:self.userFilterController];
     
     
     self.tableView = userTableView.tableView;
@@ -83,8 +92,26 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    [self.collectionView setDataSource:self];
-    [self.collectionView setDelegate:self];
+//    [self.collectionView setDataSource:self];
+//    [self.collectionView setDelegate:self];
+    
+    [self.userFilterDelegateAndDataSource setWidth: self.view.bounds.size.width];
+    BRBUserFilterDelegateAndDataSource <UICollectionViewDataSource> *filterDataSource = (BRBUserFilterDelegateAndDataSource <UICollectionViewDataSource> *) self.userFilterDelegateAndDataSource;
+    BRBUserFilterDelegateAndDataSource <UICollectionViewDelegate> *filterDelegate = (BRBUserFilterDelegateAndDataSource <UICollectionViewDelegate> *) self.userFilterDelegateAndDataSource;
+    
+    self.collectionView.dataSource= filterDataSource;
+    self.collectionView.delegate = filterDelegate;
+}
+
+- (void) displayContentController:(BRBUserFilterViewController *) content
+{
+    [self addChildViewController:content];
+    
+    CGRect frame = CGRectMake(0, self.navigationController.navigationBar.bounds.size.height, self.view.frame.size.width,  ((BRBFilterCollectionViewCellHeight * 4 + BRBFilterCollectionViewEdgeInset * 4)));
+    
+    content.userFilterView.frame = frame;
+    [self.view addSubview:content.view];
+    [content didMoveToParentViewController:self];
 }
 
 

@@ -1,5 +1,5 @@
 //
-//  AlertController.m
+//  BRBAlertController.m
 //  Bar Buddy
 //
 //  Created by Anton Kuznetsov on 18/05/2019.
@@ -8,10 +8,12 @@
 
 #import "BRBAlertController.h"
 
+
 typedef NS_ENUM(NSInteger, BRBAlertType) {
     BRBAlertTypeSuccess,
     BRBAlertTypeFailure
 };
+
 
 @interface BRBAlertController ()
 

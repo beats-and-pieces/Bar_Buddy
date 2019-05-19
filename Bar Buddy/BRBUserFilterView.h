@@ -12,10 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BRBUserFilterView : UICollectionView
 
-//@property (nonatomic, strong) UICollectionView *collectionView;
-
-- (void)setupCollectionViewForAFrame:(CGRect)frame;
-
 @end
 
 NS_ASSUME_NONNULL_END
