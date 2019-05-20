@@ -12,6 +12,5 @@
 @interface BRBCoreDataStack : NSObject
 
 @property (nonatomic, readonly) NSPersistentContainer *persistentContainer;
-@property (nonatomic, nullable) NSError *error;
 
 @end

@@ -13,13 +13,14 @@
 
 @end
 
+
 @implementation BRBCoreDataStackTest
+
 
 - (void)testCoreDataStackInitialization
 {
     BRBCoreDataStack *coreDataStack = [BRBCoreDataStack new];
-    XCTAssertNil(coreDataStack.error, @"Cannot find ViewController instance");
+    XCTAssertNotNil(coreDataStack, @"Cannot initialize CoreData stack");
 }
-
 
 @end

@@ -10,7 +10,7 @@
 
 @interface BRBCoreDataStack ()
 
-
+@property (nonatomic, nullable) NSError *error;
 
 @end
 
@@ -23,6 +23,10 @@
     self = [super init];
     if (self) {
         _persistentContainer = [self persistentContainer];
+    }
+    if (_error || !_persistentContainer)
+    {
+        return nil;
     }
     return self;
 }
