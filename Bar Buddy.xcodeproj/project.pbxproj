@@ -14,7 +14,6 @@
 		3A5D1F182277115E00842DF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5D1F172277115E00842DF3 /* Assets.xcassets */; };
 		3A5D1F1B2277115E00842DF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5D1F192277115E00842DF3 /* LaunchScreen.storyboard */; };
 		3A5D1F1E2277115E00842DF3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F1D2277115E00842DF3 /* main.m */; };
-		3A5D1F282277115E00842DF3 /* Bar_BuddyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F272277115E00842DF3 /* Bar_BuddyTests.m */; };
 		3A5D1F422277118700842DF3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F412277118700842DF3 /* AppDelegate.m */; };
 		3A5D1F57227711A900842DF3 /* BRBUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F44227711A700842DF3 /* BRBUserTableViewCell.m */; };
 		3A5D1F5A227711A900842DF3 /* BRBUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F4B227711A800842DF3 /* BRBUserTableViewController.m */; };
@@ -23,16 +22,16 @@
 		3A5D1F5E227711A900842DF3 /* BRBDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D1F54227711A900842DF3 /* BRBDataContainer.m */; };
 		3A6B2E3422907A2800A62A09 /* BRBAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B2E3322907A2800A62A09 /* BRBAlertController.m */; };
 		3A6DCB6D227EF2C8000185CE /* ProjectSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */; };
-		3A93B244228DCD8B00CA71FF /* testAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A93B243228DCD8B00CA71FF /* testAssembly.m */; };
 		3AC4D2DE2277214600084A1B /* BRBCoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC4D2DD2277214600084A1B /* BRBCoreDataService.m */; };
 		3AE08FAD22919ACD00DA2F76 /* BRBUserFilterDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE08FAC22919ACD00DA2F76 /* BRBUserFilterDelegateAndDataSource.m */; };
 		3AE08FB22291BB5B00DA2F76 /* User+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE08FB02291BB5B00DA2F76 /* User+CoreDataClass.m */; };
 		3AE08FB32291BB5B00DA2F76 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE08FB12291BB5B00DA2F76 /* User+CoreDataProperties.m */; };
 		3AEC42732292D18D00AE388B /* BRBParserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC42722292D18D00AE388B /* BRBParserService.m */; };
-		3AEC42752292D54900AE388B /* TestBRBCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC42742292D54900AE388B /* TestBRBCoreDataStack.m */; };
 		3AEEC6FF2279941100755100 /* BRBAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC6FE2279941100755100 /* BRBAssembly.m */; };
 		3AEEC7022279975F00755100 /* BRBCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC7012279975F00755100 /* BRBCoreDataStack.m */; };
 		3AEEC7052279B28000755100 /* BRBViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC7042279B28000755100 /* BRBViewControllerFactory.m */; };
+		3AF59DA02292EF5800E8779F /* BRBCoreDataStackTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF59D9F2292EF5800E8779F /* BRBCoreDataStackTest.m */; };
+		3AF59DA22292F01E00E8779F /* BRBAssemblyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF59DA12292F01E00E8779F /* BRBAssemblyTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +58,6 @@
 		3A5D1F1C2277115E00842DF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5D1F1D2277115E00842DF3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A5D1F232277115E00842DF3 /* Bar BuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bar BuddyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A5D1F272277115E00842DF3 /* Bar_BuddyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bar_BuddyTests.m; sourceTree = "<group>"; };
 		3A5D1F292277115E00842DF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5D1F402277118600842DF3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3A5D1F412277118700842DF3 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -77,7 +75,6 @@
 		3A6B2E3322907A2800A62A09 /* BRBAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBAlertController.m; sourceTree = "<group>"; };
 		3A6DCB6B227EF2C8000185CE /* ProjectSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectSettings.h; sourceTree = "<group>"; };
 		3A6DCB6C227EF2C8000185CE /* ProjectSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectSettings.m; sourceTree = "<group>"; };
-		3A93B243228DCD8B00CA71FF /* testAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testAssembly.m; sourceTree = "<group>"; };
 		3AC4D2DC2277214600084A1B /* BRBCoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBCoreDataService.h; sourceTree = "<group>"; };
 		3AC4D2DD2277214600084A1B /* BRBCoreDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBCoreDataService.m; sourceTree = "<group>"; };
 		3AE08FAB22919ACD00DA2F76 /* BRBUserFilterDelegateAndDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBUserFilterDelegateAndDataSource.h; sourceTree = "<group>"; };
@@ -88,13 +85,14 @@
 		3AE08FB12291BB5B00DA2F76 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
 		3AEC42712292D18D00AE388B /* BRBParserService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBParserService.h; sourceTree = "<group>"; };
 		3AEC42722292D18D00AE388B /* BRBParserService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBParserService.m; sourceTree = "<group>"; };
-		3AEC42742292D54900AE388B /* TestBRBCoreDataStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestBRBCoreDataStack.m; sourceTree = "<group>"; };
 		3AEEC6FD2279941100755100 /* BRBAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBAssembly.h; sourceTree = "<group>"; };
 		3AEEC6FE2279941100755100 /* BRBAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBAssembly.m; sourceTree = "<group>"; };
 		3AEEC7002279975F00755100 /* BRBCoreDataStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBCoreDataStack.h; sourceTree = "<group>"; };
 		3AEEC7012279975F00755100 /* BRBCoreDataStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBCoreDataStack.m; sourceTree = "<group>"; };
 		3AEEC7032279B28000755100 /* BRBViewControllerFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBViewControllerFactory.h; sourceTree = "<group>"; };
 		3AEEC7042279B28000755100 /* BRBViewControllerFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBViewControllerFactory.m; sourceTree = "<group>"; };
+		3AF59D9F2292EF5800E8779F /* BRBCoreDataStackTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBCoreDataStackTest.m; sourceTree = "<group>"; };
+		3AF59DA12292F01E00E8779F /* BRBAssemblyTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBAssemblyTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,9 +154,8 @@
 		3A5D1F262277115E00842DF3 /* Bar BuddyTests */ = {
 			isa = PBXGroup;
 			children = (
-				3AEC42742292D54900AE388B /* TestBRBCoreDataStack.m */,
-				3A93B243228DCD8B00CA71FF /* testAssembly.m */,
-				3A5D1F272277115E00842DF3 /* Bar_BuddyTests.m */,
+				3AF59DA12292F01E00E8779F /* BRBAssemblyTest.m */,
+				3AF59D9F2292EF5800E8779F /* BRBCoreDataStackTest.m */,
 				3A5D1F292277115E00842DF3 /* Info.plist */,
 			);
 			path = "Bar BuddyTests";
@@ -369,9 +366,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AEC42752292D54900AE388B /* TestBRBCoreDataStack.m in Sources */,
-				3A5D1F282277115E00842DF3 /* Bar_BuddyTests.m in Sources */,
-				3A93B244228DCD8B00CA71FF /* testAssembly.m in Sources */,
+				3AF59DA02292EF5800E8779F /* BRBCoreDataStackTest.m in Sources */,
+				3AF59DA22292F01E00E8779F /* BRBAssemblyTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

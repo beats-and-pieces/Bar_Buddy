@@ -10,7 +10,7 @@
 
 @interface BRBCoreDataStack ()
 
-@property (nonatomic, nullable) NSError *error;
+
 
 @end
 
