@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "BRBCoreDataStack.h"
 #import "BRBCoreDataService.h"
+#import "BRBParserService.h"
 #import <OCMock/OCMock.h>
 
 @interface BRBCoreDataServiceTest : XCTestCase
@@ -48,9 +49,10 @@
 {
     BRBCoreDataStack *coreDataStack = [BRBCoreDataStack new];
     BRBCoreDataService *coreDataService = [[BRBCoreDataService alloc] initWithCoreDataStack:coreDataStack];
-    NSError *error = [coreDataService saveUserData:@[]];
     
-//    id parserServiceMock = OCMClassMock([BRBParserService class]);
+    id parserServiceMock = OCMClassMock([BRBParserService class]);
+    
+    NSError *error = [coreDataService saveUserData:@[parserServiceMock]];
     
     XCTAssertNil(error, @"Cannot load filtered users");
 }

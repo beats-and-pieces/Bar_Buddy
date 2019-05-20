@@ -18,7 +18,6 @@
 - (void) testRootViewControllerIsNotNil
 {
     BRBAssembly *assembly = [BRBAssembly new];
-    
     XCTAssertNotNil([assembly getRootViewController], @"ViewController is nil");
 }
 

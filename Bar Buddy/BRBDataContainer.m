@@ -7,9 +7,9 @@
 //
 
 #import "BRBDataContainer.h"
-#import "User+CoreDataClass.h"
+#import "BRBCoreDataService.h"
 #import "AppDelegate.h"
-
+#import "BRBParserService.h"
 
 @interface BRBDataContainer () <BRBNetworkServiceOutputProtocol>
 
@@ -57,11 +57,23 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         if (dataRecieved.count != 0)
         {
-            [self.coreDataService saveUserData:dataRecieved];
+            [self.coreDataService saveUserData:[self parseJSON:dataRecieved]];
             self.users = [self.coreDataService getUserData];
             [self.delegate updateTableView];
         }
     });
+}
+
+- (NSArray<BRBParserService *> *)parseJSON:(NSArray<NSDictionary *> *)users
+{
+    NSMutableArray *array = [NSMutableArray new];
+    
+    for (NSDictionary *json in users)
+    {
+        BRBParserService *parser = [[BRBParserService alloc] initWithJSON:json];
+        [array addObject:parser];
+    }
+    return array;
 }
 
 - (void)dowloadUserpicFromURL:(NSString *)urlString forIndexPath:(NSIndexPath *)indexPath

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "User+CoreDataClass.h"
 @class BRBCoreDataStack;
+@class BRBParserService;
 
 
 @interface BRBCoreDataService : NSObject
@@ -28,7 +29,7 @@
 
  @param users массив пользователей
  */
-- (NSError *)saveUserData:(NSArray<NSDictionary *> *)users;
+- (NSError *)saveUserData:(NSArray<BRBParserService *> *)users;
 
 
 /**

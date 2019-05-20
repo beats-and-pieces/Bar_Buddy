@@ -47,30 +47,16 @@
     return self;
 }
 
-- (NSArray<BRBParserService *> *)parseJSON:(NSArray<NSDictionary *> *)users
-{
-    NSMutableArray *array = [NSMutableArray new];
-    
-    for (NSDictionary *json in users)
-    {
-        BRBParserService *parser = [[BRBParserService alloc] initWithJSON:json];
-        [array addObject:parser];
-    }
-    return array;
-}
-
-- (NSError *)saveUserData:(NSArray<NSDictionary *> *)users;
+- (NSError *)saveUserData:(NSArray<BRBParserService *> *)users;
 {
     [self deleteUsersFromCoreData];
     self.error = nil;
     
-    for (NSDictionary *json in users)
+    for (BRBParserService *parser in users)
     {
         [self.coreDataContext performBlockAndWait:^{
             User *user = [NSEntityDescription insertNewObjectForEntityForName:BRBCoreDataEntityName inManagedObjectContext:self.coreDataContext];
-            
-            BRBParserService *parser = [[BRBParserService alloc] initWithJSON:json];
-            
+                        
             user.displayedName = parser.displayedName;
             user.userName = parser.userName;
             user.userpicURL = parser.userpicURL;
