@@ -11,6 +11,7 @@
 @class BRBCoreDataStack;
 @class BRBParserService;
 
+NS_ASSUME_NONNULL_BEGIN
 
 @interface BRBCoreDataService : NSObject
 
@@ -28,6 +29,7 @@
  Используется при получении нового массива из сети.
 
  @param users массив пользователей
+ @return ошибку,если не удалось загрузить / nil в случае успеха
  */
 - (NSError *)saveUserData:(NSArray<BRBParserService *> *)users;
 
@@ -49,3 +51,5 @@
 - (NSArray<User *> *)getFilteredUsersWithDrinkType:(NSInteger)drinkType withTopicType:(NSInteger)topicType;
 
 @end
+
+NS_ASSUME_NONNULL_END

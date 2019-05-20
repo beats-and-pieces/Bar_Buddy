@@ -8,12 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import "User+CoreDataClass.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BRBParserService : NSObject
 
+/**
+ Инициализатор, принимающий словарь с данными JSON
+
+ @param json данные JSON
+ @return экземпляр собственного класса
+ */
 - (instancetype)initWithJSON:(NSDictionary *)json;
 
+
+//Список свойств, идентичных один к одному классу User сущности CoreData
 @property (nullable, nonatomic, copy) NSString *displayedName;
 @property (nonatomic) BOOL isDrinking;
 @property (nonatomic) double locationLatitude;

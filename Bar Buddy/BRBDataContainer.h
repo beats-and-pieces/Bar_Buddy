@@ -17,6 +17,7 @@
 
 @end
 
+NS_ASSUME_NONNULL_BEGIN
 
 @interface BRBDataContainer : NSObject 
 
@@ -63,3 +64,5 @@
 - (void)dowloadUserpicFromURL:(NSString *)urlString forIndexPath:(NSIndexPath *)indexPath;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -6,8 +6,11 @@
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
+
 #import <UIKit/UIKit.h>
 #import "BRBViewControllerFactory.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface BRBMapViewController : BRBViewControllerFactory
 
@@ -28,3 +31,5 @@
 - (void)displayLocationOfUserWithName:(NSString *)userName;
 
 @end
+
+NS_ASSUME_NONNULL_END

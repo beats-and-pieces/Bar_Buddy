@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 @import UserNotifications;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface BRBPushService : NSObject
 
 /**
@@ -29,3 +31,5 @@
 - (NSError *)scheduleDrinkRequestFromUser:(NSString *)userName;
 
 @end
+
+NS_ASSUME_NONNULL_END

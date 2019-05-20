@@ -6,6 +6,7 @@
 //  Copyright © 2019 Anton Kuznetsov. All rights reserved.
 //
 
+
 #import <UIKit/UIKit.h>
 #import "BRBDataContainer.h"
 
@@ -23,7 +24,7 @@ typedef NS_ENUM(NSInteger, BRBViewControllerType) {
 
 @end
 
-
+NS_ASSUME_NONNULL_BEGIN
 @interface BRBViewControllerFactory : UIViewController <BRBViewControllerFactoryProtocol>
 
 /**
@@ -37,3 +38,5 @@ typedef NS_ENUM(NSInteger, BRBViewControllerType) {
 
 
 @end
+
+NS_ASSUME_NONNULL_END
