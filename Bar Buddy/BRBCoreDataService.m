@@ -10,6 +10,8 @@
 #import "User+CoreDataClass.h"
 #import "AppDelegate.h"
 #import "BRBCoreDataStack.h"
+#import "ProjectSettings.h"
+#import "BRBParserService.h"
 
 
 @interface BRBCoreDataService ()
@@ -18,7 +20,7 @@
 @property (nonatomic, strong) NSFetchRequest *fetchRequest;
 @property (nonatomic, strong) NSPredicate *drinkPredicate;
 @property (nonatomic, strong) NSPredicate *topicPredicate;
-@property (nonatomic) NSArray<User *> *users;
+@property (nonatomic, nullable) NSArray<User *> *users;
 
 @property (nonatomic) NSError *error;
 
@@ -31,45 +33,54 @@
     self = [super init];
     if (self)
     {
-        _coreDataContext = coreDataStack.persistentContainer.viewContext;
-        _fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+        if (coreDataStack)
+        {
+            _coreDataContext = coreDataStack.persistentContainer.viewContext;
+            _fetchRequest = [[NSFetchRequest alloc] initWithEntityName:BRBCoreDataEntityName];
+        }
+        else
+        {
+            return nil;
+        }
+        
     }
     return self;
 }
 
+- (NSArray<BRBParserService *> *)parseJSON:(NSArray<NSDictionary *> *)users
+{
+    NSMutableArray *array = [NSMutableArray new];
+    
+    for (NSDictionary *json in users)
+    {
+        BRBParserService *parser = [[BRBParserService alloc] initWithJSON:json];
+        [array addObject:parser];
+    }
+    return array;
+}
 
-- (NSError *)saveUserData:(NSArray<User *> *)users;
+- (NSError *)saveUserData:(NSArray<NSDictionary *> *)users;
 {
     [self deleteUsersFromCoreData];
+    self.error = nil;
     
     for (NSDictionary *json in users)
     {
         [self.coreDataContext performBlockAndWait:^{
-            User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.coreDataContext];
+            User *user = [NSEntityDescription insertNewObjectForEntityForName:BRBCoreDataEntityName inManagedObjectContext:self.coreDataContext];
             
-            NSString *displayedName = json[@"displayed_name"];
-            NSString *userName = json[@"user_name"];
-            NSString *userpicURL = json[@"userpic_url"];
-            NSInteger preferredDrink = [json[@"preferred_drink"] intValue];
-            NSInteger preferredCompany = [json[@"preferred_company"] integerValue];
-            NSInteger preferredTopic = [json[@"preferred_topic"] integerValue];
-            NSNumber *latitude = [NSNumber numberWithFloat: [json[@"latitude"] floatValue]];
-            NSNumber *longitude = [NSNumber numberWithFloat: [json[@"longitude"] floatValue]];
-            BOOL isDrinking = NO;
-            if ([json[@"isDrinking"] isEqualToString:@"TRUE"])
-            {
-                isDrinking = YES;
-            }
-            user.displayedName = displayedName;
-            user.userName = userName;
-            user.userpicURL = userpicURL;
-            user.preferredDrink = preferredDrink;
-            user.preferredCompany = preferredCompany;
-            user.preferredTopic = preferredTopic;
-            user.locationLatitude = latitude.doubleValue;
-            user.locationLongitude = longitude.doubleValue;
-            user.isDrinking = isDrinking;
-        
+            BRBParserService *parser = [[BRBParserService alloc] initWithJSON:json];
+            
+            user.displayedName = parser.displayedName;
+            user.userName = parser.userName;
+            user.userpicURL = parser.userpicURL;
+            user.preferredDrink = parser.preferredDrink;
+            user.preferredCompany = parser.preferredCompany;
+            user.preferredTopic = parser.preferredTopic;
+            user.locationLatitude = parser.locationLatitude;
+            user.locationLongitude = parser.locationLongitude;
+            user.isDrinking = parser.isDrinking;
+  
             NSError *error = nil;
             if (![self.coreDataContext save:&error])
             {
@@ -86,8 +97,17 @@
     [self.coreDataContext performBlockAndWait:^() {
         NSError *error = nil;
         self.users = [self.coreDataContext executeFetchRequest:self.fetchRequest ? : [User fetchRequest] error:&error];
+        self.error = error;
     }];
-    return self.users;
+    
+    if (self.error) {
+        return nil;
+    }
+    else
+    {
+        return self.users;
+    }
+    
 }
 
 

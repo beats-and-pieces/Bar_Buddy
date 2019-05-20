@@ -52,7 +52,7 @@
     [self.networkService fetchUserData];
 }
 
-- (void)loadingIsDoneWithDataRecieved:(NSArray<User *> *)dataRecieved
+- (void)loadingIsDoneWithDataRecieved:(NSArray<NSDictionary *> *)dataRecieved
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (dataRecieved.count != 0)

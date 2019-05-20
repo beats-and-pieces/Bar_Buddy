@@ -7,6 +7,7 @@
 //
 
 #import "BRBCoreDataStack.h"
+#import "ProjectSettings.h"
 
 @interface BRBCoreDataStack ()
 
@@ -36,7 +37,7 @@
 {
     @synchronized (self) {
         if (_persistentContainer == nil) {
-            _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"Bar_Buddy"];
+            _persistentContainer = [[NSPersistentContainer alloc] initWithName:BRBCoreDataPersistentContainerName];
             [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
                 self.error = error;
             }];

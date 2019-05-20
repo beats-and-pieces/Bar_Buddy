@@ -49,5 +49,6 @@ extern NSString *const BRBNotificationRequestContentBody;
 
 extern NSTimeInterval const BRBNotificationTriggerTimeInterval;
 
-
+extern NSString *const BRBCoreDataPersistentContainerName;
+extern NSString *const BRBCoreDataEntityName;
 

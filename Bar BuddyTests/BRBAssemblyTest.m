@@ -15,13 +15,15 @@
 
 @implementation BRBAssemblyTest
 
-- (void) testRootViewControllerIsNotNil {
+- (void) testRootViewControllerIsNotNil
+{
     BRBAssembly *assembly = [BRBAssembly new];
     
     XCTAssertNotNil([assembly getRootViewController], @"ViewController is nil");
 }
 
-- (void) testRootViewControllerIsUIViewcontroller {
+- (void) testRootViewControllerIsUIViewcontroller
+{
     BRBAssembly *assembly = [BRBAssembly new];
     
     XCTAssertTrue([[assembly getRootViewController] isKindOfClass:[UIViewController class]], @"Cannot find ViewController instance");

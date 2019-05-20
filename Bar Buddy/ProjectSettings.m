@@ -61,6 +61,10 @@ NSString *const BRBNotificationRequestContentBody = @"Вам пришёл дри
 
 NSTimeInterval const BRBNotificationTriggerTimeInterval = 5;
 
+// Настройки CoreData
+NSString *const BRBCoreDataPersistentContainerName = @"Bar_Buddy";
+NSString *const BRBCoreDataEntityName = @"User";    
+
 
 
 

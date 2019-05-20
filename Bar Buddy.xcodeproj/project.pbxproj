@@ -32,6 +32,9 @@
 		3AEEC7052279B28000755100 /* BRBViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC7042279B28000755100 /* BRBViewControllerFactory.m */; };
 		3AF59DA02292EF5800E8779F /* BRBCoreDataStackTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF59D9F2292EF5800E8779F /* BRBCoreDataStackTest.m */; };
 		3AF59DA22292F01E00E8779F /* BRBAssemblyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF59DA12292F01E00E8779F /* BRBAssemblyTest.m */; };
+		3AF59DA42292F47600E8779F /* BRBCoreDataServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF59DA32292F47600E8779F /* BRBCoreDataServiceTest.m */; };
+		3AF59DA62292FECD00E8779F /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF59DA52292FECD00E8779F /* libOCMock.a */; };
+		3AF59DA8229304BB00E8779F /* BRBParserServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF59DA7229304BB00E8779F /* BRBParserServiceTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +96,9 @@
 		3AEEC7042279B28000755100 /* BRBViewControllerFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBViewControllerFactory.m; sourceTree = "<group>"; };
 		3AF59D9F2292EF5800E8779F /* BRBCoreDataStackTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBCoreDataStackTest.m; sourceTree = "<group>"; };
 		3AF59DA12292F01E00E8779F /* BRBAssemblyTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBAssemblyTest.m; sourceTree = "<group>"; };
+		3AF59DA32292F47600E8779F /* BRBCoreDataServiceTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBCoreDataServiceTest.m; sourceTree = "<group>"; };
+		3AF59DA52292FECD00E8779F /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		3AF59DA7229304BB00E8779F /* BRBParserServiceTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBParserServiceTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AF59DA62292FECD00E8779F /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +123,7 @@
 		3A5D1EFF2277115D00842DF3 = {
 			isa = PBXGroup;
 			children = (
+				3AF59DA52292FECD00E8779F /* libOCMock.a */,
 				3A5D1F0A2277115D00842DF3 /* Bar Buddy */,
 				3A5D1F262277115E00842DF3 /* Bar BuddyTests */,
 				3A5D1F092277115D00842DF3 /* Products */,
@@ -154,6 +162,8 @@
 		3A5D1F262277115E00842DF3 /* Bar BuddyTests */ = {
 			isa = PBXGroup;
 			children = (
+				3AF59DA7229304BB00E8779F /* BRBParserServiceTest.m */,
+				3AF59DA32292F47600E8779F /* BRBCoreDataServiceTest.m */,
 				3AF59DA12292F01E00E8779F /* BRBAssemblyTest.m */,
 				3AF59D9F2292EF5800E8779F /* BRBCoreDataStackTest.m */,
 				3A5D1F292277115E00842DF3 /* Info.plist */,
@@ -367,7 +377,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AF59DA02292EF5800E8779F /* BRBCoreDataStackTest.m in Sources */,
+				3AF59DA8229304BB00E8779F /* BRBParserServiceTest.m in Sources */,
 				3AF59DA22292F01E00E8779F /* BRBAssemblyTest.m in Sources */,
+				3AF59DA42292F47600E8779F /* BRBCoreDataServiceTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,12 +561,18 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z8RKZA6P4R;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/usr/include";
 				INFOPLIST_FILE = "Bar BuddyTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "-r34r23.Bar-BuddyTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -568,12 +586,18 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z8RKZA6P4R;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/usr/include";
 				INFOPLIST_FILE = "Bar BuddyTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "-r34r23.Bar-BuddyTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
