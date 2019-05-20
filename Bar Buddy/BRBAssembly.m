@@ -42,10 +42,8 @@
         
         BRBViewControllerFactory *userTableViewController = [BRBViewControllerFactory initWithDataContainer:dataContainer type:BRBViewControllerTypeUserTableView];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:userTableViewController];
-        navigationController.tabBarItem.title = [userTableViewController getTabBarItemTitle];
         
         BRBViewControllerFactory *mapViewController = [BRBViewControllerFactory initWithDataContainer:dataContainer type:BRBViewControllerTypeUserMap];
-        mapViewController.tabBarItem.title = [mapViewController getTabBarItemTitle];
         
         UITabBarController *tabBarController = [UITabBarController new];
         NSArray *viewControllerArray = @[navigationController, mapViewController];
@@ -91,7 +89,6 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     if (content.userInfo[@"userName"])
     {
         NSString *userName = content.userInfo[@"userName"];
-        NSLog(@"%@", userName);
         [self showLocationOfUserWithName:userName];
     }
 }

@@ -32,17 +32,9 @@
 }
 
 
-//Убеждаемся, что оба метода должны быть реализованы подклассами
+//Убеждаемся, что метод должен быть реализован подклассами
 
 - (instancetype)initWithDataContainer:(BRBDataContainer *)dataContainer
-{
-    NSString *description = [NSString stringWithFormat:@"You have not implemented %@ in %@", NSStringFromSelector(_cmd), NSStringFromClass([self class])];
-    NSAssert(YES, description);
-    return nil;
-}
-
-
-- (NSString *)getTabBarItemTitle
 {
     NSString *description = [NSString stringWithFormat:@"You have not implemented %@ in %@", NSStringFromSelector(_cmd), NSStringFromClass([self class])];
     NSAssert(YES, description);

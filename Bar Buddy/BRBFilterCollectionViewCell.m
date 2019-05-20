@@ -23,9 +23,13 @@
         _label.textAlignment = NSTextAlignmentCenter;
         _label.textColor = [UIColor whiteColor];
         _isPressed = NO;
+        
+        UIColor *borderColor = [UIColor BRBBorderColor];
+        self.contentView.layer.borderWidth = 1.0;
+        self.contentView.layer.borderColor = borderColor.CGColor;
+        self.backgroundColor = [UIColor BRBCollectionViewCellBackgroungColor];
         self.layer.masksToBounds = YES;
         self.layer.cornerRadius = BRBCollectionViewCellRoundRadius;
-        self.backgroundColor = [UIColor BRBCollectionViewCellBackgroungColor];
         
         [self addSubview:_label];
     }

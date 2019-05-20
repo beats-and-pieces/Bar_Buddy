@@ -68,21 +68,21 @@
         [self.contentView addSubview:_isDrinkingLabel];
         UIColor *borderColor = [UIColor BRBBorderColor];
         _isDrinkingLabel.layer.borderColor = borderColor.CGColor;
-        _isDrinkingLabel.layer.borderWidth = 3.0;
+        _isDrinkingLabel.layer.borderWidth = 1.0;
         
         _isDrinkingLabel.layer.masksToBounds = YES;
         _isDrinkingLabel.layer.cornerRadius = BRBUserpicRoundRadius;
         
         [self.contentView addSubview:_isDrinkingLabel];
         
-        self.contentView.layer.borderWidth = 1.0;
+        self.contentView.layer.borderWidth = 2.0;
         self.contentView.layer.borderColor = borderColor.CGColor;
         self.contentView.layer.cornerRadius = BRBUserpicRoundRadius;
         self.contentView.backgroundColor = [UIColor BRBTableViewCellContentViewBackgroungColor];
         
         UIView *bgColorView = [[UIView alloc] init];
         bgColorView.layer.cornerRadius = BRBUserpicRoundRadius;
-        bgColorView.backgroundColor = [UIColor BRBTableViewSelectedBackgroundColor];
+        bgColorView.backgroundColor = [UIColor BRBTableViewCellContentViewBackgroungColor];
         [self setSelectedBackgroundView:bgColorView];
         [self setupConstrains];
     }

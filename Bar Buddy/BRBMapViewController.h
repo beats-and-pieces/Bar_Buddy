@@ -19,13 +19,6 @@
  */
 - (instancetype)initWithDataContainer:(BRBDataContainer *)dataContainer;
 
-/**
- Возвращает название для отображения в Tab Bar контроллере
- 
- @return строка - название закладки данного контроллера для Tab Bar
- */
-- (NSString *)getTabBarItemTitle;
-
 
 /**
  Показывает на карте конкретного пользователя

@@ -21,6 +21,7 @@
 
 @implementation BRBMapViewController
 
+#pragma mark - ViewControllerFactoryProtocol
 
 - (instancetype)initWithDataContainer:(BRBDataContainer *)dataContainer
 {
@@ -33,6 +34,8 @@
         }
         
         _displayAllUsers = YES;
+        self.tabBarItem.title = BRBMapViewTabBarItemTitle;
+        self.tabBarItem.image = [UIImage imageNamed:BRBMapViewTabBarItemImageName];
     }
     return self;
 }
@@ -86,7 +89,7 @@
         if (self.displayAllUsers || [user.displayedName isEqualToString: self.userName])
         {
             MKPointAnnotation *userPoint = [MKPointAnnotation new];
-            
+
             userPoint.title = user.displayedName;
             userPoint.coordinate = CLLocationCoordinate2DMake(user.locationLatitude, user.locationLongitude);
             
@@ -109,14 +112,6 @@
 - (void)deleteUsersFromMap
 {
     [self.mapView removeAnnotations:self.mapView.annotations];
-}
-
-
-#pragma mark - ViewControllerFactoryProtocol
-
-- (NSString *)getTabBarItemTitle
-{
-    return BRBMapViewTabBarItemTitle;
 }
 
 @end

@@ -43,9 +43,9 @@
 {
     UNMutableNotificationContent *content = [UNMutableNotificationContent new];
     content.title = userName;
-    content.body = @"Вам пришел дринк-реквест!";
+    content.body = BRBNotificationRequestContentBody;
     content.sound = [UNNotificationSound defaultSound];
-
+    
     NSDictionary *dict = @{
                            @"userName": userName
                            };
@@ -62,14 +62,7 @@
     UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:BRBNotificationRequestIdentifier content:content trigger:trigger];
     
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-    [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error)
-     {
-         //nil
-         if (error)
-         {
-             NSLog(@"Ошибка отправки пуша %@",error);
-         }
-     }];
+    [center addNotificationRequest:request withCompletionHandler:nil];
 }
 
 @end

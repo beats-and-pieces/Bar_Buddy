@@ -28,6 +28,8 @@
 
 @implementation BRBUserTableViewController
 
+#pragma mark - ViewControllerFactoryProtocol
+
 - (instancetype)initWithDataContainer:(BRBDataContainer *)dataContainer
 {
     self = [super init];
@@ -37,7 +39,8 @@
         
         _alertController = [[BRBAlertController alloc] initWithViewController:self];
         _alertController.delegate = self;
-        
+        self.tabBarItem.title = BRBUserTableViewTabBarItemTitle;
+        self.tabBarItem.image = [UIImage imageNamed:BRBUserTableViewTabBarItemImageName];
         self.userFilterDelegateAndDataSource = [[BRBUserFilterDelegateAndDataSource alloc] initWithDataContainer:dataContainer];
     }
     return self;
@@ -162,12 +165,5 @@
     }
 }
 
-
-#pragma mark - ViewControllerFactoryProtocol
-
-- (NSString *)getTabBarItemTitle
-{
-    return BRBUserTableViewTabBarItemTitle;
-}
 
 @end
