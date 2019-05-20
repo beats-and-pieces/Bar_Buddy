@@ -22,15 +22,12 @@
         _label = [[UILabel alloc]initWithFrame:CGRectMake(BRBFilterCollectionViewCellLabelInset, frame.size.height - BRBFilterCollectionViewCellLabelHeight, frame.size.width - BRBFilterCollectionViewCellLabelInset * 2, BRBFilterCollectionViewCellLabelHeight)];
         _label.textAlignment = NSTextAlignmentCenter;
         _label.textColor = [UIColor whiteColor];
-        _label.text = @"Test";
         _isPressed = NO;
-        self.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
+        self.layer.masksToBounds = YES;
+        self.layer.cornerRadius = BRBCollectionViewCellRoundRadius;
+        self.backgroundColor = [UIColor BRBCollectionViewCellBackgroungColor];
         
         [self addSubview:_label];
-        
-        self.layer.masksToBounds = YES;
-        self.layer.cornerRadius = 8.0f;
-        
     }
     return self;
 }

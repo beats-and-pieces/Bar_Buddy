@@ -123,16 +123,16 @@
     if (cell.isPressed)
     {
         cell.isPressed = NO;
-        cell.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
+        cell.backgroundColor = [UIColor BRBCollectionViewCellBackgroungColor];
     } else
     {
         for (BRBFilterCollectionViewCell *visibleCell in [self collectionView:collectionView visibleCellsInSection:section])
         {
-            visibleCell.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
+            visibleCell.backgroundColor = [UIColor BRBCollectionViewCellBackgroungColor];
             visibleCell.isPressed = NO;
         }
         cell.isPressed = YES;
-        cell.backgroundColor = [UIColor colorWithRed:36.0/255 green:147.0/255 blue:226.0/255 alpha: 1.0];
+        cell.backgroundColor = [UIColor BRBCollectionViewCellSelectedColor];
     }
 }
 #pragma mark - UICollectionViewDelegateFlowLayout

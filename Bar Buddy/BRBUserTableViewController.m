@@ -103,7 +103,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BRBUserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([BRBUserTableViewCell class])];
-    cell.backgroundColor = [UIColor colorWithRed: 143.0/255.0 green:174.0/255 blue:224.0/255 alpha: 1.0];
+    cell.backgroundColor = [UIColor BRBCollectionViewBackgroundColor];
     cell.usernameLabel.text = self.dataContainer.users[indexPath.row].displayedName;
     cell.drinkLabel.text = self.dataContainer.drinkValues[self.dataContainer.users[indexPath.row].preferredDrink - 1];
     cell.topicLabel.text = self.dataContainer.topicValues[self.dataContainer.users[indexPath.row].preferredTopic - 1];
@@ -133,10 +133,6 @@
     return cell;
 }
 
-//- (void)cellButtonWasTapped
-//{
-//    [self sendDrinkRequestTo:user.displayedName];
-//}
 
 - (void)setUserpicForCellAtIndexPath:(NSIndexPath *)indexPath withData:(NSData *)data
 {
@@ -147,10 +143,6 @@
             if (updateCell)
                 updateCell.userpicImageView.image = image;
         });
-    }
-    else
-    {
-        NSLog(@"couldn't get image");
     }
 }
 

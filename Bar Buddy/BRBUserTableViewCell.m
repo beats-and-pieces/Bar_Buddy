@@ -66,7 +66,7 @@
         _isDrinkingLabel.titleLabel.textAlignment = NSTextAlignmentCenter;
         _isDrinkingLabel.titleLabel.font = [UIFont systemFontOfSize:15];
         [self.contentView addSubview:_isDrinkingLabel];
-        UIColor *borderColor = [UIColor colorWithRed:200.0/255.0 green:200.0/255.0 blue:200.0/255.0 alpha:1.0];
+        UIColor *borderColor = [UIColor BRBBorderColor];
         _isDrinkingLabel.layer.borderColor = borderColor.CGColor;
         _isDrinkingLabel.layer.borderWidth = 3.0;
         
@@ -78,11 +78,11 @@
         self.contentView.layer.borderWidth = 1.0;
         self.contentView.layer.borderColor = borderColor.CGColor;
         self.contentView.layer.cornerRadius = BRBUserpicRoundRadius;
-        self.contentView.backgroundColor = [UIColor colorWithRed:186.9/255 green:217.0/255 blue:239.0/255 alpha: 1.0];
+        self.contentView.backgroundColor = [UIColor BRBTableViewCellContentViewBackgroungColor];
         
         UIView *bgColorView = [[UIView alloc] init];
         bgColorView.layer.cornerRadius = BRBUserpicRoundRadius;
-        bgColorView.backgroundColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
+        bgColorView.backgroundColor = [UIColor BRBTableViewSelectedBackgroundColor];
         [self setSelectedBackgroundView:bgColorView];
         [self setupConstrains];
     }
@@ -159,33 +159,10 @@
     [self.layer addAnimation:animation forKey:@"shake"];
 }
 
-//Добавляем анимацию к нажатию
--(void)didTapCell: (UITapGestureRecognizer *)recognizer
+
+- (void)didTapCell: (UITapGestureRecognizer *)recognizer
 {
     [self addCellAnimation];
-}
-
-
--(void)createGradientLayer
-{
-    UIColor *topColor = [UIColor colorWithRed:100.0/255.0 green:250.0/255.0 blue:50.0/255.0 alpha:0.5];
-    UIColor *bottomColor = [UIColor colorWithRed:100.0/255.0 green:200.0/255.0 blue:100.0/255.0 alpha:1.0];
-    UIColor *borderColor = [UIColor colorWithRed:200.0/255.0 green:200.0/255.0 blue:200.0/255.0 alpha:1.0];
-    // Создаём градиент
-    CAGradientLayer *theViewGradient = [CAGradientLayer layer];
-    theViewGradient.colors = [NSArray arrayWithObjects: (id)topColor.CGColor, (id)bottomColor.CGColor, nil];
-    theViewGradient.frame = self.contentView.bounds;
-    theViewGradient.borderWidth = 3;
-    theViewGradient.borderColor = borderColor.CGColor;
-    self.gradientLayer = theViewGradient;
-    //Добавляем градиент к слою
-    [self.contentView.layer insertSublayer:theViewGradient atIndex:0];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
 }
 
 @end

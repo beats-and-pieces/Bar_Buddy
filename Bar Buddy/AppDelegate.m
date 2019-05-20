@@ -23,13 +23,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.assembly = [BRBAssembly new];
-    
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     self.window.rootViewController = [self.assembly getRootViewController];
     [self.window makeKeyAndVisible];
     
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

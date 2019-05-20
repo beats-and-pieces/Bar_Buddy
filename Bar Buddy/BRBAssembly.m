@@ -11,15 +11,8 @@
 #import "BRBCoreDataStack.h"
 #import "BRBPushService.h"
 #import "BRBMapViewController.h"
+#import "ProjectSettings.h"
 
-@implementation UIColor (Extensions)
-
-+ (UIColor *)BRBActiveFilterButtonColor
-{
-    return [UIColor colorWithRed:110.0/255 green:145.0/255 blue:11.0/255 alpha: 1.0];
-}
-
-@end
 
 @interface BRBAssembly () <UNUserNotificationCenterDelegate>
 
@@ -58,7 +51,7 @@
         NSArray *viewControllerArray = @[navigationController, mapViewController];
         tabBarController.viewControllers = viewControllerArray;
         tabBarController.tabBar.translucent = YES;
-        tabBarController.tabBar.tintColor = [UIColor colorWithRed:110.0/255 green:145.0/255 blue:201.0/255 alpha: 1.0];
+        tabBarController.tabBar.tintColor = [UIColor BRBTabBarTintColor];
         tabBarController.tabBar.barTintColor = [UIColor blackColor];
         self.tabBarController = tabBarController;
     }

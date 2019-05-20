@@ -33,11 +33,6 @@
         // Запрашиваем доступ на работу с пушами
         [center requestAuthorizationWithOptions:options
                               completionHandler:^(BOOL granted, NSError * _Nullable error) {
-                                  if (!granted)
-                                      //nil
-                                  {
-                                      NSLog(@"Доступ не дали");
-                                  }
                               }];
     }
     return self;

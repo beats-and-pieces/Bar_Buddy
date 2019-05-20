@@ -10,6 +10,7 @@
 
 extern CGFloat const BRBUserpicRoundRadius;
 extern CGFloat const BRBUserCellInsets;
+extern  CGFloat const BRBCollectionViewCellRoundRadius;
 extern CGFloat const BRBFilterCollectionViewEdgeInset;
 extern CGFloat const BRBFilterCollectionViewCellLabelHeight;
 extern CGFloat const BRBFilterCollectionViewCellHeight;
@@ -31,3 +32,19 @@ extern CGFloat const BRBZoomArea;
 extern NSString *const BRBNotificationRequestIdentifier;
 
 extern NSTimeInterval const BRBNotificationTriggerTimeInterval;
+
+extern UIColor *  const COLOR_LIGHT_BLUE;
+
+
+@interface UIColor (BRBProject)
+
++ (UIColor *) BRBTableViewSelectedBackgroundColor;
++ (UIColor *) BRBCollectionViewBackgroundColor;
++ (UIColor *) BRBBorderColor;
++ (UIColor *) BRBTableViewCellContentViewBackgroungColor;
++ (UIColor *) BRBTableViewCellBackgroungColor;
++ (UIColor *) BRBCollectionViewCellBackgroungColor;
++ (UIColor *) BRBCollectionViewCellSelectedColor;
++ (UIColor *) BRBTabBarTintColor;
+
+@end
