@@ -14,7 +14,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BRBAssembly : NSObject
 
+/**
+ Возвращет rootViewController для App Delegate
+
+ @return объект типа UIViewController, в данном случае barTabController
+ */
 - (UIViewController *)getRootViewController;
+
+
+/**
+ Метод ставит в расписание пуш-уведомления, имитируещее дринк-реквест от случайного пользователя
+ */
 - (void)scheduleDrinkRequestFromRandomUser;
 
 @end

@@ -12,9 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BRBUserTableView : UIView
 
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) UITableView *tableView; /**< таблица пользователей */
+@property (nonatomic, strong) UICollectionView *collectionView; /**< фильтр предпочтений */
 
+
+/**
+ Настраивает таблицу и коллекшн вью, исходя из размеров передаваемого фрейма.
+
+ @param frame фрейм
+ */
 - (void)setupCollectionViewForAFrame:(CGRect)frame;
 
 @end

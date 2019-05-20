@@ -1,5 +1,5 @@
 //
-//  NetworkService.m
+//  BRBNetworkService.m
 //  Bar Buddy
 //
 //  Created by Anton Kuznetsov on 26/04/2019.
@@ -13,12 +13,14 @@
 
 @end
 
+
 @implementation BRBNetworkService
 
 - (instancetype)init
 {
     self = [super init];
-    if (self) {
+    if (self)
+    {
         NSUInteger cacheSizeMemory = 500*1024*1024; // 500 MB
         NSUInteger cacheSizeDisk = 500*1024*1024; // 500 MB
         NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:cacheSizeMemory diskCapacity:cacheSizeDisk diskPath:@"nsurlcache"];
@@ -33,8 +35,8 @@
 - (void)dowloadUserpicFromURL:(NSString *)urlString forIndexPath:(NSIndexPath *)indexPath
 {
     NSURLRequest *request = [self createRequestForURL:urlString];
-    
     NSCachedURLResponse *cachedResponse = [[NSURLCache sharedURLCache] cachedResponseForRequest:request];
+    
     if (cachedResponse.data)
     {
         [self.output userpicIsLoadedWithDataReceived:cachedResponse.data forIndexPath:indexPath];
@@ -55,6 +57,7 @@
         [task resume];
     }
 }
+
 
 - (void)fetchUserData
 {
@@ -77,6 +80,7 @@
     [sessionDataTask resume];
 }
 
+
 - (NSURLSession *)createSession
 {
     return [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
@@ -91,4 +95,5 @@
     [request setTimeoutInterval:15];
     return request;
 }
+
 @end

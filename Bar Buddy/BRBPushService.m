@@ -1,5 +1,5 @@
 //
-//  PushService.m
+//  BRBPushService.m
 //  Flickr_ObjC
 //
 //  Created by Anton Kuznetsov on 19/04/2019.

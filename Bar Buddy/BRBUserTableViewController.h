@@ -1,5 +1,5 @@
 //
-//  UsersTableViewController.h
+//  BRBUserTableViewController.h
 //  Bar Buddy
 //
 //  Created by Anton Kuznetsov on 25/04/2019.
@@ -12,15 +12,16 @@
 @interface BRBUserTableViewController : BRBViewControllerFactory
 
 /**
- Кастомный инициализатор, использующий зависимость от dataContainer
+ Кастомный инициализатор, принимающий зависимость от dataContainer
 
  @param dataContainer - экземпляр класса BRBDataContainer
  @return экземпляр класса UserTableViewController
  */
 - (instancetype)initWithDataContainer:(BRBDataContainer *)dataContainer;
 
+
 /**
- Метод возвращает строку для отображения в Tab Bar контроллере
+ Возвращает строку для отображения в Tab Bar контроллере
  
  @return строка - название закладки данного контроллера для Tab Bar
  */

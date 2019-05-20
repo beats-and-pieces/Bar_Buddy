@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BRBFilterCollectionViewCell : UICollectionViewCell
 
-@property (nonatomic, strong) UILabel *label;
-@property (nonatomic) BOOL isPressed;
+@property (nonatomic, strong) UILabel *label; /**< Лейбл для отображения значения фильтра кнопки-ячейки внешних событий */
+@property (nonatomic) BOOL isPressed; /**< Признак нажатости/отжатости кнопки */
 
 @end
 

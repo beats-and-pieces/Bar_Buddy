@@ -12,12 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BRBUserTableViewCell : UITableViewCell
 
-@property (nonatomic, nonnull, strong) UIImageView *userpicImageView;
-@property (nonatomic, nonnull, strong) UILabel *usernameLabel;
-@property (nonatomic, nonnull, strong) UILabel *drinkLabel;
-@property (nonatomic, nonnull, strong) UILabel *topicLabel;
+@property (nonatomic, nonnull, strong) UIImageView *userpicImageView; /**< ImageView для отображения автарки пользователя */
+@property (nonatomic, nonnull, strong) UILabel *usernameLabel; /**< Лейбл для отображения имени пользователя */
+@property (nonatomic, nonnull, strong) UILabel *drinkLabel; /**< Лейбл для отображения предпочитаемого напитка пользователя */
+@property (nonatomic, nonnull, strong) UILabel *topicLabel; /**< Лейбл для отображения предпочитаемой темы для разговоров пользователя */
 
-@property (nonatomic, nonnull, strong) UILabel *drinkAndTopicLabel;
+@property (nonatomic, nonnull, strong) UILabel *drinkAndTopicLabel; /**< Комбинированный лейбл для отображения предпочитаемого напитка и темы для разговоров пользователя */
 //@property (nonatomic, nonnull, strong) UILabel *isDrinkingLabel;
 @property (nonatomic, nonnull, strong) UIButton *isDrinkingLabel;
 

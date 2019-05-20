@@ -1,5 +1,5 @@
 //
-//  CoreDataService.m
+//  BRBCoreDataService.m
 //  Bar Buddy
 //
 //  Created by Anton Kuznetsov on 29/04/2019.
@@ -9,7 +9,6 @@
 #import "BRBCoreDataService.h"
 #import "User+CoreDataClass.h"
 #import "AppDelegate.h"
-//#import "BRBCoreDataServiceProtocol.h"
 #import "BRBCoreDataStack.h"
 
 
@@ -35,6 +34,7 @@
     }
     return self;
 }
+
 
 - (void)saveUserData:(NSArray<User *> *)users;
 {
@@ -77,6 +77,7 @@
     }
 }
 
+
 - (NSArray<User *> *)getUserData
 {
     [self.coreDataContext performBlockAndWait:^() {
@@ -85,6 +86,7 @@
     }];
     return self.users;
 }
+
 
 - (NSArray<User *> *)getFilteredUsersWithDrinkType:(NSInteger)drinkType withTopicType:(NSInteger)topicType
 {
@@ -108,13 +110,9 @@
     
     self.fetchRequest.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[self.drinkPredicate, self.topicPredicate]];
     
-//    [self.coreDataContext performBlockAndWait:^() {
-//        NSError *error = nil;
-//        self.users = [self.coreDataContext executeFetchRequest:self.fetchRequest ? : [User fetchRequest] error:&error];
-//    }];
-    
     return [self getUserData];
 }
+
 
 - (void)deleteUsersFromCoreData
 {

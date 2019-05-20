@@ -41,6 +41,5 @@ NSString *const BRBNotificationRequestIdentifier = @"NotificationId";
 
 NSTimeInterval const BRBNotificationTriggerTimeInterval = 5;
 
-//UIColor const *BRBActiveFilterButtonColor =
 
 
