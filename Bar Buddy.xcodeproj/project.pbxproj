@@ -26,6 +26,8 @@
 		3AE08FAD22919ACD00DA2F76 /* BRBUserFilterDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE08FAC22919ACD00DA2F76 /* BRBUserFilterDelegateAndDataSource.m */; };
 		3AE08FB22291BB5B00DA2F76 /* User+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE08FB02291BB5B00DA2F76 /* User+CoreDataClass.m */; };
 		3AE08FB32291BB5B00DA2F76 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE08FB12291BB5B00DA2F76 /* User+CoreDataProperties.m */; };
+		3AE5C35922931E0E00032E97 /* BRBNetworkServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5C35822931E0E00032E97 /* BRBNetworkServiceTest.m */; };
+		3AE5C35B2293225D00032E97 /* BRBPushServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5C35A2293225D00032E97 /* BRBPushServiceTest.m */; };
 		3AEC42732292D18D00AE388B /* BRBParserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC42722292D18D00AE388B /* BRBParserService.m */; };
 		3AEEC6FF2279941100755100 /* BRBAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC6FE2279941100755100 /* BRBAssembly.m */; };
 		3AEEC7022279975F00755100 /* BRBCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEEC7012279975F00755100 /* BRBCoreDataStack.m */; };
@@ -86,6 +88,8 @@
 		3AE08FAF2291BB5B00DA2F76 /* User+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataClass.h"; sourceTree = "<group>"; };
 		3AE08FB02291BB5B00DA2F76 /* User+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataClass.m"; sourceTree = "<group>"; };
 		3AE08FB12291BB5B00DA2F76 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
+		3AE5C35822931E0E00032E97 /* BRBNetworkServiceTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBNetworkServiceTest.m; sourceTree = "<group>"; };
+		3AE5C35A2293225D00032E97 /* BRBPushServiceTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBPushServiceTest.m; sourceTree = "<group>"; };
 		3AEC42712292D18D00AE388B /* BRBParserService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBParserService.h; sourceTree = "<group>"; };
 		3AEC42722292D18D00AE388B /* BRBParserService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBParserService.m; sourceTree = "<group>"; };
 		3AEEC6FD2279941100755100 /* BRBAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBAssembly.h; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 		3A5D1F262277115E00842DF3 /* Bar BuddyTests */ = {
 			isa = PBXGroup;
 			children = (
+				3AE5C35A2293225D00032E97 /* BRBPushServiceTest.m */,
+				3AE5C35822931E0E00032E97 /* BRBNetworkServiceTest.m */,
 				3AF59DA7229304BB00E8779F /* BRBParserServiceTest.m */,
 				3AF59DA32292F47600E8779F /* BRBCoreDataServiceTest.m */,
 				3AF59DA12292F01E00E8779F /* BRBAssemblyTest.m */,
@@ -376,9 +382,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AE5C35B2293225D00032E97 /* BRBPushServiceTest.m in Sources */,
 				3AF59DA02292EF5800E8779F /* BRBCoreDataStackTest.m in Sources */,
 				3AF59DA8229304BB00E8779F /* BRBParserServiceTest.m in Sources */,
 				3AF59DA22292F01E00E8779F /* BRBAssemblyTest.m in Sources */,
+				3AE5C35922931E0E00032E97 /* BRBNetworkServiceTest.m in Sources */,
 				3AF59DA42292F47600E8779F /* BRBCoreDataServiceTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

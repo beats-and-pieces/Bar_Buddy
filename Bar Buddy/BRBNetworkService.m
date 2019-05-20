@@ -71,9 +71,16 @@
     {
         NSURLSessionTask *task = [[self createSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
                                   {
-                                      if (data)
+                                      if (!error)
                                       {
-                                          [self.output userpicIsLoadedWithDataReceived:data forIndexPath:indexPath];
+                                          if (data)
+                                          {
+                                              [self.output userpicIsLoadedWithDataReceived:data forIndexPath:indexPath];
+                                          }
+                                      }
+                                      else
+                                      {
+                                          self.error = error;
                                       }
                                   }];
         [task resume];

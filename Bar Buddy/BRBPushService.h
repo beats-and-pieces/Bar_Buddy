@@ -19,11 +19,13 @@
  */
 - (instancetype)initForNotificationDelegate:(id<UNUserNotificationCenterDelegate>)delegate;
 
+
 /**
  "Заводит" пуш-уведомление о дринк-реквесте от пользователя с указанным именем
-
- @param userName имя пользователя, который прислал реквест 
+ 
+ @param userName имя пользователя, который прислал реквест
+ @return ошибку или nil в случае успеха
  */
-- (void)scheduleDrinkRequestFromUser:(NSString *)userName;
+- (NSError *)scheduleDrinkRequestFromUser:(NSString *)userName;
 
 @end

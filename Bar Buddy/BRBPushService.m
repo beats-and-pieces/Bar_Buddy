@@ -15,6 +15,8 @@
 
 @interface BRBPushService () <UNUserNotificationCenterDelegate>
 
+@property (nonatomic, nullable) NSError *error;
+
 @end
 
 
@@ -25,12 +27,8 @@
     self = [super init];
     if (self) {
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-        center.delegate = delegate;
-        
-        // Указываем тип пушей для работы
         UNAuthorizationOptions options = UNAuthorizationOptionSound | UNAuthorizationOptionAlert;
-        
-        // Запрашиваем доступ на работу с пушами
+        center.delegate = delegate;
         [center requestAuthorizationWithOptions:options
                               completionHandler:^(BOOL granted, NSError * _Nullable error) {
                               }];
@@ -39,7 +37,7 @@
 }
 
 
-- (void)scheduleDrinkRequestFromUser:(NSString *)userName
+- (NSError *)scheduleDrinkRequestFromUser:(NSString *)userName
 {
     UNMutableNotificationContent *content = [UNMutableNotificationContent new];
     content.title = userName;
@@ -52,17 +50,26 @@
     content.userInfo = dict;
     
     [self scheduleLocalNotificationWithContent:content];
+    return self.error;
 }
 
 
 - (void)scheduleLocalNotificationWithContent:(UNMutableNotificationContent *)content
 {
+    self.error = nil;
     UNNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:BRBNotificationTriggerTimeInterval repeats:NO];
     
     UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:BRBNotificationRequestIdentifier content:content trigger:trigger];
     
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-    [center addNotificationRequest:request withCompletionHandler:nil];
+    
+    [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error)
+     {
+         if (error)
+         {
+             self.error = error;
+         }
+     }];
 }
 
 @end
