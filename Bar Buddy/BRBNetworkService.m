@@ -11,6 +11,8 @@
 
 @interface BRBNetworkService ()
 
+@property (nonatomic) NSError *error;
+
 @end
 
 
@@ -32,8 +34,32 @@
 
 #pragma mark - NetworkServiceIntputProtocol
 
-- (void)dowloadUserpicFromURL:(NSString *)urlString forIndexPath:(NSIndexPath *)indexPath
+- (NSError *)fetchUserData
 {
+    self.error = nil;
+    NSURLSession *session = [self createSession];
+    NSURLRequest *request = [self createRequestForURL:BRBBarBuddyAPIURL];
+    NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if (!error)
+        {
+            NSDictionary *JSONResponse = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            NSArray *users = JSONResponse[@"users"];
+            [self.output loadingIsDoneWithDataRecieved:users];
+        }
+        else
+        {
+            self.error = error;
+        }
+    }];
+    [sessionDataTask resume];
+    return self.error;
+}
+
+
+- (NSError *)dowloadUserpicFromURL:(NSString *)urlString forIndexPath:(NSIndexPath *)indexPath
+{
+    self.error = nil;
     NSURLRequest *request = [self createRequestForURL:urlString];
     NSCachedURLResponse *cachedResponse = [[NSURLCache sharedURLCache] cachedResponseForRequest:request];
     
@@ -49,35 +75,10 @@
                                       {
                                           [self.output userpicIsLoadedWithDataReceived:data forIndexPath:indexPath];
                                       }
-                                      else
-                                      {
-                                          NSLog(@"couldn't get data");
-                                      }
                                   }];
         [task resume];
     }
-}
-
-
-- (void)fetchUserData
-{
-    NSURLSession *session = [self createSession];
-    NSURLRequest *request = [self createRequestForURL:BRBBarBuddyAPIURL];
-    NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
-        if (!error)
-        {
-            NSDictionary *JSONResponse = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-            NSArray *users = JSONResponse[@"users"];
-            NSLog(@"users %@", users);
-            [self.output loadingIsDoneWithDataRecieved:users];
-        }
-        else
-        {
-            NSLog(@"Error occured!");
-        }
-    }];
-    [sessionDataTask resume];
+    return self.error;
 }
 
 

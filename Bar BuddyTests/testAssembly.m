@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "BRBAssembly.h"
+#import "Bar_BuddyTests.m"
 
 @interface testAssembly : XCTestCase
 

@@ -28,7 +28,7 @@
 
  @param users массив пользователей
  */
-- (void)saveUserData:(NSArray<User *> *)users;
+- (NSError *)saveUserData:(NSArray<User *> *)users;
 
 
 /**

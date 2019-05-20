@@ -25,7 +25,7 @@
 /**
 Инициирует загрузку данных пользователей из сети. По завершению у делегата вызывается метод loadingIsDoneWithDataRecieved с передачей туда массива полученных пользователей.
  */
-- (void)fetchUserData;
+- (NSError *)fetchUserData;
 
 
 /**
@@ -36,6 +36,6 @@
  @param urlString адрес картинки
  @param indexPath ячейки таблицы
  */
-- (void)dowloadUserpicFromURL:(NSString *)urlString forIndexPath:(NSIndexPath *)indexPath;
+- (NSError *)dowloadUserpicFromURL:(NSString *)urlString forIndexPath:(NSIndexPath *)indexPath;
 
 @end

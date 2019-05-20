@@ -14,12 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, nonnull, strong) UIImageView *userpicImageView; /**< ImageView для отображения автарки пользователя */
 @property (nonatomic, nonnull, strong) UILabel *usernameLabel; /**< Лейбл для отображения имени пользователя */
-@property (nonatomic, nonnull, strong) UILabel *drinkLabel; /**< Лейбл для отображения предпочитаемого напитка пользователя */
-@property (nonatomic, nonnull, strong) UILabel *topicLabel; /**< Лейбл для отображения предпочитаемой темы для разговоров пользователя */
-
 @property (nonatomic, nonnull, strong) UILabel *drinkAndTopicLabel; /**< Общий лейбл для отображения предпочитаемого напитка и темы для разговоров пользователя */
-//@property (nonatomic, nonnull, strong) UILabel *isDrinkingLabel;
-@property (nonatomic, nonnull, strong) UIButton *isDrinkingLabel;
+@property (nonatomic, nonnull, strong) UILabel *isDrinkingLabel; /**< Лейбл для отображения статуса доступности пользователя */
 
 @end
 

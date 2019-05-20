@@ -57,7 +57,7 @@ CGFloat const BRBZoomArea = 7000;
 
 // Настройки пуш-сервиса
 NSString *const BRBNotificationRequestIdentifier = @"NotificationId";
-NSString *const BRBNotificationRequestContentBody = @"Вам отправил дринк-реквест!";
+NSString *const BRBNotificationRequestContentBody = @"Вам пришёл дринк-реквест!";
 
 NSTimeInterval const BRBNotificationTriggerTimeInterval = 5;
 

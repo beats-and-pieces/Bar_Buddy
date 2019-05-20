@@ -8,6 +8,12 @@
 
 #import "BRBCoreDataStack.h"
 
+@interface BRBCoreDataStack ()
+
+@property (nonatomic, nullable) NSError *error;
+
+@end
+
 @implementation BRBCoreDataStack
 
 @synthesize persistentContainer = _persistentContainer;
@@ -28,19 +34,12 @@
         if (_persistentContainer == nil) {
             _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"Bar_Buddy"];
             [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
+                self.error = error;
             }];
         }
     }
-    
     return _persistentContainer;
 }
 
-
-- (void)saveContext {
-    NSManagedObjectContext *context = self.persistentContainer.viewContext;
-    NSError *error = nil;
-    if ([context hasChanges] && ![context save:&error]) {
-    }
-}
 
 @end

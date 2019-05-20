@@ -20,6 +20,8 @@
 @property (nonatomic, strong) NSPredicate *topicPredicate;
 @property (nonatomic) NSArray<User *> *users;
 
+@property (nonatomic) NSError *error;
+
 @end
 
 @implementation BRBCoreDataService
@@ -36,7 +38,7 @@
 }
 
 
-- (void)saveUserData:(NSArray<User *> *)users;
+- (NSError *)saveUserData:(NSArray<User *> *)users;
 {
     [self deleteUsersFromCoreData];
     
@@ -71,10 +73,11 @@
             NSError *error = nil;
             if (![self.coreDataContext save:&error])
             {
-                NSLog(@"Error saving: %@", error);
+                self.error = error;
             }
         }];
     }
+    return self.error;
 }
 
 

@@ -39,8 +39,10 @@
         
         _alertController = [[BRBAlertController alloc] initWithViewController:self];
         _alertController.delegate = self;
+        
         self.tabBarItem.title = BRBUserTableViewTabBarItemTitle;
         self.tabBarItem.image = [UIImage imageNamed:BRBUserTableViewTabBarItemImageName];
+        
         self.userFilterDelegateAndDataSource = [[BRBUserFilterDelegateAndDataSource alloc] initWithDataContainer:dataContainer];
     }
     return self;
@@ -61,7 +63,7 @@
     
     BRBUserTableView *userTableView = [[BRBUserTableView alloc] initWithFrame:frame];
     [self.view addSubview:userTableView];
-
+    
     self.tableView = userTableView.tableView;
     self.collectionView = userTableView.collectionView;
     
@@ -71,7 +73,7 @@
     self.navigationItem.title = BRBUserTableViewNavigationTitle;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-
+    
     [self.userFilterDelegateAndDataSource setWidth: self.view.bounds.size.width];
     BRBUserFilterDelegateAndDataSource <UICollectionViewDataSource> *filterDataSource = (BRBUserFilterDelegateAndDataSource <UICollectionViewDataSource> *) self.userFilterDelegateAndDataSource;
     BRBUserFilterDelegateAndDataSource <UICollectionViewDelegate> *filterDelegate = (BRBUserFilterDelegateAndDataSource <UICollectionViewDelegate> *) self.userFilterDelegateAndDataSource;
@@ -108,29 +110,24 @@
     BRBUserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([BRBUserTableViewCell class])];
     cell.backgroundColor = [UIColor BRBCollectionViewBackgroundColor];
     cell.usernameLabel.text = self.dataContainer.users[indexPath.row].displayedName;
-    cell.drinkLabel.text = self.dataContainer.drinkValues[self.dataContainer.users[indexPath.row].preferredDrink - 1];
-    cell.topicLabel.text = self.dataContainer.topicValues[self.dataContainer.users[indexPath.row].preferredTopic - 1];
     NSString *drinkAndTopic = [NSString stringWithFormat:@"%@ | %@", self.dataContainer.drinkValues[self.dataContainer.users[indexPath.row].preferredDrink - 1], self.dataContainer.topicValues[self.dataContainer.users[indexPath.row].preferredTopic - 1]];
     cell.drinkAndTopicLabel.text = drinkAndTopic;
+    cell.isDrinkingLabel.text = @"Свободен";
+    cell.isDrinkingLabel.backgroundColor = UIColor.greenColor;
+    
+    
+    if (self.dataContainer.users[indexPath.row].isDrinking)
+    {
+        cell.isDrinkingLabel.text = @"Занят";
+        cell.isDrinkingLabel.backgroundColor = UIColor.redColor;
+    }
+    
     if (!cell.userpicImageView.image)
     {
         cell.userpicImageView.image = [UIImage imageNamed:BRBPlaceholderFilename];
     }
     
-//    [cell.isDrinkingLabel addTarget:self action:@selector(cellButtonWasTapped: )
-//          forControlEvents:UIControlEventTouchUpInside];
-    
-    cell.isDrinkingLabel.enabled = YES;
-    [cell.isDrinkingLabel setTitle:@"Свободен" forState:UIControlStateNormal];
-    cell.isDrinkingLabel.backgroundColor = UIColor.greenColor;
     NSString *userpicURL = self.dataContainer.users[indexPath.row].userpicURL;
-    if (self.dataContainer.users[indexPath.row].isDrinking)
-    {
-//        cell.isDrinkingLabel.titleLabel.text = @"Занят";
-        [cell.isDrinkingLabel setTitle:@"Занят" forState:UIControlStateDisabled];
-        cell.isDrinkingLabel.enabled = NO;
-        cell.isDrinkingLabel.backgroundColor = UIColor.redColor;
-    }
     [self.dataContainer dowloadUserpicFromURL:userpicURL forIndexPath:indexPath];
     
     return cell;
@@ -164,6 +161,5 @@
         [self sendDrinkRequestTo:user.displayedName];
     }
 }
-
 
 @end
