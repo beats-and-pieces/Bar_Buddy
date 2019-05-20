@@ -28,7 +28,7 @@
         _networkService = networkService;
         _networkService.output = self;
         _drinkValues = @[@"🍺", @"🍷", @"🥃"];
-        _topicValues = @[@"🏎", @"🎼", @"💼"];
+        _topicValues = @[@"⚽️", @"🎼", @"💼"];
     }
     return self;
 }

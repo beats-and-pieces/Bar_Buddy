@@ -15,14 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UITableView *tableView; /**< таблица пользователей */
 @property (nonatomic, strong) UICollectionView *collectionView; /**< фильтр предпочтений */
 
-
-/**
- Настраивает таблицу и коллекшн вью, исходя из размеров передаваемого фрейма.
-
- @param frame фрейм
- */
-- (void)setupCollectionViewForAFrame:(CGRect)frame;
-
 @end
 
 NS_ASSUME_NONNULL_END

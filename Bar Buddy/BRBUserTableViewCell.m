@@ -92,10 +92,8 @@
 
 - (void)layoutSubviews
 {
-    self.gradientLayer.frame = self.contentView.bounds;
     [super layoutSubviews];
     [self addCellAnimation];
-    
 }
 
 - (void)setupConstrains
@@ -159,10 +157,5 @@
     [self.layer addAnimation:animation forKey:@"shake"];
 }
 
-
-- (void)didTapCell: (UITapGestureRecognizer *)recognizer
-{
-    [self addCellAnimation];
-}
 
 @end

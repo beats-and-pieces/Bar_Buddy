@@ -17,11 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nonnull, strong) UILabel *drinkLabel; /**< Лейбл для отображения предпочитаемого напитка пользователя */
 @property (nonatomic, nonnull, strong) UILabel *topicLabel; /**< Лейбл для отображения предпочитаемой темы для разговоров пользователя */
 
-@property (nonatomic, nonnull, strong) UILabel *drinkAndTopicLabel; /**< Комбинированный лейбл для отображения предпочитаемого напитка и темы для разговоров пользователя */
+@property (nonatomic, nonnull, strong) UILabel *drinkAndTopicLabel; /**< Общий лейбл для отображения предпочитаемого напитка и темы для разговоров пользователя */
 //@property (nonatomic, nonnull, strong) UILabel *isDrinkingLabel;
 @property (nonatomic, nonnull, strong) UIButton *isDrinkingLabel;
-
-@property (nonatomic, strong) CAGradientLayer *gradientLayer;
 
 @end
 
