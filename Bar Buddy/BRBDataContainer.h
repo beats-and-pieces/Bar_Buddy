@@ -20,7 +20,7 @@
 
 @interface BRBDataContainer : NSObject 
 
-@property (nonatomic, copy) NSArray<User *> *users; /**< Массив пользователей */
+@property (nonatomic, nullable, copy) NSArray<User *> *users; /**< Массив пользователей */
 @property (nonatomic, copy) NSArray<NSString *> *drinkValues; /**< Массив значений фильтра предпочитаемых напитков */
 @property (nonatomic, copy) NSArray<NSString *> *topicValues; /**< Массив значений фильтра предпочитаемых для обсуждения тем */
 @property (nonatomic, nullable, weak) id<BRBDataContainerDelegateProtocol> delegate; /**< Делегат, который получает измененные данные */

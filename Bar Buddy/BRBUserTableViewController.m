@@ -110,8 +110,10 @@
     BRBUserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([BRBUserTableViewCell class])];
     cell.backgroundColor = [UIColor BRBCollectionViewBackgroundColor];
     cell.usernameLabel.text = self.dataContainer.users[indexPath.row].displayedName;
+    
     NSString *drinkAndTopic = [NSString stringWithFormat:@"%@ | %@", self.dataContainer.drinkValues[self.dataContainer.users[indexPath.row].preferredDrink - 1], self.dataContainer.topicValues[self.dataContainer.users[indexPath.row].preferredTopic - 1]];
     cell.drinkAndTopicLabel.text = drinkAndTopic;
+    
     cell.isDrinkingLabel.text = @"Свободен";
     cell.isDrinkingLabel.backgroundColor = UIColor.greenColor;
     

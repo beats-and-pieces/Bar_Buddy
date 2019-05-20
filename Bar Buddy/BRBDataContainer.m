@@ -55,7 +55,7 @@
 - (void)loadingIsDoneWithDataRecieved:(NSArray<NSDictionary *> *)dataRecieved
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (dataRecieved.count != 0)
+        if (dataRecieved)
         {
             [self.coreDataService saveUserData:[self parseJSON:dataRecieved]];
             self.users = [self.coreDataService getUserData];
